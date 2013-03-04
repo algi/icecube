@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+#define kMavenWorkingDirectory @"maven.working.directory"
+
 @interface MBAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (atomic) NSTask *task;

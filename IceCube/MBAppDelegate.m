@@ -16,10 +16,20 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	[self.pathControll setDoubleAction:@selector(showOpenDialogAction:)];
-	[self.pathControll setURL:[[NSURL alloc] initWithString:@"file://localhost/Applications/"]];
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
-	[self.window setRepresentedURL:[self.pathControll URL]];
+	NSURL *workingDirectory = [defaults URLForKey:kMavenWorkingDirectory];
+	if (!workingDirectory) {
+		NSString *dir = [NSString stringWithFormat:@"file://localhost%@", NSHomeDirectory()];
+		
+		workingDirectory = [[NSURL alloc] initWithString:dir];
+		[defaults setURL:workingDirectory forKey:kMavenWorkingDirectory];
+	}
+	
+	[self.pathControll setURL:workingDirectory];
+	[self.pathControll setDoubleAction:@selector(showOpenDialogAction:)];
+	
+	[self.window setRepresentedURL:workingDirectory];
 }
 
 - (IBAction)runAction:(id)sender
@@ -103,6 +113,7 @@
 
 - (IBAction)stopAction:(id)sender
 {
+	// Java neumí reagovat na signály, a proto je úplně jedno jaký ji pošleme
 	[self.task terminate];
 }
 
@@ -121,6 +132,8 @@
 			
 			[self.pathControll setURL:url];
 			[self.window setRepresentedURL:url];
+			
+			[[NSUserDefaults standardUserDefaults] setURL:url forKey:kMavenWorkingDirectory];
 		}
 	}];
 }
