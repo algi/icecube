@@ -16,9 +16,116 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	// Insert code here to initialize your application
+	[self.pathControll setDoubleAction:@selector(showOpenDialogAction:)];
+	[self.pathControll setURL:[[NSURL alloc] initWithString:@"file://localhost/Applications/"]];
+	
+	[self.window setRepresentedURL:[self.pathControll URL]];
 }
 
+- (IBAction)runAction:(id)sender
+{
+	if (self.task) {
+		return;
+	}
+	
+	NSString *command = [self.commandField stringValue];
+	if ([command length] == 0) {
+		NSAlert *alert = [[NSAlert alloc] init];
+		[alert setMessageText: @"Nelze spustit prázdný příkaz."];
+		
+		[alert beginSheetModalForWindow:self.window
+						  modalDelegate:nil
+						 didEndSelector:NULL
+							contextInfo:nil];
+		return;
+	}
+	
+	self.task = [[NSTask alloc] init];
+	
+	NSString *launchPath = @"/usr/bin/mvn";
+	[self.task setLaunchPath:launchPath];
+	
+	NSArray *taskArgs = [command componentsSeparatedByString:@" "];
+	[self.task setArguments:taskArgs];
+	
+	NSURL *urlPath = [self.pathControll URL];
+	NSString *path = [urlPath path];
+	[self.task setCurrentDirectoryPath:path];
+	
+	id pipe = [NSPipe pipe];
+	[self.task setStandardOutput:pipe];
+	[self.task setStandardError:pipe];
+	
+	[self taskDidStartInPath:path withCommand:command];
+	
+	// spuštění úlohy ve novém vlákně (normální priorita)
+	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+	dispatch_async(queue, ^{
+		NSTextStorage *storage = [self.outputTextView textStorage];
+		NSDictionary *attributes = [storage attributesAtIndex:0 effectiveRange:nil];
+		
+		NSFileHandle *fileHandle = [pipe fileHandleForReading];
+		[self.task launch];
+		
+		NSData *inData = nil;
+		NSString* outputLine = nil;
+		
+		while ((inData = [fileHandle availableData]) && [inData length]) {
+			outputLine = [[NSString alloc] initWithData:inData encoding:[NSString defaultCStringEncoding]];
+			
+			// AppKit běží na hlavním vlákně
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[storage beginEditing];
+				[storage appendAttributedString:[[NSAttributedString alloc] initWithString:outputLine attributes:attributes]];
+				[storage endEditing];
+				
+				[self.outputTextView scrollRangeToVisible:NSMakeRange([[self.outputTextView string] length], 0)];
+			});
+		}
+		
+		[self taskDidEnd];
+	});
+}
+
+- (void)taskDidStartInPath: (NSString *) path withCommand: (NSString *) mavenCommand
+{
+	[self.progressIndicator startAnimation:self];
+	
+	NSString *command = [NSString stringWithFormat:@"$ cd %@\n$ mvn %@\n\n", path, mavenCommand];
+	[self.outputTextView setString:command];
+}
+
+- (void)taskDidEnd
+{
+	[self.progressIndicator stopAnimation:self];	
+	self.task = nil;
+}
+
+- (IBAction)stopAction:(id)sender
+{
+	[self.task terminate];
+}
+
+- (void)showOpenDialogAction:(id)sender
+{
+	NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+	
+	[openPanel setCanChooseFiles:NO];
+	[openPanel setCanChooseDirectories:YES];
+	[openPanel setAllowsMultipleSelection:NO];
+	
+	[openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
+		if (result == NSFileHandlingPanelOKButton) {
+			NSArray *urls = [openPanel URLs];
+			NSURL *url = [urls objectAtIndex:0];
+			
+			[self.pathControll setURL:url];
+			[self.window setRepresentedURL:url];
+		}
+	}];
+}
+
+#pragma mark - CoreData stack -
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "cz.boucekm.IceCube" in the user's Application Support directory.
 - (NSURL *)applicationFilesDirectory
 {

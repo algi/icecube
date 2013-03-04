@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56AB1B8816E3BFB000831747 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AB1B8716E3BFB000831747 /* QuartzCore.framework */; };
 		56FE8E85167BA1A70001AAED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8E84167BA1A70001AAED /* Cocoa.framework */; };
 		56FE8E8F167BA1A70001AAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56FE8E8D167BA1A70001AAED /* InfoPlist.strings */; };
 		56FE8E91167BA1A70001AAED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FE8E90167BA1A70001AAED /* main.m */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		56AB1B8716E3BFB000831747 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		56AB1B8916E48B3300831747 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		56FE8E80167BA1A70001AAED /* IceCube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IceCube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FE8E84167BA1A70001AAED /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		56FE8E87167BA1A70001AAED /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -59,6 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FE8E85167BA1A70001AAED /* Cocoa.framework in Frameworks */,
+				56AB1B8816E3BFB000831747 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +85,7 @@
 				56FE8EAA167BA1A80001AAED /* IceCubeTests */,
 				56FE8E83167BA1A70001AAED /* Frameworks */,
 				56FE8E81167BA1A70001AAED /* Products */,
+				56AB1B8916E48B3300831747 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				56FE8E84167BA1A70001AAED /* Cocoa.framework */,
+				56AB1B8716E3BFB000831747 /* QuartzCore.framework */,
 				56FE8EA5167BA1A80001AAED /* SenTestingKit.framework */,
 				56FE8E86167BA1A70001AAED /* Other Frameworks */,
 			);
@@ -451,6 +457,7 @@
 				56FE8EB7167BA1A80001AAED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		56FE8EB8167BA1A80001AAED /* Build configuration list for PBXNativeTarget "IceCubeTests" */ = {
 			isa = XCConfigurationList;
@@ -459,6 +466,7 @@
 				56FE8EBA167BA1A80001AAED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
