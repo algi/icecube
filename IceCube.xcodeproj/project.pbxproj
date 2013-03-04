@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5632EE2216E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */; };
 		56AB1B8816E3BFB000831747 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AB1B8716E3BFB000831747 /* QuartzCore.framework */; };
 		56FE8E85167BA1A70001AAED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8E84167BA1A70001AAED /* Cocoa.framework */; };
 		56FE8E8F167BA1A70001AAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56FE8E8D167BA1A70001AAED /* InfoPlist.strings */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "Icons-Land-Weather-Ice.icns"; path = "../Icons-Land-Weather-Ice.icns"; sourceTree = "<group>"; };
 		56AB1B8716E3BFB000831747 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		56AB1B8916E48B3300831747 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		56FE8E80167BA1A70001AAED /* IceCube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IceCube.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 		56FE8E8B167BA1A70001AAED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */,
 				56FE8E8C167BA1A70001AAED /* IceCube-Info.plist */,
 				56FE8E8D167BA1A70001AAED /* InfoPlist.strings */,
 				56FE8E90167BA1A70001AAED /* main.m */,
@@ -237,6 +240,7 @@
 				56FE8E8F167BA1A70001AAED /* InfoPlist.strings in Resources */,
 				56FE8E95167BA1A70001AAED /* Credits.rtf in Resources */,
 				56FE8E9B167BA1A70001AAED /* MainMenu.xib in Resources */,
+				5632EE2216E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
