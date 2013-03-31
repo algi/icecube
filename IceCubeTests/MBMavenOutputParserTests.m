@@ -17,9 +17,7 @@
 {
 	NSBundle *testBundle = [NSBundle bundleForClass:[self class]];
 	NSString *filePath = [testBundle pathForResource:@"errorLog" ofType: @"txt"];
-	
-	BOOL buildSuccess = NO;
-	
+		
 	NSMutableArray *taskList = [[NSMutableArray alloc] init];
 	NSMutableArray *doneTasks = [[NSMutableArray alloc] init];
 	
@@ -36,11 +34,11 @@
 	}
 		
 	// kontroly výsledků
-	STAssertTrue(buildSuccess, @"Build must be successful.");
+	STAssertTrue(testObserver.result, @"Build must be successful.");
 	
 	// kontrola očekávaných tasků
 	NSArray *expectedTaskList = @[
-							   @"PKO parent",
+		  @"PKO parent",
 		  @"Common",
 		  @"Business",
 		  @"Database",
@@ -51,7 +49,7 @@
 	
 	// kontrola vykonaných tasků
 	NSArray *expectedDoneTasks = @[
-								@"PKO parent 1.0-SNAPSHOT",
+		@"PKO parent 1.0-SNAPSHOT",
 		@"Common 1.0-SNAPSHOT",
 		@"Business 1.0-SNAPSHOT",
 		@"Database 1.0-SNAPSHOT",
