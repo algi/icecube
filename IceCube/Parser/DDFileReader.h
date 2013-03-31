@@ -2,8 +2,8 @@
 //  DDFileReader.h
 //  IceCube
 //
-//  Created by Marian Bouček on 30.03.13.
-//  Copyright (c) 2013 Marian Bouček. All rights reserved.
+// taken from http://stackoverflow.com/questions/3707427/how-to-read-data-from-nsfilehandle-line-by-line
+// author: Dave DeLong (from StackOverflow)
 //
 
 #import <Foundation/Foundation.h>
