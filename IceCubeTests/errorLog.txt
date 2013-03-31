@@ -1,0 +1,166 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] PKO parent
+[INFO] Common
+[INFO] Business
+[INFO] Database
+[INFO] Mock
+[INFO] Jasper reports
+[INFO] Web
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building PKO parent 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Common 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ common ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/marian/Documents/Projects/Java/pko/common/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ common ---
+[INFO] Compiling 3 source files to /Users/marian/Documents/Projects/Java/pko/common/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ common ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ common ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Business 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ business ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 7 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ business ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ business ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ business ---
+[INFO] Compiling 26 source files to /Users/marian/Documents/Projects/Java/pko/business/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ business ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ business ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Database 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ database ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 8 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ database ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ database ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/marian/Documents/Projects/Java/pko/database/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ database ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ database ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ database ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Mock 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ mock ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ mock ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ mock ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/marian/Documents/Projects/Java/pko/mock/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ mock ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ mock ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ mock ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Jasper reports 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Web 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.1:create-timestamp (default) @ web ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ web ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO] Copying 38 resources
+[INFO] Copying 1 resource to /Users/marian/Documents/Projects/Java/pko/web/target/jetty-filtered/
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ web ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ web ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ web ---
+[INFO] Compiling 35 source files to /Users/marian/Documents/Projects/Java/pko/web/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ web ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-war-plugin:2.2:war (default-war) @ web ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [web] in [/Users/marian/Documents/Projects/Java/pko/web/target/web-1.0-SNAPSHOT]
+[INFO] Processing war project
+[INFO] Copying webapp webResources [/Users/marian/Documents/Projects/Java/pko/web/src/main/webapp] to [/Users/marian/Documents/Projects/Java/pko/web/target/web-1.0-SNAPSHOT]
+[INFO] Copying webapp webResources [/Users/marian/Documents/Projects/Java/pko/web/src/main/webapp] to [/Users/marian/Documents/Projects/Java/pko/web/target/web-1.0-SNAPSHOT]
+[INFO] Copying webapp resources [/Users/marian/Documents/Projects/Java/pko/web/src/main/webapp]
+[INFO] Webapp assembled in [6113 msecs]
+[INFO] Building war: /Users/marian/Documents/Projects/Java/pko/web/target/web-1.0-SNAPSHOT.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] PKO parent ........................................ SUCCESS [0.008s]
+[INFO] Common ............................................ SUCCESS [10.380s]
+[INFO] Business .......................................... SUCCESS [5.023s]
+[INFO] Database .......................................... SUCCESS [0.328s]
+[INFO] Mock .............................................. SUCCESS [0.384s]
+[INFO] Jasper reports .................................... SUCCESS [0.001s]
+[INFO] Web ............................................... SUCCESS [19.809s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 36.975s
+[INFO] Finished at: Sun Mar 31 10:24:46 CEST 2013
+[INFO] Final Memory: 18M/81M
+[INFO] ------------------------------------------------------------------------
