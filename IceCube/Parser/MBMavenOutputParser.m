@@ -33,7 +33,7 @@ NSString * const kEmptyLinePrefix = @"[INFO]  ";
 NSString * const kStateSeparatorLinePrefix = @"[INFO] ----";
 NSString * const kReactorSummaryLinePrefix = @"[INFO] Reactor Summary:";
 NSString * const kBuildSuccessPrefix = @"[INFO] BUILD SUCCESS";
-NSString * const kBuildErrorPrefix =   @"[INFO] BUILD ERROR";
+NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 
 @interface MBMavenOutputParser () {
 	MBParserState state;
