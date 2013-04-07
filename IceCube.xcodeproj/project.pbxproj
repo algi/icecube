@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		5632EE2216E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */; };
 		5632EE2916E4D6A2004AF896 /* MBStatusPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5632EE2816E4D6A2004AF896 /* MBStatusPanel.m */; };
-		564B6B1C17073F7200DDA689 /* DDFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 564B6B1B17073F7200DDA689 /* DDFileReader.m */; };
 		568DB44E17082A7300AC385F /* errorLog.txt in Resources */ = {isa = PBXBuildFile; fileRef = 568DB44D17082A7300AC385F /* errorLog.txt */; };
 		568DB4511708622700AC385F /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB4501708622700AC385F /* MBMavenOutputParser.m */; };
 		568DB454170887D900AC385F /* MBMavenOutputParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB453170887D900AC385F /* MBMavenOutputParserTests.m */; };
 		568DB457170888BB00AC385F /* MBMavenOutputParserTestObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB456170888BB00AC385F /* MBMavenOutputParserTestObserver.m */; };
+		568DB4601709A94B00AC385F /* MBTaskOutputReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB45F1709A94B00AC385F /* MBTaskOutputReader.m */; };
+		568DB4631709ABFE00AC385F /* MBTaskOutputReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB4621709ABFE00AC385F /* MBTaskOutputReaderTests.m */; };
 		56AB1B8816E3BFB000831747 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AB1B8716E3BFB000831747 /* QuartzCore.framework */; };
+		56C6289317103F7A00DF4E4F /* DDFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C6289217103F7A00DF4E4F /* DDFileReader.m */; };
 		56FE8E85167BA1A70001AAED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8E84167BA1A70001AAED /* Cocoa.framework */; };
 		56FE8E8F167BA1A70001AAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56FE8E8D167BA1A70001AAED /* InfoPlist.strings */; };
 		56FE8E91167BA1A70001AAED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FE8E90167BA1A70001AAED /* main.m */; };
@@ -41,8 +43,6 @@
 		5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "Icons-Land-Weather-Ice.icns"; path = "../Icons-Land-Weather-Ice.icns"; sourceTree = "<group>"; };
 		5632EE2716E4D6A2004AF896 /* MBStatusPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBStatusPanel.h; sourceTree = "<group>"; };
 		5632EE2816E4D6A2004AF896 /* MBStatusPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBStatusPanel.m; sourceTree = "<group>"; };
-		564B6B1A17073F7200DDA689 /* DDFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileReader.h; sourceTree = "<group>"; };
-		564B6B1B17073F7200DDA689 /* DDFileReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileReader.m; sourceTree = "<group>"; };
 		568DB44D17082A7300AC385F /* errorLog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = errorLog.txt; sourceTree = "<group>"; };
 		568DB44F1708622700AC385F /* MBMavenOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParser.h; sourceTree = "<group>"; };
 		568DB4501708622700AC385F /* MBMavenOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParser.m; sourceTree = "<group>"; };
@@ -50,8 +50,14 @@
 		568DB453170887D900AC385F /* MBMavenOutputParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParserTests.m; sourceTree = "<group>"; };
 		568DB455170888BB00AC385F /* MBMavenOutputParserTestObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParserTestObserver.h; sourceTree = "<group>"; };
 		568DB456170888BB00AC385F /* MBMavenOutputParserTestObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParserTestObserver.m; sourceTree = "<group>"; };
+		568DB45E1709A94A00AC385F /* MBTaskOutputReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskOutputReader.h; sourceTree = "<group>"; };
+		568DB45F1709A94B00AC385F /* MBTaskOutputReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskOutputReader.m; sourceTree = "<group>"; };
+		568DB4611709ABFD00AC385F /* MBTaskOutputReaderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskOutputReaderTests.h; sourceTree = "<group>"; };
+		568DB4621709ABFE00AC385F /* MBTaskOutputReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskOutputReaderTests.m; sourceTree = "<group>"; };
 		56AB1B8716E3BFB000831747 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		56AB1B8916E48B3300831747 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		56C6289117103F7A00DF4E4F /* DDFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileReader.h; sourceTree = "<group>"; };
+		56C6289217103F7A00DF4E4F /* DDFileReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileReader.m; sourceTree = "<group>"; };
 		56FE8E80167BA1A70001AAED /* IceCube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IceCube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FE8E84167BA1A70001AAED /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		56FE8E87167BA1A70001AAED /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -106,10 +112,10 @@
 		564B6B1917073F3A00DDA689 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
-				564B6B1A17073F7200DDA689 /* DDFileReader.h */,
-				564B6B1B17073F7200DDA689 /* DDFileReader.m */,
 				568DB44F1708622700AC385F /* MBMavenOutputParser.h */,
 				568DB4501708622700AC385F /* MBMavenOutputParser.m */,
+				568DB45E1709A94A00AC385F /* MBTaskOutputReader.h */,
+				568DB45F1709A94B00AC385F /* MBTaskOutputReader.m */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -185,10 +191,14 @@
 		56FE8EAA167BA1A80001AAED /* IceCubeTests */ = {
 			isa = PBXGroup;
 			children = (
+				56C6289117103F7A00DF4E4F /* DDFileReader.h */,
+				56C6289217103F7A00DF4E4F /* DDFileReader.m */,
 				568DB452170887D900AC385F /* MBMavenOutputParserTests.h */,
 				568DB453170887D900AC385F /* MBMavenOutputParserTests.m */,
 				568DB455170888BB00AC385F /* MBMavenOutputParserTestObserver.h */,
 				568DB456170888BB00AC385F /* MBMavenOutputParserTestObserver.m */,
+				568DB4611709ABFD00AC385F /* MBTaskOutputReaderTests.h */,
+				568DB4621709ABFE00AC385F /* MBTaskOutputReaderTests.m */,
 				56FE8EAB167BA1A80001AAED /* Supporting Files */,
 			);
 			path = IceCubeTests;
@@ -319,8 +329,8 @@
 				56FE8E98167BA1A70001AAED /* MBAppDelegate.m in Sources */,
 				56FE8E9E167BA1A80001AAED /* IceCube.xcdatamodeld in Sources */,
 				5632EE2916E4D6A2004AF896 /* MBStatusPanel.m in Sources */,
-				564B6B1C17073F7200DDA689 /* DDFileReader.m in Sources */,
 				568DB4511708622700AC385F /* MBMavenOutputParser.m in Sources */,
+				568DB4601709A94B00AC385F /* MBTaskOutputReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +340,8 @@
 			files = (
 				568DB454170887D900AC385F /* MBMavenOutputParserTests.m in Sources */,
 				568DB457170888BB00AC385F /* MBMavenOutputParserTestObserver.m in Sources */,
+				568DB4631709ABFE00AC385F /* MBTaskOutputReaderTests.m in Sources */,
+				56C6289317103F7A00DF4E4F /* DDFileReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
