@@ -28,11 +28,10 @@
 	MBMavenOutputParser *parser = [[MBMavenOutputParser alloc] init];
 	DDFileReader *reader = [[DDFileReader alloc] initWithFilePath:filePath];
 	
-	NSString *line = nil;
-	while ((line = [reader readLine])) {
+	[reader enumerateLinesUsingBlock:^(NSString* line, BOOL* stop) {
 		[parser parseLine:line];
-	}
-		
+	}];
+	
 	// kontroly výsledků
 	STAssertTrue(testObserver.result, @"Build must be successful.");
 	
