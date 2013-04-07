@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="StoredCommand" syncable="YES">
+    <entity name="Command" syncable="YES">
         <attribute name="command" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="path" optional="YES" attributeType="String" defaultValueString="file://localhost/Applications/" syncable="YES"/>
+        <relationship name="project" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="commands" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="Project" syncable="YES">
+        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="commands" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Command" inverseName="project" inverseEntity="Command" syncable="YES"/>
     </entity>
     <elements>
-        <element name="StoredCommand" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Command" positionX="223" positionY="242" width="128" height="73"/>
+        <element name="Project" positionX="18" positionY="189" width="128" height="73"/>
     </elements>
 </model>
