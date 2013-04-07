@@ -8,6 +8,9 @@
 
 #import "MBAppDelegate.h"
 
+#import "MBTaskOutputReader.h"
+#import "MBMavenOutputParser.h"
+
 @implementation MBAppDelegate
 
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -30,8 +33,24 @@
 	[self.pathControll setDoubleAction:@selector(showOpenDialogAction:)];
 	
 	[self.window setRepresentedURL:workingDirectory];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:nil selector:nil name:kMavenNotifiactionBuildDidEnd object:nil];
 }
 
+-(void)awakeFromNib
+{
+	[super awakeFromNib];
+	
+	[self.statusToolbarItem setView:self.statusPanel];
+}
+
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
+{
+	// prozatím máme jenom jedno okno, takže po sobě hezky uklidíme
+    return YES;
+}
+
+// TODO je to docela prasárna mít tyhle věci v NSApplicationDelegate a ne v NSWindowController
 - (IBAction)runAction:(id)sender
 {
 	if (self.task) {
@@ -52,7 +71,11 @@
 	
 	self.task = [[NSTask alloc] init];
 	
-	NSString *launchPath = @"/usr/bin/mvn";
+	NSString *launchPath = [[NSUserDefaults standardUserDefaults] stringForKey:kMavenApplicationPath];
+	if (!launchPath) {
+		launchPath = @"/usr/bin/mvn";
+		[[NSUserDefaults standardUserDefaults] setValue:launchPath forKey:kMavenApplicationPath];
+	}
 	[self.task setLaunchPath:launchPath];
 	
 	NSArray *taskArgs = [command componentsSeparatedByString:@" "];
@@ -66,55 +89,82 @@
 	[self.task setStandardOutput:pipe];
 	[self.task setStandardError:pipe];
 	
-	[self taskDidStartInPath:path withCommand:command];
+	[self taskDidStartInDirectory:path withApplication:launchPath command:command];
 	
 	// spuštění úlohy ve novém vlákně (normální priorita)
 	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
 	dispatch_async(queue, ^{
-		NSTextStorage *storage = [self.outputTextView textStorage];
-		NSDictionary *attributes = [storage attributesAtIndex:0 effectiveRange:nil];
 		
-		NSFileHandle *fileHandle = [pipe fileHandleForReading];
-		[self.task launch];
-		
-		NSData *inData = nil;
-		NSString* outputLine = nil;
-		
-		while ((inData = [fileHandle availableData]) && [inData length]) {
-			outputLine = [[NSString alloc] initWithData:inData encoding:[NSString defaultCStringEncoding]];
-			
-			// AppKit běží na hlavním vlákně
-			dispatch_async(dispatch_get_main_queue(), ^{
-				[storage beginEditing];
-				[storage appendAttributedString:[[NSAttributedString alloc] initWithString:outputLine attributes:attributes]];
-				[storage endEditing];
-				
-				[self.outputTextView scrollRangeToVisible:NSMakeRange([[self.outputTextView string] length], 0)];
-			});
+		@autoreleasepool {
+			__block MBMavenOutputParser *parser = [[MBMavenOutputParser alloc] init];
+			[MBTaskOutputReader launchTask:self.task withOutputConsumer:^(NSString *line) {
+				[self updateOutputTextArea:line];
+				[parser parseLine:line];
+			}];
 		}
 		
 		[self taskDidEnd];
 	});
 }
 
-- (void)taskDidStartInPath: (NSString *) path withCommand: (NSString *) mavenCommand
+-(void)updateOutputTextArea:(NSString *)line
+{
+	NSString *outputLine = [line copy];
+	
+	// AppKit běží na hlavním vlákně
+	dispatch_async(dispatch_get_main_queue(), ^{
+		NSTextStorage *storage = [self.outputTextView textStorage];
+		NSDictionary *attributes = [storage attributesAtIndex:0 effectiveRange:nil];
+		
+		[storage beginEditing];
+		[storage appendAttributedString:[[NSAttributedString alloc] initWithString:outputLine attributes:attributes]];
+		[storage endEditing];
+		
+		[self.outputTextView scrollRangeToVisible:NSMakeRange([[self.outputTextView string] length], 0)];
+	});
+}
+
+- (void)taskDidStartInDirectory: (NSString *)projectDirectory
+				withApplication: (NSString *)appPath
+						command: (NSString *)mavenCommand
 {
 	[self.progressIndicator startAnimation:self];
 	
-	NSString *command = [NSString stringWithFormat:@"$ cd %@\n$ mvn %@\n\n", path, mavenCommand];
+	NSString *command = [NSString stringWithFormat:@"$ cd %@\n$ %@ %@\n\n", projectDirectory, appPath, mavenCommand];
 	[self.outputTextView setString:command];
+}
+
+// z parseru
+-(void)buildDidEnd:(NSNotification *)notification
+{
+	NSDictionary *userInfo = [notification userInfo];
+	BOOL result = [userInfo objectForKey:kMavenNotifiactionBuildDidEnd_result];
+	self.buildWasSuccessful = result;
 }
 
 - (void)taskDidEnd
 {
-	[self.progressIndicator stopAnimation:self];	
+	[self.progressIndicator stopAnimation:self];
 	self.task = nil;
+	
+	NSUserNotification *notification = [[NSUserNotification alloc] init];
+	notification.soundName = NSUserNotificationDefaultSoundName;
+	
+	if (self.buildWasSuccessful) {
+		notification.title = @"Build succeeded";
+		notification.informativeText = @"Maven build úspěšně skončil.";
+	}
+	else {
+		notification.title = @"Build error";
+		notification.informativeText = @"Maven build skončil neúspěšně.";
+	}
+	
+	[[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
 }
 
 - (IBAction)stopAction:(id)sender
 {
-	// Java neumí reagovat na signály, a proto je úplně jedno jaký ji pošleme
-	[self.task terminate];
+	[self.task terminate]; // SIGTERM
 }
 
 - (void)showOpenDialogAction:(id)sender
@@ -136,6 +186,11 @@
 			[[NSUserDefaults standardUserDefaults] setURL:url forKey:kMavenWorkingDirectory];
 		}
 	}];
+}
+
+- (IBAction)showPreferences:(id)sender
+{
+	[self.preferencesWindow makeKeyAndOrderFront:sender];
 }
 
 #pragma mark - CoreData stack -

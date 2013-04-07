@@ -7,15 +7,20 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MBStatusPanel.h"
 
 #define kMavenWorkingDirectory @"maven.working.directory"
+#define kMavenApplicationPath @"maven.application.path"
 
 @interface MBAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (atomic) NSTask *task;
+@property (atomic) BOOL buildWasSuccessful;
 
 #pragma mark - Main window -
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSWindow *preferencesWindow;
+
 @property (assign) IBOutlet NSTextField *commandField;
 @property (assign) IBOutlet NSPathControl *pathControll;
 @property (assign) IBOutlet NSProgressIndicator *progressIndicator;
@@ -23,11 +28,15 @@
 @property (assign) IBOutlet NSToolbarItem *runTaskButton;
 @property (assign) IBOutlet NSToolbarItem *stopTaskButton;
 
+@property (assign) IBOutlet NSToolbarItem *statusToolbarItem;
+@property (assign) IBOutlet MBStatusPanel *statusPanel;
+
 @property (assign) IBOutlet NSTextView *outputTextView;
 
 #pragma mark - Actions -
 - (IBAction)runAction:(id)sender;
 - (IBAction)stopAction:(id)sender;
+- (IBAction)showPreferences:(id)sender;
 
 #pragma mark - CoreData stack -
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
