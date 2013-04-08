@@ -10,7 +10,6 @@
 
 @implementation MBTaskOutputReader
 
-// TODO bufferování + rozdělování na řádky
 #if NS_BLOCKS_AVAILABLE
 + (void)launchTask:(NSTask *)task withOutputConsumer: (void (^)(NSString* line)) consumeOutput
 {
@@ -48,7 +47,7 @@
 			size--;
 		}
 		
-		NSInteger index;
+		NSUInteger index;
 		for (index = 0; index < size; index++) {
 			
 			// ořízní konce řádků a podobné nesmysly
@@ -66,8 +65,7 @@
 	if (buffer) {
 		// něco ještě zbylo v bufferu, zpracovat
 		consumeOutput(buffer);
-		buffer = nil;
-	}
+    }
 }
 #endif
 
