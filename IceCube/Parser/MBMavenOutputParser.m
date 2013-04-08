@@ -71,13 +71,12 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 				return;
 			}
 			
-			if ([line hasPrefix:kEmptyLinePrefix]) {
+			if ([line length] <=  [kEmptyLinePrefix length]) {
 				state = kScanningEndState;
 				return;
 			}
 			
-			// jinak se jedná přímo o název projektu
-			NSRange range = NSMakeRange([kInfoLinePrefix length], ([line length] - [kInfoLinePrefix length] - 1));
+			NSRange range = NSMakeRange([kInfoLinePrefix length], ([line length] - [kInfoLinePrefix length]));
 			NSString *projectName = [line substringWithRange:range];
 			[taskList addObject:projectName];
 			
@@ -100,8 +99,7 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 				return;
 			}
 			
-			// -1 at the end of range will cut off end line char
-			NSRange range = NSMakeRange([kBuildingPrefix length], ([line length] - [kBuildingPrefix length] - 1));
+			NSRange range = NSMakeRange([kBuildingPrefix length], ([line length] - [kBuildingPrefix length]));
 			NSString *taskName = [line substringWithRange:range];
 			
 			NSDictionary *userInfo = @{kMavenNotifiactionProjectDidStart_taskName: taskName};
@@ -139,7 +137,7 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 																  userInfo:@{kMavenNotifiactionBuildDidEnd_result: @NO}];
 			}
 			
-			// jiné řádky ignoruj
+			// zbylé řádky ignoruj
 			break;
 		}
 		default:

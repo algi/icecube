@@ -95,13 +95,16 @@
 	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
 	dispatch_async(queue, ^{
 		
-		@autoreleasepool {
-			__block MBMavenOutputParser *parser = [[MBMavenOutputParser alloc] init];
-			[MBTaskOutputReader launchTask:self.task withOutputConsumer:^(NSString *line) {
-				[self updateOutputTextArea:line];
-				[parser parseLine:line];
-			}];
-		}
+		MBMavenOutputParser *parser = [[MBMavenOutputParser alloc] init];
+		[MBTaskOutputReader launchTask:self.task withOutputConsumer:^(NSString *line) {
+			[parser parseLine:line];
+			
+			// úprava GUI musí být spuštěna na hlavním vlákně
+			dispatch_async(dispatch_get_main_queue(), ^{
+				NSString *lineWithNewLine = [line stringByAppendingString:@"\n"];
+				[self updateOutputTextArea:lineWithNewLine];
+			});
+		}];
 		
 		[self taskDidEnd];
 	});
@@ -109,19 +112,14 @@
 
 -(void)updateOutputTextArea:(NSString *)line
 {
-	NSString *outputLine = [line copy];
+	NSTextStorage *storage = [self.outputTextView textStorage];
+	NSDictionary *attributes = [storage attributesAtIndex:0 effectiveRange:nil];
 	
-	// AppKit běží na hlavním vlákně
-	dispatch_async(dispatch_get_main_queue(), ^{
-		NSTextStorage *storage = [self.outputTextView textStorage];
-		NSDictionary *attributes = [storage attributesAtIndex:0 effectiveRange:nil];
-		
-		[storage beginEditing];
-		[storage appendAttributedString:[[NSAttributedString alloc] initWithString:outputLine attributes:attributes]];
-		[storage endEditing];
-		
-		[self.outputTextView scrollRangeToVisible:NSMakeRange([[self.outputTextView string] length], 0)];
-	});
+	[storage beginEditing];
+	[storage appendAttributedString:[[NSAttributedString alloc] initWithString:line attributes:attributes]];
+	[storage endEditing];
+	
+	[self.outputTextView scrollRangeToVisible:NSMakeRange([[self.outputTextView string] length], 0)];
 }
 
 - (void)taskDidStartInDirectory: (NSString *)projectDirectory
