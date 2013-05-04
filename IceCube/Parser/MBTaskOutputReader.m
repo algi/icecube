@@ -22,6 +22,7 @@
 	
 	NSData *inData = nil;
 	NSString *buffer = nil; // buffer pro neúplné řádky
+	NSCharacterSet *characterSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
 	
 	while ((inData = [fileHandle availableData]) && [inData length]) {
 		NSString *outputLine = [[NSString alloc] initWithData:inData encoding:[NSString defaultCStringEncoding]];
@@ -47,11 +48,12 @@
 			size--;
 		}
 		
+		
 		NSUInteger index;
 		for (index = 0; index < size; index++) {
 			
 			// ořízní konce řádků a podobné nesmysly
-			NSString *line = [[components objectAtIndex:index] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+			NSString *line = [[components objectAtIndex:index] stringByTrimmingCharactersInSet:characterSet];
 			
 			// prázdné řádky ignoruj
 			if ([line length] == 0) {
