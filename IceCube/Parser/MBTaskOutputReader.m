@@ -21,41 +21,39 @@
 	[task launch];
 	
 	NSData *inData = nil;
-	NSString *buffer = nil; // buffer pro neúplné řádky
+	NSString *partialLinesBuffer = nil;
 	NSCharacterSet *characterSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
 	
 	while ((inData = [fileHandle availableData]) && [inData length]) {
 		NSString *outputLine = [[NSString alloc] initWithData:inData encoding:[NSString defaultCStringEncoding]];
 		NSArray *components = [outputLine componentsSeparatedByString:@"\n"];
 		
-		if (buffer) {
-			// od minula máme něco v bufferu, takže to připojíme k první komponentě
+		if (partialLinesBuffer) {
+			// append partial line to the start of buffer
 			NSString *firstObject = [components objectAtIndex:0];
-			NSString *fullLine = [buffer stringByAppendingString:firstObject];
+			NSString *fullLine = [partialLinesBuffer stringByAppendingString:firstObject];
 			
 			NSMutableArray *mutableCopy = [components mutableCopy];
 			[mutableCopy setObject:fullLine atIndexedSubscript:0];
 			
 			components = mutableCopy;
-			buffer = nil;
+			partialLinesBuffer = nil;
 		}
 		
-		NSInteger size = [components count];
+		NSInteger linesCount = [components count];
 		
-		if (![outputLine hasSuffix:@"\n"]) {
-			// neúplně načtený řádek, bude nutno zpracovat později
-			buffer = [components lastObject];
-			size--;
+		// if last component doesn't have newline
+		// append it to partial line buffer and then skip it
+		NSString *lastComponent = [components lastObject];
+		if (![lastComponent hasSuffix:@"\n"]) {
+			partialLinesBuffer = [lastComponent copy];
+			linesCount--;
 		}
-		
 		
 		NSUInteger index;
-		for (index = 0; index < size; index++) {
+		for (index = 0; index < linesCount; index++) {
 			
-			// ořízní konce řádků a podobné nesmysly
 			NSString *line = [[components objectAtIndex:index] stringByTrimmingCharactersInSet:characterSet];
-			
-			// prázdné řádky ignoruj
 			if ([line length] == 0) {
 				continue;
 			}
@@ -64,9 +62,9 @@
 		}
 	}
 	
-	if (buffer) {
-		// něco ještě zbylo v bufferu, zpracovat
-		consumeOutput(buffer);
+	// consume rest of partial lines
+	if (partialLinesBuffer) {
+		consumeOutput(partialLinesBuffer);
     }
 }
 #endif
