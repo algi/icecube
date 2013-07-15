@@ -16,6 +16,7 @@
 		568DB4631709ABFE00AC385F /* MBTaskOutputReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB4621709ABFE00AC385F /* MBTaskOutputReaderTests.m */; };
 		56AB1B8816E3BFB000831747 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AB1B8716E3BFB000831747 /* QuartzCore.framework */; };
 		56C6289317103F7A00DF4E4F /* DDFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C6289217103F7A00DF4E4F /* DDFileReader.m */; };
+		56F578E41794A5B1007E85A8 /* MBTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E31794A5B1007E85A8 /* MBTaskViewController.m */; };
 		56FE8E85167BA1A70001AAED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8E84167BA1A70001AAED /* Cocoa.framework */; };
 		56FE8E8F167BA1A70001AAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56FE8E8D167BA1A70001AAED /* InfoPlist.strings */; };
 		56FE8E91167BA1A70001AAED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FE8E90167BA1A70001AAED /* main.m */; };
@@ -56,6 +57,8 @@
 		56AB1B8916E48B3300831747 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		56C6289117103F7A00DF4E4F /* DDFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileReader.h; sourceTree = "<group>"; };
 		56C6289217103F7A00DF4E4F /* DDFileReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileReader.m; sourceTree = "<group>"; };
+		56F578E21794A5B1007E85A8 /* MBTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskViewController.h; sourceTree = "<group>"; };
+		56F578E31794A5B1007E85A8 /* MBTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskViewController.m; sourceTree = "<group>"; };
 		56FE8E80167BA1A70001AAED /* IceCube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IceCube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FE8E84167BA1A70001AAED /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		56FE8E87167BA1A70001AAED /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -109,6 +112,15 @@
 			path = Parser;
 			sourceTree = "<group>";
 		};
+		56F578E11794A584007E85A8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				56F578E21794A5B1007E85A8 /* MBTaskViewController.h */,
+				56F578E31794A5B1007E85A8 /* MBTaskViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		56FE8E75167BA1A70001AAED = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +170,7 @@
 				56FE8E97167BA1A70001AAED /* MBAppDelegate.m */,
 				56FE8E99167BA1A70001AAED /* MainMenu.xib */,
 				56FE8E9C167BA1A80001AAED /* IceCube.xcdatamodeld */,
+				56F578E11794A584007E85A8 /* Controllers */,
 				564B6B1917073F3A00DDA689 /* Parser */,
 				56FE8E8B167BA1A70001AAED /* Supporting Files */,
 			);
@@ -316,6 +329,7 @@
 			files = (
 				56FE8E91167BA1A70001AAED /* main.m in Sources */,
 				56FE8E98167BA1A70001AAED /* MBAppDelegate.m in Sources */,
+				56F578E41794A5B1007E85A8 /* MBTaskViewController.m in Sources */,
 				56FE8E9E167BA1A80001AAED /* IceCube.xcdatamodeld in Sources */,
 				568DB4511708622700AC385F /* MBMavenOutputParser.m in Sources */,
 				568DB4601709A94B00AC385F /* MBTaskOutputReader.m in Sources */,
