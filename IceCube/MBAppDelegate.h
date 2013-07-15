@@ -28,9 +28,6 @@
 @property (assign) IBOutlet NSToolbarItem *runTaskButton;
 @property (assign) IBOutlet NSToolbarItem *stopTaskButton;
 
-@property (assign) IBOutlet NSToolbarItem *statusToolbarItem;
-@property (assign) IBOutlet MBStatusPanel *statusPanel;
-
 @property (assign) IBOutlet NSTextView *outputTextView;
 
 #pragma mark - Actions -

@@ -40,8 +40,6 @@
 -(void)awakeFromNib
 {
 	[super awakeFromNib];
-	
-	[self.statusToolbarItem setView:self.statusPanel];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
