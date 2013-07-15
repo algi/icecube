@@ -26,7 +26,6 @@
 		56FE8EA6167BA1A80001AAED /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8EA5167BA1A80001AAED /* SenTestingKit.framework */; };
 		56FE8EA7167BA1A80001AAED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8E84167BA1A70001AAED /* Cocoa.framework */; };
 		56FE8EAF167BA1A80001AAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56FE8EAD167BA1A80001AAED /* InfoPlist.strings */; };
-		F55D12E9715D49B480DA4A6A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5ACCC678554D0EAA5F4D2F /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +74,6 @@
 		56FE8EA5167BA1A80001AAED /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		56FE8EAC167BA1A80001AAED /* IceCubeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IceCubeTests-Info.plist"; sourceTree = "<group>"; };
 		56FE8EAE167BA1A80001AAED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F995CBFAA22548D194357FB5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +83,6 @@
 			files = (
 				56FE8E85167BA1A70001AAED /* Cocoa.framework in Frameworks */,
 				56AB1B8816E3BFB000831747 /* QuartzCore.framework in Frameworks */,
-				F55D12E9715D49B480DA4A6A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,7 +117,6 @@
 				56FE8E83167BA1A70001AAED /* Frameworks */,
 				56FE8E81167BA1A70001AAED /* Products */,
 				56AB1B8916E48B3300831747 /* README.md */,
-				F995CBFAA22548D194357FB5 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,11 +210,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56FE8EB5167BA1A80001AAED /* Build configuration list for PBXNativeTarget "IceCube" */;
 			buildPhases = (
-				9D08E3F7C08F4324B1621AA4 /* Check Pods Manifest.lock */,
 				56FE8E7C167BA1A70001AAED /* Sources */,
 				56FE8E7D167BA1A70001AAED /* Frameworks */,
 				56FE8E7E167BA1A70001AAED /* Resources */,
-				DC702240DEC645FEB27813E8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -312,34 +306,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-		9D08E3F7C08F4324B1621AA4 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
-		};
-		DC702240DEC645FEB27813E8 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -466,7 +432,6 @@
 		};
 		56FE8EB6167BA1A80001AAED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F995CBFAA22548D194357FB5 /* Pods.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -479,7 +444,6 @@
 		};
 		56FE8EB7167BA1A80001AAED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F995CBFAA22548D194357FB5 /* Pods.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
