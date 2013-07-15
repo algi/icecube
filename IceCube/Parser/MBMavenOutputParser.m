@@ -60,7 +60,7 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 	switch (state) {
 		case kStartState:
 		{
-			ignoredLines = 3; // následující tři řádky ignoruj
+			ignoredLines = 3; // first three lines are unimportant, skip them
 			state = kScanningStartedState;
 			break;
 		}
@@ -125,7 +125,6 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 		}
 		case kBuildDone:
 		{
-			// konečný stav, hledáme pouze informaci o úspěšnosti buildu
 			if ([line hasPrefix:kBuildSuccessPrefix]) {
 				[[NSNotificationCenter defaultCenter] postNotificationName:kMavenNotifiactionBuildDidEnd
 																	object:nil
@@ -137,12 +136,12 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 																  userInfo:@{kMavenNotifiactionBuildDidEnd_result: @NO}];
 			}
 			
-			// zbylé řádky ignoruj
+			// we are in final stage so other lines are ignored
 			break;
 		}
 		default:
 		{
-			NSLog(@"Error, unknown state: '%u' on line '%@'.", state, line);
+			NSAssert(NO, @"MBMavenOutputParser recieved unknown state: '%u' on line '%@'.", state, line);
 			break;
 		}
 	}
