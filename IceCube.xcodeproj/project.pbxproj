@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5632EE2216E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */; };
-		5632EE2916E4D6A2004AF896 /* MBStatusPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5632EE2816E4D6A2004AF896 /* MBStatusPanel.m */; };
 		568DB44E17082A7300AC385F /* errorLog.txt in Resources */ = {isa = PBXBuildFile; fileRef = 568DB44D17082A7300AC385F /* errorLog.txt */; };
 		568DB4511708622700AC385F /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB4501708622700AC385F /* MBMavenOutputParser.m */; };
 		568DB454170887D900AC385F /* MBMavenOutputParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB453170887D900AC385F /* MBMavenOutputParserTests.m */; };
@@ -43,8 +42,6 @@
 /* Begin PBXFileReference section */
 		3E5ACCC678554D0EAA5F4D2F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "Icons-Land-Weather-Ice.icns"; path = "../Icons-Land-Weather-Ice.icns"; sourceTree = "<group>"; };
-		5632EE2716E4D6A2004AF896 /* MBStatusPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBStatusPanel.h; sourceTree = "<group>"; };
-		5632EE2816E4D6A2004AF896 /* MBStatusPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBStatusPanel.m; sourceTree = "<group>"; };
 		568DB44D17082A7300AC385F /* errorLog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = errorLog.txt; sourceTree = "<group>"; };
 		568DB44F1708622700AC385F /* MBMavenOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParser.h; sourceTree = "<group>"; };
 		568DB4501708622700AC385F /* MBMavenOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParser.m; sourceTree = "<group>"; };
@@ -104,15 +101,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5632EE2316E4D5A2004AF896 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				5632EE2716E4D6A2004AF896 /* MBStatusPanel.h */,
-				5632EE2816E4D6A2004AF896 /* MBStatusPanel.m */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		564B6B1917073F3A00DDA689 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +162,6 @@
 				56FE8E97167BA1A70001AAED /* MBAppDelegate.m */,
 				56FE8E99167BA1A70001AAED /* MainMenu.xib */,
 				56FE8E9C167BA1A80001AAED /* IceCube.xcdatamodeld */,
-				5632EE2316E4D5A2004AF896 /* Components */,
 				564B6B1917073F3A00DDA689 /* Parser */,
 				56FE8E8B167BA1A70001AAED /* Supporting Files */,
 			);
@@ -364,7 +351,6 @@
 				56FE8E91167BA1A70001AAED /* main.m in Sources */,
 				56FE8E98167BA1A70001AAED /* MBAppDelegate.m in Sources */,
 				56FE8E9E167BA1A80001AAED /* IceCube.xcdatamodeld in Sources */,
-				5632EE2916E4D6A2004AF896 /* MBStatusPanel.m in Sources */,
 				568DB4511708622700AC385F /* MBMavenOutputParser.m in Sources */,
 				568DB4601709A94B00AC385F /* MBTaskOutputReader.m in Sources */,
 			);
