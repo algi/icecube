@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "MBStatusPanel.h"
 
 #define kMavenWorkingDirectory @"maven.working.directory"
 #define kMavenApplicationPath @"maven.application.path"
