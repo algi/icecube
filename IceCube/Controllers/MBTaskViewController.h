@@ -10,4 +10,14 @@
 
 @interface MBTaskViewController : NSObject
 
+// only informative flag
+@property(readonly) BOOL running;
+
+@property(assign) NSTextField *commands;
+@property(assign) NSTextField *arguments;
+@property(assign) NSTextView *outputArea;
+
+-(void)startTask;
+-(void)stopTask;
+
 @end
