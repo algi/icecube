@@ -1,24 +1,23 @@
 //
-//  MBTaskOutputReader.m
+//  NSTask+MBTaskOutputParser.m
 //  IceCube
 //
-//  Created by Marian Bouček on 01.04.13.
+//  Created by Marian Bouček on 17.07.13.
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
-#import "MBTaskOutputReader.h"
+#import "NSTask+MBTaskOutputParser.h"
 
-@implementation MBTaskOutputReader
+@implementation NSTask (MBTaskOutputParser)
 
-#if NS_BLOCKS_AVAILABLE
-+ (void)launchTask:(NSTask *)task withOutputConsumer: (void (^)(NSString* line)) consumeOutput
+-(void)launchWithCallback:(void (^)(NSString *))delegateBlock
 {
 	id pipe = [NSPipe pipe];
-	[task setStandardOutput:pipe];
-	[task setStandardError:pipe];
+	[self setStandardOutput:pipe];
+	[self setStandardError:pipe];
 	
 	NSFileHandle *fileHandle = [pipe fileHandleForReading];
-	[task launch];
+	[self launch];
 	
 	NSData *inData = nil;
 	NSString *partialLinesBuffer = nil;
@@ -58,15 +57,14 @@
 				continue;
 			}
 			
-			consumeOutput(line);
+			delegateBlock(line);
 		}
 	}
 	
 	// consume rest of partial lines
 	if (partialLinesBuffer) {
-		consumeOutput(partialLinesBuffer);
+		delegateBlock(partialLinesBuffer);
     }
 }
-#endif
 
 @end

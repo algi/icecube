@@ -55,7 +55,7 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 	return self;
 }
 
--(void)parseLine: (NSString *)line
+-(void)parseLine:(NSString *)line
 {	
 	switch (state) {
 		case kStartState:

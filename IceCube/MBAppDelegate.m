@@ -8,8 +8,8 @@
 
 #import "MBAppDelegate.h"
 
-#import "MBTaskOutputReader.h"
 #import "MBMavenOutputParser.h"
+#import "NSTask+MBTaskOutputParser.h"
 
 @implementation MBAppDelegate
 
@@ -90,11 +90,10 @@
 	[self taskDidStartInDirectory:path withApplication:launchPath command:command];
 	
 	// spuštění úlohy ve novém vlákně (normální priorita)
-	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-	dispatch_async(queue, ^{
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul), ^{
 		
 		MBMavenOutputParser *parser = [[MBMavenOutputParser alloc] init];
-		[MBTaskOutputReader launchTask:self.task withOutputConsumer:^(NSString *line) {
+		[self.task launchWithCallback:^(NSString *line) {
 			[parser parseLine:line];
 			
 			// úprava GUI musí být spuštěna na hlavním vlákně

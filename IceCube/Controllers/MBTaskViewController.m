@@ -8,6 +8,8 @@
 
 #import "MBTaskViewController.h"
 
+#import "NSTask+MBTaskOutputParser.h"
+
 @interface MBTaskViewController ()
 
 @property NSTask *currentTask;
@@ -26,17 +28,26 @@
 	}
 	
 	self.currentTask = [[NSTask alloc] init];
-	_running = YES;
 	
-	// TODO ...
+	// TODO configure task
+	
+	// TODO launch task on separate thread
+	__weak MBTaskViewController *myself = self;
+	[self.currentTask setTerminationHandler:^(NSTask *task) {
+		NSLog(@"Task did end.");
+		
+		myself.currentTask = nil;
+	}];
+	
+	[self.currentTask launchWithCallback:^(NSString *line) {
+		NSLog(@"%@", line);
+	}];
 }
 
 -(void)stopTask
 {
 	[self.currentTask terminate];
-	
 	self.currentTask = nil;
-	_running = NO;
 }
 
 @end
