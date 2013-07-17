@@ -7,25 +7,28 @@
 //
 
 #import "MBTaskOutputReaderTests.h"
-#import "MBTaskOutputReader.h"
+#import "NSTask+MBTaskOutputParser.h"
 
 @implementation MBTaskOutputReaderTests
 
 -(void)testLaunchNonExistingGoal
 {
+	NSBundle *testBundle = [NSBundle bundleForClass:[self class]];
+	NSString *filePath = [testBundle pathForResource:@"errorLog" ofType: @"txt"];
+	
 	NSTask *task = [[NSTask alloc] init];
 	
-	task.launchPath = @"/usr/bin/mvn";
-	task.arguments = @[@"nesmysl"]; // neexistující goal
-	task.currentDirectoryPath = @"/Users/marian/Documents/Projects/Java/pko";
+	task.launchPath = @"/bin/cat";
+	task.arguments = @[filePath];
+	task.currentDirectoryPath = @"/";
 	
 	__block NSInteger count = 0;
-	[MBTaskOutputReader launchTask:task withOutputConsumer:^(NSString *line) {
+	[task launchWithCallback:^(NSString *line) {
 		count++;
 	}];
 	
-	NSInteger expectedCount = 39;
-	STAssertEquals(count, expectedCount, @"Pocet radek musi být 39.");
+	NSInteger expectedCount = 167;
+	STAssertEquals(count, expectedCount, @"Expected number of lines is 167.");
 }
 
 @end
