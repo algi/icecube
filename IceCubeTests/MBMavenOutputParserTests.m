@@ -11,6 +11,13 @@
 #import "DDFileReader.h"
 #import "MBMavenOutputParserTestObserver.h"
 
+#define MBAssertArraysEquals(a1, a2, description, ...) \
+do { \
+  if (![a1 isEqualToArray:a2]) { \
+    STFail(description); \
+  } \
+} while(0) \
+
 @implementation MBMavenOutputParserTests
 
 -(void)testReadErrorLog
@@ -25,7 +32,7 @@
 	testObserver.taskList = taskList;
 	testObserver.doneTasks = doneTasks;
 	
-	MBMavenOutputParser *parser = [[MBMavenOutputParser alloc] init];
+	MBMavenOutputParser *parser = [[MBMavenOutputParser alloc] initWithDelegate:testObserver];
 	DDFileReader *reader = [[DDFileReader alloc] initWithFilePath:filePath];
 	
 	[reader enumerateLinesUsingBlock:^(NSString* line, BOOL* stop) {
@@ -44,7 +51,7 @@
 		  @"Mock",
 		  @"Jasper reports",
 		  @"Web"];
-	STAssertTrue([expectedTaskList isEqualToArray:taskList], @"Expected task list must be the same as produced one.");
+	MBAssertArraysEquals(expectedTaskList, taskList, @"Expected task list must be the same as produced one.");
 	
 	// kontrola vykonaných tasků
 	NSArray *expectedDoneTasks = @[
@@ -55,7 +62,7 @@
 		@"Mock 1.0-SNAPSHOT",
 		@"Jasper reports 1.0-SNAPSHOT",
 		@"Web 1.0-SNAPSHOT"];
-	STAssertTrue([expectedDoneTasks isEqualToArray:doneTasks], @"Expected done task list must be the same as produced one.");
+	MBAssertArraysEquals(expectedDoneTasks, doneTasks, @"Expected done task list must be the same as produced one.");
 }
 
 @end

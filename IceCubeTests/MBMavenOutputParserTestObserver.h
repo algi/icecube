@@ -10,7 +10,7 @@
 
 #import "MBMavenOutputParser.h"
 
-@interface MBMavenOutputParserTestObserver : NSObject
+@interface MBMavenOutputParserTestObserver : NSObject<MBMavenOutputParserDelegate>
 
 @property BOOL result;
 @property(assign) NSMutableArray *taskList;

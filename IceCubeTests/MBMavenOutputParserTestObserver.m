@@ -10,39 +10,19 @@
 
 @implementation MBMavenOutputParserTestObserver
 
--(id)init
+-(void)buildDidStartWithTaskList:(NSArray *)taskList
 {
-	if (self = [super init]) {
-		NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
-		[defaultCenter addObserver:self selector:@selector(buildDidStart:)   name:kMavenNotifiactionBuildDidStart object:nil];
-		[defaultCenter addObserver:self selector:@selector(buildDidEnd:)     name:kMavenNotifiactionBuildDidEnd   object:nil];
-		[defaultCenter addObserver:self selector:@selector(projectDidStart:) name:kMavenNotifiactionProjectDidStart object:nil];
-	}
-	
-	return self;
-}
-
--(void)buildDidStart:(NSNotification *)notification
-{
-	NSDictionary *userInfo = [notification userInfo];
-	NSArray *taskList = [userInfo objectForKey:kMavenNotifiactionBuildDidStart_taskList];
-	
 	[self.taskList removeAllObjects];
 	[self.taskList addObjectsFromArray:taskList];
 }
 
--(void)buildDidEnd:(NSNotification *)notification
+-(void)buildDidEndSuccessfully:(BOOL) result
 {
-	NSDictionary *userInfo = [notification userInfo];
-	BOOL result = [userInfo objectForKey:kMavenNotifiactionBuildDidEnd_result];
 	self.result = result;
 }
 
--(void)projectDidStart:(NSNotification *)notification
+-(void)projectDidStartWithName:(NSString *)taskName
 {
-	NSDictionary *userInfo = [notification userInfo];
-	NSString *taskName = [userInfo objectForKey:kMavenNotifiactionProjectDidStart_taskName];
-	
 	[self.doneTasks addObject:taskName];
 }
 

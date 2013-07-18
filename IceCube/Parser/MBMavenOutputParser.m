@@ -39,18 +39,22 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 	MBParserState state;
 	NSMutableArray *taskList;
 	NSInteger ignoredLines;
+	
+	id<MBMavenOutputParserDelegate> delegate;
 }
 
 @end
 
 @implementation MBMavenOutputParser
 
--(id)init
+-(instancetype)initWithDelegate:(id<MBMavenOutputParserDelegate>)parserDelegate
 {
 	if (self = [super init]) {
 		state = kStartState;
 		taskList = [[NSMutableArray alloc] init];
 		ignoredLines = 0;
+		
+		delegate = parserDelegate;
 	}
 	return self;
 }
@@ -71,24 +75,22 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 				return;
 			}
 			
-			if ([line length] <=  [kEmptyLinePrefix length]) {
+			if ([line hasPrefix:kEmptyLinePrefix]) {
 				state = kScanningEndState;
 				return;
 			}
 			
-			NSRange range = NSMakeRange([kInfoLinePrefix length], ([line length] - [kInfoLinePrefix length]));
+			NSRange range = [self makeRangeFromLine:line withPrefix:kInfoLinePrefix];
 			NSString *projectName = [line substringWithRange:range];
-			[taskList addObject:projectName];
 			
+			[taskList addObject:projectName];
 			break;
 		}
 		case kScanningEndState:
 		{
-			NSDictionary *userInfo= @{kMavenNotifiactionBuildDidStart_taskList: [taskList copy]};
-			[[NSNotificationCenter defaultCenter] postNotificationName:kMavenNotifiactionBuildDidStart
-																object:nil
-															  userInfo:userInfo];
+			[delegate buildDidStartWithTaskList:[taskList copy]];
 			taskList = nil;
+			
 			state = kProjectDeclarationStartState;
 			break;
 		}
@@ -99,13 +101,12 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 				return;
 			}
 			
-			NSRange range = NSMakeRange([kBuildingPrefix length], ([line length] - [kBuildingPrefix length]));
-			NSString *taskName = [line substringWithRange:range];
-			
-			NSDictionary *userInfo = @{kMavenNotifiactionProjectDidStart_taskName: taskName};
-			[[NSNotificationCenter defaultCenter] postNotificationName:kMavenNotifiactionProjectDidStart
-																object:nil
-															  userInfo:userInfo];
+			if ([delegate respondsToSelector:@selector(projectDidStartWithName:)]) {
+				NSRange range = [self makeRangeFromLine:line withPrefix:kBuildingPrefix];
+				NSString *taskName = [line substringWithRange:range];
+				
+				[delegate projectDidStartWithName:taskName];
+			}
 			
 			state = kProjectDeclarationEndState;
 			break;
@@ -126,14 +127,10 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 		case kBuildDone:
 		{
 			if ([line hasPrefix:kBuildSuccessPrefix]) {
-				[[NSNotificationCenter defaultCenter] postNotificationName:kMavenNotifiactionBuildDidEnd
-																	object:nil
-																  userInfo:@{kMavenNotifiactionBuildDidEnd_result: @YES}];
+				[delegate buildDidEndSuccessfully:YES];
 			}
 			else if ([line hasPrefix:kBuildErrorPrefix]) {
-				[[NSNotificationCenter defaultCenter] postNotificationName:kMavenNotifiactionBuildDidEnd
-																	object:nil
-																  userInfo:@{kMavenNotifiactionBuildDidEnd_result: @NO}];
+				[delegate buildDidEndSuccessfully:NO];
 			}
 			
 			// we are in final stage so other lines are ignored
@@ -145,6 +142,19 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 			break;
 		}
 	}
+}
+
+-(NSRange)makeRangeFromLine:(NSString *)line
+				 withPrefix:(NSString *)prefix
+{
+	NSUInteger loc = [prefix length];
+	NSUInteger len = ([line length] - [prefix length]);
+	
+	if ([line hasSuffix:@"\n"]) {
+		len--;
+	}
+	
+	return NSMakeRange(loc, len);
 }
 
 @end

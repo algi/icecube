@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MBMavenOutputParserDelegate.h"
+
 extern NSString * const kMavenNotifiactionBuildDidStart;
 extern NSString * const kMavenNotifiactionBuildDidEnd;
 extern NSString * const kMavenNotifiactionProjectDidStart;
@@ -17,6 +19,8 @@ extern NSString * const kMavenNotifiactionBuildDidEnd_result;
 extern NSString * const kMavenNotifiactionProjectDidStart_taskName;
 
 @interface MBMavenOutputParser : NSObject
+
+-(instancetype)initWithDelegate:(id<MBMavenOutputParserDelegate>)delegate;
 
 -(void)parseLine:(NSString *)line;
 
