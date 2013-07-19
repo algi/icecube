@@ -8,15 +8,9 @@
 
 #import "MBMavenOutputParserTests.h"
 
+#import "MBTestAdditions.h"
 #import "DDFileReader.h"
 #import "MBMavenOutputParserTestObserver.h"
-
-#define MBAssertArraysEquals(a1, a2, description, ...) \
-do { \
-  if (![a1 isEqualToArray:a2]) { \
-    STFail(description); \
-  } \
-} while(0) \
 
 @implementation MBMavenOutputParserTests
 
@@ -51,7 +45,7 @@ do { \
 		  @"Mock",
 		  @"Jasper reports",
 		  @"Web"];
-	MBAssertArraysEquals(expectedTaskList, taskList, @"Expected task list must be the same as produced one.");
+	MBAssertEqualArrays(expectedTaskList, taskList, @"Expected task list must be the same as produced one.");
 	
 	// kontrola vykonaných tasků
 	NSArray *expectedDoneTasks = @[
@@ -62,7 +56,7 @@ do { \
 		@"Mock 1.0-SNAPSHOT",
 		@"Jasper reports 1.0-SNAPSHOT",
 		@"Web 1.0-SNAPSHOT"];
-	MBAssertArraysEquals(expectedDoneTasks, doneTasks, @"Expected done task list must be the same as produced one.");
+	MBAssertEqualArrays(expectedDoneTasks, doneTasks, @"Expected done task list must be the same as produced one.");
 }
 
 @end

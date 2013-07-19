@@ -51,6 +51,7 @@
 		568DB456170888BB00AC385F /* MBMavenOutputParserTestObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParserTestObserver.m; sourceTree = "<group>"; };
 		568DB4611709ABFD00AC385F /* MBTaskOutputReaderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskOutputReaderTests.h; sourceTree = "<group>"; };
 		568DB4621709ABFE00AC385F /* MBTaskOutputReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskOutputReaderTests.m; sourceTree = "<group>"; };
+		569850621799283C002E8D3A /* MBTestAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBTestAdditions.h; sourceTree = "<group>"; };
 		56AB1B8716E3BFB000831747 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		56AB1B8916E48B3300831747 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		56C6289117103F7A00DF4E4F /* DDFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileReader.h; sourceTree = "<group>"; };
@@ -215,6 +216,7 @@
 		56FE8EAA167BA1A80001AAED /* IceCubeTests */ = {
 			isa = PBXGroup;
 			children = (
+				569850621799283C002E8D3A /* MBTestAdditions.h */,
 				568DB4611709ABFD00AC385F /* MBTaskOutputReaderTests.h */,
 				568DB4621709ABFE00AC385F /* MBTaskOutputReaderTests.m */,
 				56F578EB1797E513007E85A8 /* Output parser tests */,
