@@ -23,7 +23,7 @@
 	task.currentDirectoryPath = @"/";
 	
 	__block NSInteger count = 0;
-	[task launchWithCallback:^(NSString *line) {
+	[task launchWithTaskOutputBlock:^(NSString *line) {
 		count++;
 	}];
 	

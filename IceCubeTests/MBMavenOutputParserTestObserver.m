@@ -26,4 +26,9 @@
 	[self.doneTasks addObject:taskName];
 }
 
+-(void)newLineDidRecieve:(NSString *)line
+{
+	// noop
+}
+
 @end

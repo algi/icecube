@@ -13,7 +13,7 @@
 -(void)buildDidStartWithTaskList:(NSArray *)taskList;
 -(void)buildDidEndSuccessfully:(BOOL) result;
 
-@optional
 -(void)projectDidStartWithName:(NSString *)name;
+-(void)newLineDidRecieve:(NSString *)line;
 
 @end

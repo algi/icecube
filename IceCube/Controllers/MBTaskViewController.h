@@ -10,11 +10,14 @@
 
 @interface MBTaskViewController : NSObject
 
-@property(assign) NSTextField *commands;
-@property(assign) NSTextField *arguments;
-@property(assign) NSTextView *outputArea;
+@property(assign) IBOutlet NSToolbarItem *runTaskButton;
+@property(assign) IBOutlet NSToolbarItem *stopTaskButton;
 
--(void)startTask;
--(void)stopTask;
+@property(assign) IBOutlet NSTextField *commands;
+@property(assign) IBOutlet NSTextField *arguments;
+@property(assign) IBOutlet NSTextView *outputArea;
+
+-(IBAction)startTask:(id)sender;
+-(IBAction)stopTask:(id)sender;
 
 @end

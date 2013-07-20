@@ -31,7 +31,6 @@
 
 #pragma mark - Actions -
 - (IBAction)runAction:(id)sender;
-- (IBAction)stopAction:(id)sender;
 - (IBAction)showPreferences:(id)sender;
 
 #pragma mark - CoreData stack -

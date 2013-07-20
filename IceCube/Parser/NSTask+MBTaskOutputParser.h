@@ -10,6 +10,6 @@
 
 @interface NSTask (MBTaskOutputParser)
 
--(void)launchWithCallback:(void (^)(NSString *line))delegateBlock;
+-(void)launchWithTaskOutputBlock:(void (^)(NSString *line))delegateBlock;
 
 @end

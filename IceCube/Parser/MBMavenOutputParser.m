@@ -18,14 +18,6 @@ typedef enum {
 	kBuildDone
 } MBParserState;
 
-NSString * const kMavenNotifiactionBuildDidStart = @"MBMavenBuildDidStart";
-NSString * const kMavenNotifiactionBuildDidEnd = @"MBMavenBuildDidEnd";
-NSString * const kMavenNotifiactionProjectDidStart = @"MBMavenProjectDidStart";
-
-NSString * const kMavenNotifiactionBuildDidStart_taskList = @"taskList";
-NSString * const kMavenNotifiactionBuildDidEnd_result = @"result";
-NSString * const kMavenNotifiactionProjectDidStart_taskName = @"taskName";
-
 // build line prefixes
 NSString * const kBuildingPrefix =  @"[INFO] Building ";
 NSString * const kInfoLinePrefix =  @"[INFO] ";
@@ -60,7 +52,9 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 }
 
 -(void)parseLine:(NSString *)line
-{	
+{
+	[delegate newLineDidRecieve:line];
+	
 	switch (state) {
 		case kStartState:
 		{
@@ -101,12 +95,10 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 				return;
 			}
 			
-			if ([delegate respondsToSelector:@selector(projectDidStartWithName:)]) {
-				NSRange range = [self makeRangeFromLine:line withPrefix:kBuildingPrefix];
-				NSString *taskName = [line substringWithRange:range];
-				
-				[delegate projectDidStartWithName:taskName];
-			}
+			NSRange range = [self makeRangeFromLine:line withPrefix:kBuildingPrefix];
+			NSString *taskName = [line substringWithRange:range];
+			
+			[delegate projectDidStartWithName:taskName];
 			
 			state = kProjectDeclarationEndState;
 			break;

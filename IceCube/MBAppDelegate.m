@@ -17,7 +17,7 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+- (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
@@ -33,13 +33,6 @@
 	[self.pathControll setDoubleAction:@selector(showOpenDialogAction:)];
 	
 	[self.window setRepresentedURL:workingDirectory];
-	
-	[[NSNotificationCenter defaultCenter] addObserver:nil selector:nil name:kMavenNotifiactionBuildDidEnd object:nil];
-}
-
--(void)awakeFromNib
-{
-	[super awakeFromNib];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
@@ -48,7 +41,6 @@
     return YES;
 }
 
-// TODO je to docela prasárna mít tyhle věci v NSApplicationDelegate a ne v NSWindowController
 - (IBAction)runAction:(id)sender
 {
 	if (self.task) {
@@ -83,17 +75,13 @@
 	NSString *path = [urlPath path];
 	[self.task setCurrentDirectoryPath:path];
 	
-	id pipe = [NSPipe pipe];
-	[self.task setStandardOutput:pipe];
-	[self.task setStandardError:pipe];
-	
 	[self taskDidStartInDirectory:path withApplication:launchPath command:command];
 	
 	// spuštění úlohy ve novém vlákně (normální priorita)
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul), ^{
 		
 		MBMavenOutputParser *parser = [[MBMavenOutputParser alloc] init];
-		[self.task launchWithCallback:^(NSString *line) {
+		[self.task launchWithTaskOutputBlock:^(NSString *line) {
 			[parser parseLine:line];
 			
 			// úprava GUI musí být spuštěna na hlavním vlákně
@@ -119,9 +107,9 @@
 	[self.outputTextView scrollRangeToVisible:NSMakeRange([[self.outputTextView string] length], 0)];
 }
 
-- (void)taskDidStartInDirectory: (NSString *)projectDirectory
-				withApplication: (NSString *)appPath
-						command: (NSString *)mavenCommand
+- (void)taskDidStartInDirectory:(NSString *)projectDirectory
+				withApplication:(NSString *)appPath
+						command:(NSString *)mavenCommand
 {
 	[self.progressIndicator startAnimation:self];
 	
@@ -132,8 +120,7 @@
 // z parseru
 -(void)buildDidEnd:(NSNotification *)notification
 {
-	NSDictionary *userInfo = [notification userInfo];
-	BOOL result = [userInfo objectForKey:kMavenNotifiactionBuildDidEnd_result];
+	BOOL result = NO; // TODO ...
 	self.buildWasSuccessful = result;
 }
 
@@ -155,11 +142,6 @@
 	}
 	
 	[[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
-}
-
-- (IBAction)stopAction:(id)sender
-{
-	[self.task terminate]; // SIGTERM
 }
 
 - (void)showOpenDialogAction:(id)sender

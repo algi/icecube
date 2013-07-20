@@ -8,46 +8,39 @@
 
 #import "MBTaskViewController.h"
 
-#import "NSTask+MBTaskOutputParser.h"
+#import "MBMavenTaskExecutor.h"
 
 @interface MBTaskViewController ()
 
-@property NSTask *currentTask;
+@property MBMavenTaskExecutor *executor;
 
 @end
 
 @implementation MBTaskViewController
 
--(void)startTask
+-(id)init
 {
-	// do not start already running task
-	@synchronized(self.currentTask) {
-		if (self.currentTask) {
-			return;
-		}
+	self = [super init];
+	
+	if (self) {
+		_executor = [[MBMavenTaskExecutor alloc]init];
+		// TODO addObservers
 	}
 	
-	self.currentTask = [[NSTask alloc] init];
-	
-	// TODO configure task
-	
-	// TODO launch task on separate thread
-	__weak MBTaskViewController *myself = self;
-	[self.currentTask setTerminationHandler:^(NSTask *task) {
-		NSLog(@"Task did end.");
-		
-		myself.currentTask = nil;
-	}];
-	
-	[self.currentTask launchWithCallback:^(NSString *line) {
-		NSLog(@"%@", line);
-	}];
+	return self;
 }
 
--(void)stopTask
+-(IBAction)startTask:(id)sender
 {
-	[self.currentTask terminate];
-	self.currentTask = nil;
+	NSString *args = nil;
+	NSURL *path = nil;
+	
+	[self.executor launchWithArguments:args onPath:path];
+}
+
+-(IBAction)stopTask:(id)sender
+{
+	[self.executor terminate];
 }
 
 @end

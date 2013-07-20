@@ -10,7 +10,7 @@
 
 @implementation NSTask (MBTaskOutputParser)
 
--(void)launchWithCallback:(void (^)(NSString *))delegateBlock
+-(void)launchWithTaskOutputBlock:(void (^)(NSString *))delegateBlock
 {
 	id pipe = [NSPipe pipe];
 	[self setStandardOutput:pipe];
