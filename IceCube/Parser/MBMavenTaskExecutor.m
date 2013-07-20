@@ -49,8 +49,8 @@
 }
 
 #pragma mark - Task manipulation -
--(void)launchWithArguments:(NSString *)arguments
-					onPath:(NSURL *)path
+-(void)launchMavenWithArguments:(NSString *)arguments
+						 onPath:(NSURL *)path
 {
 	if ([self isRunning]) {
 		NSAssert(false, @"Task is already running!");

@@ -16,8 +16,8 @@
 -(void)addExecutionObserver:(id<MBMavenOutputParserDelegate>)observer;
 -(void)removeExecutionObserver:(id<MBMavenOutputParserDelegate>)observer;
 
--(void)launchWithArguments:(NSString *)arguments
-					onPath:(NSURL *)path;
+-(void)launchMavenWithArguments:(NSString *)arguments
+						 onPath:(NSURL *)path;
 -(BOOL)isRunning;
 -(void)terminate;
 
