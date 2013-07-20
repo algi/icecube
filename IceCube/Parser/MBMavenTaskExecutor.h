@@ -12,9 +12,7 @@
 
 @interface MBMavenTaskExecutor : NSObject
 
-// delegate methods will be executed on main thread using asynchronous execution
--(void)addExecutionObserver:(id<MBMavenOutputParserDelegate>)observer;
--(void)removeExecutionObserver:(id<MBMavenOutputParserDelegate>)observer;
+@property(assign) id<MBMavenOutputParserDelegate> executionObserver;
 
 -(void)launchMavenWithArguments:(NSString *)arguments
 						 onPath:(NSURL *)path;

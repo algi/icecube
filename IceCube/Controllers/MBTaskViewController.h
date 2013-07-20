@@ -13,9 +13,9 @@
 @property(assign) IBOutlet NSToolbarItem *runTaskButton;
 @property(assign) IBOutlet NSToolbarItem *stopTaskButton;
 
-@property(assign) IBOutlet NSTextField *commands;
-@property(assign) IBOutlet NSTextField *arguments;
-@property(assign) IBOutlet NSTextView *outputArea;
+@property(assign) IBOutlet NSTextField *commandField;
+@property(assign) IBOutlet NSPathControl *pathControl;
+@property(assign) IBOutlet NSTextView *outputTextView;
 
 -(IBAction)startTask:(id)sender;
 -(IBAction)stopTask:(id)sender;

@@ -13,12 +13,9 @@
 
 #define kMavenApplicationPath @"maven.application.path"
 
-@interface MBMavenTaskExecutor () <MBMavenOutputParserDelegate> {
-	dispatch_queue_t main_queue;
-}
+@interface MBMavenTaskExecutor ()
 
 @property NSTask *task;
-@property NSMutableArray *executionObservers;
 
 @end
 
@@ -29,23 +26,10 @@
 	self = [super init];
 	
 	if (self) {
-		main_queue = dispatch_get_main_queue();
-		
 		_task = [[NSTask alloc] init];
-		_executionObservers = [[NSMutableArray alloc] init];
 	}
 	
 	return self;
-}
-
--(void)addExecutionObserver:(id<MBMavenOutputParserDelegate>)observer
-{
-	[self.executionObservers addObject:observer];
-}
-
--(void)removeExecutionObserver:(id<MBMavenOutputParserDelegate>)observer
-{
-	[self.executionObservers removeObject:observer];
 }
 
 #pragma mark - Task manipulation -
@@ -71,9 +55,8 @@
 	NSString *directoryPath = [path path];
 	[self.task setCurrentDirectoryPath:directoryPath];
 	
-	// start async with normal priority
-	__weak id<MBMavenOutputParserDelegate> delegate = self;
-	MBMavenOutputParser *parser = [[MBMavenOutputParser alloc]initWithDelegate:delegate];
+	// start async with normal priority on new thread
+	MBMavenOutputParser *parser = [[MBMavenOutputParser alloc]initWithDelegate:self.executionObserver];
 	
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul), ^{
 		[self.task launchWithTaskOutputBlock:^(NSString *line) {
@@ -90,44 +73,7 @@
 -(void)terminate
 {
 	[self.task terminate];
-	[self buildDidEndSuccessfully:NO];
-}
-
-#pragma mark - MBMavenOutputParserDelegate methods -
--(void)buildDidStartWithTaskList:(NSArray *)taskList
-{
-	for (id observer in self.executionObservers) {
-		dispatch_async(main_queue, ^{
-			[observer buildDidStartWithTaskList:taskList];
-		});
-	}
-}
-
--(void)buildDidEndSuccessfully:(BOOL)result
-{
-	for (id observer in self.executionObservers) {
-		dispatch_async(main_queue, ^{
-			[observer buildDidEndSuccessfully:result];
-		});
-	}
-}
-
--(void)projectDidStartWithName:(NSString *)name
-{
-	for (id observer in self.executionObservers) {
-		dispatch_async(main_queue, ^{
-			[observer projectDidStartWithName:name];
-		});
-	}
-}
-
--(void)newLineDidRecieve:(NSString *)line
-{
-	for (id observer in self.executionObservers) {
-		dispatch_async(main_queue, ^{
-			[observer newLineDidRecieve:line];
-		});
-	}
+	[self.executionObserver buildDidEndSuccessfully:NO];
 }
 
 @end
