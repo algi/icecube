@@ -1361,7 +1361,7 @@
 					<reference key="NSNextKeyView" ref="449135733"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<int key="NSWindowCollectionBehavior">128</int>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -1425,7 +1425,7 @@
 					<reference key="NSNextKeyView" ref="1012952046"/>
 					<string key="NSReuseIdentifierKey">_NS:20</string>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
@@ -1842,78 +1842,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">window</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="905934534"/>
-					</object>
-					<int key="connectionID">908</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">runAction:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="898729535"/>
-					</object>
-					<int key="connectionID">1011</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">commandField</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="869138044"/>
-					</object>
-					<int key="connectionID">1012</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">runAction:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="869138044"/>
-					</object>
-					<int key="connectionID">1085</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">runTaskButton</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="898729535"/>
-					</object>
-					<int key="connectionID">1086</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">stopTaskButton</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="292072032"/>
-					</object>
-					<int key="connectionID">1087</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">stopAction:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="292072032"/>
-					</object>
-					<int key="connectionID">1088</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">pathControll</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="879259617"/>
-					</object>
-					<int key="connectionID">1169</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">outputTextView</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="951265332"/>
-					</object>
-					<int key="connectionID">1178</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">preferencesWindow</string>
 						<reference key="source" ref="976324537"/>
 						<reference key="destination" ref="872750491"/>
@@ -1927,94 +1855,6 @@
 						<reference key="destination" ref="609285721"/>
 					</object>
 					<int key="connectionID">1239</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">progressIndicator</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="662383019"/>
-					</object>
-					<int key="connectionID">1256</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">documentEdited: self.task</string>
-						<reference key="source" ref="905934534"/>
-						<reference key="destination" ref="976324537"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="905934534"/>
-							<reference key="NSDestination" ref="976324537"/>
-							<string key="NSLabel">documentEdited: self.task</string>
-							<string key="NSBinding">documentEdited</string>
-							<string key="NSKeyPath">self.task</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSIsNotNil</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">1244</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: self.task</string>
-						<reference key="source" ref="898729535"/>
-						<reference key="destination" ref="976324537"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="898729535"/>
-							<reference key="NSDestination" ref="976324537"/>
-							<string key="NSLabel">enabled: self.task</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">self.task</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSIsNil</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">1100</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: self.task</string>
-						<reference key="source" ref="292072032"/>
-						<reference key="destination" ref="976324537"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="292072032"/>
-							<reference key="NSDestination" ref="976324537"/>
-							<string key="NSLabel">enabled: self.task</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">self.task</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSIsNotNil</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">1102</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: self.task</string>
-						<reference key="source" ref="869138044"/>
-						<reference key="destination" ref="976324537"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="869138044"/>
-							<reference key="NSDestination" ref="976324537"/>
-							<string key="NSLabel">enabled: self.task</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">self.task</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSIsNil</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">1104</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -2039,46 +1879,6 @@
 						</object>
 					</object>
 					<int key="connectionID">1180</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: self.task</string>
-						<reference key="source" ref="1019918029"/>
-						<reference key="destination" ref="976324537"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="1019918029"/>
-							<reference key="NSDestination" ref="976324537"/>
-							<string key="NSLabel">enabled: self.task</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">self.task</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSIsNil</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">1110</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: self.task</string>
-						<reference key="source" ref="879259617"/>
-						<reference key="destination" ref="976324537"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="879259617"/>
-							<reference key="NSDestination" ref="976324537"/>
-							<string key="NSLabel">enabled: self.task</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">self.task</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSIsNil</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">1174</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
