@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MBTaskViewController : NSObject
+@interface MBTaskViewController : NSWindowController
 
 @property(assign) IBOutlet NSToolbarItem *runTaskButton;
 @property(assign) IBOutlet NSToolbarItem *stopTaskButton;
@@ -16,6 +16,9 @@
 @property(assign) IBOutlet NSTextField *commandField;
 @property(assign) IBOutlet NSPathControl *pathControl;
 @property(assign) IBOutlet NSTextView *outputTextView;
+
+@property (assign) IBOutlet NSPathControl *pathControll;
+@property(assign) IBOutlet NSProgressIndicator *progressIndicator;
 
 -(IBAction)startTask:(id)sender;
 -(IBAction)stopTask:(id)sender;

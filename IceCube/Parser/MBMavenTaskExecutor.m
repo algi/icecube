@@ -72,8 +72,10 @@
 
 -(void)terminate
 {
-	[self.task terminate];
-	[self.executionObserver buildDidEndSuccessfully:NO];
+	if ([self.task isRunning]) {
+		[self.task terminate];
+		[self.executionObserver buildDidEndSuccessfully:NO];
+	}
 }
 
 @end
