@@ -136,9 +136,7 @@
 
 -(void)projectDidStartWithName:(NSString *)name
 {
-	dispatch_async(dispatch_get_main_queue(), ^{
-		// ...
-	});
+	// we are not interested for now
 }
 
 -(void)newLineDidRecieve:(NSString *)line
