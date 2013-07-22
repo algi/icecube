@@ -10,6 +10,11 @@
 
 @implementation MBMavenOutputParserTestObserver
 
+-(void)task:(NSString *)executable willStartWithArguments:(NSString *)arguments onPath:(NSString *)projectDirectory
+{
+	// noop
+}
+
 -(void)buildDidStartWithTaskList:(NSArray *)taskList
 {
 	[self.taskList removeAllObjects];

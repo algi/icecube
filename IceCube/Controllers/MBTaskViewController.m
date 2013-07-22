@@ -72,8 +72,8 @@
 
 -(IBAction)startTask:(id)sender
 {
-	NSString *command = [self.commandField stringValue];
-	if ([command length] == 0) {
+	NSString *args = [self.commandField stringValue];
+	if ([args length] == 0) {
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert setMessageText: @"Nelze spustit prázdný příkaz."];
 		
@@ -84,10 +84,10 @@
 		return;
 	}
 	
-	NSString *args = [self.commandField stringValue];
 	NSURL *path = [self.pathControl URL];
 	
-	[self.executor launchMavenWithArguments:args onPath:path];
+	[self.executor launchMavenWithArguments:args
+									 onPath:path];
 }
 
 -(IBAction)stopTask:(id)sender
@@ -96,21 +96,25 @@
 }
 
 #pragma mark - Observer methods -
+-(void)task:(NSString *)executable willStartWithArguments:(NSString *)arguments onPath:(NSString *)projectDirectory
+{
+	[self.progressIndicator startAnimation:self];
+	
+	NSString *executionHeader = [NSString stringWithFormat:@"$ cd %@\n$ %@ %@\n\n",
+								 projectDirectory,
+								 executable,
+								 arguments];
+	[self.outputTextView setString:executionHeader];
+}
+
 -(void)buildDidStartWithTaskList:(NSArray *)taskList
 {
-	dispatch_async(dispatch_get_main_queue(), ^{
-		[self.progressIndicator startAnimation:self];
-		
-		NSString *projectDirectory = [[self.pathControl URL] path];
-		NSString *executable = @"mvn";
-		NSString *arguments = [self.commandField stringValue];
-		
-		NSString *executionHeader = [NSString stringWithFormat:@"$ cd %@\n$ %@ %@\n\n",
-									 projectDirectory,
-									 executable,
-									 arguments];
-		[self.outputTextView setString:executionHeader];
-	});
+	// we are not interested for now
+}
+
+-(void)projectDidStartWithName:(NSString *)name
+{
+	// we are not interested for now
 }
 
 -(void)buildDidEndSuccessfully:(BOOL)buildWasSuccessful
@@ -132,11 +136,6 @@
 		
 		[[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
 	});
-}
-
--(void)projectDidStartWithName:(NSString *)name
-{
-	// we are not interested for now
 }
 
 -(void)newLineDidRecieve:(NSString *)line
