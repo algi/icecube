@@ -1,14 +1,9 @@
-# IceCube README
+# IceCube
 
-Spouštěč Maven příkazů v Cocoa.
-Autor: Marian Bouček
+Maven frontend that allows launching saved build configurations. It is currently in refactoring stage that will allow to use more windows than one.
 
-## Důležité TODO
-* Spuštění tasku přes XPC (pomocí knihovny DSUnixTask)
-* Zobrazení aktuálního tasku pomocí panelu umístěném v toolbaru
-* REFAKTORING MBAppDelegate !!
-
-## Ostatní TODO
-* Podpora dokumentů pomocí CoreData
-* Nastavení okna - fonty, notifikace
-* Nápověda při psaní Maven příkazů
+## TODO
+* refactoring from NSAppDelegate to NSWindowController (in progress)
+* creation of more windows (workspaces?) - probably with CoreData
+* (maybe) toolbar item similar to that one in Xcode or iTunes
+* (maybe) better parsing support - currently running plugin
