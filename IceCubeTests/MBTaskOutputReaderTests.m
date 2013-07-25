@@ -14,7 +14,7 @@
 -(void)testLaunchNonExistingGoal
 {
 	NSBundle *testBundle = [NSBundle bundleForClass:[self class]];
-	NSString *filePath = [testBundle pathForResource:@"errorLog" ofType: @"txt"];
+	NSString *filePath = [testBundle pathForResource:@"build-success" ofType: @"txt"];
 	
 	NSTask *task = [[NSTask alloc] init];
 	

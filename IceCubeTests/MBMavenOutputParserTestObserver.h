@@ -13,7 +13,7 @@
 @interface MBMavenOutputParserTestObserver : NSObject<MBMavenOutputParserDelegate>
 
 @property BOOL result;
-@property(assign) NSMutableArray *taskList;
-@property(assign) NSMutableArray *doneTasks;
+@property NSMutableArray *taskList;
+@property NSMutableArray *doneTasks;
 
 @end

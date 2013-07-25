@@ -14,29 +14,11 @@
 
 @implementation MBMavenOutputParserTests
 
--(void)testReadErrorLog
+-(void)testReadBuildSuccess
 {
-	NSBundle *testBundle = [NSBundle bundleForClass:[self class]];
-	NSString *filePath = [testBundle pathForResource:@"errorLog" ofType: @"txt"];
-		
-	NSMutableArray *taskList = [[NSMutableArray alloc] init];
-	NSMutableArray *doneTasks = [[NSMutableArray alloc] init];
-	
-	MBMavenOutputParserTestObserver *testObserver = [[MBMavenOutputParserTestObserver alloc] init];
-	testObserver.taskList = taskList;
-	testObserver.doneTasks = doneTasks;
-	
-	MBMavenOutputParser *parser = [[MBMavenOutputParser alloc] initWithDelegate:testObserver];
-	DDFileReader *reader = [[DDFileReader alloc] initWithFilePath:filePath];
-	
-	[reader enumerateLinesUsingBlock:^(NSString* line, BOOL* stop) {
-		[parser parseLine:line];
-	}];
-	
-	// kontroly výsledků
+	MBMavenOutputParserTestObserver *testObserver = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-success"];
 	STAssertTrue(testObserver.result, @"Build must be successful.");
 	
-	// kontrola očekávaných tasků
 	NSArray *expectedTaskList = @[
 		  @"PKO parent",
 		  @"Common",
@@ -45,9 +27,8 @@
 		  @"Mock",
 		  @"Jasper reports",
 		  @"Web"];
-	MBAssertEqualArrays(expectedTaskList, taskList, @"Expected task list must be the same as produced one.");
+	MBAssertEqualArrays(expectedTaskList, testObserver.taskList, @"Expected task list must be the same as produced one.");
 	
-	// kontrola vykonaných tasků
 	NSArray *expectedDoneTasks = @[
 		@"PKO parent 1.0-SNAPSHOT",
 		@"Common 1.0-SNAPSHOT",
@@ -56,7 +37,47 @@
 		@"Mock 1.0-SNAPSHOT",
 		@"Jasper reports 1.0-SNAPSHOT",
 		@"Web 1.0-SNAPSHOT"];
-	MBAssertEqualArrays(expectedDoneTasks, doneTasks, @"Expected done task list must be the same as produced one.");
+	MBAssertEqualArrays(expectedDoneTasks, testObserver.doneTasks, @"Expected done task list must be the same as produced one.");
+}
+
+-(void)testReadBuildFailure
+{
+	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure"];
+	
+	STAssertFalse(observer.result, @"Build must be failure.");
+	STAssertTrue([observer.taskList count] == 0, @"Task list must be empty.");
+	STAssertTrue([observer.doneTasks count] == 0,  @"Done tasks must be empty.");
+}
+
+-(void)testReadBuildFailure2
+{
+	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure-2"];
+	
+	STAssertFalse(observer.result, @"Build must be failure.");
+	STAssertTrue([observer.taskList count] == 0, @"Task list must be empty.");
+	STAssertTrue([observer.doneTasks count] == 0,  @"Done tasks must be empty.");
+}
+
+#pragma mark - Utility methods -
++(MBMavenOutputParserTestObserver *)launchedTestObserverForResource:(NSString *)resource
+{
+	NSBundle *testBundle = [NSBundle bundleForClass:[self class]];
+	NSString *filePath = [testBundle pathForResource:resource ofType: @"txt"];
+	
+	NSAssert1(filePath != nil, @"Path doesn't exist for resource %@ of type txt.", resource);
+	
+	MBMavenOutputParserTestObserver *testObserver = [[MBMavenOutputParserTestObserver alloc] init];
+	testObserver.taskList = [[NSMutableArray alloc] init];
+	testObserver.doneTasks = [[NSMutableArray alloc] init];
+	
+	MBMavenOutputParser *parser = [[MBMavenOutputParser alloc] initWithDelegate:testObserver];
+	DDFileReader *reader = [[DDFileReader alloc] initWithFilePath:filePath];
+	
+	[reader enumerateLinesUsingBlock:^(NSString* line, BOOL* stop) {
+		[parser parseLine:line];
+	}];
+	
+	return testObserver;
 }
 
 @end
