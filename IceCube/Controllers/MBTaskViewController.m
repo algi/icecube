@@ -19,9 +19,9 @@
 
 @implementation MBTaskViewController
 
-- (id)initWithWindow:(NSWindow *)window
+- (id)init
 {
-	self = [super initWithWindow:window];
+	self = [super init];
 	if (self) {
 		_executor = [[MBMavenTaskExecutor alloc] init];
 		
@@ -43,8 +43,8 @@
 		[defaults setURL:workingDirectory forKey:kMavenWorkingDirectory];
 	}
 	
-	[self.pathControll setURL:workingDirectory];
-	[self.pathControll setDoubleAction:@selector(showOpenDialogAction:)];
+	[self.pathControl setURL:workingDirectory];
+	[self.pathControl setDoubleAction:@selector(showOpenDialogAction:)];
 	
 	[self.window setRepresentedURL:workingDirectory];
 }
@@ -62,7 +62,7 @@
 			NSArray *urls = [openPanel URLs];
 			NSURL *url = [urls objectAtIndex:0];
 			
-			[self.pathControll setURL:url];
+			[self.pathControl setURL:url];
 			[self.window setRepresentedURL:url];
 			
 			[[NSUserDefaults standardUserDefaults] setURL:url forKey:kMavenWorkingDirectory];
@@ -85,9 +85,7 @@
 	}
 	
 	NSURL *path = [self.pathControl URL];
-	
-	[self.executor launchMavenWithArguments:args
-									 onPath:path];
+	[self.executor launchMavenWithArguments:args onPath:path];
 }
 
 -(IBAction)stopTask:(id)sender
