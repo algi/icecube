@@ -15,7 +15,8 @@ typedef enum {
 	kProjectDeclarationStartState,
 	kProjectDeclarationEndState,
 	kProjectRunningState,
-	kBuildDone
+	kBuildDone,
+	kScanIgnoredState
 } MBParserState;
 
 // build line prefixes
@@ -26,6 +27,7 @@ NSString * const kStateSeparatorLinePrefix = @"[INFO] ----";
 NSString * const kReactorSummaryLinePrefix = @"[INFO] Reactor Summary:";
 NSString * const kBuildSuccessPrefix = @"[INFO] BUILD SUCCESS";
 NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
+NSString * const kReactorBuildOrder = @"[INFO] Reactor Build Order:";
 
 @interface MBMavenOutputParser () {
 	MBParserState state;
@@ -44,7 +46,7 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 	if (self = [super init]) {
 		state = kStartState;
 		taskList = [[NSMutableArray alloc] init];
-		ignoredLines = 0;
+		ignoredLines = 2; // skip "Scanning for projects..." and divider line
 		
 		delegate = parserDelegate;
 	}
@@ -55,20 +57,28 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 {
 	[delegate newLineDidRecieve:line];
 	
+	if (ignoredLines > 0) {
+		ignoredLines--;
+		return;
+	}
+	
 	switch (state) {
 		case kStartState:
 		{
-			ignoredLines = 3; // first three lines are unimportant, skip them
-			state = kScanningStartedState;
+			// there is no POM
+			if ([line hasPrefix:kBuildErrorPrefix]) {
+				[self detectBuildResultFromLine:line];
+				state = kScanIgnoredState;
+			}
+			else {
+				ignoredLines = 1; // ignore next divider line
+				state = kScanningStartedState;
+			}
+			
 			break;
 		}
 		case kScanningStartedState:
 		{
-			if (ignoredLines > 0) {
-				ignoredLines--;
-				return;
-			}
-			
 			if ([line hasPrefix:kEmptyLinePrefix]) {
 				state = kScanningEndState;
 				return;
@@ -118,13 +128,11 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 		}
 		case kBuildDone:
 		{
-			if ([line hasPrefix:kBuildSuccessPrefix]) {
-				[delegate buildDidEndSuccessfully:YES];
-			}
-			else if ([line hasPrefix:kBuildErrorPrefix]) {
-				[delegate buildDidEndSuccessfully:NO];
-			}
-			
+			[self detectBuildResultFromLine:line];
+			break;
+		}
+		case kScanIgnoredState:
+		{
 			// we are in final stage so other lines are ignored
 			break;
 		}
@@ -136,11 +144,26 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 	}
 }
 
+-(void)detectBuildResultFromLine:(NSString *)line
+{
+	if ([line hasPrefix:kBuildSuccessPrefix]) {
+		[delegate buildDidEndSuccessfully:YES];
+	}
+	else if ([line hasPrefix:kBuildErrorPrefix]) {
+		[delegate buildDidEndSuccessfully:NO];
+	}
+}
+
 -(NSRange)makeRangeFromLine:(NSString *)line
 				 withPrefix:(NSString *)prefix
 {
-	NSUInteger loc = [prefix length];
-	NSUInteger len = ([line length] - [prefix length]);
+	NSUInteger lineLenght = [line length];
+	NSUInteger prefixLenght = [prefix length];
+	
+	NSAssert3(lineLenght > prefixLenght, @"lineLenght %lu >= prefixLenght %lu on line: %@", lineLenght, prefixLenght, line);
+	
+	NSUInteger loc = prefixLenght;
+	NSUInteger len = (lineLenght - prefixLenght);
 	
 	if ([line hasSuffix:@"\n"]) {
 		len--;
