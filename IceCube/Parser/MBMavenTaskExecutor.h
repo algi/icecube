@@ -12,7 +12,7 @@
 
 @interface MBMavenTaskExecutor : NSObject
 
-@property(assign) id<MBMavenOutputParserDelegate> executionObserver;
+@property(weak) id<MBMavenOutputParserDelegate> executionObserver;
 
 -(void)launchMavenWithArguments:(NSString *)arguments
 						 onPath:(NSURL *)path;

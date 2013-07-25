@@ -21,25 +21,16 @@
 
 @implementation MBMavenTaskExecutor
 
--(id)init
-{
-	self = [super init];
-	
-	if (self) {
-		_task = [[NSTask alloc] init];
-	}
-	
-	return self;
-}
-
 #pragma mark - Task manipulation -
 -(void)launchMavenWithArguments:(NSString *)arguments
 						 onPath:(NSURL *)path
 {
-	if ([self isRunning]) {
-		NSAssert(false, @"Task is already running!");
+	if ([self.task isRunning]) {
+		NSAssert([self isRunning] != false, @"Task is already running!");
 		return;
 	}
+	
+	self.task = [[NSTask alloc] init];
 	
 	// setup task
 	NSString *launchPath = [[NSUserDefaults standardUserDefaults] stringForKey:kMavenApplicationPath];
