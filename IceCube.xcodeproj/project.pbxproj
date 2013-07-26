@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5632EE2216E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */; };
-		56479D7617A17C4C00380EBD /* build-failure-2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56479D7517A17C4C00380EBD /* build-failure-2.txt */; };
+		56479D7617A17C4C00380EBD /* build-failure-unknown-phase.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56479D7517A17C4C00380EBD /* build-failure-unknown-phase.txt */; };
 		568DB44E17082A7300AC385F /* build-success.txt in Resources */ = {isa = PBXBuildFile; fileRef = 568DB44D17082A7300AC385F /* build-success.txt */; };
 		568DB4511708622700AC385F /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB4501708622700AC385F /* MBMavenOutputParser.m */; };
 		568DB454170887D900AC385F /* MBMavenOutputParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB453170887D900AC385F /* MBMavenOutputParserTests.m */; };
@@ -16,7 +16,7 @@
 		568DB4631709ABFE00AC385F /* MBTaskOutputReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB4621709ABFE00AC385F /* MBTaskOutputReaderTests.m */; };
 		569850651799E2C2002E8D3A /* MBMavenTaskExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 569850641799E2C2002E8D3A /* MBMavenTaskExecutor.m */; };
 		56AB1B8816E3BFB000831747 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AB1B8716E3BFB000831747 /* QuartzCore.framework */; };
-		56BE045717A120E40046C6F5 /* build-failure.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56BE045617A120E40046C6F5 /* build-failure.txt */; };
+		56BE045717A120E40046C6F5 /* build-failure-no-pom.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56BE045617A120E40046C6F5 /* build-failure-no-pom.txt */; };
 		56C6289317103F7A00DF4E4F /* DDFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C6289217103F7A00DF4E4F /* DDFileReader.m */; };
 		56F578E41794A5B1007E85A8 /* MBTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E31794A5B1007E85A8 /* MBTaskViewController.m */; };
 		56F578E817972AF9007E85A8 /* NSTask+MBTaskOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E717972AF9007E85A8 /* NSTask+MBTaskOutputParser.m */; };
@@ -44,7 +44,7 @@
 /* Begin PBXFileReference section */
 		3E5ACCC678554D0EAA5F4D2F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "Icons-Land-Weather-Ice.icns"; path = "../Icons-Land-Weather-Ice.icns"; sourceTree = "<group>"; };
-		56479D7517A17C4C00380EBD /* build-failure-2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-2.txt"; sourceTree = "<group>"; };
+		56479D7517A17C4C00380EBD /* build-failure-unknown-phase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-unknown-phase.txt"; sourceTree = "<group>"; };
 		568DB44D17082A7300AC385F /* build-success.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-success.txt"; sourceTree = "<group>"; };
 		568DB44F1708622700AC385F /* MBMavenOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParser.h; sourceTree = "<group>"; };
 		568DB4501708622700AC385F /* MBMavenOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParser.m; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 		569E8930179DE20A006C5326 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		56AB1B8716E3BFB000831747 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		56AB1B8916E48B3300831747 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		56BE045617A120E40046C6F5 /* build-failure.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure.txt"; sourceTree = "<group>"; };
+		56BE045617A120E40046C6F5 /* build-failure-no-pom.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-pom.txt"; sourceTree = "<group>"; };
 		56C6289117103F7A00DF4E4F /* DDFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileReader.h; sourceTree = "<group>"; };
 		56C6289217103F7A00DF4E4F /* DDFileReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileReader.m; sourceTree = "<group>"; };
 		56F578E21794A5B1007E85A8 /* MBTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskViewController.h; sourceTree = "<group>"; };
@@ -238,8 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				568DB44D17082A7300AC385F /* build-success.txt */,
-				56BE045617A120E40046C6F5 /* build-failure.txt */,
-				56479D7517A17C4C00380EBD /* build-failure-2.txt */,
+				56BE045617A120E40046C6F5 /* build-failure-no-pom.txt */,
+				56479D7517A17C4C00380EBD /* build-failure-unknown-phase.txt */,
 				56FE8EAC167BA1A80001AAED /* IceCubeTests-Info.plist */,
 				56FE8EAD167BA1A80001AAED /* InfoPlist.strings */,
 			);
@@ -330,8 +330,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FE8EAF167BA1A80001AAED /* InfoPlist.strings in Resources */,
-				56479D7617A17C4C00380EBD /* build-failure-2.txt in Resources */,
-				56BE045717A120E40046C6F5 /* build-failure.txt in Resources */,
+				56479D7617A17C4C00380EBD /* build-failure-unknown-phase.txt in Resources */,
+				56BE045717A120E40046C6F5 /* build-failure-no-pom.txt in Resources */,
 				568DB44E17082A7300AC385F /* build-success.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

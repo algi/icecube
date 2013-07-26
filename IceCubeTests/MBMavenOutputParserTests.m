@@ -40,9 +40,9 @@
 	MBAssertEqualArrays(expectedDoneTasks, testObserver.doneTasks, @"Expected done task list must be the same as produced one.");
 }
 
--(void)testReadBuildFailure
+-(void)testReadBuildFailureNoPom
 {
-	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure"];
+	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure-no-pom"];
 	
 	STAssertFalse(observer.result, @"Build must be failure.");
 	STAssertTrue([observer.taskList count] == 0, @"Task list must be empty.");
@@ -51,7 +51,7 @@
 
 -(void)testReadBuildFailure2
 {
-	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure-2"];
+	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure-unknown-phase"];
 	
 	STAssertFalse(observer.result, @"Build must be failure.");
 	STAssertTrue([observer.taskList count] == 0, @"Task list must be empty.");
