@@ -49,7 +49,7 @@
 	STAssertTrue([observer.doneTasks count] == 0,  @"Done tasks must be empty.");
 }
 
--(void)testReadBuildFailure2
+-(void)testReadBuildFailureUnknownPhase
 {
 	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure-unknown-phase"];
 	
