@@ -73,8 +73,10 @@
 	MBMavenOutputParser *parser = [[MBMavenOutputParser alloc] initWithDelegate:testObserver];
 	DDFileReader *reader = [[DDFileReader alloc] initWithFilePath:filePath];
 	
+	NSCharacterSet *characterSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
 	[reader enumerateLinesUsingBlock:^(NSString* line, BOOL* stop) {
-		[parser parseLine:line];
+		NSString *trimmedLine = [line stringByTrimmingCharactersInSet:characterSet];
+		[parser parseLine:trimmedLine];
 	}];
 	
 	return testObserver;
