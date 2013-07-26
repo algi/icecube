@@ -22,7 +22,7 @@ typedef enum {
 // build line prefixes
 NSString * const kBuildingPrefix =  @"[INFO] Building ";
 NSString * const kInfoLinePrefix =  @"[INFO] ";
-NSString * const kEmptyLinePrefix = @"[INFO]  ";
+NSString * const kEmptyLine = @"[INFO]";
 NSString * const kStateSeparatorLinePrefix = @"[INFO] ----";
 NSString * const kReactorSummaryLinePrefix = @"[INFO] Reactor Summary:";
 NSString * const kBuildSuccessPrefix = @"[INFO] BUILD SUCCESS";
@@ -79,7 +79,7 @@ NSString * const kReactorBuildOrder = @"[INFO] Reactor Build Order:";
 		}
 		case kScanningStartedState:
 		{
-			if ([line hasPrefix:kEmptyLinePrefix]) {
+			if ([line isEqualToString:kEmptyLine]) {
 				state = kScanningEndState;
 				return;
 			}
