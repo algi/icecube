@@ -17,7 +17,7 @@
 -(void)testReadBuildSuccess
 {
 	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-success"];
-	STAssertTrue(observer.result, @"Build must be successful.");
+	STAssertEquals(observer.result, 1ul, @"Build must be successful.");
 	
 	NSArray *expectedTaskList = @[
 		  @"PKO parent",
@@ -49,9 +49,9 @@
 {
 	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure-no-pom"];
 	
-	STAssertFalse(observer.result, @"Build must be failure.");
-	STAssertTrue([observer.taskList count] == 0, @"Task list must be empty.");
-	STAssertTrue([observer.doneTasks count] == 0,  @"Done tasks must be empty.");
+	STAssertEquals(observer.result, 0ul, @"Build must be failure.");
+	STAssertEquals([observer.taskList count], 0ul, @"Task list must be empty.");
+	STAssertEquals([observer.doneTasks count], 0ul,  @"Done tasks must be empty.");
 	
 	STAssertEquals(observer.lineCount, 15ul, @"Sample has 15 lines.");
 	STAssertEquals(observer.buildDidEndCount, 1ul, @"Build must be ended only once.");
@@ -63,15 +63,14 @@
 {
 	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure-unknown-phase"];
 	
-	STAssertFalse(observer.result, @"Build must be failure.");
-	STAssertTrue([observer.taskList count] == 0, @"Task list must be empty.");
-	STAssertTrue([observer.doneTasks count] == 0,  @"Done tasks must be empty.");
+	STAssertEquals(observer.result, 0ul, @"Build must be failure.");
+	STAssertEquals([observer.taskList count], 0ul, @"Task list must be empty.");
+	MBAssertEqualArrays(observer.doneTasks, @[@"Common 1.0-SNAPSHOT"], @"Done tasks must have only one item: 'Common 1.0-SNAPSHOT'");
 	
-	// TODO observe and check events
-	STAssertEquals(observer.lineCount, 20ul, @"Sample has 20 lines.");
+	STAssertEquals(observer.lineCount, 19ul, @"Sample has 20 lines (last one is empty so must be omited).");
 	STAssertEquals(observer.buildDidEndCount, 1ul, @"Build must be ended only once.");
-	STAssertEquals(observer.buildDidStartCount, 0ul, @"Build has no tasks.");
-	STAssertEquals(observer.projectDidStartCount, 0ul, @"Build has no sub-modules.");
+	STAssertEquals(observer.buildDidStartCount, 1ul, @"Build started one task.");
+	STAssertEquals(observer.projectDidStartCount, 1ul, @"Build has one project.");
 }
 
 #pragma mark - Utility methods -

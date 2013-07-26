@@ -14,6 +14,7 @@
 {
 	self = [super init];
 	if (self) {
+		_result = -1;
 		_lineCount = 0;
 		_buildDidEndCount = 0;
 		_buildDidStartCount = 0;

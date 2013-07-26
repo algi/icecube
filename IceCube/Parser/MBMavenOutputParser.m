@@ -79,7 +79,9 @@ NSString * const kReactorBuildOrder = @"[INFO] Reactor Build Order:";
 		}
 		case kScanningStartedState:
 		{
-			if ([line isEqualToString:kEmptyLine]) {
+			if ([line isEqualToString:kEmptyLine] ||
+				[line hasPrefix:kStateSeparatorLinePrefix])
+			{
 				state = kScanningEndState;
 				return;
 			}
@@ -102,6 +104,12 @@ NSString * const kReactorBuildOrder = @"[INFO] Reactor Build Order:";
 		{
 			if ([line hasPrefix:kReactorSummaryLinePrefix]) {
 				state = kBuildDone;
+				return;
+			}
+			
+			if ([line hasPrefix:kBuildErrorPrefix]) {
+				[self detectBuildResultFromLine:line];
+				state = kScanIgnoredState;
 				return;
 			}
 			

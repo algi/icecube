@@ -12,7 +12,7 @@
 
 @interface MBMavenOutputParserTestObserver : NSObject<MBMavenOutputParserDelegate>
 
-@property(readonly) BOOL result;
+@property(readonly) NSUInteger result;
 @property(readonly) NSUInteger lineCount;
 @property(readonly) NSUInteger buildDidStartCount;
 @property(readonly) NSUInteger buildDidEndCount;
