@@ -160,7 +160,7 @@ NSString * const kReactorBuildOrder = @"[INFO] Reactor Build Order:";
 	NSUInteger lineLenght = [line length];
 	NSUInteger prefixLenght = [prefix length];
 	
-	NSAssert3(lineLenght > prefixLenght, @"lineLenght %lu >= prefixLenght %lu on line: %@", lineLenght, prefixLenght, line);
+	NSAssert3(lineLenght > prefixLenght, @"lineLenght %lu <= prefixLenght %lu on line: %@", lineLenght, prefixLenght, line);
 	
 	NSUInteger loc = prefixLenght;
 	NSUInteger len = (lineLenght - prefixLenght);
