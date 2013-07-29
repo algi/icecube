@@ -73,6 +73,20 @@
 	STAssertEquals(observer.projectDidStartCount, 1ul, @"Build has one project.");
 }
 
+-(void)testBuildSuccessOneModule
+{
+	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-success-one-module"];
+	
+	STAssertEquals(observer.result, 1ul, @"Build must be successful.");
+	STAssertEquals([observer.taskList count], 0ul, @"Task list must be empty.");
+	MBAssertEqualArrays(observer.doneTasks, @[@"Common 1.0-SNAPSHOT"], @"Done tasks must have only one item: 'Common 1.0-SNAPSHOT'");
+	
+	STAssertEquals(observer.lineCount, 31ul, @"Sample has 32 lines (last one is empty so must be omited).");
+	STAssertEquals(observer.buildDidEndCount, 1ul, @"Build must be ended only once.");
+	STAssertEquals(observer.buildDidStartCount, 1ul, @"Build has one task.");
+	STAssertEquals(observer.projectDidStartCount, 1ul, @"Build has one project.");
+}
+
 #pragma mark - Utility methods -
 +(MBMavenOutputParserTestObserver *)launchedTestObserverForResource:(NSString *)resource
 {

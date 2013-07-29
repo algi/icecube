@@ -131,8 +131,8 @@ NSString * const kReactorBuildOrderLine = @"[INFO] Reactor Build Order:";
 				return;
 			}
 			
-			if ([line isEqualToString:kBuildErrorPrefix]) {
-				// handle build error
+			if ([line isEqualToString:kBuildErrorPrefix] || [line isEqualToString:kBuildSuccessPrefix]) {
+				// handle end of build
 				[self handleResultOfBuildFromLine:line];
 				state = kScanIgnoredState;
 				return;
