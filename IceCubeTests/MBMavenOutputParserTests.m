@@ -106,7 +106,7 @@
 	NSBundle *testBundle = [NSBundle bundleForClass:[self class]];
 	NSString *filePath = [testBundle pathForResource:resource ofType: @"txt"];
 	
-	NSAssert1(filePath != nil, @"Path doesn't exist for resource %@ of type txt.", resource);
+	NSAssert(filePath != nil, @"Path doesn't exist for resource %@ of type txt.", resource);
 	
 	MBMavenOutputParserTestObserver *testObserver = [[MBMavenOutputParserTestObserver alloc] init];
 	testObserver.taskList = [[NSMutableArray alloc] init];
