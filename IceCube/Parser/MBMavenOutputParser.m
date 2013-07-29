@@ -8,7 +8,7 @@
 
 #import "MBMavenOutputParser.h"
 
-typedef enum {
+typedef NS_ENUM(NSInteger, MBParserState) {
 	kStartState,
 	kScanningStartedState,
 	kScanningEndState,
@@ -17,20 +17,20 @@ typedef enum {
 	kProjectRunningState,
 	kBuildDone,
 	kScanIgnoredState
-} MBParserState;
+};
 
 // build line prefixes
-NSString * const kBuildingPrefix =  @"[INFO] Building ";
-NSString * const kInfoLinePrefix =  @"[INFO] ";
-NSString * const kEmptyLine = @"[INFO]";
+NSString * const kInfoLinePrefix           = @"[INFO] ";
 NSString * const kStateSeparatorLinePrefix = @"[INFO] ----";
+NSString * const kBuildingPrefix           = @"[INFO] Building ";
 NSString * const kReactorSummaryLinePrefix = @"[INFO] Reactor Summary:";
-NSString * const kBuildSuccessPrefix = @"[INFO] BUILD SUCCESS";
-NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
-NSString * const kReactorBuildOrder = @"[INFO] Reactor Build Order:";
-NSString * const kScanningStartedLine = @"[INFO] Scanning for projects...";
+NSString * const kErrorInScanPrefix        = @"[ERROR] Could not find the selected project in the reactor:";
+
+NSString * const kEmptyLine             = @"[INFO]";
+NSString * const kBuildSuccessLine      = @"[INFO] BUILD SUCCESS";
+NSString * const kBuildErrorLine        = @"[INFO] BUILD FAILURE";
 NSString * const kReactorBuildOrderLine = @"[INFO] Reactor Build Order:";
-NSString * const kErrorInScanPrefix = @"[ERROR] Could not find the selected project in the reactor:";
+NSString * const kScanningStartedLine   = @"[INFO] Scanning for projects...";
 
 @interface MBMavenOutputParser () {
 	MBParserState state;
@@ -89,7 +89,7 @@ NSString * const kErrorInScanPrefix = @"[ERROR] Could not find the selected proj
 		}
 		case kScanningStartedState:
 		{
-			if ([line isEqualToString:kReactorBuildOrder]) {
+			if ([line isEqualToString:kReactorBuildOrderLine]) {
 				// great, scanning really started
 				taskList = [[NSMutableArray alloc] init];
 				return;
@@ -107,7 +107,7 @@ NSString * const kErrorInScanPrefix = @"[ERROR] Could not find the selected proj
 				}
 			}
 			
-			if ([line isEqualToString:kBuildErrorPrefix]) {
+			if ([line isEqualToString:kBuildErrorLine]) {
 				// there is an error, so terminate scanning
 				[self handleResultOfBuildFromLine:line];
 				state = kScanIgnoredState;
@@ -139,7 +139,7 @@ NSString * const kErrorInScanPrefix = @"[ERROR] Could not find the selected proj
 				return;
 			}
 			
-			if ([line isEqualToString:kBuildErrorPrefix] || [line isEqualToString:kBuildSuccessPrefix]) {
+			if ([line isEqualToString:kBuildErrorLine] || [line isEqualToString:kBuildSuccessLine]) {
 				// handle end of build
 				[self handleResultOfBuildFromLine:line];
 				state = kScanIgnoredState;
@@ -188,7 +188,7 @@ NSString * const kErrorInScanPrefix = @"[ERROR] Could not find the selected proj
 		}
 		default:
 		{
-			NSAssert(NO, @"Unknown state: '%u' while processing line '%@'.", state, line);
+			NSAssert(NO, @"Unknown state: '%ld' while processing line '%@'.", state, line);
 			break;
 		}
 	}
@@ -197,10 +197,10 @@ NSString * const kErrorInScanPrefix = @"[ERROR] Could not find the selected proj
 #pragma mark - Utilities -
 -(void)handleResultOfBuildFromLine:(NSString *)line
 {
-	if ([line hasPrefix:kBuildSuccessPrefix]) {
+	if ([line isEqualToString:kBuildSuccessLine]) {
 		[self.delegate buildDidEndSuccessfully:YES];
 	}
-	else if ([line hasPrefix:kBuildErrorPrefix]) {
+	else if ([line isEqualToString:kBuildErrorLine]) {
 		[self.delegate buildDidEndSuccessfully:NO];
 	}
 	else {
