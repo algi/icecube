@@ -30,6 +30,7 @@ NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 NSString * const kReactorBuildOrder = @"[INFO] Reactor Build Order:";
 NSString * const kScanningStartedLine = @"[INFO] Scanning for projects...";
 NSString * const kReactorBuildOrderLine = @"[INFO] Reactor Build Order:";
+NSString * const kErrorInScanPrefix = @"[ERROR] Could not find the selected project in the reactor:";
 
 @interface MBMavenOutputParser () {
 	MBParserState state;
@@ -73,6 +74,13 @@ NSString * const kReactorBuildOrderLine = @"[INFO] Reactor Build Order:";
 			if ([line isEqualToString:kEmptyLine]) {
 				// one module only project, scanning is therefore done
 				state = kScanningEndState;
+				return;
+			}
+			
+			if ([line hasPrefix:kErrorInScanPrefix]) {
+				// correct goal but incorrect -pl specifier
+				[self.delegate buildDidEndSuccessfully:NO];
+				state = kScanIgnoredState;
 				return;
 			}
 			

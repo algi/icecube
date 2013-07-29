@@ -16,6 +16,7 @@
 		568DB4631709ABFE00AC385F /* MBTaskOutputReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB4621709ABFE00AC385F /* MBTaskOutputReaderTests.m */; };
 		569850651799E2C2002E8D3A /* MBMavenTaskExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 569850641799E2C2002E8D3A /* MBMavenTaskExecutor.m */; };
 		56A61EC817A69F4D00DE33B9 /* build-success-one-module.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56A61EC717A69F4D00DE33B9 /* build-success-one-module.txt */; };
+		56A61ECA17A6A2A900DE33B9 /* build-failure-no-project.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56A61EC917A6A2A900DE33B9 /* build-failure-no-project.txt */; };
 		56AB1B8816E3BFB000831747 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AB1B8716E3BFB000831747 /* QuartzCore.framework */; };
 		56BE045717A120E40046C6F5 /* build-failure-no-pom.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56BE045617A120E40046C6F5 /* build-failure-no-pom.txt */; };
 		56C6289317103F7A00DF4E4F /* DDFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C6289217103F7A00DF4E4F /* DDFileReader.m */; };
@@ -60,6 +61,7 @@
 		569850641799E2C2002E8D3A /* MBMavenTaskExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenTaskExecutor.m; sourceTree = "<group>"; };
 		569E8930179DE20A006C5326 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		56A61EC717A69F4D00DE33B9 /* build-success-one-module.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-success-one-module.txt"; sourceTree = "<group>"; };
+		56A61EC917A6A2A900DE33B9 /* build-failure-no-project.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-project.txt"; sourceTree = "<group>"; };
 		56AB1B8716E3BFB000831747 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		56AB1B8916E48B3300831747 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		56BE045617A120E40046C6F5 /* build-failure-no-pom.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-pom.txt"; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				568DB44D17082A7300AC385F /* build-success.txt */,
 				56A61EC717A69F4D00DE33B9 /* build-success-one-module.txt */,
 				56BE045617A120E40046C6F5 /* build-failure-no-pom.txt */,
+				56A61EC917A6A2A900DE33B9 /* build-failure-no-project.txt */,
 				56479D7517A17C4C00380EBD /* build-failure-unknown-phase.txt */,
 				56FE8EAC167BA1A80001AAED /* IceCubeTests-Info.plist */,
 				56FE8EAD167BA1A80001AAED /* InfoPlist.strings */,
@@ -344,6 +347,7 @@
 				56FE8EAF167BA1A80001AAED /* InfoPlist.strings in Resources */,
 				56479D7617A17C4C00380EBD /* build-failure-unknown-phase.txt in Resources */,
 				56BE045717A120E40046C6F5 /* build-failure-no-pom.txt in Resources */,
+				56A61ECA17A6A2A900DE33B9 /* build-failure-no-project.txt in Resources */,
 				56A61EC817A69F4D00DE33B9 /* build-success-one-module.txt in Resources */,
 				568DB44E17082A7300AC385F /* build-success.txt in Resources */,
 			);
