@@ -28,64 +28,85 @@ NSString * const kReactorSummaryLinePrefix = @"[INFO] Reactor Summary:";
 NSString * const kBuildSuccessPrefix = @"[INFO] BUILD SUCCESS";
 NSString * const kBuildErrorPrefix =   @"[INFO] BUILD FAILURE";
 NSString * const kReactorBuildOrder = @"[INFO] Reactor Build Order:";
+NSString * const kScanningStartedLine = @"[INFO] Scanning for projects...";
+NSString * const kReactorBuildOrderLine = @"[INFO] Reactor Build Order:";
 
 @interface MBMavenOutputParser () {
 	MBParserState state;
 	NSMutableArray *taskList;
-	NSInteger ignoredLines;
-	
-	id<MBMavenOutputParserDelegate> delegate;
 }
+
+@property(weak) id<MBMavenOutputParserDelegate> delegate;
 
 @end
 
 @implementation MBMavenOutputParser
 
--(instancetype)initWithDelegate:(id<MBMavenOutputParserDelegate>)parserDelegate
+-(id)initWithDelegate:(id<MBMavenOutputParserDelegate>)parserDelegate
 {
 	if (self = [super init]) {
 		state = kStartState;
-		taskList = [[NSMutableArray alloc] init];
-		ignoredLines = 2; // skip "Scanning for projects..." and divider line
 		
-		delegate = parserDelegate;
+		_delegate = parserDelegate;
 	}
 	return self;
 }
 
 -(void)parseLine:(NSString *)line
 {
-	[delegate newLineDidRecieve:line];
-	
-	if (ignoredLines > 0) {
-		ignoredLines--;
-		return;
-	}
+	[self.delegate newLineDidRecieve:line];
 	
 	switch (state) {
 		case kStartState:
 		{
-			// there is no POM
-			if ([line hasPrefix:kBuildErrorPrefix]) {
-				[self detectBuildResultFromLine:line];
-				state = kScanIgnoredState;
-			}
-			else {
-				ignoredLines = 1; // ignore next divider line
-				state = kScanningStartedState;
+			// first line
+			if ([line isEqualToString:kScanningStartedLine]) {
+				return;
 			}
 			
-			break;
-		}
-		case kScanningStartedState:
-		{
-			if ([line isEqualToString:kEmptyLine] ||
-				[line hasPrefix:kStateSeparatorLinePrefix])
-			{
+			if ([line hasPrefix:kStateSeparatorLinePrefix]) {
+				// scanning started
+				state = kScanningStartedState;
+				return;
+			}
+			
+			if ([line isEqualToString:kEmptyLine]) {
+				// one module only project, scanning is therefore done
 				state = kScanningEndState;
 				return;
 			}
 			
+			NSAssert(NO, @"State: 'kStartState', unknown line: %@", line);
+			break;
+		}
+		case kScanningStartedState:
+		{
+			if ([line isEqualToString:kReactorBuildOrder]) {
+				// great, scanning really started
+				taskList = [[NSMutableArray alloc] init];
+				return;
+			}
+			
+			if ([line isEqualToString:kEmptyLine]) {
+				if ([taskList count] == 0) {
+					// ok, move on - list of projects will follow
+					return;
+				}
+				else {
+					// task list is filled, so we can transfer to next state
+					state = kScanningEndState;
+					return;
+				}
+			}
+			
+			if ([line isEqualToString:kBuildErrorPrefix]) {
+				// there is an error, so terminate scanning
+				[self handleResultOfBuildFromLine:line];
+				state = kScanIgnoredState;
+				return;
+			}
+			
+			// otherwise extract name of project from line
 			NSRange range = [self makeRangeFromLine:line withPrefix:kInfoLinePrefix];
 			NSString *projectName = [line substringWithRange:range];
 			
@@ -94,7 +115,9 @@ NSString * const kReactorBuildOrder = @"[INFO] Reactor Build Order:";
 		}
 		case kScanningEndState:
 		{
-			[delegate buildDidStartWithTaskList:[taskList copy]];
+			NSAssert([line hasPrefix:kStateSeparatorLinePrefix], @"State: 'kScanningEndState', unkown line: %@", line);
+			
+			[self.delegate buildDidStartWithTaskList:[taskList copy]]; // tasklist can be proceeded async, so copy it
 			taskList = nil;
 			
 			state = kProjectDeclarationStartState;
@@ -103,20 +126,24 @@ NSString * const kReactorBuildOrder = @"[INFO] Reactor Build Order:";
 		case kProjectDeclarationStartState:
 		{
 			if ([line hasPrefix:kReactorSummaryLinePrefix]) {
+				// build is done
 				state = kBuildDone;
 				return;
 			}
 			
-			if ([line hasPrefix:kBuildErrorPrefix]) {
-				[self detectBuildResultFromLine:line];
+			if ([line isEqualToString:kBuildErrorPrefix]) {
+				// handle build error
+				[self handleResultOfBuildFromLine:line];
 				state = kScanIgnoredState;
 				return;
 			}
 			
+			NSAssert([line hasPrefix:kBuildingPrefix], @"State 'kProjectDeclarationStartState', unknow line: %@", line);
+			
 			NSRange range = [self makeRangeFromLine:line withPrefix:kBuildingPrefix];
 			NSString *taskName = [line substringWithRange:range];
 			
-			[delegate projectDidStartWithName:taskName];
+			[self.delegate projectDidStartWithName:taskName];
 			
 			state = kProjectDeclarationEndState;
 			break;
@@ -136,7 +163,14 @@ NSString * const kReactorBuildOrder = @"[INFO] Reactor Build Order:";
 		}
 		case kBuildDone:
 		{
-			[self detectBuildResultFromLine:line];
+			if ([line hasPrefix:@"[INFO] BUILD "]) {
+				[self handleResultOfBuildFromLine:line];
+				state = kScanIgnoredState;
+			}
+			else {
+				// ignore rest of lines untile BUILD SUCCESS or BUILD FAILURE occurs
+			}
+			
 			break;
 		}
 		case kScanIgnoredState:
@@ -146,19 +180,23 @@ NSString * const kReactorBuildOrder = @"[INFO] Reactor Build Order:";
 		}
 		default:
 		{
-			NSAssert(NO, @"MBMavenOutputParser recieved unknown state: '%u' on line '%@'.", state, line);
+			NSAssert(NO, @"Unknown state: '%u' while processing line '%@'.", state, line);
 			break;
 		}
 	}
 }
 
--(void)detectBuildResultFromLine:(NSString *)line
+#pragma mark - Utilities -
+-(void)handleResultOfBuildFromLine:(NSString *)line
 {
 	if ([line hasPrefix:kBuildSuccessPrefix]) {
-		[delegate buildDidEndSuccessfully:YES];
+		[self.delegate buildDidEndSuccessfully:YES];
 	}
 	else if ([line hasPrefix:kBuildErrorPrefix]) {
-		[delegate buildDidEndSuccessfully:NO];
+		[self.delegate buildDidEndSuccessfully:NO];
+	}
+	else {
+		NSAssert(NO, @"State 'kBuildDone', unknown line: %@", line);
 	}
 }
 
@@ -168,7 +206,7 @@ NSString * const kReactorBuildOrder = @"[INFO] Reactor Build Order:";
 	NSUInteger lineLenght = [line length];
 	NSUInteger prefixLenght = [prefix length];
 	
-	NSAssert3(lineLenght > prefixLenght, @"lineLenght %lu <= prefixLenght %lu on line: %@", lineLenght, prefixLenght, line);
+	NSAssert(lineLenght > prefixLenght, @"lineLenght %lu <= prefixLenght %lu on line: %@", lineLenght, prefixLenght, line);
 	
 	NSUInteger loc = prefixLenght;
 	NSUInteger len = (lineLenght - prefixLenght);

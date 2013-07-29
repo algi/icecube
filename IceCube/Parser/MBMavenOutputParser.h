@@ -12,7 +12,7 @@
 
 @interface MBMavenOutputParser : NSObject
 
--(instancetype)initWithDelegate:(id<MBMavenOutputParserDelegate>)delegate;
+-(id)initWithDelegate:(id<MBMavenOutputParserDelegate>)delegate;
 
 -(void)parseLine:(NSString *)line;
 
