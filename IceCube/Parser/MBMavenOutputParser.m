@@ -158,6 +158,8 @@ NSString * const kScanningStartedLine   = @"[INFO] Scanning for projects...";
 		}
 		case kProjectDeclarationEndState:
 		{
+			NSAssert([line hasPrefix:kStateSeparatorLinePrefix], @"State 'kProjectDeclarationEndState', unknown line: %@", line);
+			
 			state = kProjectRunningState;
 			break;
 		}
