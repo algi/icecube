@@ -509,6 +509,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_NS_ASSERTIONS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IceCube/IceCube-Prefix.pch";
 				INFOPLIST_FILE = "IceCube/IceCube-Info.plist";
