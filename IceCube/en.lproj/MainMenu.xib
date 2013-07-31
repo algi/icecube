@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1080</int>
 		<string key="IBDocument.SystemVersion">12E55</string>
-		<string key="IBDocument.InterfaceBuilderVersion">4471.1</string>
+		<string key="IBDocument.InterfaceBuilderVersion">4488.1</string>
 		<string key="IBDocument.AppKitVersion">1187.39</string>
 		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">4471.1</string>
+			<string key="NS.object.0">4488.1</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBNSLayoutConstraint</string>
@@ -861,7 +861,7 @@
 				<string key="NSClassName">NSFontManager</string>
 			</object>
 			<object class="NSCustomObject" id="656420306">
-				<string key="NSClassName">MBTaskViewController</string>
+				<string key="NSClassName">MBTaskRunnerWindowController</string>
 			</object>
 			<object class="NSUserDefaultsController" id="774906010">
 				<bool key="NSSharedInstance">YES</bool>
@@ -1015,7 +1015,7 @@
 											<int key="NSvFlags">2322</int>
 											<string key="NSFrameSize">{712, 349}</string>
 											<reference key="NSSuperview" ref="291037943"/>
-											<reference key="NSNextKeyView" ref="102833274"/>
+											<reference key="NSNextKeyView" ref="843734677"/>
 											<string key="NSReuseIdentifierKey">_NS:13</string>
 											<object class="NSTextContainer" key="NSTextContainer" id="370963542">
 												<object class="NSLayoutManager" key="NSLayoutManager">
@@ -1051,7 +1051,7 @@
 												<int key="NSTCFlags">1</int>
 											</object>
 											<object class="NSTextViewSharedData" key="NSSharedData">
-												<int key="NSFlags">67120101</int>
+												<int key="NSFlags">100674533</int>
 												<int key="NSTextCheckingTypes">0</int>
 												<nil key="NSMarkedAttributes"/>
 												<object class="NSColor" key="NSBackgroundColor">
@@ -1159,7 +1159,7 @@
 							</array>
 							<string key="NSFrame">{{79, 53}, {714, 351}}</string>
 							<reference key="NSSuperview" ref="236849902"/>
-							<reference key="NSNextKeyView" ref="843734677"/>
+							<reference key="NSNextKeyView" ref="291037943"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<int key="NSsFlags">133138</int>
 							<reference key="NSVScroller" ref="102833274"/>
@@ -3513,6 +3513,7 @@
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
+		<bool key="IBDocument.previouslyAttemptedUpgradeToXcode5">NO</bool>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.macosx</string>
 			<real value="1080" key="NS.object.0"/>

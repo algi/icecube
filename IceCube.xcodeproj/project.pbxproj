@@ -20,7 +20,7 @@
 		56AB1B8816E3BFB000831747 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AB1B8716E3BFB000831747 /* QuartzCore.framework */; };
 		56BE045717A120E40046C6F5 /* build-failure-no-pom.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56BE045617A120E40046C6F5 /* build-failure-no-pom.txt */; };
 		56C6289317103F7A00DF4E4F /* DDFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C6289217103F7A00DF4E4F /* DDFileReader.m */; };
-		56F578E41794A5B1007E85A8 /* MBTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E31794A5B1007E85A8 /* MBTaskViewController.m */; };
+		56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */; };
 		56F578E817972AF9007E85A8 /* NSTask+MBTaskOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E717972AF9007E85A8 /* NSTask+MBTaskOutputParser.m */; };
 		56FE8E85167BA1A70001AAED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8E84167BA1A70001AAED /* Cocoa.framework */; };
 		56FE8E8F167BA1A70001AAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56FE8E8D167BA1A70001AAED /* InfoPlist.strings */; };
@@ -67,8 +67,8 @@
 		56BE045617A120E40046C6F5 /* build-failure-no-pom.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-pom.txt"; sourceTree = "<group>"; };
 		56C6289117103F7A00DF4E4F /* DDFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileReader.h; sourceTree = "<group>"; };
 		56C6289217103F7A00DF4E4F /* DDFileReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileReader.m; sourceTree = "<group>"; };
-		56F578E21794A5B1007E85A8 /* MBTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskViewController.h; sourceTree = "<group>"; };
-		56F578E31794A5B1007E85A8 /* MBTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskViewController.m; sourceTree = "<group>"; };
+		56F578E21794A5B1007E85A8 /* MBTaskRunnerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskRunnerWindowController.h; sourceTree = "<group>"; };
+		56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerWindowController.m; sourceTree = "<group>"; };
 		56F578E617972AF9007E85A8 /* NSTask+MBTaskOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTask+MBTaskOutputParser.h"; sourceTree = "<group>"; };
 		56F578E717972AF9007E85A8 /* NSTask+MBTaskOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+MBTaskOutputParser.m"; sourceTree = "<group>"; };
 		56F578E9179745B1007E85A8 /* MBMavenOutputParserDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParserDelegate.h; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 		56F578E11794A584007E85A8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				56F578E21794A5B1007E85A8 /* MBTaskViewController.h */,
-				56F578E31794A5B1007E85A8 /* MBTaskViewController.m */,
+				56F578E21794A5B1007E85A8 /* MBTaskRunnerWindowController.h */,
+				56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -378,7 +378,7 @@
 			files = (
 				56FE8E91167BA1A70001AAED /* main.m in Sources */,
 				56FE8E98167BA1A70001AAED /* MBAppDelegate.m in Sources */,
-				56F578E41794A5B1007E85A8 /* MBTaskViewController.m in Sources */,
+				56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */,
 				568DB4511708622700AC385F /* MBMavenOutputParser.m in Sources */,
 				569850651799E2C2002E8D3A /* MBMavenTaskExecutor.m in Sources */,
 				56F578E817972AF9007E85A8 /* NSTask+MBTaskOutputParser.m in Sources */,

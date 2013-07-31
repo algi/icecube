@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MBTaskViewController : NSObject
+@interface MBTaskRunnerWindowController : NSObject
 
 @property(assign) IBOutlet NSWindow *window;
 

@@ -6,18 +6,18 @@
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
-#import "MBTaskViewController.h"
+#import "MBTaskRunnerWindowController.h"
 #import "MBMavenTaskExecutor.h"
 
 #define kMavenWorkingDirectory @"maven.working.directory"
 
-@interface MBTaskViewController () <MBMavenOutputParserDelegate>
+@interface MBTaskRunnerWindowController () <MBMavenOutputParserDelegate>
 
 @property MBMavenTaskExecutor *executor;
 
 @end
 
-@implementation MBTaskViewController
+@implementation MBTaskRunnerWindowController
 
 - (id)init
 {
