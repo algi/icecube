@@ -86,6 +86,19 @@
 	STAssertEquals(observer.projectDidStartCount, 0ul, @"Build has no sub-modules.");
 }
 
+-(void)testBuildFailureNonParsable
+{
+	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure-non-parsable"];
+	STAssertEquals(observer.result, 0ul, @"Build must be failure.");
+	STAssertEquals([observer.taskList count], 0ul, @"Task list must be empty.");
+	STAssertEquals([observer.doneTasks count], 0ul,  @"Done tasks must be empty.");
+	
+	STAssertEquals(observer.lineCount, 3ul, @"Sample has 4 lines (last one is empty so must be omited).");
+	STAssertEquals(observer.buildDidEndCount, 1ul, @"Build must be ended only once.");
+	STAssertEquals(observer.buildDidStartCount, 0ul, @"Build has no tasks.");
+	STAssertEquals(observer.projectDidStartCount, 0ul, @"Build has no sub-modules.");
+}
+
 -(void)testBuildFailureUnknownPhase
 {
 	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure-unknown-phase"];

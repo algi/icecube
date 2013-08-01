@@ -1,0 +1,3 @@
+[ERROR] Error executing Maven.
+[ERROR] 1 problem was encountered while building the effective settings
+[FATAL] Non-parseable settings /Users/marian/.m2/settings.xml: in comment after two dashes (--) next character must be > not a (position: START_TAG seen ...ofiles>\r\n\t\t<!-- activeProfile>szng-remote</activeProfile>\r\n\t\t<!--a... @10:8)  @ /Users/marian/.m2/settings.xml, line 10, column 8

@@ -31,6 +31,7 @@ NSString * const kBuildSuccessLine      = @"[INFO] BUILD SUCCESS";
 NSString * const kBuildErrorLine        = @"[INFO] BUILD FAILURE";
 NSString * const kReactorBuildOrderLine = @"[INFO] Reactor Build Order:";
 NSString * const kScanningStartedLine   = @"[INFO] Scanning for projects...";
+NSString * const kErrorExecutingLine    = @"[ERROR] Error executing Maven.";
 
 @interface MBMavenOutputParser () {
 	MBParserState state;
@@ -77,8 +78,8 @@ NSString * const kScanningStartedLine   = @"[INFO] Scanning for projects...";
 				return;
 			}
 			
-			if ([line hasPrefix:kErrorInScanPrefix]) {
-				// correct goal but incorrect -pl specifier
+			if ([line hasPrefix:kErrorInScanPrefix] || [line isEqualToString:kErrorExecutingLine]) {
+				// correct goal but incorrect -pl specifier OR there was problem in executing Maven
 				[self.delegate buildDidEndSuccessfully:NO];
 				state = kScanIgnoredState;
 				return;
