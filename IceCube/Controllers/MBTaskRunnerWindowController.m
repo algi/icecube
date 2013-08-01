@@ -70,6 +70,10 @@
 
 -(IBAction)startTask:(id)sender
 {
+	if ([self.executor isRunning]) {
+		return;
+	}
+	
 	NSString *args = [self.commandField stringValue];
 	if ([args length] == 0) {
 		NSAlert *alert = [[NSAlert alloc] init];

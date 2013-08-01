@@ -22,7 +22,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <rect key="contentRect" x="322" y="315" width="813" height="482"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
             <view key="contentView" id="ffI-nQ-6He">
                 <rect key="frame" x="0.0" y="0.0" width="813" height="482"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -74,6 +74,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <action selector="startTask:" target="-2" id="0PC-ZN-7l1"/>
+                        </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="j5D-Vi-Uq8">
                         <rect key="frame" x="27" y="443" width="47" height="17"/>
@@ -84,7 +87,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <pathControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OMz-TM-wiL">
+                    <pathControl verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OMz-TM-wiL">
                         <rect key="frame" x="78" y="411" width="179" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <pathCell key="cell" controlSize="small" selectable="YES" editable="YES" alignment="left" pathStyle="navigationBar" id="rfR-Fy-Zyo">
