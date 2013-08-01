@@ -8,9 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MBTaskRunnerWindowController : NSObject
-
-@property(assign) IBOutlet NSWindow *window;
+@interface MBTaskRunnerWindowController : NSWindowController
 
 @property(assign) IBOutlet NSToolbarItem *runTaskButton;
 @property(assign) IBOutlet NSToolbarItem *stopTaskButton;

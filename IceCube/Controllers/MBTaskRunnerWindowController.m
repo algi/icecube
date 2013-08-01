@@ -21,12 +21,10 @@
 
 - (id)init
 {
-	self = [super init];
+	self = [super initWithWindowNibName:@"TaskRunner"];
 	if (self) {
 		_executor = [[MBMavenTaskExecutor alloc] init];
-		
-		__weak id<MBMavenOutputParserDelegate> observer = self;
-		_executor.executionObserver = observer;
+		_executor.executionObserver = self;
 	}
 	return self;
 }
