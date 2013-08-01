@@ -94,13 +94,15 @@
 #pragma mark - Observer methods -
 -(void)task:(NSString *)executable willStartWithArguments:(NSString *)arguments onPath:(NSString *)projectDirectory
 {
-	[self.progressIndicator startAnimation:self];
-	
-	NSString *executionHeader = [NSString stringWithFormat:@"$ cd %@\n$ %@ %@\n\n",
-								 projectDirectory,
-								 executable,
-								 arguments];
-	[self.outputTextView setString:executionHeader];
+	dispatch_sync(dispatch_get_main_queue(), ^{
+		[self.progressIndicator startAnimation:self];
+		
+		NSString *executionHeader = [NSString stringWithFormat:@"$ cd %@\n$ %@ %@\n\n",
+									 projectDirectory,
+									 executable,
+									 arguments];
+		[self.outputTextView setString:executionHeader];
+	});
 }
 
 -(void)buildDidStartWithTaskList:(NSArray *)taskList
