@@ -94,15 +94,15 @@
 #pragma mark - Observer methods -
 -(void)task:(NSString *)executable willStartWithArguments:(NSString *)arguments onPath:(NSString *)projectDirectory
 {
-	dispatch_sync(dispatch_get_main_queue(), ^{
-		[self.progressIndicator startAnimation:self];
-		
-		NSString *executionHeader = [NSString stringWithFormat:@"$ cd %@\n$ %@ %@\n\n",
-									 projectDirectory,
-									 executable,
-									 arguments];
-		[self.outputTextView setString:executionHeader];
-	});
+	[self.progressIndicator startAnimation:self];
+	
+	NSString *executionHeader = [NSString stringWithFormat:@"$ cd %@\n$ %@ %@\n\n",
+								 projectDirectory,
+								 executable,
+								 arguments];
+	[self.outputTextView setString:executionHeader];
+	
+	self.taskRunning = YES;
 }
 
 -(void)buildDidStartWithTaskList:(NSArray *)taskList
@@ -118,6 +118,7 @@
 -(void)buildDidEndSuccessfully:(BOOL)buildWasSuccessful
 {
 	dispatch_async(dispatch_get_main_queue(), ^{
+		self.taskRunning = NO;
 		[self.progressIndicator stopAnimation:self];
 		
 		NSUserNotification *notification = [[NSUserNotification alloc] init];

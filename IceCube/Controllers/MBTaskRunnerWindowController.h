@@ -22,4 +22,6 @@
 -(IBAction)startTask:(id)sender;
 -(IBAction)stopTask:(id)sender;
 
+@property BOOL taskRunning;
+
 @end

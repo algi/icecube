@@ -145,11 +145,17 @@
                     <toolbarItem implicitItemIdentifier="1B4346D8-50CD-442F-9271-894CD3BC6D1B" label="Spustit" paletteLabel="Spustit" tag="-1" image="NSSlideshowTemplate" autovalidates="NO" id="bKc-8v-5Tc">
                         <connections>
                             <action selector="startTask:" target="-2" id="bps-Bd-1nY"/>
+                            <binding destination="-2" name="enabled" keyPath="self.taskRunning" id="AvI-LJ-c23">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
                         </connections>
                     </toolbarItem>
                     <toolbarItem implicitItemIdentifier="FBAEAA58-535B-4E1C-9B1D-D5A351127E03" label="Zastavit" paletteLabel="Zastavit" tag="-1" image="NSStopProgressTemplate" autovalidates="NO" id="jQt-Ll-4o4">
                         <connections>
                             <action selector="stopTask:" target="-2" id="dcU-84-NHJ"/>
+                            <binding destination="-2" name="enabled" keyPath="self.taskRunning" id="uNZ-sO-Aeo"/>
                         </connections>
                     </toolbarItem>
                 </allowedToolbarItems>
