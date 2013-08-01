@@ -22,7 +22,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <rect key="contentRect" x="322" y="315" width="813" height="482"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="ffI-nQ-6He">
                 <rect key="frame" x="0.0" y="0.0" width="813" height="482"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -87,9 +87,12 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <pathControl verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OMz-TM-wiL">
+                    <pathControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OMz-TM-wiL">
                         <rect key="frame" x="78" y="411" width="179" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="177" id="npx-CA-VRD"/>
+                        </constraints>
                         <pathCell key="cell" controlSize="small" selectable="YES" editable="YES" alignment="left" pathStyle="navigationBar" id="rfR-Fy-Zyo">
                             <font key="font" metaFont="smallSystem"/>
                             <url key="url" string="file://localhost/Applications/"/>
@@ -122,22 +125,22 @@
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="OMz-TM-wiL" firstAttribute="baseline" secondItem="d7O-rU-iQq" secondAttribute="baseline" id="0XW-IW-dHw"/>
                     <constraint firstItem="d7O-rU-iQq" firstAttribute="leading" secondItem="ffI-nQ-6He" secondAttribute="leading" constant="20" symbolic="YES" id="19k-w4-s3y"/>
                     <constraint firstItem="31r-Zy-hOe" firstAttribute="leading" secondItem="csR-r7-0x9" secondAttribute="trailing" constant="8" symbolic="YES" id="4m6-c5-NET"/>
                     <constraint firstAttribute="bottom" secondItem="Xhj-4G-Nch" secondAttribute="bottom" constant="20" symbolic="YES" id="Cpq-Ka-Grg"/>
                     <constraint firstAttribute="trailing" secondItem="Xhj-4G-Nch" secondAttribute="trailing" constant="27" id="CxG-nw-isZ"/>
-                    <constraint firstItem="31r-Zy-hOe" firstAttribute="top" secondItem="OMz-TM-wiL" secondAttribute="bottom" constant="8" symbolic="YES" id="H8H-mW-Eea"/>
-                    <constraint firstItem="OMz-TM-wiL" firstAttribute="leading" secondItem="31r-Zy-hOe" secondAttribute="leading" id="HKB-81-kAo"/>
+                    <constraint firstItem="31r-Zy-hOe" firstAttribute="top" secondItem="OMz-TM-wiL" secondAttribute="bottom" constant="8" symbolic="YES" id="F5n-Cs-R9F"/>
                     <constraint firstItem="6iw-Hy-3Tl" firstAttribute="top" secondItem="ffI-nQ-6He" secondAttribute="top" constant="20" symbolic="YES" id="I43-hA-Aev"/>
+                    <constraint firstItem="OMz-TM-wiL" firstAttribute="leading" secondItem="31r-Zy-hOe" secondAttribute="leading" id="W8p-AO-xJz"/>
                     <constraint firstItem="6iw-Hy-3Tl" firstAttribute="leading" secondItem="j5D-Vi-Uq8" secondAttribute="trailing" constant="8" symbolic="YES" id="X55-cp-H0C"/>
+                    <constraint firstItem="OMz-TM-wiL" firstAttribute="leading" secondItem="6iw-Hy-3Tl" secondAttribute="leading" id="Ylr-2s-8qz"/>
                     <constraint firstAttribute="bottom" secondItem="31r-Zy-hOe" secondAttribute="bottom" constant="53" id="fhJ-gx-TyF"/>
-                    <constraint firstItem="OMz-TM-wiL" firstAttribute="leading" secondItem="d7O-rU-iQq" secondAttribute="trailing" constant="8" symbolic="YES" id="iIs-Li-BaO"/>
                     <constraint firstAttribute="trailing" secondItem="6iw-Hy-3Tl" secondAttribute="trailing" constant="20" symbolic="YES" id="jRh-qD-L8q"/>
                     <constraint firstItem="j5D-Vi-Uq8" firstAttribute="centerY" secondItem="6iw-Hy-3Tl" secondAttribute="centerY" id="kQA-Ip-bpW"/>
                     <constraint firstItem="csR-r7-0x9" firstAttribute="top" secondItem="31r-Zy-hOe" secondAttribute="top" id="ku8-Ix-uCz"/>
-                    <constraint firstItem="6iw-Hy-3Tl" firstAttribute="leading" secondItem="OMz-TM-wiL" secondAttribute="leading" id="mNc-oo-AUy"/>
                     <constraint firstItem="d7O-rU-iQq" firstAttribute="top" secondItem="6iw-Hy-3Tl" secondAttribute="bottom" constant="8" symbolic="YES" id="s5v-BP-pgC"/>
+                    <constraint firstItem="OMz-TM-wiL" firstAttribute="baseline" secondItem="d7O-rU-iQq" secondAttribute="baseline" id="tOh-Bu-Rt9"/>
+                    <constraint firstItem="OMz-TM-wiL" firstAttribute="leading" secondItem="d7O-rU-iQq" secondAttribute="trailing" constant="8" symbolic="YES" id="vLX-6E-ShT"/>
                     <constraint firstAttribute="trailing" secondItem="31r-Zy-hOe" secondAttribute="trailing" constant="20" symbolic="YES" id="xWz-kd-VAb"/>
                 </constraints>
             </view>
