@@ -191,11 +191,6 @@ static NSString * const kErrorExecutingLine    = @"[ERROR] Error executing Maven
 			// we are in final stage so other lines are ignored
 			break;
 		}
-		default:
-		{
-			NSAssert(NO, @"Unknown state: '%ld' while processing line '%@'.", state, line);
-			break;
-		}
 	}
 }
 
