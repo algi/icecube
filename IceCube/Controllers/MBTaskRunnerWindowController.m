@@ -108,7 +108,7 @@ static NSString * const MBMavenWorkingDirectory = @"maven.working.directory";
 								 arguments];
 	[self.outputTextView setString:executionHeader];
 	
-	self.taskRunning = YES;
+	_taskRunning = YES;
 }
 
 -(void)buildDidStartWithTaskList:(NSArray *)taskList
@@ -124,7 +124,7 @@ static NSString * const MBMavenWorkingDirectory = @"maven.working.directory";
 -(void)buildDidEndSuccessfully:(BOOL)buildWasSuccessful
 {
 	dispatch_async(dispatch_get_main_queue(), ^{
-		self.taskRunning = NO;
+		_taskRunning = NO;
 		[self.progressIndicator stopAnimation:self];
 		
 		NSUserNotification *notification = [[NSUserNotification alloc] init];
