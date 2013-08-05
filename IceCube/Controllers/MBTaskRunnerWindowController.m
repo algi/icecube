@@ -7,7 +7,9 @@
 //
 
 #import "MBTaskRunnerWindowController.h"
+
 #import "MBMavenTaskExecutor.h"
+#import "MBMavenOutputParserDelegate.h"
 
 static NSString * const MBMavenWorkingDirectory = @"maven.working.directory";
 

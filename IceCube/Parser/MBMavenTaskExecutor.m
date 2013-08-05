@@ -10,6 +10,7 @@
 
 #import "NSTask+MBTaskOutputParser.h"
 #import "MBMavenOutputParser.h"
+#import "MBMavenOutputParserDelegate.h"
 
 #define kMavenApplicationPath @"maven.application.path"
 

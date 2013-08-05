@@ -8,6 +8,8 @@
 
 #import "MBMavenOutputParser.h"
 
+#import "MBMavenOutputParserDelegate.h"
+
 typedef NS_ENUM(NSInteger, MBParserState) {
 	MBParserStateStart,
 	MBParserStateScanningStarted,

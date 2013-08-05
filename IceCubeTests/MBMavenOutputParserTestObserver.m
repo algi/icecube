@@ -8,6 +8,8 @@
 
 #import "MBMavenOutputParserTestObserver.h"
 
+#import "MBMavenOutputParser.h"
+
 @implementation MBMavenOutputParserTestObserver
 
 -(id)init

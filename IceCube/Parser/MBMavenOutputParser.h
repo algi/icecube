@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MBMavenOutputParserDelegate.h"
+@protocol MBMavenOutputParserDelegate;
 
 @interface MBMavenOutputParser : NSObject
 

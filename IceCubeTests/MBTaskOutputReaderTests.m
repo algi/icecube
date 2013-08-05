@@ -7,6 +7,7 @@
 //
 
 #import "MBTaskOutputReaderTests.h"
+
 #import "NSTask+MBTaskOutputParser.h"
 
 @implementation MBTaskOutputReaderTests
