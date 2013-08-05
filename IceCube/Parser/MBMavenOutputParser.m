@@ -11,14 +11,14 @@
 #import "MBMavenOutputParserDelegate.h"
 
 typedef NS_ENUM(NSInteger, MBParserState) {
-	MBParserStateStart,
-	MBParserStateScanningStarted,
-	MBParserStateScanningEnd,
-	MBParserStateProjectDeclarationStart,
-	MBParserStateProjectDeclarationEnd,
-	MBParserStateProjectRunning,
-	MBParserStateBuildDone,
-	MBParserStateScanIgnored
+	kStateStart,
+	kStateScanningStarted,
+	kStateScanningEnd,
+	kStateProjectDeclarationStart,
+	kStateProjectDeclarationEnd,
+	kStateProjectRunning,
+	kStateBuildDone,
+	kStateScanIgnored
 };
 
 // build line prefixes
@@ -49,7 +49,7 @@ static NSString * const kErrorExecutingLine    = @"[ERROR] Error executing Maven
 -(id)initWithDelegate:(id<MBMavenOutputParserDelegate>)parserDelegate
 {
 	if (self = [super init]) {
-		state = MBParserStateStart;
+		state = kStateStart;
 		
 		_delegate = parserDelegate;
 	}
@@ -61,7 +61,7 @@ static NSString * const kErrorExecutingLine    = @"[ERROR] Error executing Maven
 	[self.delegate newLineDidRecieve:line];
 	
 	switch (state) {
-		case MBParserStateStart:
+		case kStateStart:
 		{
 			// first line
 			if ([line isEqualToString:kScanningStartedLine]) {
@@ -70,27 +70,27 @@ static NSString * const kErrorExecutingLine    = @"[ERROR] Error executing Maven
 			
 			if ([line hasPrefix:kStateSeparatorLinePrefix]) {
 				// scanning started
-				state = MBParserStateScanningStarted;
+				state = kStateScanningStarted;
 				return;
 			}
 			
 			if ([line isEqualToString:kEmptyLine]) {
 				// one module only project, scanning is therefore done
-				state = MBParserStateScanningEnd;
+				state = kStateScanningEnd;
 				return;
 			}
 			
 			if ([line hasPrefix:kErrorInScanPrefix] || [line isEqualToString:kErrorExecutingLine]) {
 				// correct goal but incorrect -pl specifier OR there was problem in executing Maven
 				[self.delegate buildDidEndSuccessfully:NO];
-				state = MBParserStateScanIgnored;
+				state = kStateScanIgnored;
 				return;
 			}
 			
 			NSAssert(NO, @"State: 'kStartState', unknown line: %@", line);
 			break;
 		}
-		case MBParserStateScanningStarted:
+		case kStateScanningStarted:
 		{
 			if ([line isEqualToString:kReactorBuildOrderLine]) {
 				// great, scanning really started
@@ -105,7 +105,7 @@ static NSString * const kErrorExecutingLine    = @"[ERROR] Error executing Maven
 				}
 				else {
 					// task list is filled, so we can transfer to next state
-					state = MBParserStateScanningEnd;
+					state = kStateScanningEnd;
 					return;
 				}
 			}
@@ -113,7 +113,7 @@ static NSString * const kErrorExecutingLine    = @"[ERROR] Error executing Maven
 			if ([line isEqualToString:kBuildErrorLine]) {
 				// there is an error, so terminate scanning
 				[self handleResultOfBuildFromLine:line];
-				state = MBParserStateScanIgnored;
+				state = kStateScanIgnored;
 				return;
 			}
 			
@@ -124,28 +124,28 @@ static NSString * const kErrorExecutingLine    = @"[ERROR] Error executing Maven
 			[taskList addObject:projectName];
 			break;
 		}
-		case MBParserStateScanningEnd:
+		case kStateScanningEnd:
 		{
 			NSAssert([line hasPrefix:kStateSeparatorLinePrefix], @"State: 'kScanningEndState', unkown line: %@", line);
 			
 			[self.delegate buildDidStartWithTaskList:[taskList copy]]; // tasklist can be proceeded async, so copy it
 			taskList = nil;
 			
-			state = MBParserStateProjectDeclarationStart;
+			state = kStateProjectDeclarationStart;
 			break;
 		}
-		case MBParserStateProjectDeclarationStart:
+		case kStateProjectDeclarationStart:
 		{
 			if ([line hasPrefix:kReactorSummaryLinePrefix]) {
 				// build is done
-				state = MBParserStateBuildDone;
+				state = kStateBuildDone;
 				return;
 			}
 			
 			if ([line isEqualToString:kBuildErrorLine] || [line isEqualToString:kBuildSuccessLine]) {
 				// handle end of build
 				[self handleResultOfBuildFromLine:line];
-				state = MBParserStateScanIgnored;
+				state = kStateScanIgnored;
 				return;
 			}
 			
@@ -156,29 +156,29 @@ static NSString * const kErrorExecutingLine    = @"[ERROR] Error executing Maven
 			
 			[self.delegate projectDidStartWithName:taskName];
 			
-			state = MBParserStateProjectDeclarationEnd;
+			state = kStateProjectDeclarationEnd;
 			break;
 		}
-		case MBParserStateProjectDeclarationEnd:
+		case kStateProjectDeclarationEnd:
 		{
 			NSAssert([line hasPrefix:kStateSeparatorLinePrefix], @"State 'kProjectDeclarationEndState', unknown line: %@", line);
 			
-			state = MBParserStateProjectRunning;
+			state = kStateProjectRunning;
 			break;
 		}
-		case MBParserStateProjectRunning:
+		case kStateProjectRunning:
 		{
 			if ([line hasPrefix:kStateSeparatorLinePrefix]) {
-				state = MBParserStateProjectDeclarationStart;
+				state = kStateProjectDeclarationStart;
 				return;
 			}
 			break;
 		}
-		case MBParserStateBuildDone:
+		case kStateBuildDone:
 		{
 			if ([line hasPrefix:@"[INFO] BUILD "]) {
 				[self handleResultOfBuildFromLine:line];
-				state = MBParserStateScanIgnored;
+				state = kStateScanIgnored;
 			}
 			else {
 				// ignore rest of lines untile BUILD SUCCESS or BUILD FAILURE occurs
@@ -186,7 +186,7 @@ static NSString * const kErrorExecutingLine    = @"[ERROR] Error executing Maven
 			
 			break;
 		}
-		case MBParserStateScanIgnored:
+		case kStateScanIgnored:
 		{
 			// we are in final stage so other lines are ignored
 			break;
