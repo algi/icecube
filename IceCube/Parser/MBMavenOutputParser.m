@@ -20,18 +20,18 @@ typedef NS_ENUM(NSInteger, MBParserState) {
 };
 
 // build line prefixes
-NSString * const kInfoLinePrefix           = @"[INFO] ";
-NSString * const kStateSeparatorLinePrefix = @"[INFO] ----";
-NSString * const kBuildingPrefix           = @"[INFO] Building ";
-NSString * const kReactorSummaryLinePrefix = @"[INFO] Reactor Summary:";
-NSString * const kErrorInScanPrefix        = @"[ERROR] Could not find the selected project in the reactor:";
+static NSString * const kInfoLinePrefix           = @"[INFO] ";
+static NSString * const kStateSeparatorLinePrefix = @"[INFO] ----";
+static NSString * const kBuildingPrefix           = @"[INFO] Building ";
+static NSString * const kReactorSummaryLinePrefix = @"[INFO] Reactor Summary:";
+static NSString * const kErrorInScanPrefix        = @"[ERROR] Could not find the selected project in the reactor:";
 
-NSString * const kEmptyLine             = @"[INFO]";
-NSString * const kBuildSuccessLine      = @"[INFO] BUILD SUCCESS";
-NSString * const kBuildErrorLine        = @"[INFO] BUILD FAILURE";
-NSString * const kReactorBuildOrderLine = @"[INFO] Reactor Build Order:";
-NSString * const kScanningStartedLine   = @"[INFO] Scanning for projects...";
-NSString * const kErrorExecutingLine    = @"[ERROR] Error executing Maven.";
+static NSString * const kEmptyLine             = @"[INFO]";
+static NSString * const kBuildSuccessLine      = @"[INFO] BUILD SUCCESS";
+static NSString * const kBuildErrorLine        = @"[INFO] BUILD FAILURE";
+static NSString * const kReactorBuildOrderLine = @"[INFO] Reactor Build Order:";
+static NSString * const kScanningStartedLine   = @"[INFO] Scanning for projects...";
+static NSString * const kErrorExecutingLine    = @"[ERROR] Error executing Maven.";
 
 @interface MBMavenOutputParser () {
 	MBParserState state;

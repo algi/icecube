@@ -9,7 +9,7 @@
 #import "MBTaskRunnerWindowController.h"
 #import "MBMavenTaskExecutor.h"
 
-#define kMavenWorkingDirectory @"maven.working.directory"
+static NSString * const MBMavenWorkingDirectory = @"maven.working.directory";
 
 @interface MBTaskRunnerWindowController () <MBMavenOutputParserDelegate>
 
@@ -33,12 +33,12 @@
 {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
-	NSURL *workingDirectory = [defaults URLForKey:kMavenWorkingDirectory];
+	NSURL *workingDirectory = [defaults URLForKey:MBMavenWorkingDirectory];
 	if (!workingDirectory) {
 		NSString *dir = [NSString stringWithFormat:@"file://localhost%@", NSHomeDirectory()];
 		
 		workingDirectory = [[NSURL alloc] initWithString:dir];
-		[defaults setURL:workingDirectory forKey:kMavenWorkingDirectory];
+		[defaults setURL:workingDirectory forKey:MBMavenWorkingDirectory];
 	}
 	
 	[self.pathControl setURL:workingDirectory];
@@ -63,7 +63,7 @@
 			[self.pathControl setURL:url];
 			[self.window setRepresentedURL:url];
 			
-			[[NSUserDefaults standardUserDefaults] setURL:url forKey:kMavenWorkingDirectory];
+			[[NSUserDefaults standardUserDefaults] setURL:url forKey:MBMavenWorkingDirectory];
 		}
 	}];
 }
