@@ -29,7 +29,7 @@
 	}];
 	
 	NSInteger expectedCount = 167;
-	STAssertEquals(count, expectedCount, @"Expected number of lines is 167.");
+	XCTAssertEqual(count, expectedCount, @"Expected number of lines is 167.");
 }
 
 @end

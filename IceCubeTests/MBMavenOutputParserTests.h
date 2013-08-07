@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface MBMavenOutputParserTests : SenTestCase
+@interface MBMavenOutputParserTests : XCTestCase
 
 @end

@@ -12,7 +12,7 @@
 #define MBAssertEqualArrays(a1, a2, description, ...) \
 do { \
   if (![a1 isEqualToArray:a2]) { \
-    STFail(description); \
+    XCTFail(description); \
   \
   } \
 } while(0) \

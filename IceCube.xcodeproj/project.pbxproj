@@ -30,7 +30,6 @@
 		56FE8E95167BA1A70001AAED /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 56FE8E93167BA1A70001AAED /* Credits.rtf */; };
 		56FE8E98167BA1A70001AAED /* MBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FE8E97167BA1A70001AAED /* MBAppDelegate.m */; };
 		56FE8E9B167BA1A70001AAED /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FE8E99167BA1A70001AAED /* MainMenu.xib */; };
-		56FE8EA6167BA1A80001AAED /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8EA5167BA1A80001AAED /* SenTestingKit.framework */; };
 		56FE8EA7167BA1A80001AAED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8E84167BA1A70001AAED /* Cocoa.framework */; };
 		56FE8EAF167BA1A80001AAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56FE8EAD167BA1A80001AAED /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
@@ -89,8 +88,7 @@
 		56FE8E96167BA1A70001AAED /* MBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBAppDelegate.h; sourceTree = "<group>"; };
 		56FE8E97167BA1A70001AAED /* MBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBAppDelegate.m; sourceTree = "<group>"; };
 		56FE8E9A167BA1A70001AAED /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		56FE8EA4167BA1A80001AAED /* IceCubeTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IceCubeTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		56FE8EA5167BA1A80001AAED /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		56FE8EA4167BA1A80001AAED /* IceCubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IceCubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FE8EAC167BA1A80001AAED /* IceCubeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IceCubeTests-Info.plist"; sourceTree = "<group>"; };
 		56FE8EAE167BA1A80001AAED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,7 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56FE8EA6167BA1A80001AAED /* SenTestingKit.framework in Frameworks */,
 				56FE8EA7167BA1A80001AAED /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				56FE8E80167BA1A70001AAED /* IceCube.app */,
-				56FE8EA4167BA1A80001AAED /* IceCubeTests.octest */,
+				56FE8EA4167BA1A80001AAED /* IceCubeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,7 +192,6 @@
 			children = (
 				56FE8E84167BA1A70001AAED /* Cocoa.framework */,
 				56AB1B8716E3BFB000831747 /* QuartzCore.framework */,
-				56FE8EA5167BA1A80001AAED /* SenTestingKit.framework */,
 				56FE8E86167BA1A70001AAED /* Other Frameworks */,
 				3E5ACCC678554D0EAA5F4D2F /* libPods.a */,
 			);
@@ -303,8 +299,8 @@
 			);
 			name = IceCubeTests;
 			productName = IceCubeTests;
-			productReference = 56FE8EA4167BA1A80001AAED /* IceCubeTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 56FE8EA4167BA1A80001AAED /* IceCubeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -533,13 +529,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IceCube.app/Contents/MacOS/IceCube";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IceCube/IceCube-Prefix.pch";
 				INFOPLIST_FILE = "IceCubeTests/IceCubeTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -548,13 +542,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IceCube.app/Contents/MacOS/IceCube";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IceCube/IceCube-Prefix.pch";
 				INFOPLIST_FILE = "IceCubeTests/IceCubeTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
