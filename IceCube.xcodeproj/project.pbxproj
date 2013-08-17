@@ -22,6 +22,7 @@
 		56AB1B8816E3BFB000831747 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AB1B8716E3BFB000831747 /* QuartzCore.framework */; };
 		56BE045717A120E40046C6F5 /* build-failure-no-pom.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56BE045617A120E40046C6F5 /* build-failure-no-pom.txt */; };
 		56C6289317103F7A00DF4E4F /* DDFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C6289217103F7A00DF4E4F /* DDFileReader.m */; };
+		56D21D3017BFC6520060A823 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D21D2F17BFC6520060A823 /* Images.xcassets */; };
 		56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */; };
 		56F578E817972AF9007E85A8 /* NSTask+MBTaskOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E717972AF9007E85A8 /* NSTask+MBTaskOutputParser.m */; };
 		56FE8E85167BA1A70001AAED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8E84167BA1A70001AAED /* Cocoa.framework */; };
@@ -70,6 +71,7 @@
 		56BE045617A120E40046C6F5 /* build-failure-no-pom.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-pom.txt"; sourceTree = "<group>"; };
 		56C6289117103F7A00DF4E4F /* DDFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileReader.h; sourceTree = "<group>"; };
 		56C6289217103F7A00DF4E4F /* DDFileReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileReader.m; sourceTree = "<group>"; };
+		56D21D2F17BFC6520060A823 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		56F578E21794A5B1007E85A8 /* MBTaskRunnerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskRunnerWindowController.h; sourceTree = "<group>"; };
 		56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerWindowController.m; sourceTree = "<group>"; };
 		56F578E617972AF9007E85A8 /* NSTask+MBTaskOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTask+MBTaskOutputParser.h"; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				56FE8E96167BA1A70001AAED /* MBAppDelegate.h */,
 				56FE8E97167BA1A70001AAED /* MBAppDelegate.m */,
 				56FE8E99167BA1A70001AAED /* MainMenu.xib */,
+				56D21D2F17BFC6520060A823 /* Images.xcassets */,
 				56F578E11794A584007E85A8 /* Controllers */,
 				564B6B1917073F3A00DDA689 /* Parser */,
 				56A61EC317A2B50F00DE33B9 /* Task executor */,
@@ -338,6 +341,7 @@
 				56FE8E8F167BA1A70001AAED /* InfoPlist.strings in Resources */,
 				566A251917A993CC00C11A35 /* TaskRunner.xib in Resources */,
 				56FE8E95167BA1A70001AAED /* Credits.rtf in Resources */,
+				56D21D3017BFC6520060A823 /* Images.xcassets in Resources */,
 				56FE8E9B167BA1A70001AAED /* MainMenu.xib in Resources */,
 				5632EE2216E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns in Resources */,
 			);
@@ -500,6 +504,7 @@
 		56FE8EB6167BA1A80001AAED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -513,6 +518,7 @@
 		56FE8EB7167BA1A80001AAED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_NS_ASSERTIONS = NO;
