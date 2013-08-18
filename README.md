@@ -1,11 +1,12 @@
 # IceCube
 
-Maven frontend that allows launching saved build configurations. It is currently in refactoring stage that will allow to use more windows than one.
+IceCube is application for launching saved configurations of Maven tasks. It allows you to save particular task
+configurations for whole project such as running embedded Jetty, deploying on remote Tomcat, etc.
 
-## TODO
-* support workspaces with NSDocument backed by CoreData
-* (maybe) toolbar item similar to that one in Xcode or iTunes
-* (maybe) better parsing support - currently running plugin
+Application uses CoreData technology for persistent store and XPC framework for secure launch of Maven process.
+
+## Status
+Current status is beta and it can be tracked in GitHub issues.
  
 # Licence
 MIT
