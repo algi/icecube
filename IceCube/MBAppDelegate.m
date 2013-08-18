@@ -12,7 +12,7 @@
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
 {
-    return YES;
+    return NO;
 }
 
 - (IBAction)showPreferences:(id)sender

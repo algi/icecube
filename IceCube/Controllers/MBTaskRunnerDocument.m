@@ -12,25 +12,41 @@
 
 @implementation MBTaskRunnerDocument
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // Add your subclass-specific initialization here.
-    }
-    return self;
-}
-
 - (void)makeWindowControllers
 {
-	id controller = [[MBTaskRunnerWindowController alloc] initWithWindowNibName:@"MBTaskRunnerDocument"];
+	MBTaskRunnerWindowController *controller = [[MBTaskRunnerWindowController alloc] initWithOwner:self];
 	[self addWindowController:controller];
 }
 
-- (void)windowControllerDidLoadNib:(NSWindowController *)aController
+- (void)windowControllerWillLoadNib:(NSWindowController *)windowController
 {
-    [super windowControllerDidLoadNib:aController];
-    // Add any code here that needs to be executed once the windowController has loaded the document's window.
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:[Task entityName]
+														 inManagedObjectContext:self.managedObjectContext];
+	[fetchRequest setEntity:entityDescription];
+	
+	NSError *error;
+	NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+	if (fetchedObjects == nil) {
+		[NSApp presentError:error];
+		return;
+	}
+	
+	Task *taskDefinition;
+	if ([fetchedObjects count] == 0) {
+		taskDefinition = [NSEntityDescription insertNewObjectForEntityForName:[Task entityName]
+													   inManagedObjectContext:self.managedObjectContext];
+		
+		NSString *directory = [NSString stringWithFormat:@"file://localhost%@", NSHomeDirectory()];
+		taskDefinition.directory = directory;
+		
+		[self.undoManager removeAllActions];
+	}
+	else {
+		taskDefinition = fetchedObjects[0];
+	}
+	
+	_taskDefinition = taskDefinition;
 }
 
 + (BOOL)autosavesInPlace

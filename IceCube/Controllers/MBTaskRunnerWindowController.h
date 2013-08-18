@@ -21,7 +21,10 @@
 
 -(IBAction)startTask:(id)sender;
 -(IBAction)stopTask:(id)sender;
+-(IBAction)revealFolderInFinder:(id)sender;
 
 @property(readonly) BOOL taskRunning;
+
+- (id)initWithOwner:(id)owner;
 
 @end

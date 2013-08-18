@@ -25,6 +25,7 @@
 		56D21D3017BFC6520060A823 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D21D2F17BFC6520060A823 /* Images.xcassets */; };
 		56D21D9F17C0D5880060A823 /* MBTaskRunnerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */; };
 		56D21DA317C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56D21DA117C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodeld */; };
+		56D21DA717C1003A0060A823 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D21DA617C1003A0060A823 /* Task.m */; };
 		56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */; };
 		56F578E817972AF9007E85A8 /* NSTask+MBTaskOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E717972AF9007E85A8 /* NSTask+MBTaskOutputParser.m */; };
 		56FE8E85167BA1A70001AAED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8E84167BA1A70001AAED /* Cocoa.framework */; };
@@ -77,6 +78,8 @@
 		56D21D9C17C0D5880060A823 /* MBTaskRunnerDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskRunnerDocument.h; sourceTree = "<group>"; };
 		56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerDocument.m; sourceTree = "<group>"; };
 		56D21DA217C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MBTaskRunnerDocument.xcdatamodel; sourceTree = "<group>"; };
+		56D21DA517C1003A0060A823 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		56D21DA617C1003A0060A823 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		56F578E21794A5B1007E85A8 /* MBTaskRunnerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskRunnerWindowController.h; sourceTree = "<group>"; };
 		56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerWindowController.m; sourceTree = "<group>"; };
 		56F578E617972AF9007E85A8 /* NSTask+MBTaskOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTask+MBTaskOutputParser.h"; sourceTree = "<group>"; };
@@ -143,6 +146,15 @@
 			path = Parser;
 			sourceTree = "<group>";
 		};
+		56D21DA817C1004C0060A823 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56D21DA517C1003A0060A823 /* Task.h */,
+				56D21DA617C1003A0060A823 /* Task.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		56F578E11794A584007E85A8 /* Task runner window */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +164,7 @@
 				56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */,
 				566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */,
 				56D21DA117C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodeld */,
+				56D21DA817C1004C0060A823 /* Model */,
 			);
 			name = "Task runner window";
 			path = Controllers;
@@ -400,6 +413,7 @@
 				56D21DA317C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodeld in Sources */,
 				568DB4511708622700AC385F /* MBMavenOutputParser.m in Sources */,
 				569850651799E2C2002E8D3A /* MBMavenTaskExecutor.m in Sources */,
+				56D21DA717C1003A0060A823 /* Task.m in Sources */,
 				56F578E817972AF9007E85A8 /* NSTask+MBTaskOutputParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

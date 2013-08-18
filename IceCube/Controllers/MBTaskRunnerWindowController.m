@@ -11,7 +11,7 @@
 #import "MBMavenTaskExecutor.h"
 #import "MBMavenOutputParserDelegate.h"
 
-static NSString * const MBMavenWorkingDirectory = @"maven.working.directory";
+#import "MBTaskRunnerDocument.h"
 
 @interface MBTaskRunnerWindowController () <MBMavenOutputParserDelegate>
 
@@ -21,9 +21,9 @@ static NSString * const MBMavenWorkingDirectory = @"maven.working.directory";
 
 @implementation MBTaskRunnerWindowController
 
-- (id)init
+- (id)initWithOwner:(id)owner
 {
-	self = [super initWithWindowNibName:@"TaskRunner"];
+	self = [super initWithWindowNibName:@"MBTaskRunnerDocument" owner:owner];
 	if (self) {
 		_executor = [[MBMavenTaskExecutor alloc] init];
 		_executor.executionObserver = self;
@@ -33,20 +33,12 @@ static NSString * const MBMavenWorkingDirectory = @"maven.working.directory";
 
 - (void)windowDidLoad
 {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	MBTaskRunnerDocument *document = [self document];
+	NSString *directory = document.taskDefinition.directory;
+	NSURL *directoryURL = [NSURL URLWithString:directory];
 	
-	NSURL *workingDirectory = [defaults URLForKey:MBMavenWorkingDirectory];
-	if (!workingDirectory) {
-		NSString *dir = [NSString stringWithFormat:@"file://localhost%@", NSHomeDirectory()];
-		
-		workingDirectory = [[NSURL alloc] initWithString:dir];
-		[defaults setURL:workingDirectory forKey:MBMavenWorkingDirectory];
-	}
-	
-	[self.pathControl setURL:workingDirectory];
+	[self.pathControl setURL:directoryURL];
 	[self.pathControl setDoubleAction:@selector(showOpenDialogAction:)];
-	
-	[self.window setRepresentedURL:workingDirectory];
 }
 
 - (void)showOpenDialogAction:(id)sender
@@ -63,9 +55,9 @@ static NSString * const MBMavenWorkingDirectory = @"maven.working.directory";
 			NSURL *url = [urls objectAtIndex:0];
 			
 			[self.pathControl setURL:url];
-			[self.window setRepresentedURL:url];
 			
-			[[NSUserDefaults standardUserDefaults] setURL:url forKey:MBMavenWorkingDirectory];
+			MBTaskRunnerDocument *document = [self document];
+			document.taskDefinition.directory = [url absoluteString];
 		}
 	}];
 }
@@ -95,6 +87,12 @@ static NSString * const MBMavenWorkingDirectory = @"maven.working.directory";
 -(IBAction)stopTask:(id)sender
 {
 	[self.executor terminate];
+}
+
+-(IBAction)revealFolderInFinder:(id)sender
+{
+	NSArray *fileURLs = @[self.pathControl.URL];
+	[[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:fileURLs];
 }
 
 #pragma mark - Observer methods -

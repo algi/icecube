@@ -8,6 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "Task.h"
+
 @interface MBTaskRunnerDocument : NSPersistentDocument
+
+@property(readonly) Task *taskDefinition;
 
 @end
