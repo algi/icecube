@@ -12,7 +12,6 @@
 
 @property (assign) IBOutlet NSWindow *preferencesWindow;
 
-#pragma mark - Actions -
 - (IBAction)showPreferences:(id)sender;
 
 @end

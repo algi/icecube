@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5632EE2216E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */; };
 		56479D7617A17C4C00380EBD /* build-failure-unknown-phase.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56479D7517A17C4C00380EBD /* build-failure-unknown-phase.txt */; };
-		566A251917A993CC00C11A35 /* TaskRunner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566A251817A993CC00C11A35 /* TaskRunner.xib */; };
+		566A251917A993CC00C11A35 /* MBTaskRunnerDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */; };
 		5671D27D17AA8FC400D4E288 /* build-failure-non-parsable.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5671D27C17AA8FC400D4E288 /* build-failure-non-parsable.txt */; };
 		568DB44E17082A7300AC385F /* build-success.txt in Resources */ = {isa = PBXBuildFile; fileRef = 568DB44D17082A7300AC385F /* build-success.txt */; };
 		568DB4511708622700AC385F /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB4501708622700AC385F /* MBMavenOutputParser.m */; };
@@ -23,6 +23,8 @@
 		56BE045717A120E40046C6F5 /* build-failure-no-pom.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56BE045617A120E40046C6F5 /* build-failure-no-pom.txt */; };
 		56C6289317103F7A00DF4E4F /* DDFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C6289217103F7A00DF4E4F /* DDFileReader.m */; };
 		56D21D3017BFC6520060A823 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D21D2F17BFC6520060A823 /* Images.xcassets */; };
+		56D21D9F17C0D5880060A823 /* MBTaskRunnerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */; };
+		56D21DA317C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56D21DA117C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodeld */; };
 		56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */; };
 		56F578E817972AF9007E85A8 /* NSTask+MBTaskOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E717972AF9007E85A8 /* NSTask+MBTaskOutputParser.m */; };
 		56FE8E85167BA1A70001AAED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8E84167BA1A70001AAED /* Cocoa.framework */; };
@@ -49,7 +51,7 @@
 		3E5ACCC678554D0EAA5F4D2F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "Icons-Land-Weather-Ice.icns"; path = "../Icons-Land-Weather-Ice.icns"; sourceTree = "<group>"; };
 		56479D7517A17C4C00380EBD /* build-failure-unknown-phase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-unknown-phase.txt"; sourceTree = "<group>"; };
-		566A251817A993CC00C11A35 /* TaskRunner.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TaskRunner.xib; path = ../TaskRunner.xib; sourceTree = "<group>"; };
+		566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MBTaskRunnerDocument.xib; path = ../MBTaskRunnerDocument.xib; sourceTree = "<group>"; };
 		5671D27C17AA8FC400D4E288 /* build-failure-non-parsable.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-non-parsable.txt"; sourceTree = "<group>"; };
 		568DB44D17082A7300AC385F /* build-success.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-success.txt"; sourceTree = "<group>"; };
 		568DB44F1708622700AC385F /* MBMavenOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParser.h; sourceTree = "<group>"; };
@@ -72,6 +74,9 @@
 		56C6289117103F7A00DF4E4F /* DDFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileReader.h; sourceTree = "<group>"; };
 		56C6289217103F7A00DF4E4F /* DDFileReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileReader.m; sourceTree = "<group>"; };
 		56D21D2F17BFC6520060A823 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		56D21D9C17C0D5880060A823 /* MBTaskRunnerDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskRunnerDocument.h; sourceTree = "<group>"; };
+		56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerDocument.m; sourceTree = "<group>"; };
+		56D21DA217C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MBTaskRunnerDocument.xcdatamodel; sourceTree = "<group>"; };
 		56F578E21794A5B1007E85A8 /* MBTaskRunnerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskRunnerWindowController.h; sourceTree = "<group>"; };
 		56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerWindowController.m; sourceTree = "<group>"; };
 		56F578E617972AF9007E85A8 /* NSTask+MBTaskOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTask+MBTaskOutputParser.h"; sourceTree = "<group>"; };
@@ -143,7 +148,10 @@
 			children = (
 				56F578E21794A5B1007E85A8 /* MBTaskRunnerWindowController.h */,
 				56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */,
-				566A251817A993CC00C11A35 /* TaskRunner.xib */,
+				566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */,
+				56D21D9C17C0D5880060A823 /* MBTaskRunnerDocument.h */,
+				56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */,
+				56D21DA117C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodeld */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -339,7 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FE8E8F167BA1A70001AAED /* InfoPlist.strings in Resources */,
-				566A251917A993CC00C11A35 /* TaskRunner.xib in Resources */,
+				566A251917A993CC00C11A35 /* MBTaskRunnerDocument.xib in Resources */,
 				56FE8E95167BA1A70001AAED /* Credits.rtf in Resources */,
 				56D21D3017BFC6520060A823 /* Images.xcassets in Resources */,
 				56FE8E9B167BA1A70001AAED /* MainMenu.xib in Resources */,
@@ -384,9 +392,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56D21D9F17C0D5880060A823 /* MBTaskRunnerDocument.m in Sources */,
 				56FE8E91167BA1A70001AAED /* main.m in Sources */,
 				56FE8E98167BA1A70001AAED /* MBAppDelegate.m in Sources */,
 				56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */,
+				56D21DA317C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodeld in Sources */,
 				568DB4511708622700AC385F /* MBMavenOutputParser.m in Sources */,
 				569850651799E2C2002E8D3A /* MBMavenTaskExecutor.m in Sources */,
 				56F578E817972AF9007E85A8 /* NSTask+MBTaskOutputParser.m in Sources */,
@@ -587,6 +597,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		56D21DA117C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				56D21DA217C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodel */,
+			);
+			currentVersion = 56D21DA217C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodel */;
+			path = MBTaskRunnerDocument.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 56FE8E77167BA1A70001AAED /* Project object */;
 }

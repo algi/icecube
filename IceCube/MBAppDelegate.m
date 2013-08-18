@@ -8,20 +8,11 @@
 
 #import "MBAppDelegate.h"
 
-#import "MBTaskRunnerWindowController.h"
-
-@interface MBAppDelegate ()
-
-@property MBTaskRunnerWindowController *taskRunnerController;
-
-@end
-
 @implementation MBAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-	self.taskRunnerController = [[MBTaskRunnerWindowController alloc] init];
-	[self.taskRunnerController showWindow:nil];
+	// noop
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
