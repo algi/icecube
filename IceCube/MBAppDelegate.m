@@ -10,11 +10,6 @@
 
 @implementation MBAppDelegate
 
-- (void)applicationDidFinishLaunching:(NSNotification *)notification
-{
-	// noop
-}
-
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
 {
     return YES;
