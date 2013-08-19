@@ -114,6 +114,19 @@
 	XCTAssertEqual(observer.projectDidStartCount, 1ul, @"Build has one project.");
 }
 
+-(void)testBuildFailureNoJavaHome
+{
+	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure-no-java_home"];
+	XCTAssertEqual(observer.result, 0ul, @"Build must be failure.");
+	XCTAssertEqual([observer.taskList count], 0ul, @"Task list must be empty.");
+	XCTAssertEqual([observer.doneTasks count], 0ul,  @"Done tasks must be empty.");
+	
+	XCTAssertEqual(observer.lineCount, 2ul, @"Sample has 3 lines (last one is empty so must be omited).");
+	XCTAssertEqual(observer.buildDidEndCount, 1ul, @"Build must be ended only once.");
+	XCTAssertEqual(observer.buildDidStartCount, 0ul, @"Build has no tasks.");
+	XCTAssertEqual(observer.projectDidStartCount, 0ul, @"Build has no sub-modules.");
+}
+
 #pragma mark - Utility methods -
 +(MBMavenOutputParserTestObserver *)launchedTestObserverForResource:(NSString *)resource
 {

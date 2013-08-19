@@ -1,0 +1,2 @@
+Error: JAVA_HOME is not defined correctly.
+We cannot execute /System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/bin/java

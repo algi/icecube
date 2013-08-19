@@ -28,12 +28,13 @@ static NSString * const kBuildingPrefix           = @"[INFO] Building ";
 static NSString * const kReactorSummaryLinePrefix = @"[INFO] Reactor Summary:";
 static NSString * const kErrorInScanPrefix        = @"[ERROR] Could not find the selected project in the reactor:";
 
-static NSString * const kEmptyLine             = @"[INFO]";
-static NSString * const kBuildSuccessLine      = @"[INFO] BUILD SUCCESS";
-static NSString * const kBuildErrorLine        = @"[INFO] BUILD FAILURE";
-static NSString * const kReactorBuildOrderLine = @"[INFO] Reactor Build Order:";
-static NSString * const kScanningStartedLine   = @"[INFO] Scanning for projects...";
-static NSString * const kErrorExecutingLine    = @"[ERROR] Error executing Maven.";
+static NSString * const kEmptyLine               = @"[INFO]";
+static NSString * const kBuildSuccessLine        = @"[INFO] BUILD SUCCESS";
+static NSString * const kBuildErrorLine          = @"[INFO] BUILD FAILURE";
+static NSString * const kReactorBuildOrderLine   = @"[INFO] Reactor Build Order:";
+static NSString * const kScanningStartedLine     = @"[INFO] Scanning for projects...";
+static NSString * const kErrorExecutingLine      = @"[ERROR] Error executing Maven.";
+static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not defined correctly.";
 
 @interface MBMavenOutputParser ()
 
@@ -81,7 +82,10 @@ static NSString * const kErrorExecutingLine    = @"[ERROR] Error executing Maven
 				return;
 			}
 			
-			if ([line hasPrefix:kErrorInScanPrefix] || [line isEqualToString:kErrorExecutingLine]) {
+			if ([line hasPrefix:kErrorInScanPrefix] ||
+				[line isEqualToString:kErrorExecutingLine] ||
+				[line isEqualToString:kErrorJavaHomeNotSetLine])
+			{
 				// correct goal but incorrect -pl specifier OR there was problem in executing Maven
 				[self.delegate buildDidEndSuccessfully:NO];
 				self.state = kStateScanIgnored;
