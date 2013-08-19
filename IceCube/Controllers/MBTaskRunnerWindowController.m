@@ -17,13 +17,16 @@
 
 @property MBMavenTaskExecutor *executor;
 
+@property BOOL taskRunning;
+@property Task *taskDefinition;
+
 @end
 
 @implementation MBTaskRunnerWindowController
 
-- (id)initWithOwner:(id)owner
+- (id)init
 {
-	self = [super initWithWindowNibName:@"MBTaskRunnerDocument" owner:owner];
+	self = [super initWithWindowNibName:@"MBTaskRunnerDocument"];
 	if (self) {
 		_executor = [[MBMavenTaskExecutor alloc] init];
 		_executor.executionObserver = self;
@@ -33,9 +36,9 @@
 
 - (void)windowDidLoad
 {
-	MBTaskRunnerDocument *document = [self document];
-	NSString *directory = document.taskDefinition.directory;
-	NSURL *directoryURL = [NSURL URLWithString:directory];
+	self.taskDefinition = [[self document] taskDefinition];
+	
+	NSURL *directoryURL = [NSURL URLWithString:self.taskDefinition.directory];
 	
 	[self.pathControl setURL:directoryURL];
 	[self.pathControl setDoubleAction:@selector(showOpenDialogAction:)];
@@ -106,7 +109,7 @@
 								 arguments];
 	[self.outputTextView setString:executionHeader];
 	
-	_taskRunning = YES;
+	self.taskRunning = YES;
 }
 
 -(void)buildDidStartWithTaskList:(NSArray *)taskList
@@ -122,7 +125,7 @@
 -(void)buildDidEndSuccessfully:(BOOL)buildWasSuccessful
 {
 	dispatch_async(dispatch_get_main_queue(), ^{
-		_taskRunning = NO;
+		self.taskRunning = NO;
 		[self.progressIndicator stopAnimation:self];
 		
 		NSUserNotification *notification = [[NSUserNotification alloc] init];

@@ -12,13 +12,21 @@
 
 @implementation MBTaskRunnerDocument
 
+- (id)init
+{
+	if (self = [super init]) {
+		[self readContentOfFile];
+	}
+	return self;
+}
+
 - (void)makeWindowControllers
 {
-	MBTaskRunnerWindowController *controller = [[MBTaskRunnerWindowController alloc] initWithOwner:self];
+	MBTaskRunnerWindowController *controller = [[MBTaskRunnerWindowController alloc] init];
 	[self addWindowController:controller];
 }
 
-- (void)windowControllerWillLoadNib:(NSWindowController *)windowController
+- (void)readContentOfFile
 {
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:[Task entityName]

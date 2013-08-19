@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MBTaskRunnerWindowController : NSWindowController
+#import "Task.h"
 
-@property(assign) IBOutlet NSToolbarItem *runTaskButton;
-@property(assign) IBOutlet NSToolbarItem *stopTaskButton;
+@interface MBTaskRunnerWindowController : NSWindowController
 
 @property(assign) IBOutlet NSTextField *commandField;
 @property(assign) IBOutlet NSTextView *outputTextView;
@@ -24,7 +23,6 @@
 -(IBAction)revealFolderInFinder:(id)sender;
 
 @property(readonly) BOOL taskRunning;
-
-- (id)initWithOwner:(id)owner;
+@property(readonly) Task *taskDefinition;
 
 @end

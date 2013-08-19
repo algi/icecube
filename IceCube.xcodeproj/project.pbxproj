@@ -19,7 +19,6 @@
 		569850651799E2C2002E8D3A /* MBMavenTaskExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 569850641799E2C2002E8D3A /* MBMavenTaskExecutor.m */; };
 		56A61EC817A69F4D00DE33B9 /* build-success-one-module.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56A61EC717A69F4D00DE33B9 /* build-success-one-module.txt */; };
 		56A61ECA17A6A2A900DE33B9 /* build-failure-no-project.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56A61EC917A6A2A900DE33B9 /* build-failure-no-project.txt */; };
-		56AB1B8816E3BFB000831747 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AB1B8716E3BFB000831747 /* QuartzCore.framework */; };
 		56BE045717A120E40046C6F5 /* build-failure-no-pom.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56BE045617A120E40046C6F5 /* build-failure-no-pom.txt */; };
 		56C6289317103F7A00DF4E4F /* DDFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C6289217103F7A00DF4E4F /* DDFileReader.m */; };
 		56D21D3017BFC6520060A823 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D21D2F17BFC6520060A823 /* Images.xcassets */; };
@@ -109,7 +108,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FE8E85167BA1A70001AAED /* Cocoa.framework in Frameworks */,
-				56AB1B8816E3BFB000831747 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +334,11 @@
 				CLASSPREFIX = MB;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Marian Bouček";
+				TargetAttributes = {
+					56FE8E7F167BA1A70001AAED = {
+						DevelopmentTeam = 72CQ273HEW;
+					};
+				};
 			};
 			buildConfigurationList = 56FE8E7A167BA1A70001AAED /* Build configuration list for PBXProject "IceCube" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -535,6 +538,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IceCube/IceCube-Prefix.pch";
 				INFOPLIST_FILE = "IceCube/IceCube-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -550,6 +554,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IceCube/IceCube-Prefix.pch";
 				INFOPLIST_FILE = "IceCube/IceCube-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
