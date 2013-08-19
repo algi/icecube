@@ -39,6 +39,12 @@
 		launchPath = @"/usr/bin/mvn";
 		[[NSUserDefaults standardUserDefaults] setValue:launchPath forKey:kMavenApplicationPath];
 	}
+	if (! [[NSFileManager defaultManager] fileExistsAtPath:launchPath]) {
+		// TODO error
+		NSError *error = [NSError errorWithDomain:@"" code:1 userInfo:nil];
+		[NSApp presentError:error];
+		return;
+	}
 	[self.task setLaunchPath:launchPath];
 	
 	NSArray *taskArgs = [arguments componentsSeparatedByString:@" "];
