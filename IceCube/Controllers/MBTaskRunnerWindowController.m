@@ -71,7 +71,7 @@
 		return;
 	}
 	
-	NSString *args = [self.commandField stringValue];
+	NSString *args = self.taskDefinition.command;
 	if ([args length] == 0) {
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert setMessageText: @"Nelze spustit prázdný příkaz."];
@@ -83,7 +83,7 @@
 		return;
 	}
 	
-	NSURL *path = [self.pathControl URL];
+	NSURL *path = [NSURL URLWithString:self.taskDefinition.directory];
 	[self.executor launchMavenWithArguments:args onPath:path];
 }
 
@@ -101,6 +101,7 @@
 #pragma mark - Observer methods -
 -(void)task:(NSString *)executable willStartWithArguments:(NSString *)arguments onPath:(NSString *)projectDirectory
 {
+	self.taskRunning = YES;
 	[self.progressIndicator startAnimation:self];
 	
 	NSString *executionHeader = [NSString stringWithFormat:@"$ cd %@\n$ %@ %@\n\n",
@@ -108,8 +109,6 @@
 								 executable,
 								 arguments];
 	[self.outputTextView setString:executionHeader];
-	
-	self.taskRunning = YES;
 }
 
 -(void)buildDidStartWithTaskList:(NSArray *)taskList
