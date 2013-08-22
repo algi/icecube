@@ -40,7 +40,7 @@
 		[[NSUserDefaults standardUserDefaults] setValue:launchPath forKey:kMavenApplicationPath];
 	}
 	if (! [[NSFileManager defaultManager] fileExistsAtPath:launchPath]) {
-		// TODO error
+		// TODO error handling
 		NSError *error = [NSError errorWithDomain:@"" code:1 userInfo:nil];
 		[NSApp presentError:error];
 		return;
@@ -50,6 +50,21 @@
 	NSArray *taskArgs = [arguments componentsSeparatedByString:@" "];
 	[self.task setArguments:taskArgs];
 	
+	// environment
+	NSTask *javaHomeTask = [[NSTask alloc] init];
+	[javaHomeTask setLaunchPath:@"/usr/libexec/java_home"];
+	
+	__block NSString *javaHomeValue = nil;
+	[javaHomeTask launchWithTaskOutputBlock:^(NSString *line) {
+		if (!javaHomeValue) {
+			javaHomeValue = line;
+		}
+	}];
+	
+	NSAssert(javaHomeValue, @"Unable to obtain JAVA_HOME value.");
+	[self.task setEnvironment:@{@"JAVA_HOME": javaHomeValue}];
+	
+	// directory path
 	NSString *directoryPath = [path path];
 	[self.task setCurrentDirectoryPath:directoryPath];
 	
