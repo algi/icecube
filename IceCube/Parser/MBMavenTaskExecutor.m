@@ -33,24 +33,70 @@
 	
 	self.task = [[NSTask alloc] init];
 	
-	// setup task
-	NSString *launchPath = [[NSUserDefaults standardUserDefaults] stringForKey:kMavenApplicationPath];
+	// launch path
+	NSError *error;
+	NSString *launchPath = [self launchPath:&error];
 	if (!launchPath) {
-		launchPath = @"/usr/bin/mvn";
-		[[NSUserDefaults standardUserDefaults] setValue:launchPath forKey:kMavenApplicationPath];
-	}
-	if (! [[NSFileManager defaultManager] fileExistsAtPath:launchPath]) {
-		// TODO error handling
-		NSError *error = [NSError errorWithDomain:@"" code:1 userInfo:nil];
 		[NSApp presentError:error];
 		return;
 	}
 	[self.task setLaunchPath:launchPath];
 	
+	// arguments
 	NSArray *taskArgs = [arguments componentsSeparatedByString:@" "];
 	[self.task setArguments:taskArgs];
 	
 	// environment
+	NSDictionary *environment = [self environment];
+	[self.task setEnvironment:environment];
+	
+	// directory path
+	NSString *directoryPath = [path path];
+	[self.task setCurrentDirectoryPath:directoryPath];
+	
+	// start async with normal priority on new thread
+	[self.executionObserver task:launchPath willStartWithArguments:arguments onPath:directoryPath];
+	
+	MBMavenOutputParser *parser = [[MBMavenOutputParser alloc]initWithDelegate:self.executionObserver];
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul), ^{
+		[self.task launchWithTaskOutputBlock:^(NSString *line) {
+			[parser parseLine:line];
+		}];
+	});
+}
+
+- (BOOL)isRunning
+{
+	return [self.task isRunning];
+}
+
+- (void)terminate
+{
+	if ([self.task isRunning]) {
+		[self.task terminate];
+		[self.executionObserver buildDidEndSuccessfully:NO];
+	}
+}
+
+#pragma mark - Task preparation -
+- (NSString *)launchPath:(NSError **)error
+{
+	NSString *launchPath = [[NSUserDefaults standardUserDefaults] stringForKey:kMavenApplicationPath];
+	if (!launchPath) {
+		launchPath = @"/usr/bin/mvn";
+		[[NSUserDefaults standardUserDefaults] setValue:launchPath forKey:kMavenApplicationPath];
+	}
+	
+	if (! [[NSFileManager defaultManager] fileExistsAtPath:launchPath]) {
+		*error = [NSError errorWithDomain:@"" code:1 userInfo:nil]; // TODO ...
+		return nil;
+	}
+	
+	return launchPath;
+}
+
+- (NSDictionary *)environment
+{
 	NSTask *javaHomeTask = [[NSTask alloc] init];
 	[javaHomeTask setLaunchPath:@"/usr/libexec/java_home"];
 	
@@ -62,35 +108,7 @@
 	}];
 	
 	NSAssert(javaHomeValue, @"Unable to obtain JAVA_HOME value.");
-	[self.task setEnvironment:@{@"JAVA_HOME": javaHomeValue}];
-	
-	// directory path
-	NSString *directoryPath = [path path];
-	[self.task setCurrentDirectoryPath:directoryPath];
-	
-	// start async with normal priority on new thread
-	MBMavenOutputParser *parser = [[MBMavenOutputParser alloc]initWithDelegate:self.executionObserver];
-	
-	[self.executionObserver task:launchPath willStartWithArguments:arguments onPath:directoryPath];
-	
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul), ^{
-		[self.task launchWithTaskOutputBlock:^(NSString *line) {
-			[parser parseLine:line];
-		}];
-	});
-}
-
--(BOOL)isRunning
-{
-	return [self.task isRunning];
-}
-
--(void)terminate
-{
-	if ([self.task isRunning]) {
-		[self.task terminate];
-		[self.executionObserver buildDidEndSuccessfully:NO];
-	}
+	return @{@"JAVA_HOME": javaHomeValue};
 }
 
 @end
