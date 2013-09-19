@@ -11,6 +11,9 @@
 		56479D7617A17C4C00380EBD /* build-failure-unknown-phase.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56479D7517A17C4C00380EBD /* build-failure-unknown-phase.txt */; };
 		566A251917A993CC00C11A35 /* MBTaskRunnerDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */; };
 		5671D27D17AA8FC400D4E288 /* build-failure-non-parsable.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5671D27C17AA8FC400D4E288 /* build-failure-non-parsable.txt */; };
+		568C673917EB7D630095785D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568C673817EB7D630095785D /* Foundation.framework */; };
+		568C673F17EB7D630095785D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 568C673D17EB7D630095785D /* InfoPlist.strings */; };
+		568C674217EB7D630095785D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 568C674117EB7D630095785D /* main.m */; };
 		568DB44E17082A7300AC385F /* build-success.txt in Resources */ = {isa = PBXBuildFile; fileRef = 568DB44D17082A7300AC385F /* build-success.txt */; };
 		568DB4511708622700AC385F /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB4501708622700AC385F /* MBMavenOutputParser.m */; };
 		568DB454170887D900AC385F /* MBMavenOutputParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB453170887D900AC385F /* MBMavenOutputParserTests.m */; };
@@ -54,6 +57,12 @@
 		56479D7517A17C4C00380EBD /* build-failure-unknown-phase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-unknown-phase.txt"; sourceTree = "<group>"; };
 		566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MBTaskRunnerDocument.xib; path = ../MBTaskRunnerDocument.xib; sourceTree = "<group>"; };
 		5671D27C17AA8FC400D4E288 /* build-failure-non-parsable.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-non-parsable.txt"; sourceTree = "<group>"; };
+		568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cz.boucekm.MavenService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		568C673817EB7D630095785D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		568C673C17EB7D630095785D /* MavenService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MavenService-Info.plist"; sourceTree = "<group>"; };
+		568C673E17EB7D630095785D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		568C674017EB7D630095785D /* MavenService-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MavenService-Prefix.pch"; sourceTree = "<group>"; };
+		568C674117EB7D630095785D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		568DB44D17082A7300AC385F /* build-success.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-success.txt"; sourceTree = "<group>"; };
 		568DB44F1708622700AC385F /* MBMavenOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParser.h; sourceTree = "<group>"; };
 		568DB4501708622700AC385F /* MBMavenOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParser.m; sourceTree = "<group>"; };
@@ -105,6 +114,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		568C673417EB7D630095785D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				568C673917EB7D630095785D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56FE8E7D167BA1A70001AAED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -132,6 +149,25 @@
 				568DB4501708622700AC385F /* MBMavenOutputParser.m */,
 			);
 			path = Parser;
+			sourceTree = "<group>";
+		};
+		568C673A17EB7D630095785D /* MavenService */ = {
+			isa = PBXGroup;
+			children = (
+				568C674117EB7D630095785D /* main.m */,
+				568C673B17EB7D630095785D /* Supporting Files */,
+			);
+			path = MavenService;
+			sourceTree = "<group>";
+		};
+		568C673B17EB7D630095785D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				568C673C17EB7D630095785D /* MavenService-Info.plist */,
+				568C673D17EB7D630095785D /* InfoPlist.strings */,
+				568C674017EB7D630095785D /* MavenService-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		56A61EC317A2B50F00DE33B9 /* Task executor */ = {
@@ -195,6 +231,7 @@
 			children = (
 				56FE8E8A167BA1A70001AAED /* IceCube */,
 				56FE8EAA167BA1A80001AAED /* IceCubeTests */,
+				568C673A17EB7D630095785D /* MavenService */,
 				56FE8E83167BA1A70001AAED /* Frameworks */,
 				56FE8E81167BA1A70001AAED /* Products */,
 				569E8930179DE20A006C5326 /* LICENSE */,
@@ -207,6 +244,7 @@
 			children = (
 				56FE8E80167BA1A70001AAED /* IceCube.app */,
 				56FE8EA4167BA1A80001AAED /* IceCubeTests.xctest */,
+				568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -216,6 +254,7 @@
 			children = (
 				56FE8E84167BA1A70001AAED /* Cocoa.framework */,
 				56AB1B8716E3BFB000831747 /* QuartzCore.framework */,
+				568C673817EB7D630095785D /* Foundation.framework */,
 				56FE8E86167BA1A70001AAED /* Other Frameworks */,
 				3E5ACCC678554D0EAA5F4D2F /* libPods.a */,
 			);
@@ -292,6 +331,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		568C673617EB7D630095785D /* MavenService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 568C674317EB7D630095785D /* Build configuration list for PBXNativeTarget "MavenService" */;
+			buildPhases = (
+				568C673317EB7D630095785D /* Sources */,
+				568C673417EB7D630095785D /* Frameworks */,
+				568C673517EB7D630095785D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MavenService;
+			productName = MavenService;
+			productReference = 568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */;
+			productType = "com.apple.product-type.bundle";
+		};
 		56FE8E7F167BA1A70001AAED /* IceCube */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56FE8EB5167BA1A80001AAED /* Build configuration list for PBXNativeTarget "IceCube" */;
@@ -341,6 +397,9 @@
 					56FE8E7F167BA1A70001AAED = {
 						DevelopmentTeam = 72CQ273HEW;
 					};
+					56FE8EA3167BA1A80001AAED = {
+						TestTargetID = 56FE8E7F167BA1A70001AAED;
+					};
 				};
 			};
 			buildConfigurationList = 56FE8E7A167BA1A70001AAED /* Build configuration list for PBXProject "IceCube" */;
@@ -357,11 +416,20 @@
 			targets = (
 				56FE8E7F167BA1A70001AAED /* IceCube */,
 				56FE8EA3167BA1A80001AAED /* IceCubeTests */,
+				568C673617EB7D630095785D /* MavenService */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		568C673517EB7D630095785D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				568C673F17EB7D630095785D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56FE8E7E167BA1A70001AAED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -409,6 +477,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		568C673317EB7D630095785D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				568C674217EB7D630095785D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56FE8E7C167BA1A70001AAED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -447,6 +523,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		568C673D17EB7D630095785D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				568C673E17EB7D630095785D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		56FE8E8D167BA1A70001AAED /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -482,6 +566,57 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		568C674417EB7D630095785D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MavenService/MavenService-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "MavenService/MavenService-Info.plist";
+				MACH_O_TYPE = mh_execute;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "cz.boucekm.$(TARGET_NAME:rfc1034identifier)";
+				WRAPPER_EXTENSION = xpc;
+			};
+			name = Debug;
+		};
+		568C674517EB7D630095785D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MavenService/MavenService-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "MavenService/MavenService-Info.plist";
+				MACH_O_TYPE = mh_execute;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "cz.boucekm.$(TARGET_NAME:rfc1034identifier)";
+				WRAPPER_EXTENSION = xpc;
+			};
+			name = Release;
+		};
 		56FE8EB3167BA1A80001AAED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -595,6 +730,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		568C674317EB7D630095785D /* Build configuration list for PBXNativeTarget "MavenService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				568C674417EB7D630095785D /* Debug */,
+				568C674517EB7D630095785D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		56FE8E7A167BA1A70001AAED /* Build configuration list for PBXProject "IceCube" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
