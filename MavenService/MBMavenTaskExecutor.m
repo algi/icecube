@@ -37,7 +37,7 @@
 	NSError *error;
 	NSString *launchPath = [self launchPath:&error];
 	if (!launchPath) {
-		[NSApp presentError:error];
+		// TODO [NSApp presentError:error]; - fuuuuuuuu!!!!!
 		return;
 	}
 	[self.task setLaunchPath:launchPath];

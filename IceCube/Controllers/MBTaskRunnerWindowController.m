@@ -8,17 +8,13 @@
 
 #import "MBTaskRunnerWindowController.h"
 
-#import "MBMavenTaskExecutor.h"
 #import "MBMavenServiceCallback.h"
-
 #import "MBTaskRunnerDocument.h"
 
 #import "MBMavenService.h"
 #import "MBMavenServiceCallback.h"
 
 @interface MBTaskRunnerWindowController () <MBMavenServiceCallback>
-
-@property MBMavenTaskExecutor *executor;
 
 @property BOOL taskRunning;
 @property Task *taskDefinition;
@@ -29,12 +25,7 @@
 
 - (id)init
 {
-	self = [super initWithWindowNibName:@"MBTaskRunnerDocument"];
-	if (self) {
-		_executor = [[MBMavenTaskExecutor alloc] init];
-		_executor.executionObserver = self;
-	}
-	return self;
+	return self = [super initWithWindowNibName:@"MBTaskRunnerDocument"];
 }
 
 - (void)windowDidLoad
@@ -93,7 +84,6 @@
 	
 	// TODO
 	// 1) zajistit, aby se nedal service spustit víckrát najednou
-	// 2) přesunout kód do XPC service
 	// 3) zvážit přejmenování metod callbacků
 	// 4) nastavit sandbox (a modlit se, aby to bylo možné!)
 	// 5) nastavit správně cestu k Mavenu + JAVA_HOME (není vhodné zjišťovat na úrovni XPC služby)
@@ -110,7 +100,7 @@
 
 -(IBAction)stopTask:(id)sender
 {
-	[self.executor terminate];
+	// [self.executor terminate];
 }
 
 -(IBAction)revealFolderInFinder:(id)sender
@@ -120,12 +110,6 @@
 }
 
 #pragma mark - Observer methods -
-- (void)taskDidWriteLine:(NSString *)line
-{
-	NSLog(@"%@", line);
-}
-
-
 -(void)task:(NSString *)executable willStartWithArguments:(NSString *)arguments onPath:(NSString *)projectDirectory
 {
 	self.taskRunning = YES;
