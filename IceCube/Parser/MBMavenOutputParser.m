@@ -8,7 +8,7 @@
 
 #import "MBMavenOutputParser.h"
 
-#import "MBMavenOutputParserDelegate.h"
+#import "MBMavenServiceCallback.h"
 
 typedef NS_ENUM(NSInteger, MBParserState) {
 	kStateStart,
@@ -41,13 +41,13 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
 @property(nonatomic) NSMutableArray *taskList;
 @property(nonatomic, assign) MBParserState state;
 
-@property(weak) id<MBMavenOutputParserDelegate> delegate;
+@property(weak) id<MBMavenServiceCallback> delegate;
 
 @end
 
 @implementation MBMavenOutputParser
 
--(id)initWithDelegate:(id<MBMavenOutputParserDelegate>)parserDelegate
+-(id)initWithDelegate:(id<MBMavenServiceCallback>)parserDelegate
 {
 	self = [super init];
 	if (self) {

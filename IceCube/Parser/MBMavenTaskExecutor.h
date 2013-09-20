@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MBMavenOutputParserDelegate;
+@protocol MBMavenServiceCallback;
 
 @interface MBMavenTaskExecutor : NSObject
 
-@property(weak) id<MBMavenOutputParserDelegate> executionObserver;
+@property(weak) id<MBMavenServiceCallback> executionObserver;
 
 -(void)launchMavenWithArguments:(NSString *)arguments
 						 onPath:(NSURL *)path;

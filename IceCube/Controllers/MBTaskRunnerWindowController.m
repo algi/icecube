@@ -9,11 +9,14 @@
 #import "MBTaskRunnerWindowController.h"
 
 #import "MBMavenTaskExecutor.h"
-#import "MBMavenOutputParserDelegate.h"
+#import "MBMavenServiceCallback.h"
 
 #import "MBTaskRunnerDocument.h"
 
-@interface MBTaskRunnerWindowController () <MBMavenOutputParserDelegate>
+#import "MBMavenService.h"
+#import "MBMavenServiceCallback.h"
+
+@interface MBTaskRunnerWindowController () <MBMavenServiceCallback>
 
 @property MBMavenTaskExecutor *executor;
 
@@ -67,6 +70,7 @@
 
 -(IBAction)startTask:(id)sender
 {
+	/*
 	if ([self.executor isRunning]) {
 		return;
 	}
@@ -85,6 +89,23 @@
 	
 	NSURL *path = [NSURL URLWithString:self.taskDefinition.directory];
 	[self.executor launchMavenWithArguments:args onPath:path];
+	*/
+	
+	// TODO
+	// 1) zajistit, aby se nedal service spustit víckrát najednou
+	// 2) přesunout kód do XPC service
+	// 3) zvážit přejmenování metod callbacků
+	// 4) nastavit sandbox (a modlit se, aby to bylo možné!)
+	// 5) nastavit správně cestu k Mavenu + JAVA_HOME (není vhodné zjišťovat na úrovni XPC služby)
+	
+	NSXPCConnection *connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.MavenService"];
+	connection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenService)];
+	
+	connection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
+	connection.exportedObject = self;
+	
+	[connection resume];
+	[[connection remoteObjectProxy] launchMavenWithArguments:nil onPath:nil];
 }
 
 -(IBAction)stopTask:(id)sender
@@ -99,6 +120,12 @@
 }
 
 #pragma mark - Observer methods -
+- (void)taskDidWriteLine:(NSString *)line
+{
+	NSLog(@"%@", line);
+}
+
+
 -(void)task:(NSString *)executable willStartWithArguments:(NSString *)arguments onPath:(NSString *)projectDirectory
 {
 	self.taskRunning = YES;

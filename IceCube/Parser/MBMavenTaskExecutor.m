@@ -10,7 +10,7 @@
 
 #import "NSTask+MBTaskOutputParser.h"
 #import "MBMavenOutputParser.h"
-#import "MBMavenOutputParserDelegate.h"
+#import "MBMavenServiceCallback.h"
 
 #define kMavenApplicationPath @"maven.application.path"
 
@@ -88,7 +88,9 @@
 	}
 	
 	if (! [[NSFileManager defaultManager] fileExistsAtPath:launchPath]) {
-		*error = [NSError errorWithDomain:@"" code:1 userInfo:nil]; // TODO ...
+		if (error != NULL) {
+			*error = [NSError errorWithDomain:@"" code:1 userInfo:nil]; // TODO ...
+		}
 		return nil;
 	}
 	

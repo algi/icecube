@@ -120,7 +120,6 @@
 		56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerWindowController.m; sourceTree = "<group>"; };
 		56F578E617972AF9007E85A8 /* NSTask+MBTaskOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTask+MBTaskOutputParser.h"; sourceTree = "<group>"; };
 		56F578E717972AF9007E85A8 /* NSTask+MBTaskOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+MBTaskOutputParser.m"; sourceTree = "<group>"; };
-		56F578E9179745B1007E85A8 /* MBMavenOutputParserDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParserDelegate.h; sourceTree = "<group>"; };
 		56FE8E80167BA1A70001AAED /* IceCube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IceCube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FE8E84167BA1A70001AAED /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		56FE8E87167BA1A70001AAED /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -170,7 +169,6 @@
 		564B6B1917073F3A00DDA689 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
-				56F578E9179745B1007E85A8 /* MBMavenOutputParserDelegate.h */,
 				568DB44F1708622700AC385F /* MBMavenOutputParser.h */,
 				568DB4501708622700AC385F /* MBMavenOutputParser.m */,
 			);
@@ -791,6 +789,7 @@
 				568C674517EB7D630095785D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		56FE8E7A167BA1A70001AAED /* Build configuration list for PBXProject "IceCube" */ = {
 			isa = XCConfigurationList;

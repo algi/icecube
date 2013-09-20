@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MBMavenOutputParserDelegate;
+@protocol MBMavenServiceCallback;
 
 @interface MBMavenOutputParser : NSObject
 
--(id)initWithDelegate:(id<MBMavenOutputParserDelegate>)delegate;
+-(id)initWithDelegate:(id<MBMavenServiceCallback>)delegate;
 
 -(void)parseLine:(NSString *)line;
 
