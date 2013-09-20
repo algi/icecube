@@ -14,12 +14,9 @@
 
 - (void)launchMavenWithArguments:(NSString *)arguments
 						  onPath:(NSURL *)path
-					   withReply:(void (^)(BOOL result))reply
 {
 	// TODO skutečně spustit task
 	[[self.xpcConnection remoteObjectProxy] newLineDidRecieve:@"Hello from XPC!"];
-	
-	reply(NO);
 }
 
 @end

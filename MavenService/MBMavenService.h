@@ -11,7 +11,6 @@
 @protocol MBMavenService <NSObject>
 
 - (void)launchMavenWithArguments:(NSString *)arguments
-						  onPath:(NSURL *)path
-					   withReply:(void (^)(BOOL result))reply;
+						  onPath:(NSURL *)path;
 
 @end
