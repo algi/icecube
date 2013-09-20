@@ -1,5 +1,5 @@
 //
-//  MBMavenServiceDelegate.h
+//  MBMavenService.h
 //  IceCube
 //
 //  Created by Marian Bouček on 19.09.13.
@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MBMavenService.h"
+@protocol MBMavenService <NSObject>
 
-@interface MBMavenServiceDelegate : NSObject <NSXPCListenerDelegate>
+- (void)launchMavenWithArguments:(NSString *)arguments
+						  onPath:(NSURL *)path;
 
 @end

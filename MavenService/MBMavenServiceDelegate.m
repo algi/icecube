@@ -8,6 +8,23 @@
 
 #import "MBMavenServiceDelegate.h"
 
+#import "MBMavenServiceTask.h"
+#import "MBMavenServiceCallback.h"
+
 @implementation MBMavenServiceDelegate
+
+- (BOOL)listener:(NSXPCListener *)listener shouldAcceptNewConnection:(NSXPCConnection *)newConnection
+{
+	MBMavenServiceTask *task = [[MBMavenServiceTask alloc] init];
+	task.xpcConnection = newConnection;
+	
+	newConnection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenService)];
+	newConnection.exportedObject = task;
+	
+	newConnection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
+	
+	[newConnection resume];
+	return YES;
+}
 
 @end

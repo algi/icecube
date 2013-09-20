@@ -1,5 +1,5 @@
 //
-//  MBMavenServiceDelegate.h
+//  MBMavenServiceCallback.h
 //  IceCube
 //
 //  Created by Marian Bouček on 19.09.13.
@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MBMavenService.h"
+@protocol MBMavenServiceCallback <NSObject>
 
-@interface MBMavenServiceDelegate : NSObject <NSXPCListenerDelegate>
+- (void)taskDidWriteLine:(NSString *)line;
 
 @end

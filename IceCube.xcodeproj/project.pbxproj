@@ -16,6 +16,7 @@
 		568C674217EB7D630095785D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 568C674117EB7D630095785D /* main.m */; };
 		568C674717EB7E5B0095785D /* cz.boucekm.MavenService.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */; };
 		568C674C17EB7EDA0095785D /* MBMavenServiceDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 568C674B17EB7EDA0095785D /* MBMavenServiceDelegate.m */; };
+		568C675117EC688D0095785D /* MBMavenServiceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 568C675017EC688D0095785D /* MBMavenServiceTask.m */; };
 		568DB44E17082A7300AC385F /* build-success.txt in Resources */ = {isa = PBXBuildFile; fileRef = 568DB44D17082A7300AC385F /* build-success.txt */; };
 		568DB4511708622700AC385F /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB4501708622700AC385F /* MBMavenOutputParser.m */; };
 		568DB454170887D900AC385F /* MBMavenOutputParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 568DB453170887D900AC385F /* MBMavenOutputParserTests.m */; };
@@ -87,6 +88,10 @@
 		568C674117EB7D630095785D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		568C674A17EB7EDA0095785D /* MBMavenServiceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenServiceDelegate.h; sourceTree = "<group>"; };
 		568C674B17EB7EDA0095785D /* MBMavenServiceDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenServiceDelegate.m; sourceTree = "<group>"; };
+		568C674D17EB86280095785D /* MBMavenService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBMavenService.h; sourceTree = "<group>"; };
+		568C674E17EB86CB0095785D /* MBMavenServiceCallback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBMavenServiceCallback.h; sourceTree = "<group>"; };
+		568C674F17EC688D0095785D /* MBMavenServiceTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenServiceTask.h; sourceTree = "<group>"; };
+		568C675017EC688D0095785D /* MBMavenServiceTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenServiceTask.m; sourceTree = "<group>"; };
 		568DB44D17082A7300AC385F /* build-success.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-success.txt"; sourceTree = "<group>"; };
 		568DB44F1708622700AC385F /* MBMavenOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParser.h; sourceTree = "<group>"; };
 		568DB4501708622700AC385F /* MBMavenOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParser.m; sourceTree = "<group>"; };
@@ -179,8 +184,12 @@
 			isa = PBXGroup;
 			children = (
 				568C674117EB7D630095785D /* main.m */,
+				568C674D17EB86280095785D /* MBMavenService.h */,
+				568C674E17EB86CB0095785D /* MBMavenServiceCallback.h */,
 				568C674A17EB7EDA0095785D /* MBMavenServiceDelegate.h */,
 				568C674B17EB7EDA0095785D /* MBMavenServiceDelegate.m */,
+				568C674F17EC688D0095785D /* MBMavenServiceTask.h */,
+				568C675017EC688D0095785D /* MBMavenServiceTask.m */,
 				568C673B17EB7D630095785D /* Supporting Files */,
 			);
 			path = MavenService;
@@ -511,6 +520,7 @@
 			files = (
 				568C674217EB7D630095785D /* main.m in Sources */,
 				568C674C17EB7EDA0095785D /* MBMavenServiceDelegate.m in Sources */,
+				568C675117EC688D0095785D /* MBMavenServiceTask.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,7 +631,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "MavenService/MavenService-Info.plist";
 				MACH_O_TYPE = mh_execute;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "cz.boucekm.$(TARGET_NAME:rfc1034identifier)";
 				WRAPPER_EXTENSION = xpc;
 			};
@@ -645,7 +655,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "MavenService/MavenService-Info.plist";
 				MACH_O_TYPE = mh_execute;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "cz.boucekm.$(TARGET_NAME:rfc1034identifier)";
 				WRAPPER_EXTENSION = xpc;
 			};
