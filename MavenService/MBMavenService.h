@@ -13,4 +13,6 @@
 - (void)launchMavenWithArguments:(NSString *)arguments
 						  onPath:(NSURL *)path;
 
+- (void)terminateTask;
+
 @end

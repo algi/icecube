@@ -16,6 +16,8 @@
 
 @interface MBTaskRunnerWindowController () <MBMavenServiceCallback>
 
+@property NSXPCConnection *connection;
+
 @property BOOL taskRunning;
 @property Task *taskDefinition;
 
@@ -61,8 +63,7 @@
 
 -(IBAction)startTask:(id)sender
 {
-	/*
-	if ([self.executor isRunning]) {
+	if (self.taskRunning) {
 		return;
 	}
 	
@@ -77,10 +78,7 @@
 							contextInfo:nil];
 		return;
 	}
-	
 	NSURL *path = [NSURL URLWithString:self.taskDefinition.directory];
-	[self.executor launchMavenWithArguments:args onPath:path];
-	*/
 	
 	// TODO
 	// 1) zajistit, aby se nedal service spustit víckrát najednou
@@ -88,19 +86,20 @@
 	// 4) nastavit sandbox (a modlit se, aby to bylo možné!)
 	// 5) nastavit správně cestu k Mavenu + JAVA_HOME (není vhodné zjišťovat na úrovni XPC služby)
 	
-	NSXPCConnection *connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.MavenService"];
-	connection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenService)];
+	self.connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.MavenService"];
+	self.connection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenService)];
 	
-	connection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
-	connection.exportedObject = self;
+	self.connection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
+	self.connection.exportedObject = self;
 	
-	[connection resume];
-	[[connection remoteObjectProxy] launchMavenWithArguments:nil onPath:nil];
+	[self.connection resume];
+	[[self.connection remoteObjectProxy] launchMavenWithArguments:args
+													  onPath:path];
 }
 
 -(IBAction)stopTask:(id)sender
 {
-	// [self.executor terminate];
+	[[self.connection remoteObjectProxy] terminateTask];
 }
 
 -(IBAction)revealFolderInFinder:(id)sender
@@ -112,14 +111,16 @@
 #pragma mark - Observer methods -
 -(void)task:(NSString *)executable willStartWithArguments:(NSString *)arguments onPath:(NSString *)projectDirectory
 {
-	self.taskRunning = YES;
-	[self.progressIndicator startAnimation:self];
-	
-	NSString *executionHeader = [NSString stringWithFormat:@"$ cd %@\n$ %@ %@\n\n",
-								 projectDirectory,
-								 executable,
-								 arguments];
-	[self.outputTextView setString:executionHeader];
+	dispatch_async(dispatch_get_main_queue(), ^{
+		self.taskRunning = YES;
+		[self.progressIndicator startAnimation:self];
+		
+		NSString *executionHeader = [NSString stringWithFormat:@"$ cd %@\n$ %@ %@\n\n",
+									 projectDirectory,
+									 executable,
+									 arguments];
+		[self.outputTextView setString:executionHeader];
+	});
 }
 
 -(void)buildDidStartWithTaskList:(NSArray *)taskList

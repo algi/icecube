@@ -10,6 +10,12 @@
 
 #import "MBMavenServiceCallback.h"
 
+@interface MBMavenServiceTask ()
+
+@property NSTask *task;
+
+@end
+
 @implementation MBMavenServiceTask
 
 - (void)launchMavenWithArguments:(NSString *)arguments
@@ -17,6 +23,11 @@
 {
 	// TODO skutečně spustit task
 	[[self.xpcConnection remoteObjectProxy] newLineDidRecieve:@"Hello from XPC!"];
+}
+
+- (void)terminateTask
+{
+	// TODO ...
 }
 
 @end
