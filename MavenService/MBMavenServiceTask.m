@@ -14,6 +14,7 @@
 #import "MBMavenServiceCallback.h"
 
 static NSString * const kMavenApplicationPath = @"maven.application.path";
+static NSString * const kJavaHomePath = @"java.home.path";
 
 @interface MBMavenServiceTask ()
 
@@ -38,8 +39,8 @@ static NSString * const kMavenApplicationPath = @"maven.application.path";
 	self.task = [[NSTask alloc] init];
 	
 	// launch path
-	NSError *error = nil;
-	NSString *launchPath = [self launchPath:&error];
+	NSError *mvnError;
+	NSString *launchPath = [self launchPath:&mvnError];
 	if (!launchPath) {
 		[[self executionObserver] buildDidEndSuccessfully:NO];
 		exit(-1);
@@ -51,7 +52,8 @@ static NSString * const kMavenApplicationPath = @"maven.application.path";
 	[self.task setArguments:taskArgs];
 	
 	// environment
-	NSDictionary *environment = [self environment:&error];
+	NSError *envError;
+	NSDictionary *environment = [self environment:&envError];
 	if (!environment) {
 		[[self executionObserver] buildDidEndSuccessfully:NO];
 		exit(-1);
@@ -71,6 +73,8 @@ static NSString * const kMavenApplicationPath = @"maven.application.path";
 			[parser parseLine:line];
 		}];
 	});
+	
+	exit(0);
 }
 
 - (void)terminateTask
@@ -85,24 +89,38 @@ static NSString * const kMavenApplicationPath = @"maven.application.path";
 }
 
 #pragma mark - Task preparation -
+
+// TODO those methods really shouldn't be here - namely 'java_home' task should be separated to its XPC bundle
+
 - (NSString *)launchPath:(NSError **)error
 {
 	NSString *launchPath = [[NSUserDefaults standardUserDefaults] stringForKey:kMavenApplicationPath];
-	if (!launchPath) {
-		launchPath = @"/usr/bin/mvn";
-		[[NSUserDefaults standardUserDefaults] setValue:launchPath forKey:kMavenApplicationPath];
+	if (launchPath) {
+		if ([self isPathAccessible:launchPath]) {
+			return launchPath;
+		}
+		else {
+			if (error != NULL) {
+				*error = [NSError errorWithDomain:@"MBMavenNotFound"
+											 code:1
+										 userInfo:@{NSLocalizedDescriptionKey: @"Maven path is not accesible."}];
+			}
+			return nil;
+		}
 	}
 	
-	if (! [[NSFileManager defaultManager] fileExistsAtPath:launchPath]) {
+	NSString *defaultLaunchPath = @"/usr/bin/mvn";
+	if ([self isPathAccessible:defaultLaunchPath]) {
+		return defaultLaunchPath;
+	}
+	else {
 		if (error != NULL) {
 			*error = [NSError errorWithDomain:@"MBMavenNotFound"
-										 code:1
+										 code:2
 									 userInfo:@{NSLocalizedDescriptionKey: @"Maven not found."}];
 		}
 		return nil;
 	}
-	
-	return launchPath;
 }
 
 - (NSDictionary *)environment:(NSError **)error
@@ -118,16 +136,31 @@ static NSString * const kMavenApplicationPath = @"maven.application.path";
 	}];
 	
 	if (javaHomeValue) {
-		return @{@"JAVA_HOME": javaHomeValue};
+		if ([self isPathAccessible:javaHomeValue]) {
+			return @{@"JAVA_HOME": javaHomeValue};
+		}
+		else {
+			if (error != NULL) {
+				*error = [NSError errorWithDomain:@"MBJavaHomeNotFound"
+											 code:1
+										 userInfo:@{NSLocalizedDescriptionKey: @"JAVA_HOME is not accesible."}];
+			}
+			return nil;
+		}
 	}
 	else {
 		if (error != NULL) {
 			*error = [NSError errorWithDomain:@"MBJavaHomeNotFound"
-										 code:1
+										 code:2
 									 userInfo:@{NSLocalizedDescriptionKey: @"Unable to determine JAVA_HOME."}];
 		}
 		return nil;
 	}
+}
+
+- (BOOL)isPathAccessible:(NSString *)path
+{
+	return [[NSFileManager defaultManager] fileExistsAtPath:path];
 }
 
 @end
