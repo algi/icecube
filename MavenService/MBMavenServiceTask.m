@@ -13,8 +13,7 @@
 
 #import "MBMavenServiceCallback.h"
 
-// KULERVOUCÍ !! -> refactoring na konstantu OMG!!
-#define kMavenApplicationPath @"maven.application.path"
+static NSString * const kMavenApplicationPath = @"maven.application.path";
 
 @interface MBMavenServiceTask ()
 
@@ -27,20 +26,23 @@
 - (void)launchMavenWithArguments:(NSString *)arguments
 						  onPath:(NSURL *)path
 {
-	BOOL taskIsRunning = [self.task isRunning];
+	// in no case is allowed to launch task multiple times!
+	BOOL taskIsRunning = self.task != nil;
 	if (taskIsRunning) {
-		NSAssert(!taskIsRunning, @"Task is already running!");
-		return;
+		@throw [NSException exceptionWithName:@"TaskAlreadyRunning"
+									   reason:@"Task is already running! You must not allow user to call this method second time."
+									 userInfo:nil];
+		exit(-1);
 	}
 	
 	self.task = [[NSTask alloc] init];
 	
 	// launch path
-	NSError *error;
+	NSError *error = nil;
 	NSString *launchPath = [self launchPath:&error];
 	if (!launchPath) {
-		// TODO [NSApp presentError:error]; - fuuuuuuuu!!!!!
-		return;
+		[[self executionObserver] buildDidEndSuccessfully:NO];
+		exit(-1);
 	}
 	[self.task setLaunchPath:launchPath];
 	
@@ -49,7 +51,11 @@
 	[self.task setArguments:taskArgs];
 	
 	// environment
-	NSDictionary *environment = [self environment];
+	NSDictionary *environment = [self environment:&error];
+	if (!environment) {
+		[[self executionObserver] buildDidEndSuccessfully:NO];
+		exit(-1);
+	}
 	[self.task setEnvironment:environment];
 	
 	// directory path
@@ -69,7 +75,8 @@
 
 - (void)terminateTask
 {
-	// TODO ...
+	[self.task terminate];
+	exit(0);
 }
 
 - (id)executionObserver
@@ -88,7 +95,9 @@
 	
 	if (! [[NSFileManager defaultManager] fileExistsAtPath:launchPath]) {
 		if (error != NULL) {
-			*error = [NSError errorWithDomain:@"" code:1 userInfo:nil]; // TODO ...
+			*error = [NSError errorWithDomain:@"MBMavenNotFound"
+										 code:1
+									 userInfo:@{NSLocalizedDescriptionKey: @"Maven not found."}];
 		}
 		return nil;
 	}
@@ -96,7 +105,7 @@
 	return launchPath;
 }
 
-- (NSDictionary *)environment
+- (NSDictionary *)environment:(NSError **)error
 {
 	NSTask *javaHomeTask = [[NSTask alloc] init];
 	[javaHomeTask setLaunchPath:@"/usr/libexec/java_home"];
@@ -108,8 +117,17 @@
 		}
 	}];
 	
-	NSAssert(javaHomeValue, @"Unable to obtain JAVA_HOME value.");
-	return @{@"JAVA_HOME": javaHomeValue};
+	if (javaHomeValue) {
+		return @{@"JAVA_HOME": javaHomeValue};
+	}
+	else {
+		if (error != NULL) {
+			*error = [NSError errorWithDomain:@"MBJavaHomeNotFound"
+										 code:1
+									 userInfo:@{NSLocalizedDescriptionKey: @"Unable to determine JAVA_HOME."}];
+		}
+		return nil;
+	}
 }
 
 @end
