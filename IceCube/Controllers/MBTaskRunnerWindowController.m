@@ -80,21 +80,23 @@
 	}
 	NSURL *path = [NSURL URLWithString:self.taskDefinition.directory];
 	
-	// TODO
-	// 1) zajistit, aby se nedal service spustit víckrát najednou
-	// 3) zvážit přejmenování metod callbacků
-	// 4) nastavit sandbox (a modlit se, aby to bylo možné!)
-	// 5) nastavit správně cestu k Mavenu + JAVA_HOME (není vhodné zjišťovat na úrovni XPC služby)
-	
 	self.connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.MavenService"];
 	self.connection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenService)];
 	
 	self.connection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
 	self.connection.exportedObject = self;
 	
+	__weak MBTaskRunnerWindowController *weakSelf = self;
+	self.connection.interruptionHandler = ^{
+		weakSelf.taskRunning = NO;
+	};
+	self.connection.invalidationHandler = ^{
+		weakSelf.taskRunning = NO;
+	};
+	
 	[self.connection resume];
 	[[self.connection remoteObjectProxy] launchMavenWithArguments:args
-													  onPath:path];
+														   onPath:path];
 }
 
 -(IBAction)stopTask:(id)sender
