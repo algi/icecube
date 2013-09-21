@@ -10,7 +10,6 @@
 
 @protocol MBMavenServiceCallback <NSObject>
 
-// - (void)taskDidWriteLine:(NSString *)line;
 -(void)task:(NSString *)executable willStartWithArguments:(NSString *)arguments onPath:(NSString *)projectDirectory;
 
 -(void)buildDidStartWithTaskList:(NSArray *)taskList;

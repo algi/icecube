@@ -8,10 +8,11 @@
 
 #import "MBMavenOutputParserTests.h"
 
-#import "MBTestAdditions.h"
 #import "DDFileReader.h"
-#import "MBMavenOutputParser.h"
+#import "MBTestAdditions.h"
 #import "MBMavenOutputParserTestObserver.h"
+
+#import "MBMavenOutputParser.h"
 
 @implementation MBMavenOutputParserTests
 

@@ -6,9 +6,13 @@
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
-#import "MBTaskOutputReaderTests.h"
+#import <XCTest/XCTest.h>
 
 #import "NSTask+MBTaskOutputParser.h"
+
+@interface MBTaskOutputReaderTests : XCTestCase
+
+@end
 
 @implementation MBTaskOutputReaderTests
 
