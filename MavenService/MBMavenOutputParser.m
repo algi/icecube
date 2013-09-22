@@ -38,10 +38,10 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
 
 @interface MBMavenOutputParser ()
 
-@property(nonatomic) NSMutableArray *taskList;
-@property(nonatomic, assign) MBParserState state;
+@property (nonatomic) NSMutableArray *taskList;
+@property (nonatomic, assign) MBParserState state;
 
-@property(weak) id<MBMavenServiceCallback> delegate;
+@property id<MBMavenServiceCallback> delegate;
 
 @end
 

@@ -88,10 +88,12 @@
 	
 	__weak MBTaskRunnerWindowController *weakSelf = self;
 	self.connection.interruptionHandler = ^{
-		weakSelf.taskRunning = NO;
+		MBTaskRunnerWindowController *strongSelf = weakSelf;
+		strongSelf.taskRunning = NO;
 	};
 	self.connection.invalidationHandler = ^{
-		weakSelf.taskRunning = NO;
+		MBTaskRunnerWindowController *strongSelf = weakSelf;
+		strongSelf.taskRunning = NO;
 	};
 	
 	[self.connection resume];

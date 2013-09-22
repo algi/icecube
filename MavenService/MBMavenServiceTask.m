@@ -85,14 +85,15 @@ static NSString * const kJavaHomePath = @"java.home.path";
 
 - (id)executionObserver
 {
-	return [self.xpcConnection remoteObjectProxy];
+	NSXPCConnection *xpcConnection = _xpcConnection;
+	return [xpcConnection remoteObjectProxy];
 }
 
 #pragma mark - Task preparation -
 
 // TODO those methods really shouldn't be here - namely 'java_home' task should be separated to its XPC bundle
 
-- (NSString *)launchPath:(NSError **)error
+- (NSString *)launchPath:(__autoreleasing NSError **)error
 {
 	NSString *launchPath = [[NSUserDefaults standardUserDefaults] stringForKey:kMavenApplicationPath];
 	if (launchPath) {
@@ -123,7 +124,7 @@ static NSString * const kJavaHomePath = @"java.home.path";
 	}
 }
 
-- (NSDictionary *)environment:(NSError **)error
+- (NSDictionary *)environment:(__autoreleasing NSError **)error
 {
 	NSTask *javaHomeTask = [[NSTask alloc] init];
 	[javaHomeTask setLaunchPath:@"/usr/libexec/java_home"];
