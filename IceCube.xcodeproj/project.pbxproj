@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		560E703917EF35DA004BC832 /* cz.boucekm.JavaHomeService.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */; };
+		560E703C17EF4010004BC832 /* MBJavaHomeServiceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 560E703B17EF4010004BC832 /* MBJavaHomeServiceTask.m */; };
 		5632EE2216E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */; };
 		56630A0717ECB71C005A2BEC /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56630A0217ECB71C005A2BEC /* MBMavenOutputParser.m */; };
 		56630A0917ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56630A0617ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m */; };
@@ -36,6 +38,9 @@
 		56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */; };
 		56F62FFE17EF23F8004DC92E /* MBPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F62FFC17EF23F8004DC92E /* MBPreferencesWindowController.m */; };
 		56F62FFF17EF23F8004DC92E /* MBPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56F62FFD17EF23F8004DC92E /* MBPreferencesWindowController.xib */; };
+		56F6300517EF34AA004DC92E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568C673817EB7D630095785D /* Foundation.framework */; };
+		56F6300B17EF34AA004DC92E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56F6300917EF34AA004DC92E /* InfoPlist.strings */; };
+		56F6300E17EF34AA004DC92E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F6300D17EF34AA004DC92E /* main.m */; };
 		56FE8E85167BA1A70001AAED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8E84167BA1A70001AAED /* Cocoa.framework */; };
 		56FE8E8F167BA1A70001AAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56FE8E8D167BA1A70001AAED /* InfoPlist.strings */; };
 		56FE8E91167BA1A70001AAED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FE8E90167BA1A70001AAED /* main.m */; };
@@ -47,6 +52,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		560E703717EF35AE004BC832 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56FE8E77167BA1A70001AAED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56F6300317EF34AA004DC92E;
+			remoteInfo = JavaHomeService;
+		};
 		56630A2417ECC067005A2BEC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56FE8E77167BA1A70001AAED /* Project object */;
@@ -77,6 +89,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
 			dstSubfolderSpec = 16;
 			files = (
+				560E703917EF35DA004BC832 /* cz.boucekm.JavaHomeService.xpc in CopyFiles */,
 				568C674717EB7E5B0095785D /* cz.boucekm.MavenService.xpc in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +98,9 @@
 
 /* Begin PBXFileReference section */
 		3E5ACCC678554D0EAA5F4D2F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		560E703A17EF4010004BC832 /* MBJavaHomeServiceTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBJavaHomeServiceTask.h; sourceTree = "<group>"; };
+		560E703B17EF4010004BC832 /* MBJavaHomeServiceTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBJavaHomeServiceTask.m; sourceTree = "<group>"; };
+		560E703D17EF43FE004BC832 /* MBJavaHomeService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBJavaHomeService.h; sourceTree = "<group>"; };
 		5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "Icons-Land-Weather-Ice.icns"; path = "../Icons-Land-Weather-Ice.icns"; sourceTree = "<group>"; };
 		56630A0117ECB71C005A2BEC /* MBMavenOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParser.h; sourceTree = "<group>"; };
 		56630A0217ECB71C005A2BEC /* MBMavenOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParser.m; sourceTree = "<group>"; };
@@ -136,6 +152,11 @@
 		56F62FFB17EF23F8004DC92E /* MBPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPreferencesWindowController.h; sourceTree = "<group>"; };
 		56F62FFC17EF23F8004DC92E /* MBPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBPreferencesWindowController.m; sourceTree = "<group>"; };
 		56F62FFD17EF23F8004DC92E /* MBPreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBPreferencesWindowController.xib; sourceTree = "<group>"; };
+		56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cz.boucekm.JavaHomeService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		56F6300817EF34AA004DC92E /* JavaHomeService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JavaHomeService-Info.plist"; sourceTree = "<group>"; };
+		56F6300A17EF34AA004DC92E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		56F6300C17EF34AA004DC92E /* JavaHomeService-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JavaHomeService-Prefix.pch"; sourceTree = "<group>"; };
+		56F6300D17EF34AA004DC92E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		56FE8E80167BA1A70001AAED /* IceCube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IceCube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FE8E84167BA1A70001AAED /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		56FE8E87167BA1A70001AAED /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -168,6 +189,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				568C673917EB7D630095785D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56F6300117EF34AA004DC92E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56F6300517EF34AA004DC92E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +362,28 @@
 			path = Preferences;
 			sourceTree = "<group>";
 		};
+		56F6300617EF34AA004DC92E /* JavaHomeService */ = {
+			isa = PBXGroup;
+			children = (
+				56F6300D17EF34AA004DC92E /* main.m */,
+				560E703D17EF43FE004BC832 /* MBJavaHomeService.h */,
+				560E703A17EF4010004BC832 /* MBJavaHomeServiceTask.h */,
+				560E703B17EF4010004BC832 /* MBJavaHomeServiceTask.m */,
+				56F6300717EF34AA004DC92E /* Supporting Files */,
+			);
+			path = JavaHomeService;
+			sourceTree = "<group>";
+		};
+		56F6300717EF34AA004DC92E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				56F6300817EF34AA004DC92E /* JavaHomeService-Info.plist */,
+				56F6300917EF34AA004DC92E /* InfoPlist.strings */,
+				56F6300C17EF34AA004DC92E /* JavaHomeService-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		56FE8E75167BA1A70001AAED = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +391,7 @@
 				56FE8EAA167BA1A80001AAED /* IceCubeTests */,
 				568C673A17EB7D630095785D /* MavenService */,
 				56630A1B17ECC067005A2BEC /* MavenServiceTests */,
+				56F6300617EF34AA004DC92E /* JavaHomeService */,
 				56FE8E83167BA1A70001AAED /* Frameworks */,
 				56FE8E81167BA1A70001AAED /* Products */,
 				569E8930179DE20A006C5326 /* LICENSE */,
@@ -354,6 +406,7 @@
 				56FE8EA4167BA1A80001AAED /* IceCubeTests.xctest */,
 				568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */,
 				56630A1817ECC067005A2BEC /* MavenServiceTests.xctest */,
+				56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -464,6 +517,23 @@
 			productReference = 568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */;
 			productType = "com.apple.product-type.bundle";
 		};
+		56F6300317EF34AA004DC92E /* JavaHomeService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56F6300F17EF34AA004DC92E /* Build configuration list for PBXNativeTarget "JavaHomeService" */;
+			buildPhases = (
+				56F6300017EF34AA004DC92E /* Sources */,
+				56F6300117EF34AA004DC92E /* Frameworks */,
+				56F6300217EF34AA004DC92E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JavaHomeService;
+			productName = JavaHomeService;
+			productReference = 56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */;
+			productType = "com.apple.product-type.bundle";
+		};
 		56FE8E7F167BA1A70001AAED /* IceCube */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56FE8EB5167BA1A80001AAED /* Build configuration list for PBXNativeTarget "IceCube" */;
@@ -476,6 +546,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				560E703817EF35AE004BC832 /* PBXTargetDependency */,
 				568C674917EB7E750095785D /* PBXTargetDependency */,
 			);
 			name = IceCube;
@@ -513,7 +584,7 @@
 				ORGANIZATIONNAME = "Marian Bouček";
 				TargetAttributes = {
 					56630A1717ECC067005A2BEC = {
-						TestTargetID = 568C673617EB7D630095785D;
+						TestTargetID = 56FE8E7F167BA1A70001AAED;
 					};
 					56FE8E7F167BA1A70001AAED = {
 						DevelopmentTeam = 72CQ273HEW;
@@ -539,6 +610,7 @@
 				56FE8EA3167BA1A80001AAED /* IceCubeTests */,
 				568C673617EB7D630095785D /* MavenService */,
 				56630A1717ECC067005A2BEC /* MavenServiceTests */,
+				56F6300317EF34AA004DC92E /* JavaHomeService */,
 			);
 		};
 /* End PBXProject section */
@@ -564,6 +636,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				568C673F17EB7D630095785D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56F6300217EF34AA004DC92E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56F6300B17EF34AA004DC92E /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +710,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		56F6300017EF34AA004DC92E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				560E703C17EF4010004BC832 /* MBJavaHomeServiceTask.m in Sources */,
+				56F6300E17EF34AA004DC92E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56FE8E7C167BA1A70001AAED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -654,6 +743,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		560E703817EF35AE004BC832 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56F6300317EF34AA004DC92E /* JavaHomeService */;
+			targetProxy = 560E703717EF35AE004BC832 /* PBXContainerItemProxy */;
+		};
 		56630A2517ECC067005A2BEC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 568C673617EB7D630095785D /* MavenService */;
@@ -684,6 +778,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				568C673E17EB7D630095785D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		56F6300917EF34AA004DC92E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				56F6300A17EF34AA004DC92E /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -726,6 +828,7 @@
 		56630A2717ECC067005A2BEC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IceCube.app/Contents/MacOS/IceCube";
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -748,6 +851,7 @@
 				INFOPLIST_FILE = "MavenServiceTests/MavenServiceTests-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -755,6 +859,7 @@
 		56630A2817ECC067005A2BEC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IceCube.app/Contents/MacOS/IceCube";
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -774,6 +879,7 @@
 				INFOPLIST_FILE = "MavenServiceTests/MavenServiceTests-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -822,6 +928,55 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "MavenService/MavenService-Info.plist";
+				MACH_O_TYPE = mh_execute;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "cz.boucekm.$(TARGET_NAME:rfc1034identifier)";
+				WRAPPER_EXTENSION = xpc;
+			};
+			name = Release;
+		};
+		56F6301017EF34AA004DC92E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JavaHomeService/JavaHomeService-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				INFOPLIST_FILE = "JavaHomeService/JavaHomeService-Info.plist";
+				MACH_O_TYPE = mh_execute;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "cz.boucekm.$(TARGET_NAME:rfc1034identifier)";
+				WRAPPER_EXTENSION = xpc;
+			};
+			name = Debug;
+		};
+		56F6301117EF34AA004DC92E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JavaHomeService/JavaHomeService-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				INFOPLIST_FILE = "JavaHomeService/JavaHomeService-Info.plist";
 				MACH_O_TYPE = mh_execute;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "cz.boucekm.$(TARGET_NAME:rfc1034identifier)";
@@ -984,6 +1139,15 @@
 			buildConfigurations = (
 				568C674417EB7D630095785D /* Debug */,
 				568C674517EB7D630095785D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56F6300F17EF34AA004DC92E /* Build configuration list for PBXNativeTarget "JavaHomeService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56F6301017EF34AA004DC92E /* Debug */,
+				56F6301117EF34AA004DC92E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
