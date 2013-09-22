@@ -97,7 +97,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3E5ACCC678554D0EAA5F4D2F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		560E703A17EF4010004BC832 /* MBJavaHomeServiceTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBJavaHomeServiceTask.h; sourceTree = "<group>"; };
 		560E703B17EF4010004BC832 /* MBJavaHomeServiceTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBJavaHomeServiceTask.m; sourceTree = "<group>"; };
 		560E703D17EF43FE004BC832 /* MBJavaHomeService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBJavaHomeService.h; sourceTree = "<group>"; };
@@ -420,7 +419,6 @@
 				568C673817EB7D630095785D /* Foundation.framework */,
 				56630A1917ECC067005A2BEC /* XCTest.framework */,
 				56FE8E86167BA1A70001AAED /* Other Frameworks */,
-				3E5ACCC678554D0EAA5F4D2F /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
