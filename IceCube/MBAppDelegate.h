@@ -10,8 +10,6 @@
 
 @interface MBAppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *preferencesWindow;
-
 - (IBAction)showPreferences:(id)sender;
 
 @end

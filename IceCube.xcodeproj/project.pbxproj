@@ -34,6 +34,8 @@
 		56D21DA317C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56D21DA117C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodeld */; };
 		56D21DA717C1003A0060A823 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D21DA617C1003A0060A823 /* Task.m */; };
 		56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */; };
+		56F62FFE17EF23F8004DC92E /* MBPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F62FFC17EF23F8004DC92E /* MBPreferencesWindowController.m */; };
+		56F62FFF17EF23F8004DC92E /* MBPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56F62FFD17EF23F8004DC92E /* MBPreferencesWindowController.xib */; };
 		56FE8E85167BA1A70001AAED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8E84167BA1A70001AAED /* Cocoa.framework */; };
 		56FE8E8F167BA1A70001AAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56FE8E8D167BA1A70001AAED /* InfoPlist.strings */; };
 		56FE8E91167BA1A70001AAED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FE8E90167BA1A70001AAED /* main.m */; };
@@ -131,6 +133,9 @@
 		56D21DA617C1003A0060A823 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		56F578E21794A5B1007E85A8 /* MBTaskRunnerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskRunnerWindowController.h; sourceTree = "<group>"; };
 		56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerWindowController.m; sourceTree = "<group>"; };
+		56F62FFB17EF23F8004DC92E /* MBPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPreferencesWindowController.h; sourceTree = "<group>"; };
+		56F62FFC17EF23F8004DC92E /* MBPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBPreferencesWindowController.m; sourceTree = "<group>"; };
+		56F62FFD17EF23F8004DC92E /* MBPreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBPreferencesWindowController.xib; sourceTree = "<group>"; };
 		56FE8E80167BA1A70001AAED /* IceCube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IceCube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FE8E84167BA1A70001AAED /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		56FE8E87167BA1A70001AAED /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -317,6 +322,17 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		56F62FFA17EF2389004DC92E /* Preferences window */ = {
+			isa = PBXGroup;
+			children = (
+				56F62FFB17EF23F8004DC92E /* MBPreferencesWindowController.h */,
+				56F62FFC17EF23F8004DC92E /* MBPreferencesWindowController.m */,
+				56F62FFD17EF23F8004DC92E /* MBPreferencesWindowController.xib */,
+			);
+			name = "Preferences window";
+			path = Preferences;
+			sourceTree = "<group>";
+		};
 		56FE8E75167BA1A70001AAED = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +390,7 @@
 				56FE8E99167BA1A70001AAED /* MainMenu.xib */,
 				56D21D2F17BFC6520060A823 /* Images.xcassets */,
 				56F578E11794A584007E85A8 /* Task runner window */,
+				56F62FFA17EF2389004DC92E /* Preferences window */,
 				56FE8E8B167BA1A70001AAED /* Supporting Files */,
 			);
 			path = IceCube;
@@ -555,6 +572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FE8E8F167BA1A70001AAED /* InfoPlist.strings in Resources */,
+				56F62FFF17EF23F8004DC92E /* MBPreferencesWindowController.xib in Resources */,
 				566A251917A993CC00C11A35 /* MBTaskRunnerDocument.xib in Resources */,
 				56FE8E95167BA1A70001AAED /* Credits.rtf in Resources */,
 				56D21D3017BFC6520060A823 /* Images.xcassets in Resources */,
@@ -622,6 +640,7 @@
 				56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */,
 				56D21DA317C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodeld in Sources */,
 				56D21DA717C1003A0060A823 /* Task.m in Sources */,
+				56F62FFE17EF23F8004DC92E /* MBPreferencesWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -930,6 +949,7 @@
 				56630A2817ECC067005A2BEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		568C674317EB7D630095785D /* Build configuration list for PBXNativeTarget "MavenService" */ = {
 			isa = XCConfigurationList;

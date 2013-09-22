@@ -8,6 +8,14 @@
 
 #import "MBAppDelegate.h"
 
+#import "MBPreferencesWindowController.h"
+
+@interface MBAppDelegate ()
+
+@property MBPreferencesWindowController *preferencesController;
+
+@end
+
 @implementation MBAppDelegate
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
@@ -17,7 +25,11 @@
 
 - (IBAction)showPreferences:(id)sender
 {
-	[self.preferencesWindow makeKeyAndOrderFront:sender];
+	if (!self.preferencesController) {
+		self.preferencesController = [[MBPreferencesWindowController alloc] init];
+	}
+	
+	[[self.preferencesController window] makeKeyAndOrderFront:sender];
 }
 
 @end
