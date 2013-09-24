@@ -11,7 +11,6 @@
 #import "NSTask+MBTaskOutputParser.h"
 
 @interface MBTaskOutputReaderTests : XCTestCase
-
 @end
 
 @implementation MBTaskOutputReaderTests

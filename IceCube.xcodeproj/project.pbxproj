@@ -112,7 +112,6 @@
 		56630A2317ECC067005A2BEC /* MavenServiceTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MavenServiceTests-Prefix.pch"; sourceTree = "<group>"; };
 		56630A2917ECC0A9005A2BEC /* MBMavenOutputParserTestObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParserTestObserver.h; sourceTree = "<group>"; };
 		56630A2A17ECC0A9005A2BEC /* MBMavenOutputParserTestObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParserTestObserver.m; sourceTree = "<group>"; };
-		56630A2B17ECC0AA005A2BEC /* MBMavenOutputParserTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParserTests.h; sourceTree = "<group>"; };
 		56630A2C17ECC0AA005A2BEC /* MBMavenOutputParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParserTests.m; sourceTree = "<group>"; };
 		56630A3017ED960F005A2BEC /* build-failure-no-java_home.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-java_home.txt"; sourceTree = "<group>"; };
 		56630A3117ED960F005A2BEC /* build-failure-no-pom.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-pom.txt"; sourceTree = "<group>"; };
@@ -241,7 +240,7 @@
 			children = (
 				56630A4217ED9626005A2BEC /* MBTestAdditions.h */,
 				56630A4117ED9626005A2BEC /* MBTaskOutputReaderTests.m */,
-				56630A2F17ECC0B7005A2BEC /* OutputParser */,
+				56630A2C17ECC0AA005A2BEC /* MBMavenOutputParserTests.m */,
 				56630A4517ED96B4005A2BEC /* Utilities */,
 				56630A1C17ECC067005A2BEC /* Supporting Files */,
 			);
@@ -265,22 +264,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		56630A2F17ECC0B7005A2BEC /* OutputParser */ = {
-			isa = PBXGroup;
-			children = (
-				56630A2917ECC0A9005A2BEC /* MBMavenOutputParserTestObserver.h */,
-				56630A2A17ECC0A9005A2BEC /* MBMavenOutputParserTestObserver.m */,
-				56630A2B17ECC0AA005A2BEC /* MBMavenOutputParserTests.h */,
-				56630A2C17ECC0AA005A2BEC /* MBMavenOutputParserTests.m */,
-			);
-			name = OutputParser;
-			sourceTree = "<group>";
-		};
 		56630A4517ED96B4005A2BEC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				56630A3E17ED9626005A2BEC /* DDFileReader.h */,
 				56630A3F17ED9626005A2BEC /* DDFileReader.m */,
+				56630A2917ECC0A9005A2BEC /* MBMavenOutputParserTestObserver.h */,
+				56630A2A17ECC0A9005A2BEC /* MBMavenOutputParserTestObserver.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";

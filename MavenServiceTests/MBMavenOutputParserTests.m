@@ -6,13 +6,16 @@
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
-#import "MBMavenOutputParserTests.h"
+#import <XCTest/XCTest.h>
 
 #import "DDFileReader.h"
 #import "MBTestAdditions.h"
 #import "MBMavenOutputParserTestObserver.h"
 
 #import "MBMavenOutputParser.h"
+
+@interface MBMavenOutputParserTests : XCTestCase
+@end
 
 @implementation MBMavenOutputParserTests
 
