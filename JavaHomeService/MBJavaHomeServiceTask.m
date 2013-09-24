@@ -16,13 +16,25 @@
 	NSTask *task = [[NSTask alloc] init];
 	[task setLaunchPath:@"/usr/libexec/java_home"];
 	
-	NSArray *arguments = [self createArgumentsFromVersion:version];
+	// create arguments for CommandLine and specified version
+	NSMutableArray *arguments = [self createCommonArguments];
+	if (version != nil) {
+		[arguments addObject:@"--version"];
+		[arguments addObject:version];
+	}
 	[task setArguments:arguments];
 	
+	// setup output pipe and launch task
 	NSPipe *outputPipe = [NSPipe pipe];
     [task setStandardOutput:outputPipe];
 	
-	[task launch];
+	@try {
+		[task launch];
+	}
+	@catch (NSException *exception) {
+		NSLog(@"Cannot launch task for reason: %@", [exception reason]);
+		exit(-1);
+	}
 	
 	NSData *inData = nil;
 	NSFileHandle *fileHandle = [outputPipe fileHandleForReading];
@@ -42,21 +54,60 @@
 	exit(0);
 }
 
-- (NSArray *)createArgumentsFromVersion:(NSString *)version
+- (void)findAvaliableJavaVirtualMachinesWithReply:(void(^)(NSArray *machines))reply
+{
+	NSTask *task = [[NSTask alloc] init];
+	[task setLaunchPath:@"/usr/libexec/java_home"];
+	
+	NSMutableArray *arguments = [self createCommonArguments];
+	[arguments addObject:@"-V"];
+	[task setArguments:arguments];
+		
+	// setup output pipe and launch task
+	NSPipe *outputPipe = [NSPipe pipe];
+    [task setStandardOutput:outputPipe];
+	
+	NSPipe *errorPipe = [NSPipe pipe];
+	[task setStandardError:errorPipe];
+	
+	@try {
+		[task launch];
+	}
+	@catch (NSException *exception) {
+		NSLog(@"Cannot launch task for reason: %@", [exception reason]);
+		exit(-1);
+	}
+	
+	NSArray *outputLines = [self readFileHandle:[outputPipe fileHandleForReading]];
+	NSArray *errorLines = [self readFileHandle:[errorPipe fileHandleForReading]];
+	
+	NSArray *result = [outputLines arrayByAddingObjectsFromArray:errorLines];
+	
+	reply(result);
+	exit(0);
+}
+
+- (NSMutableArray *)createCommonArguments
 {
 	NSMutableArray *arguments = [[NSMutableArray alloc] init];
 	
-	// we are interested only in command line apps (such as Maven)
 	[arguments addObject:@"--task"];
 	[arguments addObject:@"CommandLine"];
 	
-	// add version if specified
-	if (version != nil) {
-		[arguments addObject:@"--version"];
-		[arguments addObject:version];
+	return arguments;
+}
+
+- (NSArray *)readFileHandle:(NSFileHandle *)fileHandle
+{
+	NSMutableArray *outputLines = [[NSMutableArray alloc] init];
+	
+	NSData *inData = nil;
+	while ((inData = [fileHandle availableData]) && [inData length]) {
+		NSString *outputLine = [[NSString alloc] initWithData:inData encoding:[NSString defaultCStringEncoding]];
+		[outputLines addObject:outputLine];
 	}
 	
-	return arguments;
+	return outputLines;
 }
 
 @end

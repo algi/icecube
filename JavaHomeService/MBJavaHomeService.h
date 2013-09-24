@@ -19,4 +19,11 @@
 - (void)findJavaLocationForVersion:(NSString *)version
 						 withReply:(void(^)(NSString *result))reply;
 
+/**
+ * Find all available Java Virtual Machines (JVMs).
+ *
+ * @param reply Reply with exact output as it gives /usr/libexec/java_home -V command.
+ */
+- (void)findAvaliableJavaVirtualMachinesWithReply:(void(^)(NSArray *machines))reply;
+
 @end
