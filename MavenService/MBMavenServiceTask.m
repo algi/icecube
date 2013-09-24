@@ -62,20 +62,14 @@ static NSString * const kJavaHomePath = @"java.home.path";
 	NSString *directoryPath = [path path];
 	[self.task setCurrentDirectoryPath:directoryPath];
 	
-	// start async with normal priority on new thread
 	// [[self executionObserver] task:launchPath willStartWithArguments:arguments onPath:directoryPath]; // TODO will not be here
 	
-	/*
-	 
-	 this will only call back to App line
-	 
-	MBMavenOutputParser *parser = [[MBMavenOutputParser alloc]initWithDelegate:[self executionObserver]];
+	// start async with normal priority on new thread
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul), ^{
 		[self.task launchWithTaskOutputBlock:^(NSString *line) {
-			[parser parseLine:line];
+			[[self executionObserver] mavenTaskDidWriteLine:line];
 		}];
 	});
-	 */
 	
 	exit(0);
 }

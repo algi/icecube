@@ -112,6 +112,11 @@
 	[[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:fileURLs];
 }
 
+- (void)mavenTaskDidWriteLine:(NSString *)line
+{
+	// TODO receive line and give it to parser
+}
+
 #pragma mark - Observer methods -
 -(void)task:(NSString *)executable willStartWithArguments:(NSString *)arguments onPath:(NSString *)projectDirectory
 {

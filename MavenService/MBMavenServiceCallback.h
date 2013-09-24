@@ -10,6 +10,6 @@
 
 @protocol MBMavenServiceCallback <NSObject>
 
--(void)newLineDidRecieve:(NSString *)line;
+-(void)mavenTaskDidWriteLine:(NSString *)line;
 
 @end
