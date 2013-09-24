@@ -10,20 +10,18 @@
 		560E703917EF35DA004BC832 /* cz.boucekm.JavaHomeService.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */; };
 		560E703C17EF4010004BC832 /* MBJavaHomeServiceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 560E703B17EF4010004BC832 /* MBJavaHomeServiceTask.m */; };
 		5632EE2216E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */; };
-		56630A0717ECB71C005A2BEC /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56630A0217ECB71C005A2BEC /* MBMavenOutputParser.m */; };
+		564FB49217F1C62F000380F3 /* build-failure-no-java_home.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48317F1C62F000380F3 /* build-failure-no-java_home.txt */; };
+		564FB49317F1C62F000380F3 /* build-failure-no-pom.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48417F1C62F000380F3 /* build-failure-no-pom.txt */; };
+		564FB49417F1C62F000380F3 /* build-failure-no-project.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48517F1C62F000380F3 /* build-failure-no-project.txt */; };
+		564FB49517F1C62F000380F3 /* build-failure-non-parsable.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48617F1C62F000380F3 /* build-failure-non-parsable.txt */; };
+		564FB49617F1C630000380F3 /* build-failure-unknown-phase.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48717F1C62F000380F3 /* build-failure-unknown-phase.txt */; };
+		564FB49717F1C630000380F3 /* build-success-one-module.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48817F1C62F000380F3 /* build-success-one-module.txt */; };
+		564FB49817F1C630000380F3 /* build-success.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48917F1C62F000380F3 /* build-success.txt */; };
+		564FB49917F1C630000380F3 /* DDFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB48B17F1C62F000380F3 /* DDFileReader.m */; };
+		564FB49A17F1C630000380F3 /* MBMavenOutputParserTestObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB48E17F1C62F000380F3 /* MBMavenOutputParserTestObserver.m */; };
+		564FB49B17F1C630000380F3 /* MBMavenOutputParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB48F17F1C62F000380F3 /* MBMavenOutputParserTests.m */; };
+		564FB4A217F1C72E000380F3 /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */; };
 		56630A0917ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56630A0617ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m */; };
-		56630A2017ECC067005A2BEC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56630A1E17ECC067005A2BEC /* InfoPlist.strings */; };
-		56630A2D17ECC0AA005A2BEC /* MBMavenOutputParserTestObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 56630A2A17ECC0A9005A2BEC /* MBMavenOutputParserTestObserver.m */; };
-		56630A2E17ECC0AA005A2BEC /* MBMavenOutputParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56630A2C17ECC0AA005A2BEC /* MBMavenOutputParserTests.m */; };
-		56630A3717ED960F005A2BEC /* build-failure-no-java_home.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56630A3017ED960F005A2BEC /* build-failure-no-java_home.txt */; };
-		56630A3817ED960F005A2BEC /* build-failure-no-pom.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56630A3117ED960F005A2BEC /* build-failure-no-pom.txt */; };
-		56630A3917ED960F005A2BEC /* build-failure-no-project.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56630A3217ED960F005A2BEC /* build-failure-no-project.txt */; };
-		56630A3A17ED960F005A2BEC /* build-failure-non-parsable.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56630A3317ED960F005A2BEC /* build-failure-non-parsable.txt */; };
-		56630A3B17ED960F005A2BEC /* build-failure-unknown-phase.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56630A3417ED960F005A2BEC /* build-failure-unknown-phase.txt */; };
-		56630A3C17ED960F005A2BEC /* build-success-one-module.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56630A3517ED960F005A2BEC /* build-success-one-module.txt */; };
-		56630A3D17ED960F005A2BEC /* build-success.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56630A3617ED960F005A2BEC /* build-success.txt */; };
-		56630A4317ED9626005A2BEC /* DDFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 56630A3F17ED9626005A2BEC /* DDFileReader.m */; };
-		56630A4417ED9626005A2BEC /* MBTaskOutputReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56630A4117ED9626005A2BEC /* MBTaskOutputReaderTests.m */; };
 		56630A4717ED97E7005A2BEC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56630A4617ED97E7005A2BEC /* XCTest.framework */; };
 		566A251917A993CC00C11A35 /* MBTaskRunnerDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */; };
 		568C673917EB7D630095785D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568C673817EB7D630095785D /* Foundation.framework */; };
@@ -101,29 +99,26 @@
 		560E703B17EF4010004BC832 /* MBJavaHomeServiceTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBJavaHomeServiceTask.m; sourceTree = "<group>"; };
 		560E703D17EF43FE004BC832 /* MBJavaHomeService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBJavaHomeService.h; sourceTree = "<group>"; };
 		5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "Icons-Land-Weather-Ice.icns"; path = "../Icons-Land-Weather-Ice.icns"; sourceTree = "<group>"; };
-		56630A0117ECB71C005A2BEC /* MBMavenOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParser.h; sourceTree = "<group>"; };
-		56630A0217ECB71C005A2BEC /* MBMavenOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParser.m; sourceTree = "<group>"; };
+		564FB48317F1C62F000380F3 /* build-failure-no-java_home.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-java_home.txt"; sourceTree = "<group>"; };
+		564FB48417F1C62F000380F3 /* build-failure-no-pom.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-pom.txt"; sourceTree = "<group>"; };
+		564FB48517F1C62F000380F3 /* build-failure-no-project.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-project.txt"; sourceTree = "<group>"; };
+		564FB48617F1C62F000380F3 /* build-failure-non-parsable.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-non-parsable.txt"; sourceTree = "<group>"; };
+		564FB48717F1C62F000380F3 /* build-failure-unknown-phase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-unknown-phase.txt"; sourceTree = "<group>"; };
+		564FB48817F1C62F000380F3 /* build-success-one-module.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-success-one-module.txt"; sourceTree = "<group>"; };
+		564FB48917F1C62F000380F3 /* build-success.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-success.txt"; sourceTree = "<group>"; };
+		564FB48A17F1C62F000380F3 /* DDFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileReader.h; sourceTree = "<group>"; };
+		564FB48B17F1C62F000380F3 /* DDFileReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileReader.m; sourceTree = "<group>"; };
+		564FB48D17F1C62F000380F3 /* MBMavenOutputParserTestObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParserTestObserver.h; sourceTree = "<group>"; };
+		564FB48E17F1C62F000380F3 /* MBMavenOutputParserTestObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParserTestObserver.m; sourceTree = "<group>"; };
+		564FB48F17F1C62F000380F3 /* MBMavenOutputParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParserTests.m; sourceTree = "<group>"; };
+		564FB49117F1C62F000380F3 /* MBTestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTestAdditions.h; sourceTree = "<group>"; };
+		564FB4A017F1C72E000380F3 /* MBMavenOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParser.h; sourceTree = "<group>"; };
+		564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParser.m; sourceTree = "<group>"; };
+		564FB4A317F1C931000380F3 /* MBMavenParserDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBMavenParserDelegate.h; sourceTree = "<group>"; };
 		56630A0517ECB71C005A2BEC /* NSTask+MBTaskOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTask+MBTaskOutputParser.h"; sourceTree = "<group>"; };
 		56630A0617ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+MBTaskOutputParser.m"; sourceTree = "<group>"; };
 		56630A1817ECC067005A2BEC /* MavenServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MavenServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56630A1917ECC067005A2BEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		56630A1D17ECC067005A2BEC /* MavenServiceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MavenServiceTests-Info.plist"; sourceTree = "<group>"; };
-		56630A1F17ECC067005A2BEC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		56630A2317ECC067005A2BEC /* MavenServiceTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MavenServiceTests-Prefix.pch"; sourceTree = "<group>"; };
-		56630A2917ECC0A9005A2BEC /* MBMavenOutputParserTestObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParserTestObserver.h; sourceTree = "<group>"; };
-		56630A2A17ECC0A9005A2BEC /* MBMavenOutputParserTestObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParserTestObserver.m; sourceTree = "<group>"; };
-		56630A2C17ECC0AA005A2BEC /* MBMavenOutputParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParserTests.m; sourceTree = "<group>"; };
-		56630A3017ED960F005A2BEC /* build-failure-no-java_home.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-java_home.txt"; sourceTree = "<group>"; };
-		56630A3117ED960F005A2BEC /* build-failure-no-pom.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-pom.txt"; sourceTree = "<group>"; };
-		56630A3217ED960F005A2BEC /* build-failure-no-project.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-project.txt"; sourceTree = "<group>"; };
-		56630A3317ED960F005A2BEC /* build-failure-non-parsable.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-non-parsable.txt"; sourceTree = "<group>"; };
-		56630A3417ED960F005A2BEC /* build-failure-unknown-phase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-unknown-phase.txt"; sourceTree = "<group>"; };
-		56630A3517ED960F005A2BEC /* build-success-one-module.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-success-one-module.txt"; sourceTree = "<group>"; };
-		56630A3617ED960F005A2BEC /* build-success.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-success.txt"; sourceTree = "<group>"; };
-		56630A3E17ED9626005A2BEC /* DDFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileReader.h; sourceTree = "<group>"; };
-		56630A3F17ED9626005A2BEC /* DDFileReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileReader.m; sourceTree = "<group>"; };
-		56630A4117ED9626005A2BEC /* MBTaskOutputReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskOutputReaderTests.m; sourceTree = "<group>"; };
-		56630A4217ED9626005A2BEC /* MBTestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTestAdditions.h; sourceTree = "<group>"; };
 		56630A4617ED97E7005A2BEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MBTaskRunnerDocument.xib; path = ../MBTaskRunnerDocument.xib; sourceTree = "<group>"; };
 		568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cz.boucekm.MavenService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,13 +212,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		56630A0017ECB6A6005A2BEC /* Parser */ = {
+		564FB49E17F1C66C000380F3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				56630A0117ECB71C005A2BEC /* MBMavenOutputParser.h */,
-				56630A0217ECB71C005A2BEC /* MBMavenOutputParser.m */,
+				564FB48A17F1C62F000380F3 /* DDFileReader.h */,
+				564FB48B17F1C62F000380F3 /* DDFileReader.m */,
+				564FB48D17F1C62F000380F3 /* MBMavenOutputParserTestObserver.h */,
+				564FB48E17F1C62F000380F3 /* MBMavenOutputParserTestObserver.m */,
 			);
-			name = Parser;
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		564FB49F17F1C70E000380F3 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				564FB4A317F1C931000380F3 /* MBMavenParserDelegate.h */,
+				564FB4A017F1C72E000380F3 /* MBMavenOutputParser.h */,
+				564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */,
+			);
+			path = Parser;
 			sourceTree = "<group>";
 		};
 		56630A0A17ECB7A4005A2BEC /* Task executor */ = {
@@ -235,46 +242,6 @@
 			name = "Task executor";
 			sourceTree = "<group>";
 		};
-		56630A1B17ECC067005A2BEC /* MavenServiceTests */ = {
-			isa = PBXGroup;
-			children = (
-				56630A4217ED9626005A2BEC /* MBTestAdditions.h */,
-				56630A4117ED9626005A2BEC /* MBTaskOutputReaderTests.m */,
-				56630A2C17ECC0AA005A2BEC /* MBMavenOutputParserTests.m */,
-				56630A4517ED96B4005A2BEC /* Utilities */,
-				56630A1C17ECC067005A2BEC /* Supporting Files */,
-			);
-			path = MavenServiceTests;
-			sourceTree = "<group>";
-		};
-		56630A1C17ECC067005A2BEC /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				56630A3017ED960F005A2BEC /* build-failure-no-java_home.txt */,
-				56630A3117ED960F005A2BEC /* build-failure-no-pom.txt */,
-				56630A3217ED960F005A2BEC /* build-failure-no-project.txt */,
-				56630A3317ED960F005A2BEC /* build-failure-non-parsable.txt */,
-				56630A3417ED960F005A2BEC /* build-failure-unknown-phase.txt */,
-				56630A3517ED960F005A2BEC /* build-success-one-module.txt */,
-				56630A3617ED960F005A2BEC /* build-success.txt */,
-				56630A1D17ECC067005A2BEC /* MavenServiceTests-Info.plist */,
-				56630A1E17ECC067005A2BEC /* InfoPlist.strings */,
-				56630A2317ECC067005A2BEC /* MavenServiceTests-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		56630A4517ED96B4005A2BEC /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				56630A3E17ED9626005A2BEC /* DDFileReader.h */,
-				56630A3F17ED9626005A2BEC /* DDFileReader.m */,
-				56630A2917ECC0A9005A2BEC /* MBMavenOutputParserTestObserver.h */,
-				56630A2A17ECC0A9005A2BEC /* MBMavenOutputParserTestObserver.m */,
-			);
-			name = Utilities;
-			sourceTree = "<group>";
-		};
 		568C673A17EB7D630095785D /* MavenService */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,7 +249,6 @@
 				568C675217EC6AB60095785D /* Protocols */,
 				568C675317EC6AC90095785D /* Task implementation */,
 				56630A0A17ECB7A4005A2BEC /* Task executor */,
-				56630A0017ECB6A6005A2BEC /* Parser */,
 				568C673B17EB7D630095785D /* Supporting Files */,
 			);
 			path = MavenService;
@@ -379,7 +345,6 @@
 				56FE8E8A167BA1A70001AAED /* IceCube */,
 				56FE8EAA167BA1A80001AAED /* IceCubeTests */,
 				568C673A17EB7D630095785D /* MavenService */,
-				56630A1B17ECC067005A2BEC /* MavenServiceTests */,
 				56F6300617EF34AA004DC92E /* JavaHomeService */,
 				56FE8E83167BA1A70001AAED /* Frameworks */,
 				56FE8E81167BA1A70001AAED /* Products */,
@@ -432,6 +397,7 @@
 				56D21D2F17BFC6520060A823 /* Images.xcassets */,
 				56F578E11794A584007E85A8 /* Task runner window */,
 				56F62FFA17EF2389004DC92E /* Preferences window */,
+				564FB49F17F1C70E000380F3 /* Parser */,
 				56FE8E8B167BA1A70001AAED /* Supporting Files */,
 			);
 			path = IceCube;
@@ -453,6 +419,9 @@
 		56FE8EAA167BA1A80001AAED /* IceCubeTests */ = {
 			isa = PBXGroup;
 			children = (
+				564FB49117F1C62F000380F3 /* MBTestAdditions.h */,
+				564FB48F17F1C62F000380F3 /* MBMavenOutputParserTests.m */,
+				564FB49E17F1C66C000380F3 /* Utilities */,
 				56FE8EAB167BA1A80001AAED /* Supporting Files */,
 			);
 			path = IceCubeTests;
@@ -461,6 +430,13 @@
 		56FE8EAB167BA1A80001AAED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				564FB48317F1C62F000380F3 /* build-failure-no-java_home.txt */,
+				564FB48417F1C62F000380F3 /* build-failure-no-pom.txt */,
+				564FB48517F1C62F000380F3 /* build-failure-no-project.txt */,
+				564FB48617F1C62F000380F3 /* build-failure-non-parsable.txt */,
+				564FB48717F1C62F000380F3 /* build-failure-unknown-phase.txt */,
+				564FB48817F1C62F000380F3 /* build-success-one-module.txt */,
+				564FB48917F1C62F000380F3 /* build-success.txt */,
 				56FE8EAC167BA1A80001AAED /* IceCubeTests-Info.plist */,
 				56FE8EAD167BA1A80001AAED /* InfoPlist.strings */,
 			);
@@ -608,14 +584,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56630A3717ED960F005A2BEC /* build-failure-no-java_home.txt in Resources */,
-				56630A3917ED960F005A2BEC /* build-failure-no-project.txt in Resources */,
-				56630A3817ED960F005A2BEC /* build-failure-no-pom.txt in Resources */,
-				56630A3C17ED960F005A2BEC /* build-success-one-module.txt in Resources */,
-				56630A2017ECC067005A2BEC /* InfoPlist.strings in Resources */,
-				56630A3D17ED960F005A2BEC /* build-success.txt in Resources */,
-				56630A3A17ED960F005A2BEC /* build-failure-non-parsable.txt in Resources */,
-				56630A3B17ED960F005A2BEC /* build-failure-unknown-phase.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,7 +621,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564FB49217F1C62F000380F3 /* build-failure-no-java_home.txt in Resources */,
+				564FB49417F1C62F000380F3 /* build-failure-no-project.txt in Resources */,
+				564FB49317F1C62F000380F3 /* build-failure-no-pom.txt in Resources */,
+				564FB49717F1C630000380F3 /* build-success-one-module.txt in Resources */,
 				56FE8EAF167BA1A80001AAED /* InfoPlist.strings in Resources */,
+				564FB49817F1C630000380F3 /* build-success.txt in Resources */,
+				564FB49517F1C62F000380F3 /* build-failure-non-parsable.txt in Resources */,
+				564FB49617F1C630000380F3 /* build-failure-unknown-phase.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,10 +655,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56630A4317ED9626005A2BEC /* DDFileReader.m in Sources */,
-				56630A2D17ECC0AA005A2BEC /* MBMavenOutputParserTestObserver.m in Sources */,
-				56630A2E17ECC0AA005A2BEC /* MBMavenOutputParserTests.m in Sources */,
-				56630A4417ED9626005A2BEC /* MBTaskOutputReaderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,7 +665,6 @@
 				56630A0917ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m in Sources */,
 				568C674217EB7D630095785D /* main.m in Sources */,
 				568C675117EC688D0095785D /* MBMavenServiceTask.m in Sources */,
-				56630A0717ECB71C005A2BEC /* MBMavenOutputParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,6 +685,7 @@
 				56FE8E91167BA1A70001AAED /* main.m in Sources */,
 				56FE8E98167BA1A70001AAED /* MBAppDelegate.m in Sources */,
 				56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */,
+				564FB4A217F1C72E000380F3 /* MBMavenOutputParser.m in Sources */,
 				56D21DA317C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodeld in Sources */,
 				56D21DA717C1003A0060A823 /* Task.m in Sources */,
 				56F62FFE17EF23F8004DC92E /* MBPreferencesWindowController.m in Sources */,
@@ -725,6 +696,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564FB49A17F1C630000380F3 /* MBMavenOutputParserTestObserver.m in Sources */,
+				564FB49B17F1C630000380F3 /* MBMavenOutputParserTests.m in Sources */,
+				564FB49917F1C630000380F3 /* DDFileReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,14 +728,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		56630A1E17ECC067005A2BEC /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				56630A1F17ECC067005A2BEC /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		568C673D17EB7D630095785D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

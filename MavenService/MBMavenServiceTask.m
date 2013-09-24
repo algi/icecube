@@ -8,10 +8,8 @@
 
 #import "MBMavenServiceTask.h"
 
-#import "NSTask+MBTaskOutputParser.h"
-#import "MBMavenOutputParser.h"
-
 #import "MBMavenServiceCallback.h"
+#import "NSTask+MBTaskOutputParser.h"
 
 static NSString * const kMavenApplicationPath = @"maven.application.path";
 static NSString * const kJavaHomePath = @"java.home.path";
@@ -42,7 +40,7 @@ static NSString * const kJavaHomePath = @"java.home.path";
 	NSError *mvnError;
 	NSString *launchPath = [self launchPath:&mvnError];
 	if (!launchPath) {
-		[[self executionObserver] buildDidEndSuccessfully:NO];
+		// [[self executionObserver] buildDidEndSuccessfully:NO]; // TODO -- reply block
 		exit(-1);
 	}
 	[self.task setLaunchPath:launchPath];
@@ -55,7 +53,7 @@ static NSString * const kJavaHomePath = @"java.home.path";
 	NSError *envError;
 	NSDictionary *environment = [self environment:&envError];
 	if (!environment) {
-		[[self executionObserver] buildDidEndSuccessfully:NO];
+		// [[self executionObserver] buildDidEndSuccessfully:NO]; -- TODO reply block
 		exit(-1);
 	}
 	[self.task setEnvironment:environment];
@@ -65,14 +63,19 @@ static NSString * const kJavaHomePath = @"java.home.path";
 	[self.task setCurrentDirectoryPath:directoryPath];
 	
 	// start async with normal priority on new thread
-	[[self executionObserver] task:launchPath willStartWithArguments:arguments onPath:directoryPath];
+	// [[self executionObserver] task:launchPath willStartWithArguments:arguments onPath:directoryPath]; // TODO will not be here
 	
+	/*
+	 
+	 this will only call back to App line
+	 
 	MBMavenOutputParser *parser = [[MBMavenOutputParser alloc]initWithDelegate:[self executionObserver]];
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul), ^{
 		[self.task launchWithTaskOutputBlock:^(NSString *line) {
 			[parser parseLine:line];
 		}];
 	});
+	 */
 	
 	exit(0);
 }

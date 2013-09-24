@@ -8,7 +8,7 @@
 
 #import "MBMavenOutputParser.h"
 
-#import "MBMavenServiceCallback.h"
+#import "MBMavenParserDelegate.h"
 
 typedef NS_ENUM(NSInteger, MBParserState) {
 	kStateStart,
@@ -38,16 +38,15 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
 
 @interface MBMavenOutputParser ()
 
-@property (nonatomic) NSMutableArray *taskList;
-@property (nonatomic, assign) MBParserState state;
-
-@property id<MBMavenServiceCallback> delegate;
+@property (assign, nonatomic) MBParserState state;
+@property (strong, nonatomic) NSMutableArray *taskList;
+@property (weak, nonatomic) id<MBMavenParserDelegate> delegate;
 
 @end
 
 @implementation MBMavenOutputParser
 
--(id)initWithDelegate:(id<MBMavenServiceCallback>)parserDelegate
+-(id)initWithDelegate:(id<MBMavenParserDelegate>)parserDelegate
 {
 	self = [super init];
 	if (self) {
@@ -60,7 +59,8 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
 
 -(void)parseLine:(NSString *)line
 {
-	[self.delegate newLineDidRecieve:line];
+	id<MBMavenParserDelegate> delegate = self.delegate;
+	[delegate newLineDidRecieve:line];
 	
 	switch (self.state) {
 		case kStateStart:
@@ -87,7 +87,7 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
 				[line isEqualToString:kErrorJavaHomeNotSetLine])
 			{
 				// correct goal but incorrect -pl specifier OR there was problem in executing Maven
-				[self.delegate buildDidEndSuccessfully:NO];
+				[delegate buildDidEndSuccessfully:NO];
 				self.state = kStateScanIgnored;
 				return;
 			}
@@ -134,7 +134,7 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
 		{
 			NSAssert([line hasPrefix:kStateSeparatorLinePrefix], @"State: 'kScanningEndState', unkown line: %@", line);
 			
-			[self.delegate buildDidStartWithTaskList:[self.taskList copy]]; // tasklist can be proceeded async, so copy it
+			[delegate buildDidStartWithTaskList:[self.taskList copy]]; // tasklist can be proceeded async, so copy it
 			
 			self.taskList = nil;
 			self.state = kStateProjectDeclarationStart;
@@ -162,7 +162,7 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
 			NSRange range = [self makeRangeFromLine:line withPrefix:kBuildingPrefix];
 			NSString *taskName = [line substringWithRange:range];
 			
-			[self.delegate projectDidStartWithName:taskName];
+			[delegate projectDidStartWithName:taskName];
 			
 			self.state = kStateProjectDeclarationEnd;
 			break;
@@ -205,11 +205,12 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
 #pragma mark - Utilities -
 -(void)handleResultOfBuildFromLine:(NSString *)line
 {
+	id<MBMavenParserDelegate> delegate = self.delegate;
 	if ([line isEqualToString:kBuildSuccessLine]) {
-		[self.delegate buildDidEndSuccessfully:YES];
+		[delegate buildDidEndSuccessfully:YES];
 	}
 	else if ([line isEqualToString:kBuildErrorLine]) {
-		[self.delegate buildDidEndSuccessfully:NO];
+		[delegate buildDidEndSuccessfully:NO];
 	}
 	else {
 		NSAssert(NO, @"State 'kBuildDone', unknown line: %@", line);
