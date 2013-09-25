@@ -57,13 +57,6 @@
 			remoteGlobalIDString = 56F6300317EF34AA004DC92E;
 			remoteInfo = JavaHomeService;
 		};
-		56630A2417ECC067005A2BEC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 56FE8E77167BA1A70001AAED /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 568C673617EB7D630095785D;
-			remoteInfo = MavenService;
-		};
 		568C674817EB7E750095785D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56FE8E77167BA1A70001AAED /* Project object */;
@@ -117,7 +110,6 @@
 		564FB4A317F1C931000380F3 /* MBMavenParserDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBMavenParserDelegate.h; sourceTree = "<group>"; };
 		56630A0517ECB71C005A2BEC /* NSTask+MBTaskOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTask+MBTaskOutputParser.h"; sourceTree = "<group>"; };
 		56630A0617ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+MBTaskOutputParser.m"; sourceTree = "<group>"; };
-		56630A1817ECC067005A2BEC /* MavenServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MavenServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56630A1917ECC067005A2BEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		56630A4617ED97E7005A2BEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MBTaskRunnerDocument.xib; path = ../MBTaskRunnerDocument.xib; sourceTree = "<group>"; };
@@ -359,7 +351,6 @@
 				56FE8E80167BA1A70001AAED /* IceCube.app */,
 				56FE8EA4167BA1A80001AAED /* IceCubeTests.xctest */,
 				568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */,
-				56630A1817ECC067005A2BEC /* MavenServiceTests.xctest */,
 				56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */,
 			);
 			name = Products;
@@ -446,24 +437,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		56630A1717ECC067005A2BEC /* MavenServiceTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 56630A2617ECC067005A2BEC /* Build configuration list for PBXNativeTarget "MavenServiceTests" */;
-			buildPhases = (
-				56630A1417ECC067005A2BEC /* Sources */,
-				56630A1517ECC067005A2BEC /* Frameworks */,
-				56630A1617ECC067005A2BEC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				56630A2517ECC067005A2BEC /* PBXTargetDependency */,
-			);
-			name = MavenServiceTests;
-			productName = MavenServiceTests;
-			productReference = 56630A1817ECC067005A2BEC /* MavenServiceTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		568C673617EB7D630095785D /* MavenService */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 568C674317EB7D630095785D /* Build configuration list for PBXNativeTarget "MavenService" */;
@@ -547,9 +520,6 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Marian Bouček";
 				TargetAttributes = {
-					56630A1717ECC067005A2BEC = {
-						TestTargetID = 56FE8E7F167BA1A70001AAED;
-					};
 					56FE8E7F167BA1A70001AAED = {
 						DevelopmentTeam = 72CQ273HEW;
 					};
@@ -573,20 +543,12 @@
 				56FE8E7F167BA1A70001AAED /* IceCube */,
 				56FE8EA3167BA1A80001AAED /* IceCubeTests */,
 				568C673617EB7D630095785D /* MavenService */,
-				56630A1717ECC067005A2BEC /* MavenServiceTests */,
 				56F6300317EF34AA004DC92E /* JavaHomeService */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		56630A1617ECC067005A2BEC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		568C673517EB7D630095785D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -651,13 +613,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		56630A1417ECC067005A2BEC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		568C673317EB7D630095785D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -709,11 +664,6 @@
 			isa = PBXTargetDependency;
 			target = 56F6300317EF34AA004DC92E /* JavaHomeService */;
 			targetProxy = 560E703717EF35AE004BC832 /* PBXContainerItemProxy */;
-		};
-		56630A2517ECC067005A2BEC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 568C673617EB7D630095785D /* MavenService */;
-			targetProxy = 56630A2417ECC067005A2BEC /* PBXContainerItemProxy */;
 		};
 		568C674917EB7E750095785D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -779,65 +729,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		56630A2717ECC067005A2BEC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IceCube.app/Contents/MacOS/IceCube";
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MavenServiceTests/MavenServiceTests-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = "MavenServiceTests/MavenServiceTests-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		56630A2817ECC067005A2BEC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IceCube.app/Contents/MacOS/IceCube";
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				ENABLE_NS_ASSERTIONS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MavenServiceTests/MavenServiceTests-Prefix.pch";
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = "MavenServiceTests/MavenServiceTests-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 		568C674417EB7D630095785D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1079,15 +970,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		56630A2617ECC067005A2BEC /* Build configuration list for PBXNativeTarget "MavenServiceTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				56630A2717ECC067005A2BEC /* Debug */,
-				56630A2817ECC067005A2BEC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		568C674317EB7D630095785D /* Build configuration list for PBXNativeTarget "MavenService" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
