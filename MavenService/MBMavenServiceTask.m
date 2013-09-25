@@ -24,6 +24,7 @@ static NSString * const kJavaHomePath = @"java.home.path";
 
 - (void)launchMavenWithArguments:(NSString *)arguments
 						  onPath:(NSURL *)path
+					   withReply:(void (^)(BOOL launchSuccessful, NSError *error))reply
 {
 	// in no case is allowed to launch task multiple times!
 	BOOL taskIsRunning = self.task != nil;
@@ -40,7 +41,7 @@ static NSString * const kJavaHomePath = @"java.home.path";
 	NSError *mvnError;
 	NSString *launchPath = [self launchPath:&mvnError];
 	if (!launchPath) {
-		// [[self executionObserver] buildDidEndSuccessfully:NO]; // TODO -- reply block
+		reply(NO, mvnError);
 		exit(-1);
 	}
 	[self.task setLaunchPath:launchPath];
@@ -53,7 +54,7 @@ static NSString * const kJavaHomePath = @"java.home.path";
 	NSError *envError;
 	NSDictionary *environment = [self environment:&envError];
 	if (!environment) {
-		// [[self executionObserver] buildDidEndSuccessfully:NO]; -- TODO reply block
+		reply(NO, envError);
 		exit(-1);
 	}
 	[self.task setEnvironment:environment];
@@ -62,19 +63,24 @@ static NSString * const kJavaHomePath = @"java.home.path";
 	NSString *directoryPath = [path path];
 	[self.task setCurrentDirectoryPath:directoryPath];
 	
-	// [[self executionObserver] task:launchPath willStartWithArguments:arguments onPath:directoryPath]; // TODO will not be here
+	// termination handler
+	self.task.terminationHandler = ^(NSTask *task){
+		exit(0);
+	};
 	
 	// start async with normal priority on new thread
 	NSXPCConnection *xpcConnection = _xpcConnection;
 	id observer = [xpcConnection remoteObjectProxy];
 	
+	// TODO is it really necessary to call dispatch_async? we are async task anyway ;-)
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul), ^{
 		[self.task launchWithTaskOutputBlock:^(NSString *line) {
 			[observer mavenTaskDidWriteLine:line];
 		}];
 	});
 	
-	exit(0);
+	// task launched
+	reply(YES, nil);
 }
 
 - (void)terminateTask

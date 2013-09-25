@@ -97,8 +97,16 @@
 	};
 	
 	[self.connection resume];
+	
+	id replyBlock = ^(BOOL launchSuccessful, NSError *error) {
+		if (! launchSuccessful) {
+			NSLog(@"Error while creating Maven task:\n%@", [error localizedDescription]);
+		}
+	};
+	
 	[[self.connection remoteObjectProxy] launchMavenWithArguments:args
-														   onPath:path];
+														   onPath:path
+														withReply:replyBlock];
 }
 
 -(IBAction)stopTask:(id)sender
@@ -115,6 +123,7 @@
 - (void)mavenTaskDidWriteLine:(NSString *)line
 {
 	// TODO receive line and give it to parser
+	NSLog(@"%@", line);
 }
 
 #pragma mark - Observer methods -
