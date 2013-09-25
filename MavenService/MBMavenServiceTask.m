@@ -65,9 +65,12 @@ static NSString * const kJavaHomePath = @"java.home.path";
 	// [[self executionObserver] task:launchPath willStartWithArguments:arguments onPath:directoryPath]; // TODO will not be here
 	
 	// start async with normal priority on new thread
+	NSXPCConnection *xpcConnection = _xpcConnection;
+	id observer = [xpcConnection remoteObjectProxy];
+	
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul), ^{
 		[self.task launchWithTaskOutputBlock:^(NSString *line) {
-			[[self executionObserver] mavenTaskDidWriteLine:line];
+			[observer mavenTaskDidWriteLine:line];
 		}];
 	});
 	
@@ -78,12 +81,6 @@ static NSString * const kJavaHomePath = @"java.home.path";
 {
 	[self.task terminate];
 	exit(0);
-}
-
-- (id)executionObserver
-{
-	NSXPCConnection *xpcConnection = _xpcConnection;
-	return [xpcConnection remoteObjectProxy];
 }
 
 #pragma mark - Task preparation -
