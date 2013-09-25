@@ -111,9 +111,14 @@
 		}
 	};
 	
-	[[self.connection remoteObjectProxy] launchMavenWithArguments:args
-														   onPath:path
-														withReply:replyBlock];
+	NSString *mavenPath = [[NSUserDefaults standardUserDefaults] objectForKey:@"maven.application.path"];
+	NSDictionary *environment = @{@"JAVA_HOME": [[NSUserDefaults standardUserDefaults] objectForKey:@"java.home.path"]};
+	
+	[[self.connection remoteObjectProxy] launchMaven:mavenPath
+									   withArguments:args
+										 environment:environment
+											  atPath:path
+										   withReply:replyBlock];
 }
 
 -(IBAction)stopTask:(id)sender

@@ -10,17 +10,25 @@
 
 @implementation NSTask (MBTaskOutputParser)
 
--(void)launchWithTaskOutputBlock:(void (^)(NSString *))delegateBlock
+- (BOOL)launchWithTaskOutputBlock:(void (^)(NSString *))delegateBlock error:(__autoreleasing NSError *)error
 {
 	id pipe = [NSPipe pipe];
 	[self setStandardOutput:pipe];
 	[self setStandardError:pipe];
 	
-	NSFileHandle *fileHandle = [pipe fileHandleForReading];
-	[self launch];
+	@try {
+		[self launch];
+	}
+	@catch (NSException *exception) {
+		error = [NSError errorWithDomain:exception.name
+									code:1
+								userInfo:@{NSLocalizedDescriptionKey: exception.reason}];
+		return NO;
+	}
 	
 	NSData *inData = nil;
 	NSString *partialLinesBuffer = nil;
+	NSFileHandle *fileHandle = [pipe fileHandleForReading];
 	NSCharacterSet *characterSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
 	
 	while ((inData = [fileHandle availableData]) && [inData length]) {
@@ -65,6 +73,8 @@
 	if (partialLinesBuffer) {
 		delegateBlock(partialLinesBuffer);
     }
+	
+	return YES;
 }
 
 @end
