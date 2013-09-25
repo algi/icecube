@@ -8,18 +8,22 @@
 
 #import "MBTaskRunnerWindowController.h"
 
-#import "MBMavenServiceCallback.h"
 #import "MBTaskRunnerDocument.h"
 
 #import "MBMavenService.h"
 #import "MBMavenServiceCallback.h"
 
-@interface MBTaskRunnerWindowController () <MBMavenServiceCallback>
+#import "MBMavenOutputParser.h"
+#import "MBMavenParserDelegate.h"
+
+@interface MBTaskRunnerWindowController () <MBMavenServiceCallback, MBMavenParserDelegate>
 
 @property NSXPCConnection *connection;
 
 @property BOOL taskRunning;
 @property Task *taskDefinition;
+
+@property MBMavenOutputParser *parser;
 
 @end
 
@@ -61,11 +65,14 @@
 	}];
 }
 
+#pragma mark IB actions -
 -(IBAction)startTask:(id)sender
 {
 	if (self.taskRunning) {
 		return;
 	}
+	
+	self.parser = [[MBMavenOutputParser alloc] initWithDelegate:self];
 	
 	NSString *args = self.taskDefinition.command;
 	if ([args length] == 0) {
@@ -120,13 +127,13 @@
 	[[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:fileURLs];
 }
 
+#pragma mark - MBMavenServiceCallback -
 - (void)mavenTaskDidWriteLine:(NSString *)line
 {
-	// TODO receive line and give it to parser
-	NSLog(@"%@", line);
+	[self.parser parseLine:line];
 }
 
-#pragma mark - Observer methods -
+#pragma mark - MBMavenParserDelegate -
 -(void)task:(NSString *)executable willStartWithArguments:(NSString *)arguments onPath:(NSString *)projectDirectory
 {
 	dispatch_async(dispatch_get_main_queue(), ^{
