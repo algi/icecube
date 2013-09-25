@@ -78,6 +78,9 @@
                             <color key="textColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="vEv-yV-4ba" name="value" keyPath="values.maven.application.path" id="osi-Xx-5iS"/>
+                        </connections>
                     </textField>
                     <popUpButton verticalHuggingPriority="750" id="8ML-kp-EB6">
                         <rect key="frame" x="71" y="294" width="83" height="26"/>
@@ -114,6 +117,9 @@
                             <color key="textColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="vEv-yV-4ba" name="value" keyPath="values.java.home.path" id="YRC-bl-F8L"/>
+                        </connections>
                     </textField>
                 </subviews>
             </view>
@@ -121,5 +127,7 @@
                 <outlet property="delegate" destination="-2" id="4"/>
             </connections>
         </window>
+        <userDefaultsController id="Gon-Gf-ZNS"/>
+        <userDefaultsController representsSharedInstance="YES" id="vEv-yV-4ba"/>
     </objects>
 </document>
