@@ -37,7 +37,7 @@
 		
 		if (partialLinesBuffer) {
 			// append partial line to the start of buffer
-			NSString *firstObject = [components objectAtIndex:0];
+			NSString *firstObject = [components firstObject];
 			NSString *fullLine = [partialLinesBuffer stringByAppendingString:firstObject];
 			
 			NSMutableArray *mutableCopy = [components mutableCopy];
@@ -60,7 +60,7 @@
 		NSUInteger index;
 		for (index = 0; index < linesCount; index++) {
 			
-			NSString *line = [[components objectAtIndex:index] stringByTrimmingCharactersInSet:characterSet];
+			NSString *line = [components[index] stringByTrimmingCharactersInSet:characterSet];
 			if ([line length] == 0) {
 				continue;
 			}

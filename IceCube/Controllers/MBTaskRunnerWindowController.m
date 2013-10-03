@@ -54,9 +54,7 @@
 	
 	[openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
 		if (result == NSFileHandlingPanelOKButton) {
-			NSArray *urls = [openPanel URLs];
-			NSURL *url = [urls objectAtIndex:0];
-			
+			NSURL *url = [openPanel URLs][0];
 			[self.pathControl setURL:url];
 			
 			MBTaskRunnerDocument *document = [self document];
