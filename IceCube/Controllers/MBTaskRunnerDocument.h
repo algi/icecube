@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
-
 #import "Task.h"
 
 @interface MBTaskRunnerDocument : NSPersistentDocument

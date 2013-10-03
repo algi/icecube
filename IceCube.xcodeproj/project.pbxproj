@@ -110,7 +110,6 @@
 		56630A0517ECB71C005A2BEC /* NSTask+MBTaskOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTask+MBTaskOutputParser.h"; sourceTree = "<group>"; };
 		56630A0617ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+MBTaskOutputParser.m"; sourceTree = "<group>"; };
 		56630A1917ECC067005A2BEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		56630A4617ED97E7005A2BEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MBTaskRunnerDocument.xib; path = ../MBTaskRunnerDocument.xib; sourceTree = "<group>"; };
 		568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cz.boucekm.MavenService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		568C673817EB7D630095785D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -350,7 +349,6 @@
 		56FE8E83167BA1A70001AAED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				56630A4617ED97E7005A2BEC /* XCTest.framework */,
 				56FE8E84167BA1A70001AAED /* Cocoa.framework */,
 				56AB1B8716E3BFB000831747 /* QuartzCore.framework */,
 				568C673817EB7D630095785D /* Foundation.framework */,

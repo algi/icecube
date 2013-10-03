@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 #import "Task.h"
 
 @interface MBTaskRunnerWindowController : NSWindowController

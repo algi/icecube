@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 #import "MBMavenParserDelegate.h"
 

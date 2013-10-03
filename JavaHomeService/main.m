@@ -6,8 +6,7 @@
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
-#include <xpc/xpc.h>
-#include <Foundation/Foundation.h>
+@import XPC;
 
 #import "MBJavaHomeService.h"
 #import "MBJavaHomeServiceTask.h"

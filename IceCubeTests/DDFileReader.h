@@ -6,7 +6,7 @@
 // author: Dave DeLong (from StackOverflow)
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface DDFileReader : NSObject {
     NSString * filePath;

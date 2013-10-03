@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
+@import XCTest;
 
 #import "DDFileReader.h"
 #import "MBTestAdditions.h"
