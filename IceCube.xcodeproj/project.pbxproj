@@ -22,7 +22,6 @@
 		564FB49B17F1C630000380F3 /* MBMavenOutputParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB48F17F1C62F000380F3 /* MBMavenOutputParserTests.m */; };
 		564FB4A217F1C72E000380F3 /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */; };
 		56630A0917ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56630A0617ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m */; };
-		56630A4717ED97E7005A2BEC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56630A4617ED97E7005A2BEC /* XCTest.framework */; };
 		566A251917A993CC00C11A35 /* MBTaskRunnerDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */; };
 		568C673917EB7D630095785D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568C673817EB7D630095785D /* Foundation.framework */; };
 		568C673F17EB7D630095785D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 568C673D17EB7D630095785D /* InfoPlist.strings */; };
@@ -161,14 +160,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		56630A1517ECC067005A2BEC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				56630A4717ED97E7005A2BEC /* XCTest.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		568C673417EB7D630095785D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -520,6 +511,12 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Marian Bouček";
 				TargetAttributes = {
+					568C673617EB7D630095785D = {
+						DevelopmentTeam = 72CQ273HEW;
+					};
+					56F6300317EF34AA004DC92E = {
+						DevelopmentTeam = 72CQ273HEW;
+					};
 					56FE8E7F167BA1A70001AAED = {
 						DevelopmentTeam = 72CQ273HEW;
 					};
@@ -738,6 +735,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MavenService/MavenService-Prefix.pch";
@@ -765,6 +763,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -789,6 +788,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JavaHomeService/JavaHomeService-Prefix.pch";
@@ -815,6 +815,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -915,6 +916,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IceCube/IceCube-Prefix.pch";
@@ -930,6 +932,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
