@@ -47,7 +47,8 @@
 			continue;
 		}
 		
-		outputLine = [[NSString alloc] initWithData:inData encoding:[NSString defaultCStringEncoding]];
+		outputLine = [[[NSString alloc] initWithData:inData encoding:[NSString defaultCStringEncoding]]
+										stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
 	}
 	
 	reply(outputLine);
