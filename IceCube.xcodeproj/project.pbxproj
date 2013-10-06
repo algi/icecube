@@ -269,6 +269,8 @@
 			children = (
 				56D21DA517C1003A0060A823 /* Task.h */,
 				56D21DA617C1003A0060A823 /* Task.m */,
+				56D21D9C17C0D5880060A823 /* MBTaskRunnerDocument.h */,
+				56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -278,8 +280,6 @@
 			children = (
 				56F578E21794A5B1007E85A8 /* MBTaskRunnerWindowController.h */,
 				56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */,
-				56D21D9C17C0D5880060A823 /* MBTaskRunnerDocument.h */,
-				56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */,
 				566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */,
 				56D21DA117C0D8760060A823 /* MBTaskRunnerDocument.xcdatamodeld */,
 				56D21DA817C1004C0060A823 /* Model */,
@@ -517,6 +517,11 @@
 					};
 					56FE8E7F167BA1A70001AAED = {
 						DevelopmentTeam = 72CQ273HEW;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					56FE8EA3167BA1A80001AAED = {
 						TestTargetID = 56FE8E7F167BA1A70001AAED;
