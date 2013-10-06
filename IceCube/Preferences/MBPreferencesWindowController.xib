@@ -27,7 +27,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="613" height="396"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9ew-TX-6Pc">
+                    <textField horizontalHuggingPriority="252" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9ew-TX-6Pc">
                         <rect key="frame" x="18" y="359" width="49" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Maven:" id="8My-OY-ane">
@@ -81,9 +81,9 @@
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xoJ-2C-Qsn">
-                        <rect key="frame" x="71" y="330" width="92" height="17"/>
+                        <rect key="frame" x="71" y="330" width="498" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="/usr/bin/mvn" id="OZZ-vd-Vzo">
+                        <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="/usr/bin/mvn" usesSingleLineMode="YES" id="OZZ-vd-Vzo">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -127,9 +127,9 @@
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XBp-px-q8L">
-                        <rect key="frame" x="71" y="273" width="432" height="17"/>
+                        <rect key="frame" x="71" y="273" width="498" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="/Library/Java/JavaVirtualMachines/jdk1.7.0_40.jdk/Contents/Home" id="Mr5-de-GLV">
+                        <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="/Library/Java/JavaVirtualMachines/jdk1.7.0_40.jdk/Contents/Home" usesSingleLineMode="YES" id="Mr5-de-GLV">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -177,11 +177,13 @@
                     <constraint firstItem="bNC-rm-NvP" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" symbolic="YES" id="4Yp-Ef-QVE"/>
                     <constraint firstAttribute="trailing" secondItem="Y4a-fj-8fb" secondAttribute="trailing" constant="20" symbolic="YES" id="5pK-Ir-zF3"/>
                     <constraint firstItem="9ew-TX-6Pc" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" symbolic="YES" id="BBd-kk-Xnt"/>
+                    <constraint firstItem="ZrN-gP-Gm4" firstAttribute="leading" secondItem="xoJ-2C-Qsn" secondAttribute="trailing" constant="8" symbolic="YES" id="HQd-pv-hnL"/>
                     <constraint firstItem="ZZX-DC-pda" firstAttribute="leading" secondItem="9ew-TX-6Pc" secondAttribute="trailing" constant="8" symbolic="YES" id="KpX-6R-KhD"/>
                     <constraint firstItem="XBp-px-q8L" firstAttribute="leading" secondItem="8ML-kp-EB6" secondAttribute="leading" id="L9H-TB-1Zz"/>
                     <constraint firstAttribute="trailing" secondItem="ZrN-gP-Gm4" secondAttribute="trailing" constant="20" symbolic="YES" id="R0z-fp-Boi"/>
                     <constraint firstAttribute="trailing" secondItem="bNC-rm-NvP" secondAttribute="trailing" constant="20" symbolic="YES" id="VlX-pG-EnP"/>
                     <constraint firstItem="MeU-m7-luK" firstAttribute="centerY" secondItem="8ML-kp-EB6" secondAttribute="centerY" id="aeI-DI-2Q6"/>
+                    <constraint firstItem="Y4a-fj-8fb" firstAttribute="leading" secondItem="XBp-px-q8L" secondAttribute="trailing" constant="8" symbolic="YES" id="boJ-Qr-HFY"/>
                     <constraint firstItem="XBp-px-q8L" firstAttribute="top" secondItem="Vu4-1U-twu" secondAttribute="bottom" constant="8" symbolic="YES" id="cbT-IS-Xcd"/>
                     <constraint firstItem="8ML-kp-EB6" firstAttribute="centerY" secondItem="Vu4-1U-twu" secondAttribute="centerY" id="eyR-lm-NFx"/>
                     <constraint firstItem="9ew-TX-6Pc" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" symbolic="YES" id="gVb-1e-GxO"/>
