@@ -72,6 +72,9 @@
 	
 	self.parser = [[MBMavenOutputParser alloc] initWithDelegate:self];
 	
+	[self.progressIndicator setIndeterminate:YES];
+	[self.progressIndicator startAnimation:nil];
+	
 	NSString *args = self.taskDefinition.command;
 	if ([args length] == 0) {
 		NSAlert *alert = [[NSAlert alloc] init];
@@ -153,19 +156,27 @@
 
 -(void)buildDidStartWithTaskList:(NSArray *)taskList
 {
-	// we are not interested for now
+	[self.progressIndicator setMinValue:0];
+	[self.progressIndicator setMaxValue:[taskList count] + 1];
+	[self.progressIndicator setDoubleValue:0];
+	
+	[self.progressIndicator setIndeterminate:NO];
 }
 
 -(void)projectDidStartWithName:(NSString *)name
 {
-	// we are not interested for now
+	double doubleValue = [self.progressIndicator doubleValue] + 1;
+	[self.progressIndicator setDoubleValue:doubleValue];
 }
 
 -(void)buildDidEndSuccessfully:(BOOL)buildWasSuccessful
 {
 	dispatch_async(dispatch_get_main_queue(), ^{
+		double doubleValue = [self.progressIndicator doubleValue] + 1;
+		[self.progressIndicator setDoubleValue:doubleValue];
+		[self.progressIndicator stopAnimation:nil];
+		
 		self.taskRunning = NO;
-		[self.progressIndicator stopAnimation:self];
 		
 		NSUserNotification *notification = [[NSUserNotification alloc] init];
 		notification.soundName = NSUserNotificationDefaultSoundName;
