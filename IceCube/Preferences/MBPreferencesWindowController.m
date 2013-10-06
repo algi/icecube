@@ -13,19 +13,11 @@
 static NSString * const kMavenApplicationPath = @"maven.application.path";
 static NSString * const kJavaHomePath = @"java.home.path";
 
-@interface MBPreferencesWindowController ()
-
-@end
-
 @implementation MBPreferencesWindowController
 
 - (id)init
 {
-    self = [super initWithWindowNibName:@"MBPreferencesWindowController"];
-    if (self) {
-        // Initialization code here.
-    }
-    return self;
+    return self = [super initWithWindowNibName:@"MBPreferencesWindowController"];
 }
 
 - (void)windowDidLoad
@@ -33,90 +25,66 @@ static NSString * const kJavaHomePath = @"java.home.path";
     [super windowDidLoad];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-}
-
-- (NSString *)defaultMavenPath
-{
-	return nil;
-}
-
-- (void)updateJavaPathForVersion:(NSString *)version
-{
-	NSXPCConnection *connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.JavaHomeService"];
-	connection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBJavaHomeService)];
 	
-	[connection resume];
-	
-	[[connection remoteObjectProxy] findJavaLocationForVersion:version withReply:^(NSString *result) {
-		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
-			NSLog(@"Fetched result is: %@", result);
-		}];
-				
-		[connection invalidate];
-	}];
+	// pokud v této fázi budou nastaveny komponenty dle bindingu, tak by se daly nastavit přidružené komponenty
 }
 
-#pragma mark - Task preparation -
-- (NSString *)launchPath:(__autoreleasing NSError **)error
+- (IBAction)userDidSelectMavenChoice:(id)sender
 {
-	NSString *launchPath = [[NSUserDefaults standardUserDefaults] stringForKey:kMavenApplicationPath];
-	if (launchPath) {
-		if ([self isPathAccessible:launchPath]) {
-			return launchPath;
+	NSPopUpButton *mavenPopUp = self.mavenPopUp;
+	NSInteger selectedTag = [mavenPopUp selectedTag];
+	switch (selectedTag) {
+		case 0: // default
+		{
+			break;
 		}
-		else {
-			if (error != NULL) {
-				*error = [NSError errorWithDomain:@"MBMavenNotFound"
-											 code:1
-										 userInfo:@{NSLocalizedDescriptionKey: @"Maven path is not accesible."}];
-			}
-			return nil;
+		case 1: // custom
+		{
+			break;
 		}
-	}
-	
-	NSString *defaultLaunchPath = @"/usr/bin/mvn";
-	if ([self isPathAccessible:defaultLaunchPath]) {
-		return defaultLaunchPath;
-	}
-	else {
-		if (error != NULL) {
-			*error = [NSError errorWithDomain:@"MBMavenNotFound"
-										 code:2
-									 userInfo:@{NSLocalizedDescriptionKey: @"Maven not found."}];
-		}
-		return nil;
+		default: // error in app ^^
+			@throw [[NSException alloc] initWithName:@"MBIllegalUIStateException"
+											  reason:@"Unknown selected tag in Maven pop up."
+											userInfo:nil];
+			break;
 	}
 }
 
-- (NSDictionary *)environment:(__autoreleasing NSError **)error
+- (IBAction)userDidSelectJavaChoice:(id)sender
 {
-	NSString *javaHomeValue = [[NSUserDefaults standardUserDefaults] objectForKey:kJavaHomePath];
-	if (javaHomeValue) {
-		if ([self isPathAccessible:javaHomeValue]) {
-			return @{@"JAVA_HOME": javaHomeValue};
+	NSPopUpButton *javaPopUp = self.javaPopUp;
+	NSInteger selectedTag = [javaPopUp selectedTag];
+	switch (selectedTag) {
+		case 1: // default
+		{
+			break;
 		}
-		else {
-			if (error != NULL) {
-				*error = [NSError errorWithDomain:@"MBJavaHomeNotFound"
-											 code:1
-										 userInfo:@{NSLocalizedDescriptionKey: @"JAVA_HOME is not accesible."}];
-			}
-			return nil;
+		case 2: // custom
+		{
+			break;
 		}
-	}
-	else {
-		if (error != NULL) {
-			*error = [NSError errorWithDomain:@"MBJavaHomeNotFound"
-										 code:2
-									 userInfo:@{NSLocalizedDescriptionKey: @"Unable to determine JAVA_HOME."}];
+		default: // number means version of Java (eg. 6 = Java 6)
+		{
+			break;
 		}
-		return nil;
 	}
 }
 
-- (BOOL)isPathAccessible:(NSString *)path
+- (IBAction)revealMavenHomeInFinder:(id)sender
 {
-	return [[NSFileManager defaultManager] fileExistsAtPath:path]; // TODO and executable
+	[self revealPathInFinder:[[NSUserDefaults standardUserDefaults] objectForKey:kMavenApplicationPath]];
+}
+
+- (IBAction)revealJavaHomeInFinder:(id)sender
+{
+	[self revealPathInFinder:[[NSUserDefaults standardUserDefaults] objectForKey:kJavaHomePath]];
+}
+
+- (void)revealPathInFinder:(NSString *)path
+{
+	NSString *URL = [NSString stringWithFormat:@"file://%@", path];
+	NSArray *fileURLs = @[[NSURL URLWithString:URL]];
+	[[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:fileURLs];
 }
 
 @end

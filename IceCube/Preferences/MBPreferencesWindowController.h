@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
-
 @interface MBPreferencesWindowController : NSWindowController
 
 @property (weak) IBOutlet NSPopUpButton *mavenPopUp;
@@ -17,6 +15,11 @@
 @property (weak) IBOutlet NSPopUpButton *javaPopUp;
 @property (weak) IBOutlet NSTextField *javaDefaultLocation;
 @property (weak) IBOutlet NSTextField *javaCustomLocation;
+
+- (IBAction)userDidSelectMavenChoice:(id)sender;
+- (IBAction)userDidSelectJavaChoice:(id)sender;
+- (IBAction)revealMavenHomeInFinder:(id)sender;
+- (IBAction)revealJavaHomeInFinder:(id)sender;
 
 // initializes window with correct NIB name
 - (id)init;
