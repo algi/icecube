@@ -95,14 +95,12 @@
 	self.connection.exportedObject = self;
 	
 	__weak MBTaskRunnerWindowController *weakSelf = self;
-	self.connection.interruptionHandler = ^{
+	id handlerBlock = ^{
 		MBTaskRunnerWindowController *strongSelf = weakSelf;
-		strongSelf.taskRunning = NO;
+		[strongSelf stopProgressBarWithStepForward:YES];
 	};
-	self.connection.invalidationHandler = ^{
-		MBTaskRunnerWindowController *strongSelf = weakSelf;
-		strongSelf.taskRunning = NO;
-	};
+	self.connection.interruptionHandler = handlerBlock;
+	self.connection.invalidationHandler = handlerBlock;
 	
 	[self.connection resume];
 	
@@ -172,11 +170,7 @@
 -(void)buildDidEndSuccessfully:(BOOL)buildWasSuccessful
 {
 	dispatch_async(dispatch_get_main_queue(), ^{
-		double doubleValue = [self.progressIndicator doubleValue] + 1;
-		[self.progressIndicator setDoubleValue:doubleValue];
-		[self.progressIndicator stopAnimation:nil];
-		
-		self.taskRunning = NO;
+		[self stopProgressBarWithStepForward:YES];
 		
 		NSUserNotification *notification = [[NSUserNotification alloc] init];
 		notification.soundName = NSUserNotificationDefaultSoundName;
@@ -207,6 +201,18 @@
 		
 		[self.outputTextView scrollRangeToVisible:NSMakeRange([[self.outputTextView string] length], 0)];
 	});
+}
+
+#pragma mark - Other methods -
+- (void)stopProgressBarWithStepForward:(BOOL)oneStepFurther
+{
+	if (oneStepFurther) {
+		double doubleValue = [self.progressIndicator doubleValue] + 1;
+		[self.progressIndicator setDoubleValue:doubleValue];
+	}
+	
+	[self.progressIndicator stopAnimation:nil];
+	self.taskRunning = NO;
 }
 
 @end
