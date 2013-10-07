@@ -87,7 +87,7 @@
                         </textFieldCell>
                     </textField>
                     <pathControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OMz-TM-wiL">
-                        <rect key="frame" x="78" y="392" width="194" height="20"/>
+                        <rect key="frame" x="78" y="392" width="670" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <pathCell key="cell" controlSize="small" selectable="YES" editable="YES" alignment="left" pathStyle="navigationBar" id="rfR-Fy-Zyo">
                             <font key="font" metaFont="smallSystem"/>
@@ -123,6 +123,9 @@
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VgK-5y-GOF">
                         <rect key="frame" x="755" y="392" width="18" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="18" id="J4m-FQ-nqm"/>
+                        </constraints>
                         <buttonCell key="cell" type="inline" bezelStyle="inline" image="NSRevealFreestandingTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="JUk-tu-mzn">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystemBold"/>
@@ -149,6 +152,7 @@
                     <constraint firstItem="31r-Zy-hOe" firstAttribute="leading" secondItem="OMz-TM-wiL" secondAttribute="leading" id="klH-gY-kAJ"/>
                     <constraint firstItem="6iw-Hy-3Tl" firstAttribute="trailing" secondItem="31r-Zy-hOe" secondAttribute="trailing" id="pKL-Hl-WWo"/>
                     <constraint firstItem="6iw-Hy-3Tl" firstAttribute="top" secondItem="ffI-nQ-6He" secondAttribute="top" constant="20" symbolic="YES" id="r9A-gK-Opu"/>
+                    <constraint firstItem="VgK-5y-GOF" firstAttribute="leading" secondItem="OMz-TM-wiL" secondAttribute="trailing" constant="8" symbolic="YES" id="tp8-O1-dHt"/>
                     <constraint firstItem="d7O-rU-iQq" firstAttribute="trailing" secondItem="csR-r7-0x9" secondAttribute="trailing" id="uiQ-pE-ehg"/>
                 </constraints>
             </view>
