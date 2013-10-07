@@ -37,7 +37,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <size key="minSize" width="692" height="330"/>
+                                    <size key="minSize" width="676" height="330"/>
                                     <size key="maxSize" width="771" height="10000000"/>
                                     <attributedString key="textStorage">
                                         <fragment content="$">
@@ -49,7 +49,7 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <size key="minSize" width="692" height="330"/>
+                                    <size key="minSize" width="676" height="330"/>
                                     <size key="maxSize" width="771" height="10000000"/>
                                 </textView>
                             </subviews>
@@ -130,6 +130,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystemBold"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="revealFolderInFinder:" target="-2" id="X3n-mI-8fg"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
