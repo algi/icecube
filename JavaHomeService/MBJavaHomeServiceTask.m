@@ -10,19 +10,12 @@
 
 @implementation MBJavaHomeServiceTask
 
-- (void)findJavaLocationForVersion:(NSString *)version
-						 withReply:(void(^)(NSString *result))reply
+- (void)findDefaultJavaLocationForVersionwithReply:(void(^)(NSString *result))reply
 {
 	NSTask *task = [[NSTask alloc] init];
-	[task setLaunchPath:@"/usr/libexec/java_home"];
 	
-	// create arguments for CommandLine and specified version
-	NSMutableArray *arguments = [self createCommonArguments];
-	if (version != nil) {
-		[arguments addObject:@"--version"];
-		[arguments addObject:version];
-	}
-	[task setArguments:arguments];
+	[task setLaunchPath:@"/usr/libexec/java_home"];
+	[task setArguments:[self createCommonArguments]];
 	
 	// setup output pipe and launch task
 	NSPipe *outputPipe = [NSPipe pipe];

@@ -8,7 +8,6 @@
 
 @import XPC;
 
-#import "MBJavaHomeService.h"
 #import "MBJavaHomeServiceTask.h"
 
 @interface MBJavaHomeServiceDelegate : NSObject <NSXPCListenerDelegate>

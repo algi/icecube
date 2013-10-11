@@ -11,11 +11,9 @@
 /**
  * Finds Java location for specified version.
  *
- * @param version required Java version (eg. 1.6, 1.7, etc.)
  * @param reply reply block when location was found
  */
-- (void)findJavaLocationForVersion:(NSString *)version
-						 withReply:(void(^)(NSString *result))reply;
+- (void)findDefaultJavaLocationForVersionwithReply:(void(^)(NSString *result))reply;
 
 /**
  * Find all available Java Virtual Machines (JVMs).

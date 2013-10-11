@@ -10,9 +10,6 @@
 
 #import "MBJavaHomeService.h"
 
-static NSString * const kMavenApplicationPath = @"maven.application.path";
-static NSString * const kJavaHomePath = @"java.home.path";
-
 @implementation MBPreferencesWindowController
 
 - (id)init
@@ -22,67 +19,50 @@ static NSString * const kJavaHomePath = @"java.home.path";
 
 - (void)windowDidLoad
 {
-    [super windowDidLoad];
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+	[super windowDidLoad];
 	
-	// pokud v této fázi budou nastaveny komponenty dle bindingu, tak by se daly nastavit přidružené komponenty
+	self.userPreferences = [MBUserPreferences standardUserPreferences];
 }
 
+#pragma mark - User selection -
 - (IBAction)userDidSelectMavenChoice:(id)sender
 {
-	NSPopUpButton *mavenPopUp = self.mavenPopUp;
-	NSInteger selectedTag = [mavenPopUp selectedTag];
-	switch (selectedTag) {
-		case 0: // default
-		{
-			break;
-		}
-		case 1: // custom
-		{
-			break;
-		}
-		default: // error in app ^^
-			@throw [[NSException alloc] initWithName:@"MBIllegalUIStateException"
-											  reason:@"Unknown selected tag in Maven pop up."
-											userInfo:nil];
-			break;
-	}
+	[self updateTextField:self.mavenCustomLocation fromPopUp:self.mavenPopUp withResetBlock:^{
+		[self.userPreferences setCustomMavenHome:nil];
+	}];
 }
 
 - (IBAction)userDidSelectJavaChoice:(id)sender
 {
-	NSPopUpButton *javaPopUp = self.javaPopUp;
-	NSInteger selectedTag = [javaPopUp selectedTag];
-	switch (selectedTag) {
-		case 1: // default
-		{
-			break;
-		}
-		case 2: // custom
-		{
-			break;
-		}
-		default: // number means version of Java (eg. 6 = Java 6)
-		{
-			break;
-		}
+	[self updateTextField:self.javaCustomLocation fromPopUp:self.javaPopUp withResetBlock:^{
+		[self.userPreferences setCustomJavaHome:nil];
+	}];
+}
+
+- (void)updateTextField:(NSTextField *)textField fromPopUp:(NSPopUpButton *)popUpButton withResetBlock:(void(^)())resetBlock
+{
+	BOOL isCustomValueSelected = [popUpButton selectedTag] == 1;
+	[textField setEditable:isCustomValueSelected];
+	
+	if (! isCustomValueSelected) {
+		resetBlock();
 	}
 }
 
+#pragma mark - Reveal in Finder -
 - (IBAction)revealMavenHomeInFinder:(id)sender
 {
-	[self revealPathInFinder:[[NSUserDefaults standardUserDefaults] objectForKey:kMavenApplicationPath]];
+	[self revealPathInFinderFromTextField:self.mavenCustomLocation];
 }
 
 - (IBAction)revealJavaHomeInFinder:(id)sender
 {
-	[self revealPathInFinder:[[NSUserDefaults standardUserDefaults] objectForKey:kJavaHomePath]];
+	[self revealPathInFinderFromTextField:self.javaCustomLocation];
 }
 
-- (void)revealPathInFinder:(NSString *)path
+- (void)revealPathInFinderFromTextField:(NSTextField *)textField
 {
-	NSString *URL = [NSString stringWithFormat:@"file://%@", path];
+	NSString *URL = [NSString stringWithFormat:@"file://%@", [textField stringValue]];
 	NSArray *fileURLs = @[[NSURL URLWithString:URL]];
 	[[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:fileURLs];
 }

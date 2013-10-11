@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
+#import "MBUserPreferences.h"
+
 @interface MBPreferencesWindowController : NSWindowController
 
 @property (weak) IBOutlet NSPopUpButton *mavenPopUp;
@@ -15,6 +17,8 @@
 @property (weak) IBOutlet NSPopUpButton *javaPopUp;
 @property (weak) IBOutlet NSTextField *javaDefaultLocation;
 @property (weak) IBOutlet NSTextField *javaCustomLocation;
+
+@property MBUserPreferences *userPreferences;
 
 - (IBAction)userDidSelectMavenChoice:(id)sender;
 - (IBAction)userDidSelectJavaChoice:(id)sender;

@@ -16,6 +16,8 @@
 #import "MBMavenOutputParser.h"
 #import "MBMavenParserDelegate.h"
 
+#import "MBUserPreferences.h"
+
 @interface MBTaskRunnerWindowController () <MBMavenServiceCallback, MBMavenParserDelegate>
 
 @property NSXPCConnection *connection;
@@ -110,8 +112,8 @@
 		}
 	};
 	
-	NSString *mavenPath = [[NSUserDefaults standardUserDefaults] objectForKey:@"maven.application.path"];
-	NSDictionary *environment = @{@"JAVA_HOME": [[NSUserDefaults standardUserDefaults] objectForKey:@"java.home.path"]};
+	NSString *mavenPath = [[MBUserPreferences standardUserPreferences] mavenHome];
+	NSDictionary *environment = @{@"JAVA_HOME": [[MBUserPreferences standardUserPreferences] javaHome]};
 	
 	[[self.connection remoteObjectProxy] launchMaven:mavenPath
 									   withArguments:args

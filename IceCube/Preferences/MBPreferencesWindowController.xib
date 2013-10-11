@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4511" systemVersion="13A584" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4511" systemVersion="13A598" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4511"/>
@@ -57,7 +57,7 @@
                             <menu key="menu" title="OtherViews" id="vWI-4q-c5O">
                                 <items>
                                     <menuItem title="Default" state="on" id="ncJ-BW-Urn"/>
-                                    <menuItem title="Custom" id="okL-XL-cCR">
+                                    <menuItem title="Custom" tag="1" id="okL-XL-cCR">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                 </items>
@@ -77,7 +77,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="ygW-7J-pOx" name="value" keyPath="values.maven.application.path" id="GGE-I8-rTc"/>
+                            <binding destination="-2" name="value" keyPath="self.userPreferences.customMavenHome" id="ZPe-hs-mnG"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xoJ-2C-Qsn">
@@ -89,22 +89,21 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="ygW-7J-pOx" name="value" keyPath="values.maven.application.path" id="oO1-c5-BpR"/>
+                            <binding destination="-2" name="value" keyPath="self.userPreferences.mavenHome" id="Ju4-WW-sen"/>
                         </connections>
                     </textField>
                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8ML-kp-EB6">
                         <rect key="frame" x="71" y="296" width="125" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="D29-Gb-HnD"/>
+                        </constraints>
                         <popUpButtonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="dis-iy-i9A" id="WCU-Mk-eWy">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="R6o-HI-prr">
                                 <items>
                                     <menuItem title="Default" state="on" id="dis-iy-i9A"/>
-                                    <menuItem isSeparatorItem="YES" id="7tY-aA-ygq"/>
-                                    <menuItem title="Java 6 (Apple)" tag="6" id="quC-cF-pHm"/>
-                                    <menuItem title="Java 7 (Oracle)" tag="7" id="IOH-K4-h9M"/>
-                                    <menuItem isSeparatorItem="YES" id="l19-uL-R6v"/>
                                     <menuItem title="Custom" tag="1" id="t54-Qe-Fuk"/>
                                 </items>
                             </menu>
@@ -123,7 +122,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="ygW-7J-pOx" name="value" keyPath="values.java.home.path" id="NXf-7x-RR8"/>
+                            <binding destination="-2" name="value" keyPath="self.userPreferences.customJavaHome" id="ihu-46-2xQ"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XBp-px-q8L">
@@ -135,7 +134,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="ygW-7J-pOx" name="value" keyPath="values.java.home.path" id="DCP-C3-8fE"/>
+                            <binding destination="-2" name="value" keyPath="self.userPreferences.javaHome" id="0IX-2t-Lsl"/>
                         </connections>
                     </textField>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZrN-gP-Gm4">
