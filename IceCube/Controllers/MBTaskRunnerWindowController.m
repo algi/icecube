@@ -178,12 +178,12 @@
 		notification.soundName = NSUserNotificationDefaultSoundName;
 		
 		if (buildWasSuccessful) {
-			notification.title = @"Build succeeded";
-			notification.informativeText = @"Maven build úspěšně skončil.";
+			notification.title = NSLocalizedString(@"Build succeeded", @"Maven build did suceeded.");
+			notification.informativeText = NSLocalizedString(@"Maven build did end successfuly.", @"Maven build did end successfuly.");
 		}
 		else {
-			notification.title = @"Build error";
-			notification.informativeText = @"Maven build skončil neúspěšně.";
+			notification.title = NSLocalizedString(@"Build error", @"Maven build didn't succeed.");
+			notification.informativeText = NSLocalizedString(@"Maven build didn't end successfuly.", @"Maven build didn't end successfuly.");
 		}
 		
 		[[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
