@@ -104,17 +104,23 @@
 			[self invalidateConnection];
 			
 			if (! launchSuccessful) {
-				[NSApp presentError:error
-					 modalForWindow:[self window]
-						   delegate:nil
-				 didPresentSelector:nil
-						contextInfo:NULL];
+				[[NSAlert alertWithError:error] beginSheetModalForWindow:self.window
+													   completionHandler:^(NSModalResponse returnCode) { /* noop */ }];
 			}
 		});
 	};
 	
 	NSString *mavenPath = [[MBUserPreferences standardUserPreferences] mavenHome];
 	NSDictionary *environment = @{@"JAVA_HOME": [[MBUserPreferences standardUserPreferences] javaHome]};
+	
+	self.taskRunning = YES;
+	[self.progressIndicator startAnimation:self];
+	
+	NSString *executionHeader = [NSString stringWithFormat:@"$ cd %@\n$ %@ %@\n\n",
+								 path,
+								 mavenPath,
+								 args];
+	[self.outputTextView setString:executionHeader];
 	
 	[[self.connection remoteObjectProxy] launchMaven:mavenPath
 									   withArguments:args
@@ -142,20 +148,6 @@
 }
 
 #pragma mark - MBMavenParserDelegate -
--(void)task:(NSString *)executable willStartWithArguments:(NSString *)arguments onPath:(NSString *)projectDirectory
-{
-	dispatch_async(dispatch_get_main_queue(), ^{
-		self.taskRunning = YES;
-		[self.progressIndicator startAnimation:self];
-		
-		NSString *executionHeader = [NSString stringWithFormat:@"$ cd %@\n$ %@ %@\n\n",
-									 projectDirectory,
-									 executable,
-									 arguments];
-		[self.outputTextView setString:executionHeader];
-	});
-}
-
 -(void)buildDidStartWithTaskList:(NSArray *)taskList
 {
 	dispatch_async(dispatch_get_main_queue(), ^{

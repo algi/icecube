@@ -8,8 +8,6 @@
 
 @protocol MBMavenParserDelegate <NSObject>
 
--(void)task:(NSString *)executable willStartWithArguments:(NSString *)arguments onPath:(NSString *)projectDirectory;
-
 -(void)buildDidStartWithTaskList:(NSArray *)taskList;
 -(void)buildDidEndSuccessfully:(BOOL) result;
 
