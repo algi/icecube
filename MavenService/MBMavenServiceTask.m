@@ -48,10 +48,12 @@
 		[remoteObserver mavenTaskDidWriteLine:line];
 	};
 	
-	NSError *error = nil;
-	BOOL result = [self.task launchWithTaskOutputBlock:block error:&error];
-	
-	reply(result, error);
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+		NSError *error = nil;
+		BOOL result = [self.task launchWithTaskOutputBlock:block error:&error];
+		
+		reply(result, error);
+	});
 }
 
 - (void)terminateTask
