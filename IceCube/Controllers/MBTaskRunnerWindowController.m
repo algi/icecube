@@ -74,9 +74,7 @@
 	
 	self.parser = [[MBMavenOutputParser alloc] initWithDelegate:self];
 	
-	[self.progressIndicator setIndeterminate:YES];
-	[self.progressIndicator startAnimation:nil];
-	
+	// create Maven execution environment
 	NSString *args = self.taskDefinition.command;
 	if ([args length] == 0) {
 		NSAlert *alert = [[NSAlert alloc] init];
@@ -90,30 +88,12 @@
 	}
 	NSURL *path = [NSURL URLWithString:self.taskDefinition.directory];
 	
-	self.connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.MavenService"];
-	self.connection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenService)];
-	
-	self.connection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
-	self.connection.exportedObject = self;
-	
-	[self.connection resume];
-	
-	id replyBlock = ^(BOOL launchSuccessful, NSError *error) {
-		dispatch_sync(dispatch_get_main_queue(), ^{
-			[self stopProgressBarWithStepForward:YES];
-			[self invalidateConnection];
-			
-			if (! launchSuccessful) {
-				[[NSAlert alertWithError:error] beginSheetModalForWindow:self.window
-													   completionHandler:^(NSModalResponse returnCode) { /* noop */ }];
-			}
-		});
-	};
-	
 	NSString *mavenPath = [[MBUserPreferences standardUserPreferences] mavenHome];
 	NSDictionary *environment = @{@"JAVA_HOME": [[MBUserPreferences standardUserPreferences] javaHome]};
 	
+	// prepare UI
 	self.taskRunning = YES;
+	[self.progressIndicator setIndeterminate:YES];
 	[self.progressIndicator startAnimation:self];
 	
 	NSString *executionHeader = [NSString stringWithFormat:@"$ cd %@\n$ %@ %@\n\n",
@@ -122,11 +102,18 @@
 								 args];
 	[self.outputTextView setString:executionHeader];
 	
-	[[self.connection remoteObjectProxy] launchMaven:mavenPath
-									   withArguments:args
-										 environment:environment
-											  atPath:path
-										   withReply:replyBlock];
+	// launch task
+	[self launchMaven:mavenPath withArguments:args environment:environment atPath:path withReply:^(BOOL launchSuccessful, NSError *error) {
+		dispatch_sync(dispatch_get_main_queue(), ^{
+			[self stopProgressBarWithStepForward:YES];
+			[self invalidateConnection];
+			
+			if (! launchSuccessful) {
+				[[NSAlert alertWithError:error] beginSheetModalForWindow:self.window
+													   completionHandler:^(NSModalResponse returnCode) {}];
+			}
+		});
+	}];
 }
 
 -(IBAction)stopTask:(id)sender
@@ -213,6 +200,27 @@
 	
 	[self.progressIndicator stopAnimation:nil];
 	self.taskRunning = NO;
+}
+
+#pragma mark - XPC connection -
+- (void)launchMaven:(NSString *)launchPath
+	  withArguments:(NSString *)arguments
+		environment:(NSDictionary *)environment
+			 atPath:(NSURL *)path
+		  withReply:(void (^)(BOOL launchSuccessful, NSError *error))reply
+{
+	self.connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.MavenService"];
+	self.connection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenService)];
+	
+	self.connection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
+	self.connection.exportedObject = self;
+	
+	[self.connection resume];
+	[[self.connection remoteObjectProxy] launchMaven:launchPath
+									   withArguments:arguments
+										 environment:environment
+											  atPath:path
+										   withReply:reply];
 }
 
 - (void)invalidateConnection
