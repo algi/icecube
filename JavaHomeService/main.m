@@ -39,5 +39,4 @@ int main(int argc, const char *argv[])
 	
 	// The resume method never returns.
 	exit(EXIT_FAILURE);
-	return 0;
 }

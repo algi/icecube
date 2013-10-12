@@ -11,15 +11,8 @@
 /**
  * Finds Java location for specified version.
  *
- * @param reply reply block when location was found
+ * @param reply reply block (if result is nil, then error contains informations about error)
  */
-- (void)findDefaultJavaLocationForVersionwithReply:(void(^)(NSString *result))reply;
-
-/**
- * Find all available Java Virtual Machines (JVMs).
- *
- * @param reply Reply with exact output as it gives /usr/libexec/java_home -V command.
- */
-- (void)findAvaliableJavaVirtualMachinesWithReply:(void(^)(NSArray *machines))reply;
+- (void)findDefaultJavaLocationForVersionwithReply:(void(^)(NSString *result, NSError *error))reply;
 
 @end

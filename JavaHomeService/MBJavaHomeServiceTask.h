@@ -8,6 +8,6 @@
 
 #import "MBJavaHomeService.h"
 
-@interface MBJavaHomeServiceTask : NSObject
+@interface MBJavaHomeServiceTask : NSObject<MBJavaHomeService>
 
 @end
