@@ -50,7 +50,7 @@
 	
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
 		NSError *error = nil;
-		BOOL result = [self.task launchWithTaskOutputBlock:block error:&error];
+		BOOL result = [self.task launchTaskWithTaskOutputBlock:block error:&error];
 		
 		reply(result, error);
 	});
