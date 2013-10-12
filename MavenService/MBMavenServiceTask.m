@@ -31,7 +31,7 @@
 											 code:1
 										 userInfo:@{NSLocalizedDescriptionKey: @"Task is already running."}];
 		reply(NO, error);
-		exit(-1);
+		return;
 	}
 	
 	self.task = [[NSTask alloc] init];
@@ -41,37 +41,22 @@
 	[self.task setEnvironment:environment];
 	[self.task setCurrentDirectoryPath:[path path]];
 	
-	// termination handler
-	self.task.terminationHandler = ^(NSTask *task){
-		exit(0);
+	NSXPCConnection *xpcConnection = self.xpcConnection;
+	id remoteObserver = [xpcConnection remoteObjectProxy];
+	
+	id block = ^(NSString *line) {
+		[remoteObserver mavenTaskDidWriteLine:line];
 	};
 	
-	// start async with normal priority on new thread
-	NSXPCConnection *xpcConnection = self.xpcConnection;
-	id observer = [xpcConnection remoteObjectProxy];
+	NSError *error = nil;
+	BOOL result = [self.task launchWithTaskOutputBlock:block error:&error];
 	
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul), ^{
-		
-		NSError *error;
-		id block = ^(NSString *line) {
-			// TODO should be also called async?
-			[observer mavenTaskDidWriteLine:line];
-		};
-		
-		BOOL result = [self.task launchWithTaskOutputBlock:block error:error];
-		if (!result) {
-			reply(NO, error);
-		}
-	});
-	
-	// task launched successfuly
-	reply(YES, nil);
+	reply(result, error);
 }
 
 - (void)terminateTask
 {
 	[self.task terminate];
-	exit(0);
 }
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation NSTask (MBTaskOutputParser)
 
-- (BOOL)launchWithTaskOutputBlock:(void (^)(NSString *))delegateBlock error:(__autoreleasing NSError *)error
+- (BOOL)launchWithTaskOutputBlock:(void (^)(NSString *))delegateBlock error:(__autoreleasing NSError **)error
 {
 	id pipe = [NSPipe pipe];
 	[self setStandardOutput:pipe];
@@ -20,8 +20,8 @@
 		[self launch];
 	}
 	@catch (NSException *exception) {
-		error = [NSError errorWithDomain:exception.name
-									code:1
+		*error = [NSError errorWithDomain:NSPOSIXErrorDomain
+									code:errno
 								userInfo:@{NSLocalizedDescriptionKey: exception.reason}];
 		return NO;
 	}

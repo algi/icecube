@@ -8,6 +8,6 @@
 
 @interface NSTask (MBTaskOutputParser)
 
-- (BOOL)launchWithTaskOutputBlock:(void (^)(NSString *))delegateBlock error:(__autoreleasing NSError *)error;
+- (BOOL)launchWithTaskOutputBlock:(void (^)(NSString *))delegateBlock error:(__autoreleasing NSError **)error;
 
 @end

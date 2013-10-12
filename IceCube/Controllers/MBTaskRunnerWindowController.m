@@ -96,20 +96,21 @@
 	self.connection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
 	self.connection.exportedObject = self;
 	
-	__weak MBTaskRunnerWindowController *weakSelf = self;
-	id handlerBlock = ^{
-		MBTaskRunnerWindowController *strongSelf = weakSelf;
-		[strongSelf stopProgressBarWithStepForward:YES];
-	};
-	self.connection.interruptionHandler = handlerBlock;
-	self.connection.invalidationHandler = handlerBlock;
-	
 	[self.connection resume];
 	
 	id replyBlock = ^(BOOL launchSuccessful, NSError *error) {
-		if (! launchSuccessful) {
-			NSLog(@"Error while creating Maven task:\n%@", [error localizedDescription]);
-		}
+		dispatch_sync(dispatch_get_main_queue(), ^{
+			[self stopProgressBarWithStepForward:YES];
+			[self invalidateConnection];
+			
+			if (! launchSuccessful) {
+				[NSApp presentError:error
+					 modalForWindow:[self window]
+						   delegate:nil
+				 didPresentSelector:nil
+						contextInfo:NULL];
+			}
+		});
 	};
 	
 	NSString *mavenPath = [[MBUserPreferences standardUserPreferences] mavenHome];
@@ -125,6 +126,7 @@
 -(IBAction)stopTask:(id)sender
 {
 	[[self.connection remoteObjectProxy] terminateTask];
+	[self invalidateConnection];
 }
 
 -(IBAction)revealFolderInFinder:(id)sender
@@ -156,17 +158,21 @@
 
 -(void)buildDidStartWithTaskList:(NSArray *)taskList
 {
-	[self.progressIndicator setMinValue:0];
-	[self.progressIndicator setMaxValue:[taskList count] + 1];
-	[self.progressIndicator setDoubleValue:0];
-	
-	[self.progressIndicator setIndeterminate:NO];
+	dispatch_async(dispatch_get_main_queue(), ^{
+		[self.progressIndicator setMinValue:0];
+		[self.progressIndicator setMaxValue:[taskList count] + 1];
+		[self.progressIndicator setDoubleValue:0];
+		
+		[self.progressIndicator setIndeterminate:NO];
+	});
 }
 
 -(void)projectDidStartWithName:(NSString *)name
 {
-	double doubleValue = [self.progressIndicator doubleValue] + 1;
-	[self.progressIndicator setDoubleValue:doubleValue];
+	dispatch_async(dispatch_get_main_queue(), ^{
+		double doubleValue = [self.progressIndicator doubleValue] + 1;
+		[self.progressIndicator setDoubleValue:doubleValue];
+	});
 }
 
 -(void)buildDidEndSuccessfully:(BOOL)buildWasSuccessful
@@ -215,6 +221,12 @@
 	
 	[self.progressIndicator stopAnimation:nil];
 	self.taskRunning = NO;
+}
+
+- (void)invalidateConnection
+{
+	self.connection.exportedObject = nil;
+	[self.connection invalidate];
 }
 
 @end
