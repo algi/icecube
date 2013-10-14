@@ -46,6 +46,9 @@
 	}
 	
 	reply(outputLine, nil);
+	
+	// we can exit now because there is no need to hold process anymore
+	exit(EXIT_SUCCESS);
 }
 
 @end
