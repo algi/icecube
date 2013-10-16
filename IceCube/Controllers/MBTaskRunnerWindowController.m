@@ -124,6 +124,8 @@
 {
 	[[self.connection remoteObjectProxy] terminateTask];
 	[self invalidateConnection];
+	
+	[self stopProgressBarWithStepForward:NO];
 }
 
 -(IBAction)revealFolderInFinder:(id)sender
