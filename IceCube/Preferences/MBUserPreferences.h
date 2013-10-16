@@ -20,6 +20,7 @@
 
 @end
 
+// these methods are intended for MBPreferencesWindowController only
 @interface MBUserPreferences (MBUserPreferencesController)
 
 - (NSString *)customJavaHome;

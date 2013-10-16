@@ -20,12 +20,12 @@
 
 @property MBUserPreferences *userPreferences;
 
+// initializes window with correct NIB name (no other init method should be used)
+- (id)init;
+
 - (IBAction)userDidSelectMavenChoice:(id)sender;
 - (IBAction)userDidSelectJavaChoice:(id)sender;
 - (IBAction)revealMavenHomeInFinder:(id)sender;
 - (IBAction)revealJavaHomeInFinder:(id)sender;
-
-// initializes window with correct NIB name
-- (id)init;
 
 @end

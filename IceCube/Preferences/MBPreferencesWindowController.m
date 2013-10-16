@@ -14,14 +14,11 @@
 
 - (id)init
 {
-    return self = [super initWithWindowNibName:@"MBPreferencesWindowController"];
-}
-
-- (void)windowDidLoad
-{
-	[super windowDidLoad];
-	
-	self.userPreferences = [MBUserPreferences standardUserPreferences];
+    self = [super initWithWindowNibName:@"MBPreferencesWindowController"];
+	if (self) {
+		_userPreferences = [MBUserPreferences standardUserPreferences];
+	}
+	return self;
 }
 
 #pragma mark - User selection -
