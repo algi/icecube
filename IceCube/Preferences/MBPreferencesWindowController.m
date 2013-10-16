@@ -63,8 +63,7 @@
 - (void)revealPathInFinderFromTextField:(NSTextField *)textField
 {
 	NSString *URL = [NSString stringWithFormat:@"file://%@", [textField stringValue]];
-	NSArray *fileURLs = @[[NSURL URLWithString:URL]];
-	[[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:fileURLs];
+	[[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[[NSURL URLWithString:URL]]];
 }
 
 @end
