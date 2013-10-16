@@ -33,7 +33,11 @@
 
 - (id)init
 {
-	return self = [super initWithWindowNibName:@"MBTaskRunnerDocument"];
+	self = [super initWithWindowNibName:@"MBTaskRunnerDocument"];
+	if (self) {
+		_parser = [[MBMavenOutputParser alloc] initWithDelegate:self];
+	}
+	return self;
 }
 
 - (void)windowDidLoad
@@ -72,7 +76,7 @@
 		return;
 	}
 	
-	self.parser = [[MBMavenOutputParser alloc] initWithDelegate:self];
+	[self.parser resetParser];
 	
 	// create Maven execution environment
 	NSString *args = self.taskDefinition.command;

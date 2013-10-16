@@ -10,8 +10,11 @@
 
 @interface MBMavenOutputParser : NSObject
 
--(id)initWithDelegate:(id<MBMavenParserDelegate>)delegate;
+- (id)initWithDelegate:(id<MBMavenParserDelegate>)delegate;
 
--(void)parseLine:(NSString *)line;
+- (void)parseLine:(NSString *)line;
+
+// this method is intended for reusing parser
+- (void)resetParser;
 
 @end

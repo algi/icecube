@@ -38,26 +38,31 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
 
 @interface MBMavenOutputParser ()
 
+@property (nonatomic) NSMutableArray *taskList;
 @property (assign, nonatomic) MBParserState state;
-@property (strong, nonatomic) NSMutableArray *taskList;
 @property (weak, nonatomic) id<MBMavenParserDelegate> delegate;
 
 @end
 
 @implementation MBMavenOutputParser
 
--(id)initWithDelegate:(id<MBMavenParserDelegate>)parserDelegate
+- (id)initWithDelegate:(id<MBMavenParserDelegate>)parserDelegate
 {
 	self = [super init];
 	if (self) {
-		_state = kStateStart;
 		_delegate = parserDelegate;
-		// taskList is created on demand
+		_state = kStateStart;
 	}
 	return self;
 }
 
--(void)parseLine:(NSString *)line
+- (void)resetParser
+{
+	self.state = kStateStart;
+	self.taskList = nil;
+}
+
+- (void)parseLine:(NSString *)line
 {
 	id<MBMavenParserDelegate> delegate = self.delegate;
 	[delegate newLineDidRecieve:line];
@@ -203,7 +208,7 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
 }
 
 #pragma mark - Utilities -
--(void)handleResultOfBuildFromLine:(NSString *)line
+- (void)handleResultOfBuildFromLine:(NSString *)line
 {
 	id<MBMavenParserDelegate> delegate = self.delegate;
 	if ([line isEqualToString:kBuildSuccessLine]) {
@@ -217,8 +222,8 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
 	}
 }
 
--(NSRange)makeRangeFromLine:(NSString *)line
-				 withPrefix:(NSString *)prefix
+- (NSRange)makeRangeFromLine:(NSString *)line
+				  withPrefix:(NSString *)prefix
 {
 	NSUInteger lineLenght = [line length];
 	NSUInteger prefixLenght = [prefix length];
