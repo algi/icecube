@@ -19,7 +19,7 @@
 
 @implementation MBMavenOutputParserTests
 
--(void)testBuildSuccess
+- (void)testBuildSuccess
 {
 	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-success"];
 	XCTAssertEqual(observer.result, 1ul, @"Build must be successful.");
@@ -50,7 +50,7 @@
 	XCTAssertEqual(observer.projectDidStartCount, 7ul, @"Build has 7 sub-modules.");
 }
 
--(void)testBuildSuccessOneModule
+- (void)testBuildSuccessOneModule
 {
 	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-success-one-module"];
 	
@@ -64,7 +64,7 @@
 	XCTAssertEqual(observer.projectDidStartCount, 1ul, @"Build has one project.");
 }
 
--(void)testBuildFailureNoPom
+- (void)testBuildFailureNoPom
 {
 	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure-no-pom"];
 	
@@ -78,7 +78,7 @@
 	XCTAssertEqual(observer.projectDidStartCount, 0ul, @"Build has no sub-modules.");
 }
 
--(void)testBuildFailureNoProject
+- (void)testBuildFailureNoProject
 {
 	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure-no-project"];
 	XCTAssertEqual(observer.result, 0ul, @"Build must be failure.");
@@ -91,7 +91,7 @@
 	XCTAssertEqual(observer.projectDidStartCount, 0ul, @"Build has no sub-modules.");
 }
 
--(void)testBuildFailureNonParsable
+- (void)testBuildFailureNonParsable
 {
 	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure-non-parsable"];
 	XCTAssertEqual(observer.result, 0ul, @"Build must be failure.");
@@ -104,7 +104,7 @@
 	XCTAssertEqual(observer.projectDidStartCount, 0ul, @"Build has no sub-modules.");
 }
 
--(void)testBuildFailureUnknownPhase
+- (void)testBuildFailureUnknownPhase
 {
 	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure-unknown-phase"];
 	
@@ -118,7 +118,7 @@
 	XCTAssertEqual(observer.projectDidStartCount, 1ul, @"Build has one project.");
 }
 
--(void)testBuildFailureNoJavaHome
+- (void)testBuildFailureNoJavaHome
 {
 	MBMavenOutputParserTestObserver *observer = [MBMavenOutputParserTests launchedTestObserverForResource:@"build-failure-no-java_home"];
 	XCTAssertEqual(observer.result, 0ul, @"Build must be failure.");
@@ -132,7 +132,7 @@
 }
 
 #pragma mark - Utility methods -
-+(MBMavenOutputParserTestObserver *)launchedTestObserverForResource:(NSString *)resource
++ (MBMavenOutputParserTestObserver *)launchedTestObserverForResource:(NSString *)resource
 {
 	NSBundle *testBundle = [NSBundle bundleForClass:[self class]];
 	NSString *filePath = [testBundle pathForResource:resource ofType: @"txt"];

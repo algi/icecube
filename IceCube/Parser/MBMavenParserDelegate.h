@@ -8,10 +8,10 @@
 
 @protocol MBMavenParserDelegate <NSObject>
 
--(void)buildDidStartWithTaskList:(NSArray *)taskList;
--(void)buildDidEndSuccessfully:(BOOL) result;
+- (void)buildDidStartWithTaskList:(NSArray *)taskList;
+- (void)buildDidEndSuccessfully:(BOOL) result;
 
--(void)projectDidStartWithName:(NSString *)name;
--(void)newLineDidRecieve:(NSString *)line;
+- (void)projectDidStartWithName:(NSString *)name;
+- (void)newLineDidRecieve:(NSString *)line;
 
 @end

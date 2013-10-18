@@ -8,6 +8,6 @@
 
 @protocol MBMavenServiceCallback <NSObject>
 
--(void)mavenTaskDidWriteLine:(NSString *)line;
+- (void)mavenTaskDidWriteLine:(NSString *)line;
 
 @end

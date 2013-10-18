@@ -12,7 +12,7 @@
 
 @implementation MBMavenOutputParserTestObserver
 
--(id)init
+- (id)init
 {
 	self = [super init];
 	if (self) {
@@ -25,12 +25,7 @@
 	return self;
 }
 
--(void)task:(NSString *)executable willStartWithArguments:(NSString *)arguments onPath:(NSString *)projectDirectory
-{
-	// noop
-}
-
--(void)buildDidStartWithTaskList:(NSArray *)taskList
+- (void)buildDidStartWithTaskList:(NSArray *)taskList
 {
 	_buildDidStartCount++;
 	
@@ -38,19 +33,19 @@
 	[self.taskList addObjectsFromArray:taskList];
 }
 
--(void)buildDidEndSuccessfully:(BOOL) result
+- (void)buildDidEndSuccessfully:(BOOL) result
 {
 	_buildDidEndCount++;
 	_result = result;
 }
 
--(void)projectDidStartWithName:(NSString *)taskName
+- (void)projectDidStartWithName:(NSString *)taskName
 {
 	_projectDidStartCount++;
 	[self.doneTasks addObject:taskName];
 }
 
--(void)newLineDidRecieve:(NSString *)line
+- (void)newLineDidRecieve:(NSString *)line
 {
 	_lineCount++;
 }

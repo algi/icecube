@@ -70,7 +70,7 @@
 }
 
 #pragma mark IB actions -
--(IBAction)startTask:(id)sender
+- (IBAction)startTask:(id)sender
 {
 	if (self.taskRunning) {
 		return;
@@ -120,7 +120,7 @@
 	}];
 }
 
--(IBAction)stopTask:(id)sender
+- (IBAction)stopTask:(id)sender
 {
 	[[self.connection remoteObjectProxy] terminateTask];
 	[self invalidateConnection];
@@ -128,7 +128,7 @@
 	[self stopProgressBarWithStepForward:NO];
 }
 
--(IBAction)revealFolderInFinder:(id)sender
+- (IBAction)revealFolderInFinder:(id)sender
 {
 	NSArray *fileURLs = @[self.pathControl.URL];
 	[[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:fileURLs];
@@ -141,7 +141,7 @@
 }
 
 #pragma mark - MBMavenParserDelegate -
--(void)buildDidStartWithTaskList:(NSArray *)taskList
+- (void)buildDidStartWithTaskList:(NSArray *)taskList
 {
 	dispatch_async(dispatch_get_main_queue(), ^{
 		[self.progressIndicator setMinValue:0];
@@ -152,7 +152,7 @@
 	});
 }
 
--(void)projectDidStartWithName:(NSString *)name
+- (void)projectDidStartWithName:(NSString *)name
 {
 	dispatch_async(dispatch_get_main_queue(), ^{
 		double doubleValue = [self.progressIndicator doubleValue] + 1;
@@ -160,7 +160,7 @@
 	});
 }
 
--(void)buildDidEndSuccessfully:(BOOL)buildWasSuccessful
+- (void)buildDidEndSuccessfully:(BOOL)buildWasSuccessful
 {
 	dispatch_async(dispatch_get_main_queue(), ^{
 		[self stopProgressBarWithStepForward:YES];
@@ -181,7 +181,7 @@
 	});
 }
 
--(void)newLineDidRecieve:(NSString *)line
+- (void)newLineDidRecieve:(NSString *)line
 {
 	dispatch_async(dispatch_get_main_queue(), ^{
 		NSTextStorage *storage = [self.outputTextView textStorage];

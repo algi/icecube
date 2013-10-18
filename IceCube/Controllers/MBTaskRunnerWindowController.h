@@ -16,9 +16,9 @@
 @property(assign) IBOutlet NSPathControl *pathControl;
 @property(assign) IBOutlet NSProgressIndicator *progressIndicator;
 
--(IBAction)startTask:(id)sender;
--(IBAction)stopTask:(id)sender;
--(IBAction)revealFolderInFinder:(id)sender;
+- (IBAction)startTask:(id)sender;
+- (IBAction)stopTask:(id)sender;
+- (IBAction)revealFolderInFinder:(id)sender;
 
 @property(readonly) BOOL taskRunning;
 @property(readonly) Task *taskDefinition;
