@@ -24,6 +24,7 @@
 		564FB4A217F1C72E000380F3 /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */; };
 		56630A0917ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56630A0617ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m */; };
 		566A251917A993CC00C11A35 /* MBTaskRunnerDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */; };
+		5680688C18B1708D00EC9360 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5680688A18B1708D00EC9360 /* Localizable.strings */; };
 		568C673917EB7D630095785D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568C673817EB7D630095785D /* Foundation.framework */; };
 		568C673F17EB7D630095785D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 568C673D17EB7D630095785D /* InfoPlist.strings */; };
 		568C674217EB7D630095785D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 568C674117EB7D630095785D /* main.m */; };
@@ -114,6 +115,7 @@
 		56630A0617ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+MBTaskOutputParser.m"; sourceTree = "<group>"; };
 		56630A1917ECC067005A2BEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MBTaskRunnerDocument.xib; path = ../MBTaskRunnerDocument.xib; sourceTree = "<group>"; };
+		5680688B18B1708D00EC9360 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cz.boucekm.MavenService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		568C673817EB7D630095785D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		568C673C17EB7D630095785D /* MavenService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MavenService-Info.plist"; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 		56FE8E8B167BA1A70001AAED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5680688A18B1708D00EC9360 /* Localizable.strings */,
 				5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */,
 				56FE8E8C167BA1A70001AAED /* IceCube-Info.plist */,
 				56FE8E8D167BA1A70001AAED /* InfoPlist.strings */,
@@ -515,6 +518,11 @@
 				TargetAttributes = {
 					568C673617EB7D630095785D = {
 						DevelopmentTeam = 72CQ273HEW;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					56F6300317EF34AA004DC92E = {
 						DevelopmentTeam = 72CQ273HEW;
@@ -578,6 +586,7 @@
 				566A251917A993CC00C11A35 /* MBTaskRunnerDocument.xib in Resources */,
 				56FE8E95167BA1A70001AAED /* Credits.rtf in Resources */,
 				56D21D3017BFC6520060A823 /* Images.xcassets in Resources */,
+				5680688C18B1708D00EC9360 /* Localizable.strings in Resources */,
 				56FE8E9B167BA1A70001AAED /* MainMenu.xib in Resources */,
 				5632EE2216E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns in Resources */,
 			);
@@ -683,6 +692,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5680688A18B1708D00EC9360 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5680688B18B1708D00EC9360 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		568C673D17EB7D630095785D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -744,6 +761,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MavenService/MavenService-Prefix.pch";
@@ -758,6 +776,7 @@
 				MACH_O_TYPE = mh_execute;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "cz.boucekm.$(TARGET_NAME:rfc1034identifier)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = xpc;
 			};
 			name = Debug;
@@ -772,6 +791,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -784,6 +804,7 @@
 				MACH_O_TYPE = mh_execute;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "cz.boucekm.$(TARGET_NAME:rfc1034identifier)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = xpc;
 			};
 			name = Release;
@@ -928,6 +949,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IceCube/IceCube-Prefix.pch";
 				INFOPLIST_FILE = "IceCube/IceCube-Info.plist";
