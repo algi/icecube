@@ -9,10 +9,10 @@
 @protocol MBJavaHomeService <NSObject>
 
 /**
- * Finds Java location for specified version.
+ * Finds default Java location for command-line applications.
  *
  * @param reply reply block (if result is nil, then error contains informations about error)
  */
-- (void)findDefaultJavaLocationForVersionwithReply:(void(^)(NSString *result, NSError *error))reply;
+- (void)findDefaultJavaHome:(void(^)(NSString *result, NSError *error))reply;
 
 @end

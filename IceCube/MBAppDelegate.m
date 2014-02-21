@@ -30,7 +30,8 @@
 		[connection setRemoteObjectInterface:[NSXPCInterface interfaceWithProtocol:@protocol(MBJavaHomeService)]];
 		[connection resume];
 		
-		[[connection remoteObjectProxy] findDefaultJavaLocationForVersionwithReply:^(NSString *result, NSError *error) {
+		id<MBJavaHomeService> remoteProxy = [connection remoteObjectProxy];
+		[remoteProxy findDefaultJavaHome:^(NSString *result, NSError *error) {
 			if (result) {
 				[[MBUserPreferences standardUserPreferences] setDefaultJavaHome:result];
 			}

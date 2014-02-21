@@ -10,7 +10,7 @@
 
 @implementation MBJavaHomeServiceTask
 
-- (void)findDefaultJavaLocationForVersionwithReply:(void(^)(NSString *result, NSError *error))reply
+- (void)findDefaultJavaHome:(void(^)(NSString *result, NSError *error))reply
 {
 	NSTask *task = [[NSTask alloc] init];
 	
