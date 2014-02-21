@@ -25,19 +25,21 @@
 	// register default values for Maven and Java
 	[[MBUserPreferences standardUserPreferences] setDefaultMavenHome:@"/usr/bin/mvn"];
 	
-	NSXPCConnection *connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.JavaHomeService"];
-	[connection setRemoteObjectInterface:[NSXPCInterface interfaceWithProtocol:@protocol(MBJavaHomeService)]];
-	[connection resume];
-	
-	[[connection remoteObjectProxy] findDefaultJavaLocationForVersionwithReply:^(NSString *result, NSError *error) {
-		if (result) {
-			[[MBUserPreferences standardUserPreferences] setDefaultJavaHome:result];
-		}
-		else {
-			[NSApp presentError:error];
-		}
+	[[NSProcessInfo processInfo] performActivityWithOptions:NSActivityBackground reason:@"Fetching default JavaHome" usingBlock:^{
+		NSXPCConnection *connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.JavaHomeService"];
+		[connection setRemoteObjectInterface:[NSXPCInterface interfaceWithProtocol:@protocol(MBJavaHomeService)]];
+		[connection resume];
 		
-		[connection invalidate];
+		[[connection remoteObjectProxy] findDefaultJavaLocationForVersionwithReply:^(NSString *result, NSError *error) {
+			if (result) {
+				[[MBUserPreferences standardUserPreferences] setDefaultJavaHome:result];
+			}
+			else {
+				[NSApp presentError:error];
+			}
+			
+			[connection invalidate];
+		}];
 	}];
 }
 

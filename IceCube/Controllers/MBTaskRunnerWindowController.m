@@ -23,6 +23,7 @@
 @property (nonatomic) NSXPCConnection *connection;
 @property (nonatomic) MBMavenOutputParser *parser;
 @property BOOL taskRunning;
+@property id activity;
 
 @end
 
@@ -100,6 +101,8 @@
 								 mavenPath,
 								 args];
 	[self.outputTextView setString:executionHeader];
+	
+	self.activity = [[NSProcessInfo processInfo] beginActivityWithOptions:NSActivityUserInitiated reason:@"Start of Maven task"];
 	
 	// launch task
 	[self launchMaven:mavenPath withArguments:args environment:environment atPath:path withReply:^(BOOL launchSuccessful, NSError *error) {
@@ -194,10 +197,17 @@
 #pragma mark - Other methods -
 - (void)stopProgressBarWithStepForward:(BOOL)oneStepFurther
 {
+	if (!self.activity) {
+		return;
+	}
+	
 	if (oneStepFurther) {
 		double doubleValue = [self.progressIndicator doubleValue] + 1;
 		[self.progressIndicator setDoubleValue:doubleValue];
 	}
+	
+	[[NSProcessInfo processInfo] endActivity:self.activity];
+	self.activity = nil;
 	
 	[self.progressIndicator stopAnimation:nil];
 	self.taskRunning = NO;
