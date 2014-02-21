@@ -6,10 +6,9 @@
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
-#import "Task.h"
+@interface MBTaskRunnerDocument : NSDocument
 
-@interface MBTaskRunnerDocument : NSPersistentDocument
-
-@property(readonly) Task *taskDefinition;
+@property (nonatomic, strong) NSURL * workingDirectory;
+@property (nonatomic, copy) NSString * command;
 
 @end

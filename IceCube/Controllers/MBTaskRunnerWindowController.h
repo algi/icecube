@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
-#import "Task.h"
+#import "MBTaskRunnerDocument.h"
 
 @interface MBTaskRunnerWindowController : NSWindowController
 
@@ -21,6 +21,5 @@
 - (IBAction)revealFolderInFinder:(id)sender;
 
 @property(readonly) BOOL taskRunning;
-@property(readonly) Task *taskDefinition;
 
 @end

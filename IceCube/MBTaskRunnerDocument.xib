@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4511" systemVersion="13A598" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5037.3" systemVersion="13C53" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1090" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4511"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5037.3"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MBTaskRunnerWindowController">
@@ -20,7 +20,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <rect key="contentRect" x="322" y="315" width="793" height="463"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" id="ffI-nQ-6He">
                 <rect key="frame" x="0.0" y="0.0" width="793" height="463"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -55,11 +55,11 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" id="ajD-t6-osJ">
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="ajD-t6-osJ">
                             <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" id="t8a-il-gco">
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="t8a-il-gco">
                             <rect key="frame" x="677" y="1" width="16" height="330"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
@@ -73,8 +73,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <action selector="startTask:" target="-2" id="i1E-B6-dZf"/>
-                            <binding destination="-2" name="value" keyPath="self.taskDefinition.command" id="49M-f1-ONd"/>
+                            <binding destination="-2" name="value" keyPath="self.document.command" id="cou-pC-0Ew"/>
                         </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="j5D-Vi-Uq8">
@@ -112,7 +111,7 @@
                         </constraints>
                     </progressIndicator>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="csR-r7-0x9">
-                        <rect key="frame" x="22" y="368" width="52" height="17"/>
+                        <rect key="frame" x="23" y="368" width="51" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Výstup:" id="dnB-Y9-ABC">
                             <font key="font" metaFont="system"/>
@@ -139,6 +138,7 @@
                     <constraint firstItem="31r-Zy-hOe" firstAttribute="leading" secondItem="ffI-nQ-6He" secondAttribute="leading" constant="79" id="6Yp-cE-58r"/>
                     <constraint firstAttribute="bottom" secondItem="Xhj-4G-Nch" secondAttribute="bottom" constant="20" id="7i3-xV-2fE"/>
                     <constraint firstItem="Xhj-4G-Nch" firstAttribute="top" secondItem="31r-Zy-hOe" secondAttribute="bottom" constant="15" id="8WL-Te-IjF"/>
+                    <constraint firstItem="csR-r7-0x9" firstAttribute="top" secondItem="d7O-rU-iQq" secondAttribute="bottom" constant="11" id="9Pz-fh-Cvc"/>
                     <constraint firstItem="31r-Zy-hOe" firstAttribute="leading" secondItem="csR-r7-0x9" secondAttribute="trailing" constant="7" id="Br2-O1-pZa"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Xhj-4G-Nch" secondAttribute="bottom" constant="20" id="ETX-2e-Wid"/>
                     <constraint firstItem="VgK-5y-GOF" firstAttribute="top" secondItem="6iw-Hy-3Tl" secondAttribute="bottom" constant="10" id="HJP-5G-ynm"/>

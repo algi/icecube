@@ -12,10 +12,13 @@
 
 @implementation MBTaskRunnerDocument
 
-- (id)init
+-(id)initWithType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
 {
-	if (self = [super init]) {
-		[self readContentOfFile];
+	self = [super initWithType:typeName error:outError];
+	if (self) {
+		NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0];
+		_workingDirectory = [NSURL fileURLWithPath:documentDirectory isDirectory:YES];
+		_command = nil;
 	}
 	return self;
 }
@@ -26,40 +29,62 @@
 	[self addWindowController:controller];
 }
 
-- (void)readContentOfFile
+- (BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
 {
-	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-	NSEntityDescription *entityDescription = [NSEntityDescription entityForName:[Task entityName]
-														 inManagedObjectContext:self.managedObjectContext];
-	[fetchRequest setEntity:entityDescription];
-	
-	NSError *error;
-	NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-	if (fetchedObjects == nil) {
-		[NSApp presentError:error];
-		return;
+	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfURL:url];
+	if (!dict) {
+		*outError = MBValidationErrorWithMessage(@"Unable to read contents of file.");
+		return NO;
 	}
 	
-	Task *taskDefinition;
-	if ([fetchedObjects count] == 0) {
-		taskDefinition = [NSEntityDescription insertNewObjectForEntityForName:[Task entityName]
-													   inManagedObjectContext:self.managedObjectContext];
-		
-		NSString *directory = [NSString stringWithFormat:@"file://localhost%@", NSHomeDirectory()];
-		taskDefinition.directory = directory;
-		
-		[self.undoManager removeAllActions];
+	NSString *directory = dict[@"directory"];
+	if (![directory isAbsolutePath]) {
+		*outError = MBValidationErrorWithMessage(@"Unable to read Maven working directory.");
+		return NO;
 	}
-	else {
-		taskDefinition = fetchedObjects[0];
-	}
+	self.workingDirectory = [NSURL fileURLWithPath:directory isDirectory:YES];
 	
-	_taskDefinition = taskDefinition;
+	NSString *command = dict[@"command"];
+	if ([command length] <= 0) {
+		*outError = MBValidationErrorWithMessage(@"Unable to read Maven command.");
+		return NO;
+	}
+	self.command = command;
+	
+	return YES;
 }
 
+- (BOOL)writeToURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
+{
+	NSString *path = [self.workingDirectory path];
+	if ([path length] <= 0) {
+		*outError = MBValidationErrorWithMessage(@"Maven working path must be specified.");
+		return NO;
+	}
+	
+	NSString *command = self.command;
+	if ([command length] <= 0) {
+		command = @"";
+	}
+	
+	NSDictionary *dict = @{@"directory": path,
+						   @"command":   command};
+	
+	return [dict writeToURL:url atomically:YES];
+}
+
+// TODO window controller don't know about changes in document - what's wrong?
 + (BOOL)autosavesInPlace
 {
-    return YES;
+    return YES; // TODO tohle na to (zatím) nemá vliv
+}
+
+#pragma mark - NSError helper -
+NSError* MBValidationErrorWithMessage(NSString *message)
+{
+	return [NSError errorWithDomain:@"IceCube"
+							   code:1
+						   userInfo:@{NSLocalizedDescriptionKey:message}];
 }
 
 @end

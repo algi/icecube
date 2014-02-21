@@ -20,12 +20,9 @@
 
 @interface MBTaskRunnerWindowController () <MBMavenServiceCallback, MBMavenParserDelegate>
 
-@property NSXPCConnection *connection;
-
+@property (nonatomic) NSXPCConnection *connection;
+@property (nonatomic) MBMavenOutputParser *parser;
 @property BOOL taskRunning;
-@property Task *taskDefinition;
-
-@property MBMavenOutputParser *parser;
 
 @end
 
@@ -42,9 +39,7 @@
 
 - (void)windowDidLoad
 {
-	self.taskDefinition = [[self document] taskDefinition];
-	
-	NSURL *directoryURL = [NSURL URLWithString:self.taskDefinition.directory];
+	NSURL *directoryURL = [[self document] workingDirectory];
 	
 	[self.pathControl setURL:directoryURL];
 	[self.pathControl setDoubleAction:@selector(showOpenDialogAction:)];
@@ -64,7 +59,7 @@
 			[self.pathControl setURL:url];
 			
 			MBTaskRunnerDocument *document = [self document];
-			document.taskDefinition.directory = [url absoluteString];
+			document.workingDirectory = url;
 		}
 	}];
 }
@@ -79,7 +74,7 @@
 	[self.parser resetParser];
 	
 	// create Maven execution environment
-	NSString *args = self.taskDefinition.command;
+	NSString *args = [[self document] command];
 	if ([args length] == 0) {
 		NSAlert *alert = [[NSAlert alloc] init];
 		[alert setMessageText: @"Nelze spustit prázdný příkaz."];
@@ -90,7 +85,7 @@
 							contextInfo:nil];
 		return;
 	}
-	NSURL *path = [NSURL URLWithString:self.taskDefinition.directory];
+	NSURL *path = [[self document] workingDirectory];
 	
 	NSString *mavenPath = [[MBUserPreferences standardUserPreferences] mavenHome];
 	NSDictionary *environment = @{@"JAVA_HOME": [[MBUserPreferences standardUserPreferences] javaHome]};
