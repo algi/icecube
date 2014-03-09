@@ -16,9 +16,9 @@
 {
 	self = [super initWithType:typeName error:outError];
 	if (self) {
-		NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0];
+		NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) firstObject];
 		_workingDirectory = [NSURL fileURLWithPath:documentDirectory isDirectory:YES];
-		_command = nil;
+		_command = @"";
 	}
 	return self;
 }
@@ -71,12 +71,6 @@
 						   @"command":   command};
 	
 	return [dict writeToURL:url atomically:YES];
-}
-
-// TODO window controller don't know about changes in document - what's wrong?
-+ (BOOL)autosavesInPlace
-{
-    return YES; // TODO tohle na to (zatím) nemá vliv
 }
 
 #pragma mark - NSError helper -

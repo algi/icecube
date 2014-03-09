@@ -8,7 +8,7 @@
 
 #import "MBTaskRunnerDocument.h"
 
-@interface MBTaskRunnerWindowController : NSWindowController
+@interface MBTaskRunnerWindowController : NSWindowController <NSWindowDelegate>
 
 @property(assign) IBOutlet NSTextField *commandField;
 @property(assign) IBOutlet NSTextView *outputTextView;

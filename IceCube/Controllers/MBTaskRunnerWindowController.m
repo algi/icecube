@@ -65,7 +65,13 @@
 	}];
 }
 
-#pragma mark IB actions -
+#pragma mark - NSWindowDelegate -
+-(NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window
+{
+	return [[self document] undoManager];
+}
+
+#pragma mark - IB actions -
 - (IBAction)startTask:(id)sender
 {
 	if (self.taskRunning) {
@@ -111,8 +117,7 @@
 			[self invalidateConnection];
 			
 			if (! launchSuccessful) {
-				[[NSAlert alertWithError:error] beginSheetModalForWindow:self.window
-													   completionHandler:^(NSModalResponse returnCode) {}];
+				[[NSAlert alertWithError:error] beginSheetModalForWindow:self.window completionHandler:nil];
 			}
 		});
 	}];
