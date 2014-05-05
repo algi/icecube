@@ -23,6 +23,7 @@
 	return self;
 }
 
+#pragma mark - NSDocument -
 - (void)makeWindowControllers
 {
 	MBTaskRunnerWindowController *controller = [[MBTaskRunnerWindowController alloc] init];
@@ -73,10 +74,10 @@
 	return [dict writeToURL:url atomically:YES];
 }
 
-// TODO window controller don't know about changes in document - what's wrong?
+// TODO pass user's changes to NSUndoManager
 + (BOOL)autosavesInPlace
 {
-    return YES; // TODO tohle na to (zatím) nemá vliv
+    return YES;
 }
 
 #pragma mark - NSError helper -
