@@ -21,6 +21,12 @@
 	return self;
 }
 
+-(void)windowDidLoad
+{
+	[self updateTextField:self.mavenCustomLocation fromPopUp:self.mavenPopUp withResetBlock:^{}];
+	[self updateTextField:self.javaCustomLocation fromPopUp:self.javaPopUp withResetBlock:^{}];
+}
+
 #pragma mark - User selection -
 - (IBAction)userDidSelectMavenChoice:(id)sender
 {
@@ -39,11 +45,12 @@
 - (void)updateTextField:(NSTextField *)textField fromPopUp:(NSPopUpButton *)popUpButton withResetBlock:(void(^)())resetBlock
 {
 	BOOL isCustomValueSelected = [popUpButton selectedTag] == 1;
-	[textField setEditable:isCustomValueSelected];
-	
 	if (! isCustomValueSelected) {
 		resetBlock();
 	}
+	
+	[textField setEditable:isCustomValueSelected];
+	[textField setSelectable:isCustomValueSelected];
 }
 
 #pragma mark - Reveal in Finder -
