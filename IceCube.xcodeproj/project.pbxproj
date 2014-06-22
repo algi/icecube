@@ -55,6 +55,13 @@
 			remoteGlobalIDString = 56F6300317EF34AA004DC92E;
 			remoteInfo = JavaHomeService;
 		};
+		5627938D19573AA1003F0C5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56FE8E77167BA1A70001AAED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56FE8E7F167BA1A70001AAED;
+			remoteInfo = IceCube;
+		};
 		568C674817EB7E750095785D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56FE8E77167BA1A70001AAED /* Project object */;
@@ -479,6 +486,7 @@
 			);
 			dependencies = (
 				56FE8EA9167BA1A80001AAED /* PBXTargetDependency */,
+				5627938E19573AA1003F0C5B /* PBXTargetDependency */,
 			);
 			name = IceCubeTests;
 			productName = IceCubeTests;
@@ -654,6 +662,11 @@
 			isa = PBXTargetDependency;
 			target = 56F6300317EF34AA004DC92E /* JavaHomeService */;
 			targetProxy = 560E703717EF35AE004BC832 /* PBXContainerItemProxy */;
+		};
+		5627938E19573AA1003F0C5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56FE8E7F167BA1A70001AAED /* IceCube */;
+			targetProxy = 5627938D19573AA1003F0C5B /* PBXContainerItemProxy */;
 		};
 		568C674917EB7E750095785D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -875,7 +888,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -913,7 +926,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -929,7 +942,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IceCube/IceCube-Prefix.pch";
 				INFOPLIST_FILE = "IceCube/IceCube-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -947,7 +960,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IceCube/IceCube-Prefix.pch";
 				INFOPLIST_FILE = "IceCube/IceCube-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
