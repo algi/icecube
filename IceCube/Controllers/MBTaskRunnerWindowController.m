@@ -16,7 +16,7 @@
 #import "MBMavenOutputParser.h"
 #import "MBMavenParserDelegate.h"
 
-#import "MBUserPreferences.h"
+#import "MBPreferencesWindowController.h"
 
 @interface MBTaskRunnerWindowController () <MBMavenServiceCallback, MBMavenParserDelegate>
 
@@ -56,7 +56,7 @@
 	
 	[openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
 		if (result == NSFileHandlingPanelOKButton) {
-			NSURL *url = [openPanel URLs][0];
+			NSURL *url = [[openPanel URLs] firstObject];
 			[self.pathControl setURL:url];
 			
 			MBTaskRunnerDocument *document = [self document];
@@ -84,23 +84,23 @@
 	NSString *args = [[self document] command];
 	if ([args length] == 0) {
 		NSAlert *alert = [[NSAlert alloc] init];
-		[alert setMessageText: @"Nelze spustit prázdný příkaz."];
 		
-		[alert beginSheetModalForWindow:[self window]
-						  modalDelegate:nil
-						 didEndSelector:NULL
-							contextInfo:nil];
+		[alert setMessageText: @"Nelze spustit prázdný příkaz."];
+		[alert beginSheetModalForWindow:[self window] modalDelegate:nil didEndSelector:NULL contextInfo:nil];
+		
 		return;
 	}
-	NSURL *path = [[self document] workingDirectory];
-	
-	NSString *mavenPath = [[MBUserPreferences standardUserPreferences] mavenHome];
-	NSDictionary *environment = @{@"JAVA_HOME": [[MBUserPreferences standardUserPreferences] javaHome]};
 	
 	// prepare UI
 	self.taskRunning = YES;
 	[self.progressIndicator setIndeterminate:YES];
 	[self.progressIndicator startAnimation:self];
+	
+	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+	
+	NSURL *path = [[self document] workingDirectory];
+	NSString *mavenPath = [prefs stringForKey:kMavenHomeDefaultsKey];
+	NSDictionary *environment = @{@"JAVA_HOME": [prefs stringForKey:kJavaHomeDefaultsKey]};
 	
 	NSString *executionHeader = [NSString stringWithFormat:@"$ cd %@\n$ %@ %@\n\n",
 								 path,

@@ -33,11 +33,11 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView editable="NO" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" spellingCorrection="YES" smartInsertDelete="YES" id="YfR-bW-cHw">
-                                    <rect key="frame" x="0.0" y="0.0" width="692" height="330"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="689" height="330"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <size key="minSize" width="692" height="330"/>
+                                    <size key="minSize" width="689" height="330"/>
                                     <size key="maxSize" width="771" height="10000000"/>
                                     <attributedString key="textStorage">
                                         <fragment content="$">
@@ -49,7 +49,7 @@
                                         </fragment>
                                     </attributedString>
                                     <color key="insertionPointColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <size key="minSize" width="692" height="330"/>
+                                    <size key="minSize" width="689" height="330"/>
                                     <size key="maxSize" width="771" height="10000000"/>
                                 </textView>
                             </subviews>

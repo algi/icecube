@@ -9,7 +9,6 @@
 #import "MBAppDelegate.h"
 
 #import "MBJavaHomeService.h"
-#import "MBUserPreferences.h"
 #import "MBPreferencesWindowController.h"
 
 @interface MBAppDelegate ()
@@ -23,21 +22,22 @@
 - (void)applicationWillFinishLaunching:(NSNotification *)notification
 {
 	// register default values for Maven and Java
-	[[MBUserPreferences standardUserPreferences] setDefaultMavenHome:@"/usr/bin/mvn"];
-	
 	[[NSProcessInfo processInfo] performActivityWithOptions:NSActivityBackground reason:@"Fetching default JavaHome" usingBlock:^{
 		NSXPCConnection *connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.JavaHomeService"];
 		[connection setRemoteObjectInterface:[NSXPCInterface interfaceWithProtocol:@protocol(MBJavaHomeService)]];
 		[connection resume];
 		
 		id<MBJavaHomeService> remoteProxy = [connection remoteObjectProxy];
-		[remoteProxy findDefaultJavaHome:^(NSString *result, NSError *error) {
-			if (result) {
-				[[MBUserPreferences standardUserPreferences] setDefaultJavaHome:result];
-			}
-			else {
+		[remoteProxy findDefaultJavaHome:^(NSString *defaultJavaHome, NSError *error) {
+			
+			if (!defaultJavaHome) {
 				[NSApp presentError:error];
+				defaultJavaHome = @"/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home";
 			}
+			
+			NSDictionary *userDefaults = @{@"maven.home": @"/usr/bin/mvn",
+										   @"java.home": defaultJavaHome};
+			[[NSUserDefaults standardUserDefaults] registerDefaults:userDefaults];
 			
 			[connection invalidate];
 		}];
