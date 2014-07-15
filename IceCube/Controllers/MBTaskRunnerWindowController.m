@@ -86,7 +86,7 @@
 		NSAlert *alert = [[NSAlert alloc] init];
 		
 		[alert setMessageText: @"Nelze spustit prázdný příkaz."];
-		[alert beginSheetModalForWindow:[self window] modalDelegate:nil didEndSelector:NULL contextInfo:nil];
+		[alert beginSheetModalForWindow:[self window] completionHandler:nil];
 		
 		return;
 	}
