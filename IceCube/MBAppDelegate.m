@@ -31,7 +31,13 @@
 		[remoteProxy findDefaultJavaHome:^(NSString *defaultJavaHome, NSError *error) {
 			
 			if (!defaultJavaHome) {
-				[NSApp presentError:error];
+				
+				// present error to user
+				dispatch_sync(dispatch_get_main_queue(), ^{
+					[NSApp presentError:error];
+				});
+				
+				// fall back to default Java home (which even doesn't need to exist)
 				defaultJavaHome = @"/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home";
 			}
 			
