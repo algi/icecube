@@ -51,12 +51,6 @@ NSString * const kMavenHomeDefaultsKey = @"maven.home";
 	[self removeObserver:self forKeyPath:kMavenHomePath];
 }
 
--(void)windowDidLoad
-{
-	[self updateTextField:self.mavenCustomLocation fromPopUp:self.mavenPopUp withResetBlock:^{}];
-	[self updateTextField:self.javaCustomLocation fromPopUp:self.javaPopUp withResetBlock:^{}];
-}
-
 #pragma mark - User selection -
 - (IBAction)userDidSelectMavenChoice:(id)sender
 {
@@ -70,13 +64,18 @@ NSString * const kMavenHomeDefaultsKey = @"maven.home";
 
 - (void)updateTextField:(NSTextField *)textField fromPopUp:(NSPopUpButton *)popUpButton withDefaultsKey:(NSString *)key
 {
-	BOOL isCustomValueSelected = [popUpButton selectedTag] == 1;
-	if (! isCustomValueSelected) {
-		resetBlock();
-	}
-	
-	[textField setEditable:isCustomValueSelected];
-	[textField setSelectable:isCustomValueSelected];
+    BOOL isCustomValueSelected = [popUpButton selectedTag] == 1;
+    [textField setEditable:isCustomValueSelected];
+
+    NSString *newValue;
+    if (isCustomValueSelected) {
+        newValue = [[NSUserDefaults standardUserDefaults] stringForKey:key];
+    }
+    else {
+        newValue = @"";
+    }
+
+    [textField setStringValue:newValue];
 }
 
 #pragma mark - Reveal in Finder -
