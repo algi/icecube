@@ -19,8 +19,8 @@ extern NSString * const kMavenHomeDefaultsKey;
 @property (weak) IBOutlet NSTextField *javaDefaultLocation;
 @property (weak) IBOutlet NSTextField *javaCustomLocation;
 
-@property (copy) NSString *javaHome;
-@property (copy) NSString *mavenHome;
+// used in UI for binding values of user preferences
+@property MBUserPreferences *userPreferences;
 
 // initializes window with correct NIB name (no other init method should be used)
 - (id)init;

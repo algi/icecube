@@ -23,6 +23,7 @@
 	return self;
 }
 
+#pragma mark - NSDocument -
 - (void)makeWindowControllers
 {
 	MBTaskRunnerWindowController *controller = [[MBTaskRunnerWindowController alloc] init];
@@ -71,6 +72,12 @@
 						   @"command":   command};
 	
 	return [dict writeToURL:url atomically:YES];
+}
+
+// TODO pass user's changes to NSUndoManager
++ (BOOL)autosavesInPlace
+{
+    return YES;
 }
 
 #pragma mark - NSError helper -

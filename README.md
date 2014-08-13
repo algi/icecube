@@ -13,6 +13,6 @@ MIT
 
 ## TODO
 
-* vylepšit Preferences (dotáhnout fungování comboboxů)
+* zrušit CoreData (zde se nehodí a iCloud se dá vyzkoušet i bez nich)
 * zlepšit autodetekci Mavenu - načíst ~/.profile, apod.
 * opravit ukládání a změny v dokumentu - po uložení se hned přepne do módu Změněno
