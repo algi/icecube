@@ -30,51 +30,54 @@
 	[self addWindowController:controller];
 }
 
-- (BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
+-(BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
 {
-	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfURL:url];
-	if (!dict) {
-		*outError = MBValidationErrorWithMessage(@"Unable to read contents of file.");
-		return NO;
-	}
-	
-	NSString *directory = dict[@"directory"];
-	if (![directory isAbsolutePath]) {
-		*outError = MBValidationErrorWithMessage(@"Unable to read Maven working directory.");
-		return NO;
-	}
-	self.workingDirectory = [NSURL fileURLWithPath:directory isDirectory:YES];
-	
-	NSString *command = dict[@"command"];
-	if ([command length] <= 0) {
-		*outError = MBValidationErrorWithMessage(@"Unable to read Maven command.");
-		return NO;
-	}
-	self.command = command;
-	
-	return YES;
+    NSPropertyListFormat format = NSPropertyListXMLFormat_v1_0;
+    id root = [NSPropertyListSerialization propertyListWithData:data options:0 format:&format error:outError];
+    if (!root) {
+        // pass already filled NSError
+        return NO;
+    }
+
+    if (![root isKindOfClass:[NSDictionary class]]) {
+        *outError = MBValidationErrorWithMessage(@"Unable to read Maven command.");
+        return NO;
+    }
+    NSDictionary *dictionary = root;
+
+    NSString *directory = dictionary[@"directory"];
+    if (![directory isAbsolutePath]) {
+        *outError = MBValidationErrorWithMessage(@"Unable to read Maven working directory.");
+        return NO;
+    }
+    self.workingDirectory = [NSURL fileURLWithPath:directory isDirectory:YES];
+
+    NSString *command = dictionary[@"command"];
+    if ([command length] <= 0) {
+        *outError = MBValidationErrorWithMessage(@"Unable to read Maven command.");
+        return NO;
+    }
+    self.command = command;
+
+    return YES;
 }
 
-- (BOOL)writeToURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
+-(NSData *)dataOfType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
 {
-	NSString *path = [self.workingDirectory path];
-	if ([path length] <= 0) {
-		*outError = MBValidationErrorWithMessage(@"Maven working path must be specified.");
-		return NO;
-	}
-	
-	NSString *command = self.command;
-	if ([command length] <= 0) {
-		command = @"";
-	}
-	
-	NSDictionary *dict = @{@"directory": path,
-						   @"command":   command};
-	
-	return [dict writeToURL:url atomically:YES];
+    // TODO: validation must be done before saving file!
+    NSString *path = [self.workingDirectory path];
+    NSString *command = self.command;
+
+    NSDictionary *outputDictionary = @{@"directory": path,
+                                       @"command":   command};
+
+    return [NSPropertyListSerialization dataWithPropertyList:outputDictionary
+                                                      format:NSPropertyListXMLFormat_v1_0
+                                                     options:0
+                                                       error:outError];
 }
 
-// TODO pass user's changes to NSUndoManager
+// TODO: pass user's changes to NSUndoManager
 + (BOOL)autosavesInPlace
 {
     return YES;
