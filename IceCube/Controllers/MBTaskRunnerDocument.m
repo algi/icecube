@@ -16,7 +16,7 @@
 {
 	self = [super initWithType:typeName error:outError];
 	if (self) {
-		NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) firstObject];
+		NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
 		_workingDirectory = [NSURL fileURLWithPath:documentDirectory isDirectory:YES];
 		_command = @"";
 	}
@@ -40,7 +40,7 @@
     }
 
     if (![root isKindOfClass:[NSDictionary class]]) {
-        *outError = MBValidationErrorWithMessage(@"Unable to read Maven command.");
+        *outError = MBValidationErrorWithMessage(@"Document content is corrupted and cannot be read.");
         return NO;
     }
     NSDictionary *dictionary = root;
@@ -53,9 +53,8 @@
     self.workingDirectory = [NSURL fileURLWithPath:directory isDirectory:YES];
 
     NSString *command = dictionary[@"command"];
-    if ([command length] <= 0) {
-        *outError = MBValidationErrorWithMessage(@"Unable to read Maven command.");
-        return NO;
+    if (!command) {
+        command = @"";
     }
     self.command = command;
 
@@ -64,7 +63,6 @@
 
 -(NSData *)dataOfType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
 {
-    // TODO: validation must be done before saving file!
     NSString *path = [self.workingDirectory path];
     NSString *command = self.command;
 
@@ -77,7 +75,6 @@
                                                        error:outError];
 }
 
-// TODO: pass user's changes to NSUndoManager
 + (BOOL)autosavesInPlace
 {
     return YES;

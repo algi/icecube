@@ -57,13 +57,26 @@
 	[openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
 		if (result == NSFileHandlingPanelOKButton) {
 			NSURL *url = [[openPanel URLs] firstObject];
-			[self.pathControl setURL:url];
-			
-			MBTaskRunnerDocument *document = [self document];
-			document.workingDirectory = url;
+			[self updateWorkingDirectory:url];
 		}
 	}];
 }
+
+#pragma mark - NSUndoManager -
+- (void)updateWorkingDirectory:(NSURL *)workingDirectory
+{
+    MBTaskRunnerDocument *document = [self document];
+
+    NSURL *oldWorkingDirectory = document.workingDirectory;
+    document.workingDirectory = workingDirectory;
+
+    [self.pathControl setURL:workingDirectory];
+
+    [[document undoManager] registerUndoWithTarget:self selector:@selector(updateWorkingDirectory:) object:oldWorkingDirectory];
+    [[document undoManager] setActionName:@"Set Working Directory"];
+}
+
+// TODO: register NSTextField for document's NSUndoManager
 
 #pragma mark - NSWindowDelegate -
 -(NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window

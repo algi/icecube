@@ -13,5 +13,5 @@ MIT
 
 ## TODO
 
-* document save/load issues - use proper serialization API
 * ensure that NSDocument subclass behaves well on OS X
+* review Cocoa Bindings + register components for NSUndoManager
