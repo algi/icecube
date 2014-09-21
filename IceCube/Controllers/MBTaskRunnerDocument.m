@@ -23,6 +23,15 @@
 	return self;
 }
 
+-(void)setCommand:(NSString *)command
+{
+    NSString *oldValue = _command;
+    _command = command;
+
+    [[self undoManager] registerUndoWithTarget:self selector:@selector(setCommand:) object:oldValue];
+    [[self undoManager] setActionName:@"Typing"];
+}
+
 #pragma mark - NSDocument -
 - (void)makeWindowControllers
 {
@@ -50,13 +59,13 @@
         *outError = MBValidationErrorWithMessage(@"Unable to read Maven working directory.");
         return NO;
     }
-    self.workingDirectory = [NSURL fileURLWithPath:directory isDirectory:YES];
+    _workingDirectory = [NSURL fileURLWithPath:directory isDirectory:YES];
 
     NSString *command = dictionary[@"command"];
     if (!command) {
         command = @"";
     }
-    self.command = command;
+    _command = command;
 
     return YES;
 }
