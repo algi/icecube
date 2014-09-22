@@ -23,6 +23,7 @@
 	return self;
 }
 
+#pragma mark - NSUndoManager support -
 -(void)setCommand:(NSString *)command
 {
     NSString *oldValue = _command;
@@ -30,6 +31,15 @@
 
     [[self undoManager] registerUndoWithTarget:self selector:@selector(setCommand:) object:oldValue];
     [[self undoManager] setActionName:@"Typing"];
+}
+
+- (void)setWorkingDirectory:(NSURL *)workingDirectory
+{
+    NSURL *oldValue = _workingDirectory;
+    _workingDirectory = workingDirectory;
+
+    [[self undoManager] registerUndoWithTarget:self selector:@selector(setWorkingDirectory:) object:oldValue];
+    [[self undoManager] setActionName:@"Set Working Directory"];
 }
 
 #pragma mark - NSDocument -
