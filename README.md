@@ -13,5 +13,4 @@ MIT
 
 ## TODO
 
-* ensure that NSDocument subclass behaves well on OS X
-* review Cocoa Bindings + register components for NSUndoManager
+* currently none
