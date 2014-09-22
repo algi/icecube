@@ -27,7 +27,7 @@ NSString * const kMavenHomeDefaultsKey = @"maven.home";
 	return self = [super initWithWindowNibName:@"MBPreferencesWindowController"];
 }
 
--(void)awakeFromNib
+- (void)awakeFromNib
 {
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	
@@ -45,7 +45,7 @@ NSString * const kMavenHomeDefaultsKey = @"maven.home";
 	[self addObserver:self forKeyPath:kMavenHomePath options:NSKeyValueObservingOptionNew context:MBPreferencesKVOToken];
 }
 
--(void)dealloc
+- (void)dealloc
 {
 	[self removeObserver:self forKeyPath:kJavaHomePath];
 	[self removeObserver:self forKeyPath:kMavenHomePath];
@@ -96,7 +96,7 @@ NSString * const kMavenHomeDefaultsKey = @"maven.home";
 }
 
 #pragma mark - KVO observation -
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
 	if (context != MBPreferencesKVOToken) {
 		return;

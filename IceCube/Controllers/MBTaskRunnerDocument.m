@@ -12,7 +12,7 @@
 
 @implementation MBTaskRunnerDocument
 
--(id)initWithType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
+- (id)initWithType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
 {
 	self = [super initWithType:typeName error:outError];
 	if (self) {
@@ -24,7 +24,7 @@
 }
 
 #pragma mark - NSUndoManager support -
--(void)setCommand:(NSString *)command
+- (void)setCommand:(NSString *)command
 {
     NSString *oldValue = _command;
     _command = command;
@@ -49,7 +49,7 @@
 	[self addWindowController:controller];
 }
 
--(BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
 {
     NSPropertyListFormat format = NSPropertyListXMLFormat_v1_0;
     id root = [NSPropertyListSerialization propertyListWithData:data options:0 format:&format error:outError];
@@ -80,7 +80,7 @@
     return YES;
 }
 
--(NSData *)dataOfType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
+- (NSData *)dataOfType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
 {
     NSString *path = [self.workingDirectory path];
     NSString *command = self.command;
