@@ -30,7 +30,7 @@
     _command = command;
 
     [[self undoManager] registerUndoWithTarget:self selector:@selector(setCommand:) object:oldValue];
-    [[self undoManager] setActionName:@"Typing"];
+    [[self undoManager] setActionName:NSLocalizedString(@"Typing", @"Undo action for setting new value for command.")];
 }
 
 - (void)setWorkingDirectory:(NSURL *)workingDirectory
@@ -39,7 +39,7 @@
     _workingDirectory = workingDirectory;
 
     [[self undoManager] registerUndoWithTarget:self selector:@selector(setWorkingDirectory:) object:oldValue];
-    [[self undoManager] setActionName:@"Set Working Directory"];
+    [[self undoManager] setActionName:NSLocalizedString(@"Set Working Directory", @"Undo action for setting new working directory.")];
 }
 
 #pragma mark - NSDocument -
@@ -104,7 +104,7 @@ NSError* MBValidationErrorWithMessage(NSString *message)
 {
 	return [NSError errorWithDomain:@"IceCube"
 							   code:1
-						   userInfo:@{NSLocalizedDescriptionKey:message}];
+						   userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(message, message)}];
 }
 
 @end

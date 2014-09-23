@@ -32,14 +32,12 @@
 - (id)init
 {
 	self = [super initWithWindowNibName:@"MBTaskRunnerDocument"];
-	if (self) {
-		_parser = [[MBMavenOutputParser alloc] initWithDelegate:self];
-	}
 	return self;
 }
 
 - (void)windowDidLoad
 {
+    self.parser = [[MBMavenOutputParser alloc] initWithDelegate:self];
 	[self.pathControl setDoubleAction:@selector(showOpenDialogAction:)];
 }
 
@@ -79,7 +77,7 @@
 	if ([args length] == 0) {
 		NSAlert *alert = [[NSAlert alloc] init];
 		
-		[alert setMessageText: @"Nelze spustit prázdný příkaz."];
+		[alert setMessageText:NSLocalizedString(@"Unable to run empty command.", @"Alert message for Unable to run empty command.")];
 		[alert beginSheetModalForWindow:[self window] completionHandler:nil];
 		
 		return;
@@ -166,12 +164,12 @@
 		notification.soundName = NSUserNotificationDefaultSoundName;
 		
 		if (buildWasSuccessful) {
-			notification.title = NSLocalizedString(@"maven.build.notification.success.title", @"Maven build did suceeded.");
-			notification.informativeText = NSLocalizedString(@"maven.build.notification.success.description", @"Maven build did end successfuly.");
+			notification.title = NSLocalizedString(@"Maven build did suceeded.", @"Notification title for successful build.");
+			notification.informativeText = NSLocalizedString(@"Maven build did end successfuly.", @"Notification informative text for successful build.");
 		}
 		else {
-			notification.title = NSLocalizedString(@"maven.build.notification.error.title", @"Maven build didn't succeed.");
-			notification.informativeText = NSLocalizedString(@"maven.build.notification.error.description", @"Maven build didn't end successfuly.");
+			notification.title = NSLocalizedString(@"Maven build didn't succeed.", @"Notification title for unsuccessful build.");
+			notification.informativeText = NSLocalizedString(@"Maven build didn't end successfuly.", @"Notification informative text for unsuccessful build.");
 		}
 		
 		[[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
