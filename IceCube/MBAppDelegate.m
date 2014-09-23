@@ -21,6 +21,13 @@
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification
 {
+    // check for test suite flag first
+    NSInteger testSuiteFlag = [[NSUserDefaults standardUserDefaults] integerForKey:@"MBDoNotScanForJava"];
+    if (testSuiteFlag) {
+        NSLog(@"Detected MBIceCubeTestSuite flag; application will not perform scan for Java home.");
+        return;
+    }
+
     id activity = [[NSProcessInfo processInfo] beginActivityWithOptions:NSActivityBackground reason:@"Fetching default JavaHome"];
 
 	// register default values for Maven and Java
