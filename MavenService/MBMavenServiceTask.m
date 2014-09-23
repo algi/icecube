@@ -46,14 +46,12 @@
 	
 	id block = ^(NSString *line) {
 		[remoteObserver mavenTaskDidWriteLine:line];
-	};
-	
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-		NSError *error = nil;
-		BOOL result = [self.task launchTaskWithTaskOutputBlock:block error:&error];
-		
-		reply(result, error);
-	});
+    };
+
+    NSError *error = nil;
+    BOOL result = [self.task launchTaskWithTaskOutputBlock:block error:&error];
+
+    reply(result, error);
 }
 
 - (void)terminateTask
