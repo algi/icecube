@@ -24,7 +24,7 @@
     // check for test suite flag first
     NSInteger testSuiteFlag = [[NSUserDefaults standardUserDefaults] integerForKey:@"MBDoNotScanForJava"];
     if (testSuiteFlag) {
-        NSLog(@"Detected MBIceCubeTestSuite flag; application will not perform scan for Java home.");
+        NSLog(@"Application will not perform scan for Java home.");
         return;
     }
 
