@@ -22,7 +22,6 @@
 		564FB49B17F1C630000380F3 /* MBMavenOutputParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB48F17F1C62F000380F3 /* MBMavenOutputParserTests.m */; };
 		564FB4A217F1C72E000380F3 /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */; };
 		56630A0917ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56630A0617ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m */; };
-		566A251917A993CC00C11A35 /* MBTaskRunnerDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */; };
 		5680688C18B1708D00EC9360 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5680688A18B1708D00EC9360 /* Localizable.strings */; };
 		568C673917EB7D630095785D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568C673817EB7D630095785D /* Foundation.framework */; };
 		568C673F17EB7D630095785D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 568C673D17EB7D630095785D /* InfoPlist.strings */; };
@@ -31,9 +30,10 @@
 		568C675117EC688D0095785D /* MBMavenServiceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 568C675017EC688D0095785D /* MBMavenServiceTask.m */; };
 		56D21D3017BFC6520060A823 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D21D2F17BFC6520060A823 /* Images.xcassets */; };
 		56D21D9F17C0D5880060A823 /* MBTaskRunnerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */; };
+		56D470FA19D36B4B00B0798A /* MBTaskRunnerDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D470FC19D36B4B00B0798A /* MBTaskRunnerDocument.xib */; };
+		56D470FD19D36B5400B0798A /* MBPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D470FF19D36B5400B0798A /* MBPreferencesWindowController.xib */; };
 		56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */; };
 		56F62FFE17EF23F8004DC92E /* MBPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F62FFC17EF23F8004DC92E /* MBPreferencesWindowController.m */; };
-		56F62FFF17EF23F8004DC92E /* MBPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56F62FFD17EF23F8004DC92E /* MBPreferencesWindowController.xib */; };
 		56F6300517EF34AA004DC92E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568C673817EB7D630095785D /* Foundation.framework */; };
 		56F6300B17EF34AA004DC92E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56F6300917EF34AA004DC92E /* InfoPlist.strings */; };
 		56F6300E17EF34AA004DC92E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F6300D17EF34AA004DC92E /* main.m */; };
@@ -116,7 +116,6 @@
 		56630A0517ECB71C005A2BEC /* NSTask+MBTaskOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTask+MBTaskOutputParser.h"; sourceTree = "<group>"; };
 		56630A0617ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+MBTaskOutputParser.m"; sourceTree = "<group>"; };
 		56630A1917ECC067005A2BEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MBTaskRunnerDocument.xib; path = ../MBTaskRunnerDocument.xib; sourceTree = "<group>"; };
 		5680688B18B1708D00EC9360 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cz.boucekm.MavenService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		568C673817EB7D630095785D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -134,11 +133,12 @@
 		56D21D2F17BFC6520060A823 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		56D21D9C17C0D5880060A823 /* MBTaskRunnerDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskRunnerDocument.h; sourceTree = "<group>"; };
 		56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerDocument.m; sourceTree = "<group>"; };
+		56D470FB19D36B4B00B0798A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MBTaskRunnerDocument.xib; sourceTree = "<group>"; };
+		56D470FE19D36B5400B0798A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MBPreferencesWindowController.xib; sourceTree = "<group>"; };
 		56F578E21794A5B1007E85A8 /* MBTaskRunnerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskRunnerWindowController.h; sourceTree = "<group>"; };
 		56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerWindowController.m; sourceTree = "<group>"; };
 		56F62FFB17EF23F8004DC92E /* MBPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPreferencesWindowController.h; sourceTree = "<group>"; };
 		56F62FFC17EF23F8004DC92E /* MBPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBPreferencesWindowController.m; sourceTree = "<group>"; };
-		56F62FFD17EF23F8004DC92E /* MBPreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBPreferencesWindowController.xib; sourceTree = "<group>"; };
 		56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cz.boucekm.JavaHomeService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F6300817EF34AA004DC92E /* JavaHomeService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JavaHomeService-Info.plist"; sourceTree = "<group>"; };
 		56F6300A17EF34AA004DC92E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -275,7 +275,7 @@
 				56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */,
 				56F578E21794A5B1007E85A8 /* MBTaskRunnerWindowController.h */,
 				56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */,
-				566A251817A993CC00C11A35 /* MBTaskRunnerDocument.xib */,
+				56D470FC19D36B4B00B0798A /* MBTaskRunnerDocument.xib */,
 			);
 			name = "Task runner";
 			path = Controllers;
@@ -286,7 +286,7 @@
 			children = (
 				56F62FFB17EF23F8004DC92E /* MBPreferencesWindowController.h */,
 				56F62FFC17EF23F8004DC92E /* MBPreferencesWindowController.m */,
-				56F62FFD17EF23F8004DC92E /* MBPreferencesWindowController.xib */,
+				56D470FF19D36B5400B0798A /* MBPreferencesWindowController.xib */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -569,8 +569,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FE8E8F167BA1A70001AAED /* InfoPlist.strings in Resources */,
-				56F62FFF17EF23F8004DC92E /* MBPreferencesWindowController.xib in Resources */,
-				566A251917A993CC00C11A35 /* MBTaskRunnerDocument.xib in Resources */,
+				56D470FD19D36B5400B0798A /* MBPreferencesWindowController.xib in Resources */,
+				56D470FA19D36B4B00B0798A /* MBTaskRunnerDocument.xib in Resources */,
 				56FE8E95167BA1A70001AAED /* Credits.rtf in Resources */,
 				56D21D3017BFC6520060A823 /* Images.xcassets in Resources */,
 				5680688C18B1708D00EC9360 /* Localizable.strings in Resources */,
@@ -695,6 +695,23 @@
 				568C673E17EB7D630095785D /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		56D470FC19D36B4B00B0798A /* MBTaskRunnerDocument.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				56D470FB19D36B4B00B0798A /* en */,
+			);
+			name = MBTaskRunnerDocument.xib;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		56D470FF19D36B5400B0798A /* MBPreferencesWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				56D470FE19D36B5400B0798A /* en */,
+			);
+			name = MBPreferencesWindowController.xib;
 			sourceTree = "<group>";
 		};
 		56F6300917EF34AA004DC92E /* InfoPlist.strings */ = {
