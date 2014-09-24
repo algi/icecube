@@ -1,0 +1,24 @@
+
+/* Class = "NSWindow"; title = "Document 1"; ObjectID = "86L-hC-66c"; */
+"86L-hC-66c.title" = "Document 1";
+
+/* Class = "NSToolbarItem"; label = "Run"; ObjectID = "bKc-8v-5Tc"; */
+"bKc-8v-5Tc.label" = "Spustit";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Run"; ObjectID = "bKc-8v-5Tc"; */
+"bKc-8v-5Tc.paletteLabel" = "Spustit";
+
+/* Class = "NSTextFieldCell"; title = "Output:"; ObjectID = "dnB-Y9-ABC"; */
+"dnB-Y9-ABC.title" = "Výstup:";
+
+/* Class = "NSToolbarItem"; label = "Stop"; ObjectID = "jQt-Ll-4o4"; */
+"jQt-Ll-4o4.label" = "Zastavit";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Stop"; ObjectID = "jQt-Ll-4o4"; */
+"jQt-Ll-4o4.paletteLabel" = "Zastavit";
+
+/* Class = "NSTextFieldCell"; title = "Command:"; ObjectID = "u4b-4G-AFn"; */
+"u4b-4G-AFn.title" = "Příkaz:";
+
+/* Class = "NSTextFieldCell"; title = "Directory:"; ObjectID = "wy8-GT-FAz"; */
+"wy8-GT-FAz.title" = "Adresář:";

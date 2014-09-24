@@ -1,0 +1,33 @@
+
+/* Class = "NSWindow"; title = "Předvolby"; ObjectID = "1"; */
+"1.title" = "Předvolby";
+
+/* Class = "NSTextFieldCell"; title = "Maven:"; ObjectID = "8My-OY-ane"; */
+"8My-OY-ane.title" = "Maven:";
+
+/* Class = "NSTextFieldCell"; title = "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"; ObjectID = "Mr5-de-GLV"; */
+"Mr5-de-GLV.title" = "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home";
+
+/* Class = "NSTextFieldCell"; title = "/usr/bin/mvn"; ObjectID = "OZZ-vd-Vzo"; */
+"OZZ-vd-Vzo.title" = "/usr/bin/mvn";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "R6o-HI-prr"; */
+"R6o-HI-prr.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Default"; ObjectID = "dis-iy-i9A"; */
+"dis-iy-i9A.title" = "Default";
+
+/* Class = "NSTextFieldCell"; title = "Java:"; ObjectID = "j4f-lU-A62"; */
+"j4f-lU-A62.title" = "Java:";
+
+/* Class = "NSMenuItem"; title = "Default"; ObjectID = "ncJ-BW-Urn"; */
+"ncJ-BW-Urn.title" = "Default";
+
+/* Class = "NSMenuItem"; title = "Custom"; ObjectID = "okL-XL-cCR"; */
+"okL-XL-cCR.title" = "Custom";
+
+/* Class = "NSMenuItem"; title = "Custom"; ObjectID = "t54-Qe-Fuk"; */
+"t54-Qe-Fuk.title" = "Custom";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "vWI-4q-c5O"; */
+"vWI-4q-c5O.title" = "OtherViews";
