@@ -14,13 +14,13 @@
 
 - (id)initWithType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
 {
-	self = [super initWithType:typeName error:outError];
-	if (self) {
-		NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-		_workingDirectory = [NSURL fileURLWithPath:documentDirectory isDirectory:YES];
-		_command = @"";
-	}
-	return self;
+    self = [super initWithType:typeName error:outError];
+    if (self) {
+        NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+        _workingDirectory = [NSURL fileURLWithPath:documentDirectory isDirectory:YES];
+        _command = @"";
+    }
+    return self;
 }
 
 #pragma mark - NSUndoManager support -
@@ -45,8 +45,8 @@
 #pragma mark - NSDocument -
 - (void)makeWindowControllers
 {
-	MBTaskRunnerWindowController *controller = [[MBTaskRunnerWindowController alloc] init];
-	[self addWindowController:controller];
+    MBTaskRunnerWindowController *controller = [[MBTaskRunnerWindowController alloc] init];
+    [self addWindowController:controller];
 }
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
@@ -102,9 +102,9 @@
 #pragma mark - NSError helper -
 NSError* MBValidationErrorWithMessage(NSString *message)
 {
-	return [NSError errorWithDomain:@"IceCube"
-							   code:1
-						   userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(message, message)}];
+    return [NSError errorWithDomain:@"IceCube"
+                               code:1
+                           userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(message, message)}];
 }
 
 @end

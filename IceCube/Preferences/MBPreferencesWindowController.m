@@ -24,42 +24,42 @@ NSString * const kMavenHomeDefaultsKey = @"maven.home";
 
 - (id)init
 {
-	return self = [super initWithWindowNibName:@"MBPreferencesWindowController"];
+    return self = [super initWithWindowNibName:@"MBPreferencesWindowController"];
 }
 
 - (void)awakeFromNib
 {
-	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-	
-	NSString *origJavaHOme = [prefs stringForKey:kJavaHomeDefaultsKey];
-	[prefs removeObjectForKey:kJavaHomeDefaultsKey];
-	
-	NSString *defaultJavaHome = [prefs stringForKey:kJavaHomeDefaultsKey];
-	[prefs setObject:origJavaHOme forKey:kJavaHomeDefaultsKey];
-	
-	NSTextField *javaDefaultLocation = self.javaDefaultLocation;
-	[javaDefaultLocation setStringValue:defaultJavaHome];
-	
-	// register KVO for Java & Maven home
-	[self addObserver:self forKeyPath:kJavaHomePath options:NSKeyValueObservingOptionNew context:MBPreferencesKVOToken];
-	[self addObserver:self forKeyPath:kMavenHomePath options:NSKeyValueObservingOptionNew context:MBPreferencesKVOToken];
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+
+    NSString *origJavaHOme = [prefs stringForKey:kJavaHomeDefaultsKey];
+    [prefs removeObjectForKey:kJavaHomeDefaultsKey];
+
+    NSString *defaultJavaHome = [prefs stringForKey:kJavaHomeDefaultsKey];
+    [prefs setObject:origJavaHOme forKey:kJavaHomeDefaultsKey];
+
+    NSTextField *javaDefaultLocation = self.javaDefaultLocation;
+    [javaDefaultLocation setStringValue:defaultJavaHome];
+
+    // register KVO for Java & Maven home
+    [self addObserver:self forKeyPath:kJavaHomePath options:NSKeyValueObservingOptionNew context:MBPreferencesKVOToken];
+    [self addObserver:self forKeyPath:kMavenHomePath options:NSKeyValueObservingOptionNew context:MBPreferencesKVOToken];
 }
 
 - (void)dealloc
 {
-	[self removeObserver:self forKeyPath:kJavaHomePath];
-	[self removeObserver:self forKeyPath:kMavenHomePath];
+    [self removeObserver:self forKeyPath:kJavaHomePath];
+    [self removeObserver:self forKeyPath:kMavenHomePath];
 }
 
 #pragma mark - User selection -
 - (IBAction)userDidSelectMavenChoice:(id)sender
 {
-	[self updateTextField:self.mavenCustomLocation fromPopUp:self.mavenPopUp withDefaultsKey:kMavenHomeDefaultsKey];
+    [self updateTextField:self.mavenCustomLocation fromPopUp:self.mavenPopUp withDefaultsKey:kMavenHomeDefaultsKey];
 }
 
 - (IBAction)userDidSelectJavaChoice:(id)sender
 {
-	[self updateTextField:self.javaCustomLocation fromPopUp:self.javaPopUp withDefaultsKey:kJavaHomeDefaultsKey];
+    [self updateTextField:self.javaCustomLocation fromPopUp:self.javaPopUp withDefaultsKey:kJavaHomeDefaultsKey];
 }
 
 - (void)updateTextField:(NSTextField *)textField fromPopUp:(NSPopUpButton *)popUpButton withDefaultsKey:(NSString *)key
@@ -81,46 +81,46 @@ NSString * const kMavenHomeDefaultsKey = @"maven.home";
 #pragma mark - Reveal in Finder -
 - (IBAction)revealMavenHomeInFinder:(id)sender
 {
-	[self revealPathInFinderFromTextField:self.mavenCustomLocation];
+    [self revealPathInFinderFromTextField:self.mavenCustomLocation];
 }
 
 - (IBAction)revealJavaHomeInFinder:(id)sender
 {
-	[self revealPathInFinderFromTextField:self.javaCustomLocation];
+    [self revealPathInFinderFromTextField:self.javaCustomLocation];
 }
 
 - (void)revealPathInFinderFromTextField:(NSTextField *)textField
 {
-	NSString *URL = [NSString stringWithFormat:@"file://%@", [textField stringValue]];
-	[[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[[NSURL URLWithString:URL]]];
+    NSString *URL = [NSString stringWithFormat:@"file://%@", [textField stringValue]];
+    [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[[NSURL URLWithString:URL]]];
 }
 
 #pragma mark - KVO observation -
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-	if (context != MBPreferencesKVOToken) {
-		return;
-	}
-	
-	NSString *defaultsKey = nil;
-	if ([keyPath isEqualTo:kJavaHomePath]) {
-		defaultsKey = kJavaHomeDefaultsKey;
-	}
-	else if ([keyPath isEqualTo:kMavenHomePath]) {
-		defaultsKey = kMavenHomeDefaultsKey;
-	}
-	else {
-		NSLog(@"Unrecognized keypath in KVO observation: %@", keyPath);
-		return;
-	}
-	
-	NSString *newValue = change[NSKeyValueChangeNewKey];
-	if (newValue == nil || [newValue isEqualToString:@""]) {
-		[[NSUserDefaults standardUserDefaults] removeObjectForKey:defaultsKey];
-	}
-	else {
-		[[NSUserDefaults standardUserDefaults] setObject:newValue forKey:defaultsKey];
-	}
+    if (context != MBPreferencesKVOToken) {
+        return;
+    }
+
+    NSString *defaultsKey = nil;
+    if ([keyPath isEqualTo:kJavaHomePath]) {
+        defaultsKey = kJavaHomeDefaultsKey;
+    }
+    else if ([keyPath isEqualTo:kMavenHomePath]) {
+        defaultsKey = kMavenHomeDefaultsKey;
+    }
+    else {
+        NSLog(@"Unrecognized keypath in KVO observation: %@", keyPath);
+        return;
+    }
+
+    NSString *newValue = change[NSKeyValueChangeNewKey];
+    if (newValue == nil || [newValue isEqualToString:@""]) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:defaultsKey];
+    }
+    else {
+        [[NSUserDefaults standardUserDefaults] setObject:newValue forKey:defaultsKey];
+    }
 }
 
 @end
