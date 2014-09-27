@@ -76,6 +76,12 @@
         [lineBuffer appendString:@"\n"];
     }
 
+    // remove trailing newline character
+    if ([lineBuffer hasSuffix:@"\n"]) {
+        NSRange range = NSMakeRange([lineBuffer length] - 1, 1);
+        [lineBuffer replaceCharactersInRange:range withString:@""];
+    }
+
     *outputString = lineBuffer;
 
     return [lineBuffer length] > 0;
