@@ -6,179 +6,149 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MBPreferencesWindowController">
             <connections>
-                <outlet property="javaCustomLocation" destination="Vu4-1U-twu" id="bFX-IX-uuI"/>
-                <outlet property="javaDefaultLocation" destination="XBp-px-q8L" id="h4G-nu-Jku"/>
-                <outlet property="javaPopUp" destination="8ML-kp-EB6" id="7bL-Sf-IA2"/>
-                <outlet property="mavenCustomLocation" destination="bNC-rm-NvP" id="Yro-Gl-Ytf"/>
-                <outlet property="mavenDefaultLocation" destination="xoJ-2C-Qsn" id="Xlh-tv-ARz"/>
-                <outlet property="mavenPopUp" destination="ZZX-DC-pda" id="pPy-zX-jNO"/>
-                <outlet property="window" destination="1" id="3"/>
+                <outlet property="javaDefaultLocation" destination="eWk-je-pdE" id="Dge-fw-0TG"/>
+                <outlet property="javaLocation" destination="a13-zB-RlE" id="Fjg-4U-3m4"/>
+                <outlet property="mavenDefaultLocation" destination="8xt-7N-wwC" id="b9m-kB-PSP"/>
+                <outlet property="mavenLocation" destination="rFI-Lo-kmG" id="2fG-KR-i4z"/>
+                <outlet property="window" destination="2r0-6b-xe8" id="pG4-1V-IAx"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="1">
+        <userDefaultsController representsSharedInstance="YES" id="ygW-7J-pOx"/>
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="2r0-6b-xe8">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="564" height="156"/>
+            <rect key="contentRect" x="686" y="522" width="528" height="169"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
-            <view key="contentView" id="2">
-                <rect key="frame" x="0.0" y="0.0" width="564" height="156"/>
+            <view key="contentView" id="zIr-LE-o7x">
+                <rect key="frame" x="0.0" y="0.0" width="528" height="169"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="252" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9ew-TX-6Pc">
-                        <rect key="frame" x="18" y="119" width="49" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Maven:" id="8My-OY-ane">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MeU-m7-luK">
-                        <rect key="frame" x="33" y="61" width="34" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Java:" id="j4f-lU-A62">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZZX-DC-pda">
-                        <rect key="frame" x="71" y="112" width="83" height="26"/>
-                        <popUpButtonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ncJ-BW-Urn" id="QqB-4Y-qNz">
-                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="menu"/>
-                            <menu key="menu" title="OtherViews" id="vWI-4q-c5O">
-                                <items>
-                                    <menuItem title="Default" state="on" id="ncJ-BW-Urn"/>
-                                    <menuItem title="Custom" tag="1" id="okL-XL-cCR">
-                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                    </menuItem>
-                                </items>
-                            </menu>
-                        </popUpButtonCell>
-                        <connections>
-                            <action selector="userDidSelectMavenChoice:" target="-2" id="sWA-hI-D1X"/>
-                            <binding destination="ygW-7J-pOx" name="selectedTag" keyPath="values.maven.popup.tag" id="e2J-Yj-ksT"/>
-                        </connections>
-                    </popUpButton>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bNC-rm-NvP">
-                        <rect key="frame" x="159" y="114" width="385" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="WDU-T2-e57">
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rFI-Lo-kmG">
+                        <rect key="frame" x="73" y="127" width="362" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="3L2-2G-gLs">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="-2" name="value" keyPath="self.mavenHome" id="7xf-jf-O47"/>
+                            <binding destination="ygW-7J-pOx" name="enabled" keyPath="values.UseDefaultMavenLocation" id="fQd-Ka-aDC">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                            <binding destination="ygW-7J-pOx" name="value" keyPath="values.MavenLocation" id="lDf-8s-8Se"/>
                         </connections>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="xoJ-2C-Qsn">
-                        <rect key="frame" x="71" y="93" width="449" height="14"/>
-                        <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="/usr/bin/mvn" usesSingleLineMode="YES" id="OZZ-vd-Vzo">
-                            <font key="font" metaFont="smallSystem"/>
-                            <color key="textColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8ML-kp-EB6">
-                        <rect key="frame" x="71" y="56" width="83" height="26"/>
-                        <popUpButtonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="dis-iy-i9A" id="WCU-Mk-eWy">
-                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="menu"/>
-                            <menu key="menu" title="OtherViews" id="R6o-HI-prr">
-                                <items>
-                                    <menuItem title="Default" state="on" id="dis-iy-i9A"/>
-                                    <menuItem title="Custom" tag="1" id="t54-Qe-Fuk"/>
-                                </items>
-                            </menu>
-                        </popUpButtonCell>
-                        <connections>
-                            <action selector="userDidSelectJavaChoice:" target="-2" id="XNB-z3-ddh"/>
-                            <binding destination="ygW-7J-pOx" name="selectedTag" keyPath="values.java.popup.tag" id="hw1-4D-UsW"/>
-                        </connections>
-                    </popUpButton>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vu4-1U-twu">
-                        <rect key="frame" x="159" y="58" width="385" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="7bC-e8-JZQ">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0yZ-rZ-Bjz">
+                        <rect key="frame" x="18" y="129" width="49" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Maven:" id="tcB-vf-YKX">
                             <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <binding destination="-2" name="value" keyPath="self.javaHome" id="tx4-zi-6mP"/>
-                        </connections>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="XBp-px-q8L">
-                        <rect key="frame" x="71" y="36" width="449" height="14"/>
-                        <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home" usesSingleLineMode="YES" id="Mr5-de-GLV">
-                            <font key="font" metaFont="smallSystem"/>
-                            <color key="textColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZrN-gP-Gm4">
-                        <rect key="frame" x="526" y="87" width="18" height="19"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="18" id="Z8W-tH-pGZ"/>
-                            <constraint firstAttribute="height" constant="18" id="b1j-G4-6rT"/>
-                        </constraints>
-                        <buttonCell key="cell" type="inline" bezelStyle="inline" image="NSRevealFreestandingTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="t9N-Wa-qmG">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="smallSystemBold"/>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="8xt-7N-wwC">
+                        <rect key="frame" x="71" y="103" width="147" height="18"/>
+                        <buttonCell key="cell" type="check" title="Use default location" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ilF-LY-88g">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="revealMavenHomeInFinder:" target="-2" id="naW-M1-bCU"/>
+                            <action selector="useMavenDefaultLocationDidPress:" target="-2" id="xVT-yW-IHE"/>
+                            <binding destination="ygW-7J-pOx" name="value" keyPath="values.UseDefaultMavenLocation" id="83u-6t-tOj"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y4a-fj-8fb">
-                        <rect key="frame" x="526" y="31" width="18" height="19"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="18" id="3Xc-Ii-XPV"/>
-                            <constraint firstAttribute="height" constant="18" id="ZSN-c4-8yZ"/>
-                        </constraints>
-                        <buttonCell key="cell" type="inline" bezelStyle="inline" image="NSRevealFreestandingTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="D1b-Uy-gZ7">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="smallSystemBold"/>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a13-zB-RlE">
+                        <rect key="frame" x="73" y="75" width="362" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="R0r-GU-d67">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="ygW-7J-pOx" name="enabled" keyPath="values.UseDefaultJavaLocation" id="LMy-LU-Qny">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                            <binding destination="ygW-7J-pOx" name="value" keyPath="values.JavaLocation" id="W6s-NM-c14"/>
+                        </connections>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vB2-NJ-7Z2">
+                        <rect key="frame" x="18" y="77" width="49" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Java:" id="AJU-i7-wqe">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="eWk-je-pdE">
+                        <rect key="frame" x="71" y="51" width="147" height="18"/>
+                        <buttonCell key="cell" type="check" title="Use default location" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="R3N-ij-doB">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="revealJavaHomeInFinder:" target="-2" id="jFi-Bg-cbk"/>
+                            <action selector="useJavaDefaultLocationDidPress:" target="-2" id="kLk-li-JIX"/>
+                            <binding destination="ygW-7J-pOx" name="value" keyPath="values.UseDefaultJavaLocation" id="xwr-zg-MJg"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RYl-08-Pua">
+                        <rect key="frame" x="437" y="68" width="77" height="32"/>
+                        <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wfK-qb-XVq">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="selectJavaLocationDidPress:" target="-2" id="8eD-2a-ho2"/>
+                            <binding destination="ygW-7J-pOx" name="enabled" keyPath="values.UseDefaultJavaLocation" id="dgC-qj-JOj">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Paj-mC-Mr6">
+                        <rect key="frame" x="437" y="121" width="77" height="32"/>
+                        <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xPZ-jz-icl">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="selectMavenLocationDidPress:" target="-2" id="jt6-a6-b0O"/>
+                            <binding destination="ygW-7J-pOx" name="enabled" keyPath="values.UseDefaultMavenLocation" id="kcS-y7-3CP">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
                         </connections>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ZrN-gP-Gm4" firstAttribute="top" secondItem="bNC-rm-NvP" secondAttribute="bottom" constant="8" symbolic="YES" id="10S-Hu-wev"/>
-                    <constraint firstItem="ZZX-DC-pda" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" symbolic="YES" id="15O-o4-mks"/>
-                    <constraint firstItem="xoJ-2C-Qsn" firstAttribute="top" secondItem="ZZX-DC-pda" secondAttribute="bottom" constant="8" symbolic="YES" id="1aR-ma-YL7"/>
-                    <constraint firstItem="bNC-rm-NvP" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" symbolic="YES" id="4Yp-Ef-QVE"/>
-                    <constraint firstItem="Vu4-1U-twu" firstAttribute="leading" secondItem="8ML-kp-EB6" secondAttribute="trailing" constant="8" symbolic="YES" id="5E4-0h-MKq"/>
-                    <constraint firstAttribute="trailing" secondItem="Y4a-fj-8fb" secondAttribute="trailing" constant="20" symbolic="YES" id="5pK-Ir-zF3"/>
-                    <constraint firstItem="9ew-TX-6Pc" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" symbolic="YES" id="BBd-kk-Xnt"/>
-                    <constraint firstItem="ZrN-gP-Gm4" firstAttribute="leading" secondItem="xoJ-2C-Qsn" secondAttribute="trailing" constant="8" symbolic="YES" id="HQd-pv-hnL"/>
-                    <constraint firstItem="ZZX-DC-pda" firstAttribute="leading" secondItem="9ew-TX-6Pc" secondAttribute="trailing" constant="8" symbolic="YES" id="KpX-6R-KhD"/>
-                    <constraint firstItem="8ML-kp-EB6" firstAttribute="leading" secondItem="xoJ-2C-Qsn" secondAttribute="leading" id="PXR-VP-XtA"/>
-                    <constraint firstAttribute="trailing" secondItem="ZrN-gP-Gm4" secondAttribute="trailing" constant="20" symbolic="YES" id="R0z-fp-Boi"/>
-                    <constraint firstAttribute="trailing" secondItem="bNC-rm-NvP" secondAttribute="trailing" constant="20" symbolic="YES" id="VlX-pG-EnP"/>
-                    <constraint firstItem="8ML-kp-EB6" firstAttribute="centerY" secondItem="MeU-m7-luK" secondAttribute="centerY" id="b44-Dr-VHX"/>
-                    <constraint firstItem="Y4a-fj-8fb" firstAttribute="leading" secondItem="XBp-px-q8L" secondAttribute="trailing" constant="8" symbolic="YES" id="boJ-Qr-HFY"/>
-                    <constraint firstItem="XBp-px-q8L" firstAttribute="top" secondItem="Vu4-1U-twu" secondAttribute="bottom" constant="8" symbolic="YES" id="cbT-IS-Xcd"/>
-                    <constraint firstItem="8ML-kp-EB6" firstAttribute="leading" secondItem="MeU-m7-luK" secondAttribute="trailing" constant="8" symbolic="YES" id="dXj-69-j4g"/>
-                    <constraint firstItem="8ML-kp-EB6" firstAttribute="leading" secondItem="XBp-px-q8L" secondAttribute="leading" id="ebm-fX-HPD"/>
-                    <constraint firstItem="9ew-TX-6Pc" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" symbolic="YES" id="gVb-1e-GxO"/>
-                    <constraint firstItem="bNC-rm-NvP" firstAttribute="leading" secondItem="ZZX-DC-pda" secondAttribute="trailing" constant="8" symbolic="YES" id="kPc-NZ-NOc"/>
-                    <constraint firstAttribute="trailing" secondItem="Vu4-1U-twu" secondAttribute="trailing" constant="20" symbolic="YES" id="lCK-ar-H7M"/>
-                    <constraint firstItem="Y4a-fj-8fb" firstAttribute="top" secondItem="Vu4-1U-twu" secondAttribute="bottom" constant="8" symbolic="YES" id="q5g-9f-oDB"/>
-                    <constraint firstItem="ZZX-DC-pda" firstAttribute="leading" secondItem="xoJ-2C-Qsn" secondAttribute="leading" id="tBo-ph-jzw"/>
-                    <constraint firstItem="Vu4-1U-twu" firstAttribute="top" secondItem="ZrN-gP-Gm4" secondAttribute="bottom" constant="8" symbolic="YES" id="xHY-yl-gF1"/>
-                    <constraint firstItem="8ML-kp-EB6" firstAttribute="top" secondItem="Vu4-1U-twu" secondAttribute="top" id="yY5-WE-CMh"/>
+                    <constraint firstItem="a13-zB-RlE" firstAttribute="top" secondItem="8xt-7N-wwC" secondAttribute="bottom" constant="8" symbolic="YES" id="0gw-u1-HTy"/>
+                    <constraint firstItem="8xt-7N-wwC" firstAttribute="leading" secondItem="rFI-Lo-kmG" secondAttribute="leading" id="10l-Gn-vWI"/>
+                    <constraint firstItem="Paj-mC-Mr6" firstAttribute="leading" secondItem="rFI-Lo-kmG" secondAttribute="trailing" constant="8" symbolic="YES" id="2e2-MR-tmg"/>
+                    <constraint firstItem="rFI-Lo-kmG" firstAttribute="leading" secondItem="a13-zB-RlE" secondAttribute="leading" id="4Ro-9R-HdT"/>
+                    <constraint firstItem="a13-zB-RlE" firstAttribute="leading" secondItem="eWk-je-pdE" secondAttribute="leading" id="7IT-UV-qtz"/>
+                    <constraint firstItem="rFI-Lo-kmG" firstAttribute="top" secondItem="zIr-LE-o7x" secondAttribute="top" constant="20" symbolic="YES" id="EZI-5e-MXw"/>
+                    <constraint firstItem="8xt-7N-wwC" firstAttribute="top" secondItem="rFI-Lo-kmG" secondAttribute="bottom" constant="8" symbolic="YES" id="ICy-LD-Q4I"/>
+                    <constraint firstItem="0yZ-rZ-Bjz" firstAttribute="baseline" secondItem="rFI-Lo-kmG" secondAttribute="baseline" id="KJC-MF-9sq"/>
+                    <constraint firstItem="RYl-08-Pua" firstAttribute="centerY" secondItem="a13-zB-RlE" secondAttribute="centerY" id="Kr2-Tn-k84"/>
+                    <constraint firstItem="vB2-NJ-7Z2" firstAttribute="leading" secondItem="zIr-LE-o7x" secondAttribute="leading" constant="20" symbolic="YES" id="MW4-fA-dkO"/>
+                    <constraint firstItem="rFI-Lo-kmG" firstAttribute="centerY" secondItem="Paj-mC-Mr6" secondAttribute="centerY" id="O9V-Ig-1AS"/>
+                    <constraint firstItem="eWk-je-pdE" firstAttribute="top" secondItem="a13-zB-RlE" secondAttribute="bottom" constant="8" id="OLe-zO-q7q"/>
+                    <constraint firstItem="a13-zB-RlE" firstAttribute="leading" secondItem="vB2-NJ-7Z2" secondAttribute="trailing" constant="8" symbolic="YES" id="Szs-Xt-R8z"/>
+                    <constraint firstAttribute="trailing" secondItem="Paj-mC-Mr6" secondAttribute="trailing" constant="20" symbolic="YES" id="XZ0-9I-llP"/>
+                    <constraint firstItem="vB2-NJ-7Z2" firstAttribute="baseline" secondItem="a13-zB-RlE" secondAttribute="baseline" id="pAN-qI-aVK"/>
+                    <constraint firstItem="RYl-08-Pua" firstAttribute="leading" secondItem="a13-zB-RlE" secondAttribute="trailing" constant="8" symbolic="YES" id="qCT-VY-p7U"/>
+                    <constraint firstItem="0yZ-rZ-Bjz" firstAttribute="leading" secondItem="zIr-LE-o7x" secondAttribute="leading" constant="20" symbolic="YES" id="rxg-Dq-umJ"/>
+                    <constraint firstItem="rFI-Lo-kmG" firstAttribute="leading" secondItem="0yZ-rZ-Bjz" secondAttribute="trailing" constant="8" symbolic="YES" id="sbq-8M-aew"/>
+                    <constraint firstAttribute="trailing" secondItem="RYl-08-Pua" secondAttribute="trailing" constant="20" symbolic="YES" id="zMF-RF-uU6"/>
                 </constraints>
             </view>
-            <connections>
-                <outlet property="delegate" destination="-2" id="4"/>
-            </connections>
+            <point key="canvasLocation" x="-2" y="21.5"/>
         </window>
-        <userDefaultsController representsSharedInstance="YES" id="ygW-7J-pOx"/>
     </objects>
-    <resources>
-        <image name="NSRevealFreestandingTemplate" width="14" height="14"/>
-    </resources>
 </document>

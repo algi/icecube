@@ -11,23 +11,19 @@ extern NSString * const kMavenHomeDefaultsKey;
 
 @interface MBPreferencesWindowController : NSWindowController
 
-@property (weak) IBOutlet NSPopUpButton *mavenPopUp;
-@property (weak) IBOutlet NSTextField *mavenDefaultLocation;
-@property (weak) IBOutlet NSTextField *mavenCustomLocation;
+@property (weak) IBOutlet NSButton *mavenDefaultLocation;
+@property (weak) IBOutlet NSTextField *mavenLocation;
 
-@property (weak) IBOutlet NSPopUpButton *javaPopUp;
-@property (weak) IBOutlet NSTextField *javaDefaultLocation;
-@property (weak) IBOutlet NSTextField *javaCustomLocation;
+@property (weak) IBOutlet NSButton *javaDefaultLocation;
+@property (weak) IBOutlet NSTextField *javaLocation;
 
-@property (copy) NSString *javaHome;
-@property (copy) NSString *mavenHome;
+- (IBAction)selectMavenLocationDidPress:(id)sender;
+- (IBAction)selectJavaLocationDidPress:(id)sender;
+
+- (IBAction)useMavenDefaultLocationDidPress:(id)sender;
+- (IBAction)useJavaDefaultLocationDidPress:(id)sender;
 
 // initializes window with correct NIB name (no other init method should be used)
 - (id)init;
-
-- (IBAction)userDidSelectMavenChoice:(id)sender;
-- (IBAction)userDidSelectJavaChoice:(id)sender;
-- (IBAction)revealMavenHomeInFinder:(id)sender;
-- (IBAction)revealJavaHomeInFinder:(id)sender;
 
 @end
