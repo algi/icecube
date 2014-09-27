@@ -24,12 +24,34 @@ NSString * const kMavenHomeDefaultsKey = @"MavenLocation";
 #pragma mark - User actions -
 - (IBAction)selectMavenLocationDidPress:(id)sender
 {
-    NSLog(@"Not yet supported!");
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    [openPanel setAllowsMultipleSelection:NO];
+
+    [openPanel setCanChooseDirectories:NO];
+    [openPanel setCanChooseFiles:YES];
+
+    [openPanel beginWithCompletionHandler:^(NSInteger result) {
+        if (result == NSFileHandlingPanelOKButton) {
+            NSArray *selectedURLs = [openPanel URLs];
+            [[NSUserDefaults standardUserDefaults] setURL:[selectedURLs firstObject] forKey:kMavenHomeDefaultsKey];
+        }
+    }];
 }
 
 - (IBAction)selectJavaLocationDidPress:(id)sender
 {
-    NSLog(@"Not yet supported!");
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    [openPanel setAllowsMultipleSelection:NO];
+
+    [openPanel setCanChooseDirectories:YES];
+    [openPanel setCanChooseFiles:NO];
+
+    [openPanel beginWithCompletionHandler:^(NSInteger result) {
+        if (result == NSFileHandlingPanelOKButton) {
+            NSArray *selectedURLs = [openPanel URLs];
+            [[NSUserDefaults standardUserDefaults] setURL:[selectedURLs firstObject] forKey:kJavaHomeDefaultsKey];
+        }
+    }];
 }
 
 - (IBAction)useMavenDefaultLocationDidPress:(id)sender
