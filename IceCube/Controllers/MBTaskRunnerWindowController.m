@@ -25,6 +25,8 @@
 @property BOOL taskRunning;
 @property id activity;
 
+@property NSString *uniqueID;
+
 @end
 
 @implementation MBTaskRunnerWindowController
@@ -32,6 +34,9 @@
 - (id)init
 {
     self = [super initWithWindowNibName:@"MBTaskRunnerDocument"];
+    if (self) {
+        _uniqueID = [[NSUUID UUID] UUIDString];
+    }
     return self;
 }
 
@@ -235,6 +240,46 @@
 {
     self.connection.exportedObject = nil;
     [self.connection invalidate];
+}
+
+#pragma mark - Scripting support -
+- (NSUniqueIDSpecifier *)objectSpecifier
+{
+    NSScriptClassDescription *appDescription = (NSScriptClassDescription *)[NSApp classDescription];
+    return [[NSUniqueIDSpecifier alloc] initWithContainerClassDescription:appDescription
+                                                       containerSpecifier:nil
+                                                                      key:@"projects"
+                                                                 uniqueID:self.uniqueID];
+}
+
+- (NSString *)command
+{
+    return [[self document] command];
+}
+
+- (void)setCommand:(NSString *)command
+{
+    [[self document] setCommand:command];
+}
+
+- (NSURL *)workingDirectory
+{
+    return [[self document] workingDirectory];
+}
+
+- (void)setWorkingDirectory:(NSURL *)workingDirectory
+{
+    [[self document] setWorkingDirectory:workingDirectory];
+}
+
+- (void)handleRunProject:(NSScriptCommand *)command
+{
+    [self startTask:command];
+}
+
+- (void)handleStopProject:(NSScriptCommand *)command
+{
+    [self stopTask:command];
 }
 
 @end

@@ -31,6 +31,8 @@
 		56D21D9F17C0D5880060A823 /* MBTaskRunnerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */; };
 		56D470FA19D36B4B00B0798A /* MBTaskRunnerDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D470FC19D36B4B00B0798A /* MBTaskRunnerDocument.xib */; };
 		56D470FD19D36B5400B0798A /* MBPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D470FF19D36B5400B0798A /* MBPreferencesWindowController.xib */; };
+		56EB935819D74AE500988FD9 /* IceCube.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 56EB935619D74AE500988FD9 /* IceCube.sdef */; };
+		56EB935C19D74D3200988FD9 /* MBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EB935B19D74D3200988FD9 /* MBApplication.m */; };
 		56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */; };
 		56F62FFE17EF23F8004DC92E /* MBPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F62FFC17EF23F8004DC92E /* MBPreferencesWindowController.m */; };
 		56F6300517EF34AA004DC92E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568C673817EB7D630095785D /* Foundation.framework */; };
@@ -137,6 +139,9 @@
 		56D4710319D36CF400B0798A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/MBPreferencesWindowController.strings; sourceTree = "<group>"; };
 		56D4710419D36CF400B0798A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56D4710519D36CF400B0798A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = cs; path = cs.lproj/Credits.rtf; sourceTree = "<group>"; };
+		56EB935619D74AE500988FD9 /* IceCube.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IceCube.sdef; sourceTree = "<group>"; };
+		56EB935A19D74D3200988FD9 /* MBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBApplication.h; sourceTree = "<group>"; };
+		56EB935B19D74D3200988FD9 /* MBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBApplication.m; sourceTree = "<group>"; };
 		56F578E21794A5B1007E85A8 /* MBTaskRunnerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskRunnerWindowController.h; sourceTree = "<group>"; };
 		56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerWindowController.m; sourceTree = "<group>"; };
 		56F62FFB17EF23F8004DC92E /* MBPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPreferencesWindowController.h; sourceTree = "<group>"; };
@@ -367,6 +372,8 @@
 			children = (
 				56FE8E96167BA1A70001AAED /* MBAppDelegate.h */,
 				56FE8E97167BA1A70001AAED /* MBAppDelegate.m */,
+				56EB935A19D74D3200988FD9 /* MBApplication.h */,
+				56EB935B19D74D3200988FD9 /* MBApplication.m */,
 				56FE8E99167BA1A70001AAED /* MainMenu.xib */,
 				56D21D2F17BFC6520060A823 /* Images.xcassets */,
 				56F578E11794A584007E85A8 /* Task runner */,
@@ -381,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */,
+				56EB935619D74AE500988FD9 /* IceCube.sdef */,
 				56FE8E8C167BA1A70001AAED /* IceCube-Info.plist */,
 				56FE8E8D167BA1A70001AAED /* InfoPlist.strings */,
 				56FE8E90167BA1A70001AAED /* main.m */,
@@ -575,6 +583,7 @@
 				56D470FD19D36B5400B0798A /* MBPreferencesWindowController.xib in Resources */,
 				56D470FA19D36B4B00B0798A /* MBTaskRunnerDocument.xib in Resources */,
 				56FE8E95167BA1A70001AAED /* Credits.rtf in Resources */,
+				56EB935819D74AE500988FD9 /* IceCube.sdef in Resources */,
 				56D21D3017BFC6520060A823 /* Images.xcassets in Resources */,
 				56FE8E9B167BA1A70001AAED /* MainMenu.xib in Resources */,
 				5632EE2216E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns in Resources */,
@@ -643,6 +652,7 @@
 				56FE8E98167BA1A70001AAED /* MBAppDelegate.m in Sources */,
 				56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */,
 				564FB4A217F1C72E000380F3 /* MBMavenOutputParser.m in Sources */,
+				56EB935C19D74D3200988FD9 /* MBApplication.m in Sources */,
 				56F62FFE17EF23F8004DC92E /* MBPreferencesWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

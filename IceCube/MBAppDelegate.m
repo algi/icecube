@@ -28,8 +28,6 @@
         return;
     }
 
-    id activity = [[NSProcessInfo processInfo] beginActivityWithOptions:NSActivityBackground reason:@"Fetching default JavaHome"];
-
     // register default values for Maven and Java
     NSXPCConnection *connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.JavaHomeService"];
     [connection setRemoteObjectInterface:[NSXPCInterface interfaceWithProtocol:@protocol(MBJavaHomeService)]];
@@ -53,7 +51,6 @@
                                        kJavaHomeDefaultsKey : defaultJavaHome};
         [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaults];
 
-        [[NSProcessInfo processInfo] endActivity:activity];
         [connection invalidate];
     }];
 }
