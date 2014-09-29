@@ -6,11 +6,7 @@ configurations for whole project such as running embedded Jetty, deploying on re
 Application uses NSPropertyListSerialization API for persistent store and XPC framework for secure launch of Maven process.
 
 ## Status
-Current status is beta and it can be tracked in GitHub issues.
+Current status is beta and it can be tracked on my public Wunderlist: https://www.wunderlist.com/list/130580664
  
 # Licence
 MIT
-
-## TODO
-
-See my public Wunderlist: https://www.wunderlist.com/list/130580664
