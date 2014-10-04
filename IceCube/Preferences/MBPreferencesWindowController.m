@@ -14,6 +14,9 @@
 NSString * const kJavaHomeDefaultsKey = @"JavaLocation";
 NSString * const kMavenHomeDefaultsKey = @"MavenLocation";
 
+NSString * const kUseDefaultJavaLocationKey = @"UseDefaultJavaLocation";
+NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
+
 @implementation MBPreferencesWindowController
 
 - (id)init

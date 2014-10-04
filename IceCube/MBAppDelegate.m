@@ -25,6 +25,8 @@
     NSInteger testSuiteFlag = [[NSUserDefaults standardUserDefaults] integerForKey:@"MBDoNotScanForJava"];
     if (testSuiteFlag) {
         NSLog(@"Application will not perform scan for Java home.");
+
+        [MBAppDelegate registerUserDefaultsWithJavaHome:nil];
         return;
     }
 
@@ -37,20 +39,12 @@
     [remoteProxy findDefaultJavaHome:^(NSString *defaultJavaHome, NSError *error) {
 
         if (!defaultJavaHome) {
-
-            // present error to user
             dispatch_sync(dispatch_get_main_queue(), ^{
                 [NSApp presentError:error];
             });
-
-            // fall back to default Java home (which even doesn't need to exist)
-            defaultJavaHome = @"/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home";
         }
 
-        NSDictionary *userDefaults = @{kMavenHomeDefaultsKey: @"/usr/bin/mvn",
-                                       kJavaHomeDefaultsKey : defaultJavaHome};
-        [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaults];
-
+        [MBAppDelegate registerUserDefaultsWithJavaHome:defaultJavaHome];
         [connection invalidate];
     }];
 }
@@ -62,6 +56,23 @@
     }
 
     [[self.preferencesController window] makeKeyAndOrderFront:sender];
+}
+
++ (void)registerUserDefaultsWithJavaHome:(NSString *)javaHome
+{
+    NSString *defaultMavenHome = @"/usr/bin/mvn";
+
+    NSString *defaultJavaHome = javaHome;
+    if (!defaultJavaHome) {
+        defaultJavaHome = @"/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home";
+    }
+
+    NSDictionary *userDefaults = @{kMavenHomeDefaultsKey: defaultMavenHome,
+                                   kJavaHomeDefaultsKey : defaultJavaHome,
+                                   kUseDefaultJavaLocationKey: @(YES),
+                                   kUseDefaultMavenLocationKey: @(YES)};
+
+    [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaults];
 }
 
 @end

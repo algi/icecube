@@ -9,6 +9,9 @@
 extern NSString * const kJavaHomeDefaultsKey;
 extern NSString * const kMavenHomeDefaultsKey;
 
+extern NSString * const kUseDefaultJavaLocationKey;
+extern NSString * const kUseDefaultMavenLocationKey;
+
 @interface MBPreferencesWindowController : NSWindowController
 
 @property (weak) IBOutlet NSButton *mavenDefaultLocation;
