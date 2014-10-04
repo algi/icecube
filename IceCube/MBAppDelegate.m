@@ -22,8 +22,8 @@
 - (void)applicationWillFinishLaunching:(NSNotification *)notification
 {
     // check for test suite flag first
-    NSInteger testSuiteFlag = [[NSUserDefaults standardUserDefaults] integerForKey:@"MBDoNotScanForJava"];
-    if (testSuiteFlag) {
+    NSInteger doNotScanForJava = [[NSUserDefaults standardUserDefaults] integerForKey:@"MBDoNotScanForJava"];
+    if (doNotScanForJava) {
         NSLog(@"Application will not perform scan for Java home.");
 
         [MBAppDelegate registerUserDefaultsWithJavaHome:nil];
