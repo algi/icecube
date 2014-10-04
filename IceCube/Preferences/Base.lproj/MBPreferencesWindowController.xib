@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6249" systemVersion="14A379a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6249"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MBPreferencesWindowController">
@@ -20,28 +20,28 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="686" y="522" width="528" height="169"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="zIr-LE-o7x">
                 <rect key="frame" x="0.0" y="0.0" width="528" height="169"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rFI-Lo-kmG">
-                        <rect key="frame" x="73" y="127" width="362" height="22"/>
+                        <rect key="frame" x="73" y="127" width="360" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="3L2-2G-gLs">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
+                            <binding destination="ygW-7J-pOx" name="value" keyPath="values.MavenLocation" id="lDf-8s-8Se"/>
                             <binding destination="ygW-7J-pOx" name="enabled" keyPath="values.UseDefaultMavenLocation" id="fQd-Ka-aDC">
                                 <dictionary key="options">
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>
                             </binding>
-                            <binding destination="ygW-7J-pOx" name="value" keyPath="values.MavenLocation" id="lDf-8s-8Se"/>
                         </connections>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0yZ-rZ-Bjz">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="0yZ-rZ-Bjz">
                         <rect key="frame" x="18" y="129" width="49" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Maven:" id="tcB-vf-YKX">
                             <font key="font" metaFont="system"/>
@@ -50,7 +50,7 @@
                         </textFieldCell>
                     </textField>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="8xt-7N-wwC">
-                        <rect key="frame" x="71" y="103" width="147" height="18"/>
+                        <rect key="frame" x="71" y="103" width="145" height="18"/>
                         <buttonCell key="cell" type="check" title="Use default location" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ilF-LY-88g">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -61,22 +61,22 @@
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a13-zB-RlE">
-                        <rect key="frame" x="73" y="75" width="362" height="22"/>
+                        <rect key="frame" x="73" y="75" width="360" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="R0r-GU-d67">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
+                            <binding destination="ygW-7J-pOx" name="value" keyPath="values.JavaLocation" id="W6s-NM-c14"/>
                             <binding destination="ygW-7J-pOx" name="enabled" keyPath="values.UseDefaultJavaLocation" id="LMy-LU-Qny">
                                 <dictionary key="options">
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>
                             </binding>
-                            <binding destination="ygW-7J-pOx" name="value" keyPath="values.JavaLocation" id="W6s-NM-c14"/>
                         </connections>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vB2-NJ-7Z2">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="vB2-NJ-7Z2">
                         <rect key="frame" x="18" y="77" width="49" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Java:" id="AJU-i7-wqe">
                             <font key="font" metaFont="system"/>
@@ -85,7 +85,7 @@
                         </textFieldCell>
                     </textField>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="eWk-je-pdE">
-                        <rect key="frame" x="71" y="51" width="147" height="18"/>
+                        <rect key="frame" x="71" y="51" width="145" height="18"/>
                         <buttonCell key="cell" type="check" title="Use default location" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="R3N-ij-doB">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -96,7 +96,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RYl-08-Pua">
-                        <rect key="frame" x="437" y="68" width="77" height="32"/>
+                        <rect key="frame" x="435" y="68" width="79" height="32"/>
                         <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wfK-qb-XVq">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -111,7 +111,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Paj-mC-Mr6">
-                        <rect key="frame" x="437" y="121" width="77" height="32"/>
+                        <rect key="frame" x="435" y="121" width="79" height="32"/>
                         <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xPZ-jz-icl">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
