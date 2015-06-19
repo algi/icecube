@@ -19,8 +19,11 @@
     NSArray *orderedDocuments = [[NSApplication sharedApplication] orderedDocuments];
 
     for (MBTaskRunnerDocument *document in orderedDocuments) {
-        MBTaskRunnerWindowController *controller = [[document windowControllers] firstObject];
-        [result addObject:controller];
+        for (NSWindowController *controller in [document windowControllers]) {
+            if ([controller isKindOfClass:[MBTaskRunnerWindowController class]]) {
+                [result addObject:controller];
+            }
+        }
     }
 
     return result;
