@@ -282,4 +282,9 @@
     [self stopTask:command];
 }
 
+- (void)dealloc
+{
+    self.outputTextView = nil;
+}
+
 @end
