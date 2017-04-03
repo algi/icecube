@@ -31,6 +31,10 @@
 		56D21D9F17C0D5880060A823 /* MBTaskRunnerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */; };
 		56D470FA19D36B4B00B0798A /* MBTaskRunnerDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D470FC19D36B4B00B0798A /* MBTaskRunnerDocument.xib */; };
 		56D470FD19D36B5400B0798A /* MBPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D470FF19D36B5400B0798A /* MBPreferencesWindowController.xib */; };
+		56E16B281E92F64B00FEE789 /* IceCubeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E16B271E92F64B00FEE789 /* IceCubeAction.m */; };
+		56E16B2B1E92F64B00FEE789 /* main.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E16B291E92F64B00FEE789 /* main.xib */; };
+		56E16B2F1E92F64B00FEE789 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56E16B2D1E92F64B00FEE789 /* InfoPlist.strings */; };
+		56E16B361E92F7A700FEE789 /* IceCubeAction.action in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56E16B241E92F64B00FEE789 /* IceCubeAction.action */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		56EB935819D74AE500988FD9 /* IceCube.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 56EB935619D74AE500988FD9 /* IceCube.sdef */; };
 		56EB935C19D74D3200988FD9 /* MBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EB935B19D74D3200988FD9 /* MBApplication.m */; };
 		56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */; };
@@ -70,6 +74,13 @@
 			remoteGlobalIDString = 568C673617EB7D630095785D;
 			remoteInfo = MavenService;
 		};
+		56E16B331E92F75300FEE789 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56FE8E77167BA1A70001AAED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56E16B231E92F64B00FEE789;
+			remoteInfo = IceCubeAction;
+		};
 		56FE8EA8167BA1A80001AAED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56FE8E77167BA1A70001AAED /* Project object */;
@@ -88,6 +99,16 @@
 			files = (
 				560E703917EF35DA004BC832 /* cz.boucekm.JavaHomeService.xpc in CopyFiles */,
 				568C674717EB7E5B0095785D /* cz.boucekm.MavenService.xpc in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56E16B351E92F78800FEE789 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = ../Library/Automator;
+			dstSubfolderSpec = 7;
+			files = (
+				56E16B361E92F7A700FEE789 /* IceCubeAction.action in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +160,12 @@
 		56D4710319D36CF400B0798A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/MBPreferencesWindowController.strings; sourceTree = "<group>"; };
 		56D4710419D36CF400B0798A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56D4710519D36CF400B0798A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = cs; path = cs.lproj/Credits.rtf; sourceTree = "<group>"; };
+		56E16B241E92F64B00FEE789 /* IceCubeAction.action */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IceCubeAction.action; sourceTree = BUILT_PRODUCTS_DIR; };
+		56E16B261E92F64B00FEE789 /* IceCubeAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IceCubeAction.h; sourceTree = "<group>"; };
+		56E16B271E92F64B00FEE789 /* IceCubeAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IceCubeAction.m; sourceTree = "<group>"; };
+		56E16B2A1E92F64B00FEE789 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/main.xib; sourceTree = "<group>"; };
+		56E16B2C1E92F64B00FEE789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56E16B2E1E92F64B00FEE789 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56EB935619D74AE500988FD9 /* IceCube.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IceCube.sdef; sourceTree = "<group>"; };
 		56EB935A19D74D3200988FD9 /* MBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBApplication.h; sourceTree = "<group>"; };
 		56EB935B19D74D3200988FD9 /* MBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBApplication.m; sourceTree = "<group>"; };
@@ -175,6 +202,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				568C673917EB7D630095785D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56E16B201E92F64B00FEE789 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +309,18 @@
 			name = "Task implementation";
 			sourceTree = "<group>";
 		};
+		56E16B251E92F64B00FEE789 /* IceCubeAction */ = {
+			isa = PBXGroup;
+			children = (
+				56E16B261E92F64B00FEE789 /* IceCubeAction.h */,
+				56E16B271E92F64B00FEE789 /* IceCubeAction.m */,
+				56E16B291E92F64B00FEE789 /* main.xib */,
+				56E16B2C1E92F64B00FEE789 /* Info.plist */,
+				56E16B2D1E92F64B00FEE789 /* InfoPlist.strings */,
+			);
+			path = IceCubeAction;
+			sourceTree = "<group>";
+		};
 		56F578E11794A584007E85A8 /* Task runner */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +373,7 @@
 				56FE8EAA167BA1A80001AAED /* IceCubeTests */,
 				568C673A17EB7D630095785D /* MavenService */,
 				56F6300617EF34AA004DC92E /* JavaHomeService */,
+				56E16B251E92F64B00FEE789 /* IceCubeAction */,
 				56FE8E83167BA1A70001AAED /* Frameworks */,
 				56FE8E81167BA1A70001AAED /* Products */,
 				569E8930179DE20A006C5326 /* LICENSE */,
@@ -341,6 +388,7 @@
 				56FE8EA4167BA1A80001AAED /* IceCubeTests.xctest */,
 				568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */,
 				56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */,
+				56E16B241E92F64B00FEE789 /* IceCubeAction.action */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -445,6 +493,24 @@
 			productReference = 568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */;
 			productType = "com.apple.product-type.bundle";
 		};
+		56E16B231E92F64B00FEE789 /* IceCubeAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56E16B321E92F64B00FEE789 /* Build configuration list for PBXNativeTarget "IceCubeAction" */;
+			buildPhases = (
+				56E16B1F1E92F64B00FEE789 /* Sources */,
+				56E16B201E92F64B00FEE789 /* Frameworks */,
+				56E16B211E92F64B00FEE789 /* Resources */,
+				56E16B221E92F64B00FEE789 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IceCubeAction;
+			productName = IceCubeAction;
+			productReference = 56E16B241E92F64B00FEE789 /* IceCubeAction.action */;
+			productType = "com.apple.product-type.bundle";
+		};
 		56F6300317EF34AA004DC92E /* JavaHomeService */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56F6300F17EF34AA004DC92E /* Build configuration list for PBXNativeTarget "JavaHomeService" */;
@@ -470,10 +536,12 @@
 				56FE8E7D167BA1A70001AAED /* Frameworks */,
 				56FE8E7E167BA1A70001AAED /* Resources */,
 				568C674617EB7E2A0095785D /* CopyFiles */,
+				56E16B351E92F78800FEE789 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				56E16B341E92F75300FEE789 /* PBXTargetDependency */,
 				560E703817EF35AE004BC832 /* PBXTargetDependency */,
 				568C674917EB7E750095785D /* PBXTargetDependency */,
 			);
@@ -521,6 +589,11 @@
 							};
 						};
 					};
+					56E16B231E92F64B00FEE789 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 72CQ273HEW;
+						ProvisioningStyle = Automatic;
+					};
 					56F6300317EF34AA004DC92E = {
 						DevelopmentTeam = 72CQ273HEW;
 						ProvisioningStyle = Automatic;
@@ -558,6 +631,7 @@
 				56FE8EA3167BA1A80001AAED /* IceCubeTests */,
 				568C673617EB7D630095785D /* MavenService */,
 				56F6300317EF34AA004DC92E /* JavaHomeService */,
+				56E16B231E92F64B00FEE789 /* IceCubeAction */,
 			);
 		};
 /* End PBXProject section */
@@ -568,6 +642,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				568C673F17EB7D630095785D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56E16B211E92F64B00FEE789 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56E16B2B1E92F64B00FEE789 /* main.xib in Resources */,
+				56E16B2F1E92F64B00FEE789 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +695,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		56E16B221E92F64B00FEE789 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "amlint \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}\"";
+		};
 		56FE8EA2167BA1A80001AAED /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -635,6 +731,14 @@
 				56630A0917ECB71C005A2BEC /* NSTask+MBTaskOutputParser.m in Sources */,
 				568C674217EB7D630095785D /* main.m in Sources */,
 				568C675117EC688D0095785D /* MBMavenServiceTask.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56E16B1F1E92F64B00FEE789 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56E16B281E92F64B00FEE789 /* IceCubeAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,6 +793,11 @@
 			target = 568C673617EB7D630095785D /* MavenService */;
 			targetProxy = 568C674817EB7E750095785D /* PBXContainerItemProxy */;
 		};
+		56E16B341E92F75300FEE789 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56E16B231E92F64B00FEE789 /* IceCubeAction */;
+			targetProxy = 56E16B331E92F75300FEE789 /* PBXContainerItemProxy */;
+		};
 		56FE8EA9167BA1A80001AAED /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 56FE8E7F167BA1A70001AAED /* IceCube */;
@@ -722,6 +831,22 @@
 				56D4710319D36CF400B0798A /* cs */,
 			);
 			name = MBPreferencesWindowController.xib;
+			sourceTree = "<group>";
+		};
+		56E16B291E92F64B00FEE789 /* main.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				56E16B2A1E92F64B00FEE789 /* Base */,
+			);
+			name = main.xib;
+			sourceTree = "<group>";
+		};
+		56E16B2D1E92F64B00FEE789 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				56E16B2E1E92F64B00FEE789 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		56F6300917EF34AA004DC92E /* InfoPlist.strings */ = {
@@ -826,6 +951,63 @@
 				PRODUCT_NAME = "cz.boucekm.$(TARGET_NAME:rfc1034identifier)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = xpc;
+			};
+			name = Release;
+		};
+		56E16B301E92F64B00FEE789 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 72CQ273HEW;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = IceCubeAction/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Automator";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_OSAFLAGS = "-x -t 0 -c 0";
+				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.IceCubeAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = action;
+			};
+			name = Debug;
+		};
+		56E16B311E92F64B00FEE789 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 72CQ273HEW;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = IceCubeAction/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Automator";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_OSAFLAGS = "-x -t 0 -c 0";
+				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.IceCubeAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = action;
 			};
 			name = Release;
 		};
@@ -1060,6 +1242,15 @@
 			buildConfigurations = (
 				568C674417EB7D630095785D /* Debug */,
 				568C674517EB7D630095785D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56E16B321E92F64B00FEE789 /* Build configuration list for PBXNativeTarget "IceCubeAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56E16B301E92F64B00FEE789 /* Debug */,
+				56E16B311E92F64B00FEE789 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
