@@ -22,7 +22,10 @@
 	<key>AMCategory</key>
 	<string>AMCategoryDeveloper</string>
 	<key>AMDefaultParameters</key>
-	<dict/>
+	<dict>
+		<key>jmeno</key>
+		<string>Nový text</string>
+	</dict>
 	<key>AMDescription</key>
 	<dict>
 		<key>AMDAlert</key>
