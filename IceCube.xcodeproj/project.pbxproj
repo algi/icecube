@@ -557,7 +557,6 @@
 				56FE8E9F167BA1A80001AAED /* Sources */,
 				56FE8EA0167BA1A80001AAED /* Frameworks */,
 				56FE8EA1167BA1A80001AAED /* Resources */,
-				56FE8EA2167BA1A80001AAED /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -707,19 +706,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "amlint \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}\"";
-		};
-		56FE8EA2167BA1A80001AAED /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
