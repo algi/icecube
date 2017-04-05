@@ -12,17 +12,13 @@
 
 -(id)runWithInput:(id)input error:(NSError * _Nullable __autoreleasing *)error
 {
-    if ([input isKindOfClass:[NSString class]]) {
-        [self logMessageWithLevel:AMLogLevelInfo format:@"Vstupní text: %@", [input string]];
-    }
-    else if ([input isKindOfClass:[NSArray class]]) {
-        [self logMessageWithLevel:AMLogLevelInfo format:@"První položka: %@", [input firstObject]];
-    }
-    else {
-        [self logMessageWithLevel:AMLogLevelWarn format:@"Nerozpoznaný typ vstupu: %@, hodnota: %@", [input class], input];
-    }
+    NSString *mavenCommand = self.parameters[@"mavenCommand"];
 
-    [self logMessageWithLevel:AMLogLevelInfo format:@"Text field: %@", [self.textField stringValue]];
+    if (mavenCommand == nil) {
+        [self logMessageWithLevel:AMLogLevelInfo format:@"Nebyl zadán příkaz pro Maven, bude použit výchozí příkaz \"clean install\"..."];
+
+        mavenCommand = @"clean install";
+    }
 
     return input;
 }

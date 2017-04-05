@@ -12,6 +12,4 @@
 
 @interface IceCubeAction : AMBundleAction
 
-@property IBOutlet NSTextField *textField;
-
 @end
