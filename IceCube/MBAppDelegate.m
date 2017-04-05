@@ -60,7 +60,7 @@
 
 + (void)registerUserDefaultsWithJavaHome:(NSString *)javaHome
 {
-    NSString *defaultMavenHome = @"/usr/bin/mvn";
+    NSString *defaultMavenHome = @"/usr/share/maven/bin/mvn";
 
     NSString *defaultJavaHome = javaHome;
     if (!defaultJavaHome) {

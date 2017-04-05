@@ -8,8 +8,8 @@
 /* Class = "NSTextFieldCell"; title = "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"; ObjectID = "Mr5-de-GLV"; */
 "Mr5-de-GLV.title" = "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home";
 
-/* Class = "NSTextFieldCell"; title = "/usr/bin/mvn"; ObjectID = "OZZ-vd-Vzo"; */
-"OZZ-vd-Vzo.title" = "/usr/bin/mvn";
+/* Class = "NSTextFieldCell"; title = "/usr/share/maven/bin/mvn"; ObjectID = "OZZ-vd-Vzo"; */
+"OZZ-vd-Vzo.title" = "/usr/share/maven/bin/mvn";
 
 /* Class = "NSMenu"; title = "OtherViews"; ObjectID = "R6o-HI-prr"; */
 "R6o-HI-prr.title" = "OtherViews";
