@@ -10,7 +10,7 @@
 		<true/>
 		<key>Types</key>
 		<array>
-			<string>*</string>
+			<string>com.apple.cocoa.path</string>
 		</array>
 	</dict>
 	<key>AMApplication</key>
@@ -65,7 +65,7 @@
 		<string>List</string>
 		<key>Types</key>
 		<array>
-			<string>*</string>
+			<string>com.apple.cocoa.path</string>
 		</array>
 	</dict>
 	<key>AMRequiredResources</key>
