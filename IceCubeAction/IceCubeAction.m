@@ -33,17 +33,17 @@ static NSString * const kDefaultMavenPath = @"/usr/share/maven/bin/mvn";
                            format:@"Nebyla zadána cesta pro Maven, bude použita výchozí hodnota: %@", kDefaultMavenPath];
     }
 
-    // POM files
+    // Error log path
+    NSString *errorLogPath = nil;
+    if ([self.useErrorLogging state] == NSOnState) {
+        errorLogPath = self.parameters[@"errorLogPath"];
+    }
+
     NSArray<NSString *> *pomFiles = input;
-
-    [self logMessageWithLevel:AMLogLevelInfo format:@"Maven command: %@", mavenCommand];
-    [self logMessageWithLevel:AMLogLevelInfo format:@"Maven path: %@", mavenPath];
-    [self logMessageWithLevel:AMLogLevelInfo format:@"Files: %@", [pomFiles componentsJoinedByString:@", "]];
-
-    return [self launchMaven:mavenPath command:mavenCommand forFiles:pomFiles];
+    return [self launchMaven:mavenPath command:mavenCommand forFiles:pomFiles errorLogPath:errorLogPath];
 }
 
--(NSArray<NSString *> *)launchMaven:(NSString *)mavenPath command:(NSString *)command forFiles:(NSArray<NSString *> *)pomFiles
+-(NSArray<NSString *> *)launchMaven:(NSString *)mavenPath command:(NSString *)command forFiles:(NSArray<NSString *> *)pomFiles errorLogPath:(NSString *)errorLogPath
 {
     NSMutableArray *successfulBuilds = [[NSMutableArray alloc] init];
 
@@ -54,8 +54,7 @@ static NSString * const kDefaultMavenPath = @"/usr/share/maven/bin/mvn";
             [successfulBuilds addObject:pomFilePath];
         }
         else {
-            // TODO: add UI with checkbox for error output + output folder picker
-            [self writeOutputFromTask:task toTargetFolder:@"~/Desktop/"];
+            [self writeOutputFromTask:task toTargetFolder:errorLogPath];
             [self logMessageWithLevel:AMLogLevelWarn format:@"Neúspěšný build projektu: %@", pomFilePath];
         }
     }
@@ -86,15 +85,41 @@ static NSString * const kDefaultMavenPath = @"/usr/share/maven/bin/mvn";
     return task;
 }
 
--(void)writeOutputFromTask:(NSTask *)task toTargetFolder:(NSString *)folder
+-(void)writeOutputFromTask:(NSTask *)task toTargetFolder:(NSString *)outputFolderPath
 {
+    if (outputFolderPath == nil) {
+        return;
+    }
+
     NSPipe *pipe = task.standardOutput;
 
-    NSData *data = [[pipe fileHandleForReading] readDataToEndOfFile];
-    NSString *output = [NSString stringWithUTF8String:[data bytes]];
+    NSData *rawOutputData = [[pipe fileHandleForReading] readDataToEndOfFile];
+    NSString *outputData = [NSString stringWithUTF8String:[rawOutputData bytes]];
 
-    NSString *outputFileName = [folder stringByAppendingPathComponent:@"output.log"]; // TODO: unique name
-    [output writeToFile:outputFileName atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    NSString *errorLogPath = [self uniqueErrorLogForPath:outputFolderPath];
+
+    NSError *error = nil;
+    BOOL fileCreated = [outputData writeToFile:errorLogPath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    if (fileCreated) {
+        [self logMessageWithLevel:AMLogLevelInfo format:@"Vytvořen chybový soubor: %@", errorLogPath];
+    }
+    else {
+        [self logMessageWithLevel:AMLogLevelWarn format:@"Nepodařilo se vytvořit chybový soubor: %@, důvod: %@", errorLogPath, [error description]];
+    }
+}
+
+-(NSString *)uniqueErrorLogForPath:(NSString *)path
+{
+    CFUUIDRef uuid = CFUUIDCreate(NULL);
+    CFStringRef uuidString = CFUUIDCreateString(NULL, uuid);
+
+    NSString *fileName = [NSString stringWithFormat:@"maven-error-%@.log", uuidString];
+    NSString *errorLogPath = [path stringByAppendingPathComponent:fileName];
+
+    CFRelease(uuid);
+    CFRelease(uuidString);
+
+    return errorLogPath;
 }
 
 @end

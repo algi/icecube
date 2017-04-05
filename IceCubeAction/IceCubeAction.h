@@ -12,4 +12,6 @@
 
 @interface IceCubeAction : AMBundleAction
 
+@property (weak) IBOutlet NSButton *useErrorLogging;
+
 @end
