@@ -23,6 +23,8 @@
 	<string>AMCategoryDeveloper</string>
 	<key>AMDefaultParameters</key>
 	<dict>
+		<key>mavenPath</key>
+		<string>/usr/share/maven/bin/mvn</string>
 		<key>mavenCommand</key>
 		<string>clean install</string>
 	</dict>
@@ -35,7 +37,7 @@
 		<key>AMDNote</key>
 		<string>Akce pro svůj vyžaduje nainstalovaný Maven.</string>
 		<key>AMDOptions</key>
-		<string>Cílový příkaz lze nastavit v poli Maven bez názvu programu (např. "clean install").</string>
+		<string>Cílový příkaz lze nastavit v poli Maven bez názvu programu (např. &quot;clean install&quot;).</string>
 		<key>AMDRelatedActions</key>
 		<string></string>
 		<key>AMDRequires</key>

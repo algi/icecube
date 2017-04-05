@@ -15,10 +15,25 @@
     NSString *mavenCommand = self.parameters[@"mavenCommand"];
 
     if (mavenCommand == nil) {
-        [self logMessageWithLevel:AMLogLevelInfo format:@"Nebyl zadán příkaz pro Maven, bude použit výchozí příkaz \"clean install\"..."];
+        NSString *defaultMavenCommand = @"clean install";
 
-        mavenCommand = @"clean install";
+        [self logMessageWithLevel:AMLogLevelInfo format:@"Nebyl zadán příkaz pro Maven, bude použit výchozí příkaz \"%@\"...", defaultMavenCommand];
+
+        mavenCommand = defaultMavenCommand;
     }
+
+    NSString *mavenPath = self.parameters[@"mavenPath"];
+
+    if (mavenPath == nil) {
+        NSString *defaultMavenPath = @"/usr/share/maven/bin/mvn";
+
+        [self logMessageWithLevel:AMLogLevelInfo format:@"Nebyla zadána cesta pro Maven, bude použita výchozí hodnota: %@", defaultMavenPath];
+
+        mavenPath = defaultMavenPath;
+    }
+
+    [self logMessageWithLevel:AMLogLevelInfo format:@"Maven command: %@", mavenCommand];
+    [self logMessageWithLevel:AMLogLevelInfo format:@"Maven path: %@", mavenPath];
 
     return input;
 }
