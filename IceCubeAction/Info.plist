@@ -14,7 +14,7 @@
 		</array>
 	</dict>
 	<key>AMApplication</key>
-	<string>(* Primary Application used by this action goes here. *)</string>
+	<string>IceCube</string>
 	<key>AMCanShowSelectedItemsWhenRun</key>
 	<false/>
 	<key>AMCanShowWhenRun</key>
@@ -29,28 +29,32 @@
 	<key>AMDescription</key>
 	<dict>
 		<key>AMDAlert</key>
-		<string>(* AMDAlert text goes here. (optional) *)</string>
+		<string></string>
 		<key>AMDInput</key>
-		<string>Soubor pom.xml</string>
+		<string>Vstup je seznam souborů (pom.xml).</string>
 		<key>AMDNote</key>
-		<string>(* AMDNote text goes here. (optional) *)</string>
+		<string>Akce pro svůj vyžaduje nainstalovaný Maven.</string>
 		<key>AMDOptions</key>
-		<string>(* AMDOptions text to further explain configuration options in the UI goes here. (optional) *)</string>
+		<string>Cílový příkaz lze nastavit v poli Maven bez názvu programu (např. "clean install").</string>
 		<key>AMDRelatedActions</key>
-		<string>(* AMDRelatedActions bundle ids go here. (optional) *)</string>
+		<string></string>
 		<key>AMDRequires</key>
-		<string>(* AMDRequires text to explain anything outside of Automator required for the action's operation, e.g. a web page open in Safari, goes here. (optional) *)</string>
+		<string></string>
 		<key>AMDResult</key>
-		<string>(* AMDResult text to further explain the types provided as output goes here. (optional) *)</string>
+		<string>Výstupem akce je seznam POM souborů, které akce úspěšně provedla.</string>
 		<key>AMDSummary</key>
-		<string>(* AMDSummary text to explain what your action does goes here. *)</string>
+		<string>Provede zadaný Maven příkaz pro zvolený soubor nebo soubory.</string>
 		<key>AMDWebsite</key>
-		<string>(* AMDWebsite URL to additional information or documentation for the action goes here. (optional) *)</string>
+		<string>https://medium.com/@mboucek/</string>
 	</dict>
 	<key>AMIconName</key>
 	<string>Icons-Land-Weather-Ice</string>
 	<key>AMKeywords</key>
-	<array/>
+	<array>
+		<string>Maven</string>
+		<string>mvn</string>
+		<string>Java</string>
+	</array>
 	<key>AMName</key>
 	<string>IceCubeAction</string>
 	<key>AMProvides</key>
