@@ -10,26 +10,27 @@
 
 @implementation IceCubeAction
 
+static NSString * const kDefaultMavenCommand = @"clean install";
+static NSString * const kDefaultMavenPath = @"/usr/share/maven/bin/mvn";
+
 -(id)runWithInput:(id)input error:(NSError * _Nullable __autoreleasing *)error
 {
+    // Maven command
     NSString *mavenCommand = self.parameters[@"mavenCommand"];
-
     if (mavenCommand == nil) {
-        NSString *defaultMavenCommand = @"clean install";
+        mavenCommand = kDefaultMavenCommand;
 
-        [self logMessageWithLevel:AMLogLevelInfo format:@"Nebyl zadán příkaz pro Maven, bude použit výchozí příkaz \"%@\"...", defaultMavenCommand];
-
-        mavenCommand = defaultMavenCommand;
+        [self logMessageWithLevel:AMLogLevelInfo
+                           format:@"Nebyl zadán příkaz pro Maven, bude použit výchozí příkaz: %@", kDefaultMavenCommand];
     }
 
+    // Maven path
     NSString *mavenPath = self.parameters[@"mavenPath"];
-
     if (mavenPath == nil) {
-        NSString *defaultMavenPath = @"/usr/share/maven/bin/mvn";
+        mavenPath = kDefaultMavenPath;
 
-        [self logMessageWithLevel:AMLogLevelInfo format:@"Nebyla zadána cesta pro Maven, bude použita výchozí hodnota: %@", defaultMavenPath];
-
-        mavenPath = defaultMavenPath;
+        [self logMessageWithLevel:AMLogLevelInfo
+                           format:@"Nebyla zadána cesta pro Maven, bude použita výchozí hodnota: %@", kDefaultMavenPath];
     }
 
     [self logMessageWithLevel:AMLogLevelInfo format:@"Maven command: %@", mavenCommand];
