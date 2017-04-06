@@ -11,20 +11,24 @@
 			<array>
 				<string>iceproj</string>
 			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Icons-Land-Weather-Ice</string>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
-				<string>application/octet-stream</string>
+				<string>application/xml</string>
 			</array>
 			<key>CFBundleTypeName</key>
 			<string>IceCube project</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>cz.boucekm.icecube-proj</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<integer>0</integer>
 			<key>NSDocumentClass</key>
 			<string>MBTaskRunnerDocument</string>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
@@ -57,5 +61,27 @@
 	<string>MBApplication</string>
 	<key>OSAScriptingDefinition</key>
 	<string>IceCube.sdef</string>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>IceCube project</string>
+			<key>UTTypeIconFile</key>
+			<string>Icons-Land-Weather-Ice</string>
+			<key>UTTypeIdentifier</key>
+			<string>cz.boucekm.icecube-proj</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>iceproj</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>

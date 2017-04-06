@@ -10,6 +10,7 @@
 		560E703917EF35DA004BC832 /* cz.boucekm.JavaHomeService.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		560E703C17EF4010004BC832 /* MBJavaHomeServiceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 560E703B17EF4010004BC832 /* MBJavaHomeServiceTask.m */; };
 		5632EE2216E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */; };
+		564E05A91E96CFF1008E4F1C /* IceCubeSpotlight.mdimporter in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56ADBB6F1E959967003471B4 /* IceCubeSpotlight.mdimporter */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		564FB49217F1C62F000380F3 /* build-failure-no-java_home.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48317F1C62F000380F3 /* build-failure-no-java_home.txt */; };
 		564FB49317F1C62F000380F3 /* build-failure-no-pom.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48417F1C62F000380F3 /* build-failure-no-pom.txt */; };
 		564FB49417F1C62F000380F3 /* build-failure-no-project.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48517F1C62F000380F3 /* build-failure-no-project.txt */; };
@@ -28,6 +29,8 @@
 		568C674217EB7D630095785D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 568C674117EB7D630095785D /* main.m */; };
 		568C674717EB7E5B0095785D /* cz.boucekm.MavenService.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		568C675117EC688D0095785D /* MBMavenServiceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 568C675017EC688D0095785D /* MBMavenServiceTask.m */; };
+		56ADBB731E959967003471B4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 56ADBB721E959967003471B4 /* main.c */; };
+		56ADBB751E959967003471B4 /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 56ADBB741E959967003471B4 /* GetMetadataForFile.m */; };
 		56D21D3017BFC6520060A823 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D21D2F17BFC6520060A823 /* Images.xcassets */; };
 		56D21D9F17C0D5880060A823 /* MBTaskRunnerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */; };
 		56D470FA19D36B4B00B0798A /* MBTaskRunnerDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D470FC19D36B4B00B0798A /* MBTaskRunnerDocument.xib */; };
@@ -75,6 +78,13 @@
 			remoteGlobalIDString = 568C673617EB7D630095785D;
 			remoteInfo = MavenService;
 		};
+		56ADBB7B1E959968003471B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56FE8E77167BA1A70001AAED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56ADBB6E1E959967003471B4;
+			remoteInfo = IceCubeSpotlight;
+		};
 		56E16B331E92F75300FEE789 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56FE8E77167BA1A70001AAED /* Project object */;
@@ -92,6 +102,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		564E05A81E96CFDD008E4F1C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = ../Library/Spotlight;
+			dstSubfolderSpec = 7;
+			files = (
+				564E05A91E96CFF1008E4F1C /* IceCubeSpotlight.mdimporter in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		568C674617EB7E2A0095785D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,6 +172,10 @@
 		569E8930179DE20A006C5326 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		56AB1B8716E3BFB000831747 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		56AB1B8916E48B3300831747 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		56ADBB6F1E959967003471B4 /* IceCubeSpotlight.mdimporter */ = {isa = PBXFileReference; explicitFileType = "wrapper.spotlight-importer"; includeInIndex = 0; path = IceCubeSpotlight.mdimporter; sourceTree = BUILT_PRODUCTS_DIR; };
+		56ADBB721E959967003471B4 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		56ADBB741E959967003471B4 /* GetMetadataForFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetMetadataForFile.m; sourceTree = "<group>"; };
+		56ADBB7A1E959968003471B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56D21D2F17BFC6520060A823 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		56D21D9C17C0D5880060A823 /* MBTaskRunnerDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskRunnerDocument.h; sourceTree = "<group>"; };
 		56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerDocument.m; sourceTree = "<group>"; };
@@ -203,6 +227,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				568C673917EB7D630095785D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56ADBB6C1E959967003471B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +341,24 @@
 			name = "Task implementation";
 			sourceTree = "<group>";
 		};
+		56ADBB701E959967003471B4 /* IceCubeSpotlight */ = {
+			isa = PBXGroup;
+			children = (
+				56ADBB741E959967003471B4 /* GetMetadataForFile.m */,
+				56ADBB7A1E959968003471B4 /* Info.plist */,
+				56ADBB711E959967003471B4 /* Supporting Files */,
+			);
+			path = IceCubeSpotlight;
+			sourceTree = "<group>";
+		};
+		56ADBB711E959967003471B4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				56ADBB721E959967003471B4 /* main.c */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		56E16B251E92F64B00FEE789 /* IceCubeAction */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +424,7 @@
 				568C673A17EB7D630095785D /* MavenService */,
 				56F6300617EF34AA004DC92E /* JavaHomeService */,
 				56E16B251E92F64B00FEE789 /* IceCubeAction */,
+				56ADBB701E959967003471B4 /* IceCubeSpotlight */,
 				56FE8E83167BA1A70001AAED /* Frameworks */,
 				56FE8E81167BA1A70001AAED /* Products */,
 				569E8930179DE20A006C5326 /* LICENSE */,
@@ -390,6 +440,7 @@
 				568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */,
 				56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */,
 				56E16B241E92F64B00FEE789 /* IceCubeAction.action */,
+				56ADBB6F1E959967003471B4 /* IceCubeSpotlight.mdimporter */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -494,6 +545,23 @@
 			productReference = 568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */;
 			productType = "com.apple.product-type.bundle";
 		};
+		56ADBB6E1E959967003471B4 /* IceCubeSpotlight */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56ADBB801E959968003471B4 /* Build configuration list for PBXNativeTarget "IceCubeSpotlight" */;
+			buildPhases = (
+				56ADBB6B1E959967003471B4 /* Sources */,
+				56ADBB6C1E959967003471B4 /* Frameworks */,
+				56ADBB6D1E959967003471B4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IceCubeSpotlight;
+			productName = IceCubeSpotlight;
+			productReference = 56ADBB6F1E959967003471B4 /* IceCubeSpotlight.mdimporter */;
+			productType = "com.apple.product-type.spotlight-importer";
+		};
 		56E16B231E92F64B00FEE789 /* IceCubeAction */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56E16B321E92F64B00FEE789 /* Build configuration list for PBXNativeTarget "IceCubeAction" */;
@@ -538,6 +606,7 @@
 				56FE8E7E167BA1A70001AAED /* Resources */,
 				568C674617EB7E2A0095785D /* CopyFiles */,
 				56E16B351E92F78800FEE789 /* CopyFiles */,
+				564E05A81E96CFDD008E4F1C /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -545,6 +614,7 @@
 				56E16B341E92F75300FEE789 /* PBXTargetDependency */,
 				560E703817EF35AE004BC832 /* PBXTargetDependency */,
 				568C674917EB7E750095785D /* PBXTargetDependency */,
+				56ADBB7C1E959968003471B4 /* PBXTargetDependency */,
 			);
 			name = IceCube;
 			productName = IceCube;
@@ -589,6 +659,11 @@
 							};
 						};
 					};
+					56ADBB6E1E959967003471B4 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 72CQ273HEW;
+						ProvisioningStyle = Automatic;
+					};
 					56E16B231E92F64B00FEE789 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 72CQ273HEW;
@@ -632,6 +707,7 @@
 				568C673617EB7D630095785D /* MavenService */,
 				56F6300317EF34AA004DC92E /* JavaHomeService */,
 				56E16B231E92F64B00FEE789 /* IceCubeAction */,
+				56ADBB6E1E959967003471B4 /* IceCubeSpotlight */,
 			);
 		};
 /* End PBXProject section */
@@ -642,6 +718,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				568C673F17EB7D630095785D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56ADBB6D1E959967003471B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -722,6 +805,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		56ADBB6B1E959967003471B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56ADBB731E959967003471B4 /* main.c in Sources */,
+				56ADBB751E959967003471B4 /* GetMetadataForFile.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56E16B1F1E92F64B00FEE789 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -780,6 +872,11 @@
 			isa = PBXTargetDependency;
 			target = 568C673617EB7D630095785D /* MavenService */;
 			targetProxy = 568C674817EB7E750095785D /* PBXContainerItemProxy */;
+		};
+		56ADBB7C1E959968003471B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56ADBB6E1E959967003471B4 /* IceCubeSpotlight */;
+			targetProxy = 56ADBB7B1E959968003471B4 /* PBXContainerItemProxy */;
 		};
 		56E16B341E92F75300FEE789 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -939,6 +1036,67 @@
 				PRODUCT_NAME = "cz.boucekm.$(TARGET_NAME:rfc1034identifier)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = xpc;
+			};
+			name = Release;
+		};
+		56ADBB7E1E959968003471B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 72CQ273HEW;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = IceCubeSpotlight/Info.plist;
+				INSTALL_PATH = "@executable_path/../Contents/Library/Spotlight";
+				LIBRARY_STYLE = BUNDLE;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.IceCubeSpotlight;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = mdimporter;
+			};
+			name = Debug;
+		};
+		56ADBB7F1E959968003471B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 72CQ273HEW;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = IceCubeSpotlight/Info.plist;
+				INSTALL_PATH = "@executable_path/../Contents/Library/Spotlight";
+				LIBRARY_STYLE = BUNDLE;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.IceCubeSpotlight;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = mdimporter;
 			};
 			name = Release;
 		};
@@ -1232,6 +1390,15 @@
 			buildConfigurations = (
 				568C674417EB7D630095785D /* Debug */,
 				568C674517EB7D630095785D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56ADBB801E959968003471B4 /* Build configuration list for PBXNativeTarget "IceCubeSpotlight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56ADBB7E1E959968003471B4 /* Debug */,
+				56ADBB7F1E959968003471B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
