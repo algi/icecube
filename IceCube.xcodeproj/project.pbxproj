@@ -11,6 +11,7 @@
 		560E703C17EF4010004BC832 /* MBJavaHomeServiceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 560E703B17EF4010004BC832 /* MBJavaHomeServiceTask.m */; };
 		5632EE2216E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */; };
 		564E05A91E96CFF1008E4F1C /* IceCubeSpotlight.mdimporter in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56ADBB6F1E959967003471B4 /* IceCubeSpotlight.mdimporter */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		564E05AC1E96DADE008E4F1C /* MBSpotlightImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 564E05AB1E96DADE008E4F1C /* MBSpotlightImporter.m */; };
 		564FB49217F1C62F000380F3 /* build-failure-no-java_home.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48317F1C62F000380F3 /* build-failure-no-java_home.txt */; };
 		564FB49317F1C62F000380F3 /* build-failure-no-pom.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48417F1C62F000380F3 /* build-failure-no-pom.txt */; };
 		564FB49417F1C62F000380F3 /* build-failure-no-project.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48517F1C62F000380F3 /* build-failure-no-project.txt */; };
@@ -140,6 +141,8 @@
 		560E703B17EF4010004BC832 /* MBJavaHomeServiceTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBJavaHomeServiceTask.m; sourceTree = "<group>"; };
 		560E703D17EF43FE004BC832 /* MBJavaHomeService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBJavaHomeService.h; sourceTree = "<group>"; };
 		5632EE2116E4C9C7004AF896 /* Icons-Land-Weather-Ice.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "Icons-Land-Weather-Ice.icns"; path = "../Icons-Land-Weather-Ice.icns"; sourceTree = "<group>"; };
+		564E05AA1E96DADE008E4F1C /* MBSpotlightImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSpotlightImporter.h; sourceTree = "<group>"; };
+		564E05AB1E96DADE008E4F1C /* MBSpotlightImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSpotlightImporter.m; sourceTree = "<group>"; };
 		564FB48317F1C62F000380F3 /* build-failure-no-java_home.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-java_home.txt"; sourceTree = "<group>"; };
 		564FB48417F1C62F000380F3 /* build-failure-no-pom.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-pom.txt"; sourceTree = "<group>"; };
 		564FB48517F1C62F000380F3 /* build-failure-no-project.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-project.txt"; sourceTree = "<group>"; };
@@ -345,6 +348,8 @@
 			isa = PBXGroup;
 			children = (
 				56ADBB741E959967003471B4 /* GetMetadataForFile.m */,
+				564E05AA1E96DADE008E4F1C /* MBSpotlightImporter.h */,
+				564E05AB1E96DADE008E4F1C /* MBSpotlightImporter.m */,
 				56ADBB7A1E959968003471B4 /* Info.plist */,
 				56ADBB711E959967003471B4 /* Supporting Files */,
 			);
@@ -809,6 +814,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564E05AC1E96DADE008E4F1C /* MBSpotlightImporter.m in Sources */,
 				56ADBB731E959967003471B4 /* main.c in Sources */,
 				56ADBB751E959967003471B4 /* GetMetadataForFile.m in Sources */,
 			);
