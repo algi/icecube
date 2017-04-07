@@ -48,8 +48,13 @@ static NSString * const kDefaultMavenPath = @"/usr/share/maven/bin/mvn";
     NSMutableArray *successfulBuilds = [[NSMutableArray alloc] init];
 
     for (NSString *pomFilePath in pomFiles) {
-        NSTask *task = [self runTaskWithPath:mavenPath arguments:command withFile:pomFilePath];
 
+        NSTask *task = [self runTaskWithPath:mavenPath arguments:command withFile:pomFilePath];
+        if (task == nil) {
+            continue;
+        }
+
+        // check status only if we were able to invoke Maven
         if ([task terminationStatus] == 0) {
             [successfulBuilds addObject:pomFilePath];
         }
@@ -76,18 +81,18 @@ static NSString * const kDefaultMavenPath = @"/usr/share/maven/bin/mvn";
 
     @try {
         [task launch];
+        [task waitUntilExit];
+        return task;
     }
     @catch (NSException *exception) {
         [self logMessageWithLevel:AMLogLevelError format:@"Nepodařilo se spustit Maven. Důvod: %@", exception.reason];
+        return nil;
     }
-
-    [task waitUntilExit];
-    return task;
 }
 
 -(void)writeOutputFromTask:(NSTask *)task toTargetFolder:(NSString *)outputFolderPath
 {
-    if (outputFolderPath == nil) {
+    if (task == nil || outputFolderPath == nil) {
         return;
     }
 
