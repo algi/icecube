@@ -11,6 +11,8 @@
 #import "MBJavaHomeService.h"
 #import "MBPreferencesWindowController.h"
 
+#import <os/log.h>
+
 @interface MBAppDelegate ()
 
 @property MBPreferencesWindowController *preferencesController;
@@ -24,7 +26,7 @@
     // check for test suite flag first
     NSInteger doNotScanForJava = [[NSUserDefaults standardUserDefaults] integerForKey:@"MBDoNotScanForJava"];
     if (doNotScanForJava) {
-        NSLog(@"Application will not perform scan for Java home.");
+        os_log_info(OS_LOG_DEFAULT, "Skipping Java home scan (requested by user via defaults).");
 
         [MBAppDelegate registerUserDefaultsWithJavaHome:nil];
         return;

@@ -18,7 +18,7 @@
     NSData *data = [NSData dataWithContentsOfFile:pathToFile options:0 error:&error];
 
     if (data == nil) {
-        os_log_error(OS_LOG_DEFAULT, "MBSpotlightImporter - Unable to import file: %@, error: %@", pathToFile, [error localizedDescription]);
+        os_log_error(OS_LOG_DEFAULT, "MBSpotlightImporter - Unable to import file: %{public}@, error: %@", pathToFile, [error localizedDescription]);
         return nil;
     }
 
@@ -26,7 +26,7 @@
     id propertyList = [NSPropertyListSerialization propertyListWithData:data options:0 format:&format error:&error];
 
     if (propertyList == nil) {
-        os_log_error(OS_LOG_DEFAULT, "MBSpotlightImporter - Unable to parse PLIST from file: %@, error: %@", pathToFile, [error localizedDescription]);
+        os_log_error(OS_LOG_DEFAULT, "MBSpotlightImporter - Unable to parse PLIST from file: %{public}@, error: %@", pathToFile, [error localizedDescription]);
         return nil;
     }
 

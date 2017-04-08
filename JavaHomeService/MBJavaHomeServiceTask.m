@@ -8,6 +8,8 @@
 
 #import "MBJavaHomeServiceTask.h"
 
+#import <os/log.h>
+
 @implementation MBJavaHomeServiceTask
 
 - (void)findDefaultJavaHome:(void(^)(NSString *result, NSError *error))reply
@@ -32,9 +34,9 @@
         [task launch];
     }
     @catch (NSException *exception) {
-        NSLog(@"Unable to launch /usr/libexec/java_home task. Reason is: %@", [exception reason]);
+        os_log_error(OS_LOG_DEFAULT, "Unable to launch task /usr/libexec/java_home. Reason: %{public}@", [exception reason]);
 
-        reply(nil, [self createStandardError]);
+        reply(nil, [self unableToFindJavaLocationError]);
         return;
     }
 
@@ -42,9 +44,9 @@
     __autoreleasing NSString *output = nil;
 
     if ([self readOutputFromHandle:errorOutputHandle toString:&output]) {
-        NSLog(@"Unable to find default Java location. Reason is:\n\n%@", output);
+        os_log_error(OS_LOG_DEFAULT, "Unable to find default Java location. Reason: %{public}@", output);
 
-        reply(nil, [self createStandardError]);
+        reply(nil, [self unableToFindJavaLocationError]);
         return;
     }
 
@@ -54,8 +56,8 @@
     }
 
     // this is serious error
-    NSLog(@"Unable to read neither standard nor error output!");
-    reply(nil, [self createStandardError]);
+    os_log_fault(OS_LOG_DEFAULT, "Unable to read standard and error output.");
+    reply(nil, [self unableToFindJavaLocationError]);
 }
 
 - (BOOL)readOutputFromHandle:(NSFileHandle *)outputHandle toString:(NSString * __autoreleasing *)outputString
@@ -87,7 +89,7 @@
     return [lineBuffer length] > 0;
 }
 
-- (NSError *)createStandardError
+- (NSError *)unableToFindJavaLocationError
 {
     id userInfo = @{NSLocalizedDescriptionKey: @"Unable to find default Java location.",
                     NSLocalizedRecoverySuggestionErrorKey: @"You need to setup Java home manually in application's Preferences."};
