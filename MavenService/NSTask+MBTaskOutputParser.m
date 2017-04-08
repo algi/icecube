@@ -8,6 +8,8 @@
 
 #import "NSTask+MBTaskOutputParser.h"
 
+#import "MBErrorDomain.h"
+
 @implementation NSTask (MBTaskOutputParser)
 
 - (BOOL)launchTaskWithTaskOutputBlock:(void (^)(NSString *))delegateBlock error:(__autoreleasing NSError **)error
@@ -20,9 +22,13 @@
         [self launch];
     }
     @catch (NSException *exception) {
-        *error = [NSError errorWithDomain:NSPOSIXErrorDomain
-                                     code:errno
-                                 userInfo:@{NSLocalizedDescriptionKey: exception.reason}];
+        *error = [NSError errorWithDomain:IceCubeDomain
+                                     code:kIceCube_unableToLaunchMavenError
+                                 userInfo:@{
+                                            NSLocalizedDescriptionKey: @"Unable to run Maven",
+                                            NSLocalizedRecoverySuggestionErrorKey: @"Please set correct path to Maven in Preferences.",
+                                            NSLocalizedFailureReasonErrorKey: exception.reason
+                                            }];
         return NO;
     }
 

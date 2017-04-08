@@ -8,6 +8,7 @@
 
 #import "MBJavaHomeServiceTask.h"
 
+#import "MBErrorDomain.h"
 #import <os/log.h>
 
 @implementation MBJavaHomeServiceTask
@@ -94,8 +95,8 @@
     id userInfo = @{NSLocalizedDescriptionKey: @"Unable to find default Java location.",
                     NSLocalizedRecoverySuggestionErrorKey: @"You need to setup Java home manually in application's Preferences."};
     
-    return [NSError errorWithDomain:NSPOSIXErrorDomain
-                               code:errno
+    return [NSError errorWithDomain:IceCubeDomain
+                               code:kIceCube_unableToFindJavaHomeError
                            userInfo:userInfo];
 }
 

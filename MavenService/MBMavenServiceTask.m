@@ -10,6 +10,7 @@
 
 #import "MBMavenServiceCallback.h"
 #import "NSTask+MBTaskOutputParser.h"
+#import "MBErrorDomain.h"
 
 @interface MBMavenServiceTask ()
 
@@ -27,8 +28,8 @@
 {
     // in no case is allowed to launch task multiple times!
     if (self.task != nil) {
-        NSError *error = [NSError errorWithDomain:@"MBTaskLaunchError"
-                                             code:1
+        NSError *error = [NSError errorWithDomain:IceCubeDomain
+                                             code:kIceCube_mavenTaskAlreadyRunningError
                                          userInfo:@{NSLocalizedDescriptionKey: @"Task is already running."}];
         reply(NO, error);
         return;

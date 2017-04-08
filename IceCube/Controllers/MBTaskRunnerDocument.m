@@ -9,6 +9,7 @@
 #import "MBTaskRunnerDocument.h"
 
 #import "MBTaskRunnerWindowController.h"
+#import "MBErrorDomain.h"
 
 @implementation MBTaskRunnerDocument
 
@@ -102,8 +103,8 @@
 #pragma mark - NSError helper -
 NSError* MBValidationErrorWithMessage(NSString *message)
 {
-    return [NSError errorWithDomain:@"IceCube"
-                               code:1
+    return [NSError errorWithDomain:IceCubeDomain
+                               code:kIceCube_documentValidationError
                            userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(message, message)}];
 }
 

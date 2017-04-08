@@ -197,6 +197,7 @@
 		56EB935619D74AE500988FD9 /* IceCube.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IceCube.sdef; sourceTree = "<group>"; };
 		56EB935A19D74D3200988FD9 /* MBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBApplication.h; sourceTree = "<group>"; };
 		56EB935B19D74D3200988FD9 /* MBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBApplication.m; sourceTree = "<group>"; };
+		56F1E1C61E9961A1009A9541 /* MBErrorDomain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBErrorDomain.h; sourceTree = "<group>"; };
 		56F578E21794A5B1007E85A8 /* MBTaskRunnerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskRunnerWindowController.h; sourceTree = "<group>"; };
 		56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerWindowController.m; sourceTree = "<group>"; };
 		56F62FFB17EF23F8004DC92E /* MBPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPreferencesWindowController.h; sourceTree = "<group>"; };
@@ -479,6 +480,7 @@
 				56FE8E97167BA1A70001AAED /* MBAppDelegate.m */,
 				56EB935A19D74D3200988FD9 /* MBApplication.h */,
 				56EB935B19D74D3200988FD9 /* MBApplication.m */,
+				56F1E1C61E9961A1009A9541 /* MBErrorDomain.h */,
 				56FE8E99167BA1A70001AAED /* MainMenu.xib */,
 				56D21D2F17BFC6520060A823 /* Images.xcassets */,
 				56F578E11794A584007E85A8 /* Task runner */,
