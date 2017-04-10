@@ -62,6 +62,19 @@
     }];
 }
 
+-(BOOL)validateMenuItem:(NSMenuItem *)menuItem
+{
+    if ([menuItem action] == @selector(startTask:)) {
+        return !self.taskRunning;
+    }
+
+    if ([menuItem action] == @selector(stopTask:)) {
+        return self.taskRunning;
+    }
+
+    return YES;
+}
+
 #pragma mark - NSWindowDelegate -
 -(NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window
 {
