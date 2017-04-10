@@ -30,9 +30,24 @@
     return result;
 }
 
--(NSArray<MBPreferencesWindowController *> *)preferences
+-(NSURL *)javaHome
 {
-    return [NSArray arrayWithObject:[[MBPreferencesWindowController alloc] init]];
+    return [[NSUserDefaults standardUserDefaults] URLForKey:kJavaHomeDefaultsKey];
+}
+
+-(void)setJavaHome:(NSURL *)javaHome
+{
+    [[NSUserDefaults standardUserDefaults] setURL:javaHome forKey:kJavaHomeDefaultsKey];
+}
+
+-(NSURL *)mavenHome
+{
+    return [[NSUserDefaults standardUserDefaults] URLForKey:kMavenHomeDefaultsKey];
+}
+
+-(void)setMavenHome:(NSURL *)mavenHome
+{
+    [[NSUserDefaults standardUserDefaults] setURL:mavenHome forKey:kMavenHomeDefaultsKey];
 }
 
 @end

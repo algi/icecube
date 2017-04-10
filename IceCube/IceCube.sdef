@@ -272,9 +272,13 @@
                 <cocoa key="projects" />
             </element>
 
-            <element type="preferences" access="r">
-                <cocoa key="preferences" />
-            </element>
+            <property name="javaHome" code="jvHm" type="file" description="Java installation directory.">
+                <cocoa key="javaHome" />
+            </property>
+
+            <property name="mavenHome" code="mvHm" type="file" description="Maven installation directory.">
+                <cocoa key="mavenHome" />
+            </property>
         </class>
 
         <!--
@@ -310,18 +314,6 @@
             <responds-to command="stop project">
                 <cocoa method="handleStopProject:"/>
             </responds-to>
-        </class>
-
-        <class name="preferences" code="icPf" description="Application preferences.">
-            <cocoa class="MBPreferencesWindowController"/>
-
-            <property name="javaHome" code="jvHm" type="file" description="Java installation directory.">
-                <cocoa key="javaHome" />
-            </property>
-
-            <property name="mavenHome" code="mvHm" type="file" description="Maven installation directory.">
-                <cocoa key="mavenHome" />
-            </property>
         </class>
     </suite>
 
