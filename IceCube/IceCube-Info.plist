@@ -12,7 +12,7 @@
 				<string>iceproj</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>Icons-Land-Weather-Ice</string>
+			<string>AppIcon</string>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
 				<string>application/xml</string>
@@ -71,7 +71,7 @@
 			<key>UTTypeDescription</key>
 			<string>IceCube project</string>
 			<key>UTTypeIconFile</key>
-			<string>Icons-Land-Weather-Ice</string>
+			<string>AppIcon</string>
 			<key>UTTypeIdentifier</key>
 			<string>cz.boucekm.icecube-proj</string>
 			<key>UTTypeTagSpecification</key>

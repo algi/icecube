@@ -39,7 +39,7 @@
 		<key>AMDNote</key>
 		<string>Akce pro svůj vyžaduje nainstalovaný Maven.</string>
 		<key>AMDOptions</key>
-		<string>Cílový příkaz lze nastavit v poli Maven bez názvu programu (např. "clean install").</string>
+		<string>Cílový příkaz lze nastavit v poli Maven bez názvu programu (např. &quot;clean install&quot;).</string>
 		<key>AMDRelatedActions</key>
 		<string></string>
 		<key>AMDRequires</key>
@@ -52,7 +52,7 @@
 		<string>https://medium.com/@mboucek/</string>
 	</dict>
 	<key>AMIconName</key>
-	<string>Icons-Land-Weather-Ice</string>
+	<string>AppIcon</string>
 	<key>AMKeywords</key>
 	<array>
 		<string>Maven</string>
