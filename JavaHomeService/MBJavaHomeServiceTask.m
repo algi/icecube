@@ -8,8 +8,10 @@
 
 #import "MBJavaHomeServiceTask.h"
 
-#import "MBErrorDomain.h"
 #import <os/log.h>
+#import "MBErrorDomain.h"
+
+static NSString * const kJavaHomeLaunchPath = @"/usr/libexec/java_home";
 
 @implementation MBJavaHomeServiceTask
 
@@ -18,7 +20,7 @@
     // prepare task
     NSTask *task = [[NSTask alloc] init];
 
-    [task setLaunchPath:@"/usr/libexec/java_home"];
+    [task setLaunchPath:kJavaHomeLaunchPath];
     [task setArguments:@[@"--task", @"CommandLine"]];
 
     NSPipe *standardOutputPipe = [NSPipe pipe];
@@ -33,15 +35,16 @@
     // launch task
     @try {
         [task launch];
+        [task waitUntilExit];
     }
     @catch (NSException *exception) {
-        os_log_error(OS_LOG_DEFAULT, "Unable to launch task /usr/libexec/java_home. Reason: %{public}@", [exception reason]);
+        os_log_error(OS_LOG_DEFAULT, "Unable to launch task %@. Reason: %{public}@", kJavaHomeLaunchPath, [exception reason]);
 
         reply(nil, [self unableToFindJavaLocationError]);
         return;
     }
 
-    // proceed output
+    // process output
     __autoreleasing NSString *output = nil;
 
     if ([self readOutputFromHandle:errorOutputHandle toString:&output]) {
@@ -56,7 +59,7 @@
         return;
     }
 
-    // this is serious error
+    // there was no output from the tool
     os_log_fault(OS_LOG_DEFAULT, "Unable to read standard and error output.");
     reply(nil, [self unableToFindJavaLocationError]);
 }
