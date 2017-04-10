@@ -67,4 +67,25 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kJavaHomeDefaultsKey];
 }
 
+#pragma mark - Scripting support -
+-(NSURL *)javaHome
+{
+    return [[NSUserDefaults standardUserDefaults] URLForKey:kJavaHomeDefaultsKey];
+}
+
+-(void)setJavaHome:(NSURL *)javaHome
+{
+    [[NSUserDefaults standardUserDefaults] setURL:javaHome forKey:kJavaHomeDefaultsKey];
+}
+
+-(NSURL *)mavenHome
+{
+    return [[NSUserDefaults standardUserDefaults] URLForKey:kMavenHomeDefaultsKey];
+}
+
+-(void)setMavenHome:(NSURL *)mavenHome
+{
+    [[NSUserDefaults standardUserDefaults] setURL:mavenHome forKey:kMavenHomeDefaultsKey];
+}
+
 @end

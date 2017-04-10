@@ -10,13 +10,14 @@
 
 #import "MBTaskRunnerDocument.h"
 #import "MBTaskRunnerWindowController.h"
+#import "MBPreferencesWindowController.h"
 
 @implementation MBApplication
 
-- (NSArray *)projects
+- (NSArray<NSWindowController *> *)projects
 {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-    NSArray *orderedDocuments = [[NSApplication sharedApplication] orderedDocuments];
+    NSMutableArray<NSWindowController *> *result = [[NSMutableArray alloc] init];
+    NSArray *orderedDocuments = [self orderedDocuments];
 
     for (MBTaskRunnerDocument *document in orderedDocuments) {
         for (NSWindowController *controller in [document windowControllers]) {
@@ -27,6 +28,11 @@
     }
 
     return result;
+}
+
+-(NSArray<MBPreferencesWindowController *> *)preferences
+{
+    return [NSArray arrayWithObject:[[MBPreferencesWindowController alloc] init]];
 }
 
 @end

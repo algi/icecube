@@ -40,7 +40,7 @@
             <parameter name="in" code="kfil" type="file" optional="yes" description="The file in which to save the document.">
                 <cocoa key="File"/>
             </parameter>
-            <parameter name="as" code="fltp" type="saveable file format" optional="yes" description="The file format to use.">
+            <parameter name="as" code="fltp" type="file" optional="yes" description="The file format to use.">
                 <cocoa key="FileType"/>
             </parameter>
         </command>
@@ -271,16 +271,20 @@
             <element type="project" access="r">
                 <cocoa key="projects" />
             </element>
+
+            <element type="preferences" access="r">
+                <cocoa key="preferences" />
+            </element>
         </class>
 
         <!--
             Commands MUST have code with 8 letters.
          -->
-        <command name="run project" code="runIcPro">
+        <command name="run project" code="runIcPro" description="Runs the Maven project.">
             <direct-parameter type="project" />
         </command>
 
-        <command name="stop project" code="stopIcPr">
+        <command name="stop project" code="stopIcPr" description="Stops the execution of the Maven project.">
             <direct-parameter type="project" />
         </command>
 
@@ -306,6 +310,18 @@
             <responds-to command="stop project">
                 <cocoa method="handleStopProject:"/>
             </responds-to>
+        </class>
+
+        <class name="preferences" code="icPf" description="Application preferences.">
+            <cocoa class="MBPreferencesWindowController"/>
+
+            <property name="javaHome" code="jvHm" type="file" description="Java installation directory.">
+                <cocoa key="javaHome" />
+            </property>
+
+            <property name="mavenHome" code="mvHm" type="file" description="Maven installation directory.">
+                <cocoa key="mavenHome" />
+            </property>
         </class>
     </suite>
 
