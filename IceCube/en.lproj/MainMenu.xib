@@ -174,7 +174,6 @@
                                     <action selector="selectAll:" target="-1" id="232"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Select Command" keyEquivalent="l" id="1106"/>
                             <menuItem isSeparatorItem="YES" id="214">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -370,6 +369,30 @@
                                 <connections>
                                     <action selector="stopTask:" target="-1" id="kdy-TU-C0F"/>
                                 </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="Rh2-4k-sSw"/>
+                            <menuItem title="Select Command" keyEquivalent="l" id="R1q-hp-O1b">
+                                <connections>
+                                    <action selector="selectCommand:" target="-1" id="G51-Hc-DdK"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Working directory" id="j6t-Fg-PUe">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Working directory" id="4zW-SQ-jbc">
+                                    <items>
+                                        <menuItem title="Select..." keyEquivalent="O" id="Qn7-OT-o5v">
+                                            <connections>
+                                                <action selector="selectWorkingDirectory:" target="-1" id="Lxf-EM-iFf"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Show in Finder" id="KqO-8A-4Wu">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="revealFolderInFinder:" target="-1" id="MvD-wg-wDw"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
                             </menuItem>
                         </items>
                     </menu>

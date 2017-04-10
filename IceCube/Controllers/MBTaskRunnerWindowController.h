@@ -19,6 +19,8 @@
 - (IBAction)startTask:(id)sender;
 - (IBAction)stopTask:(id)sender;
 - (IBAction)revealFolderInFinder:(id)sender;
+- (IBAction)selectWorkingDirectory:(id)sender;
+- (IBAction)selectCommand:(id)sender;
 
 @property(readonly) BOOL taskRunning;
 

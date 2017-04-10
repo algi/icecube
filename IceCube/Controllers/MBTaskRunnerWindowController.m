@@ -43,23 +43,6 @@
 - (void)windowDidLoad
 {
     self.parser = [[MBMavenOutputParser alloc] initWithDelegate:self];
-    [self.pathControl setDoubleAction:@selector(showOpenDialogAction:)];
-}
-
-- (void)showOpenDialogAction:(id)sender
-{
-    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
-
-    [openPanel setCanChooseFiles:NO];
-    [openPanel setCanChooseDirectories:YES];
-    [openPanel setAllowsMultipleSelection:NO];
-
-    [openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
-        if (result == NSFileHandlingPanelOKButton) {
-            NSURL *url = [[openPanel URLs] firstObject];
-            [[self document] setWorkingDirectory:url];
-        }
-    }];
 }
 
 -(BOOL)validateMenuItem:(NSMenuItem *)menuItem
@@ -82,6 +65,28 @@
 }
 
 #pragma mark - IB actions -
+- (IBAction)selectCommand:(id)sender
+{
+    [self.window makeFirstResponder:self.commandField];
+}
+
+- (IBAction)selectWorkingDirectory:(id)sender
+{
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+
+    [openPanel setCanChooseFiles:NO];
+    [openPanel setCanChooseDirectories:YES];
+    [openPanel setAllowsMultipleSelection:NO];
+    [openPanel setDirectoryURL:[self.document workingDirectory]];
+
+    [openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
+        if (result == NSFileHandlingPanelOKButton) {
+            NSURL *url = [[openPanel URLs] firstObject];
+            [[self document] setWorkingDirectory:url];
+        }
+    }];
+}
+
 - (IBAction)startTask:(id)sender
 {
     if (self.taskRunning) {
