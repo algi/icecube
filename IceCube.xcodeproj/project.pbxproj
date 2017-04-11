@@ -22,7 +22,7 @@
 		564FB49A17F1C630000380F3 /* MBMavenOutputParserTestObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB48E17F1C62F000380F3 /* MBMavenOutputParserTestObserver.m */; };
 		564FB49B17F1C630000380F3 /* MBMavenOutputParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB48F17F1C62F000380F3 /* MBMavenOutputParserTests.m */; };
 		564FB4A217F1C72E000380F3 /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */; };
-		566C78081E9D2CD0006DD355 /* IceCube Help in Resources */ = {isa = PBXBuildFile; fileRef = 566C78071E9D2B8A006DD355 /* IceCube Help */; };
+		566C78081E9D2CD0006DD355 /* IceCube.help in Resources */ = {isa = PBXBuildFile; fileRef = 566C78071E9D2B8A006DD355 /* IceCube.help */; };
 		568C673917EB7D630095785D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568C673817EB7D630095785D /* Foundation.framework */; };
 		568C673F17EB7D630095785D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 568C673D17EB7D630095785D /* InfoPlist.strings */; };
 		568C674217EB7D630095785D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 568C674117EB7D630095785D /* main.m */; };
@@ -157,7 +157,7 @@
 		564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParser.m; sourceTree = "<group>"; };
 		564FB4A317F1C931000380F3 /* MBMavenParserDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBMavenParserDelegate.h; sourceTree = "<group>"; };
 		56630A1917ECC067005A2BEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		566C78071E9D2B8A006DD355 /* IceCube Help */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "IceCube Help"; sourceTree = "<group>"; };
+		566C78071E9D2B8A006DD355 /* IceCube.help */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = IceCube.help; sourceTree = "<group>"; };
 		568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cz.boucekm.MavenService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		568C673817EB7D630095785D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		568C673C17EB7D630095785D /* MavenService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MavenService-Info.plist"; sourceTree = "<group>"; };
@@ -481,7 +481,6 @@
 				56F62FFA17EF2389004DC92E /* Preferences */,
 				564FB49F17F1C70E000380F3 /* Parser */,
 				56FE8E8B167BA1A70001AAED /* Supporting Files */,
-				566C78071E9D2B8A006DD355 /* IceCube Help */,
 			);
 			path = IceCube;
 			sourceTree = "<group>";
@@ -489,6 +488,7 @@
 		56FE8E8B167BA1A70001AAED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				566C78071E9D2B8A006DD355 /* IceCube.help */,
 				56EB935619D74AE500988FD9 /* IceCube.sdef */,
 				56FE8E8C167BA1A70001AAED /* IceCube-Info.plist */,
 				56FE8E8D167BA1A70001AAED /* InfoPlist.strings */,
@@ -750,7 +750,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				566C78081E9D2CD0006DD355 /* IceCube Help in Resources */,
+				566C78081E9D2CD0006DD355 /* IceCube.help in Resources */,
 				56FE8E8F167BA1A70001AAED /* InfoPlist.strings in Resources */,
 				56D470FD19D36B5400B0798A /* MBPreferencesWindowController.xib in Resources */,
 				56D470FA19D36B4B00B0798A /* MBTaskRunnerDocument.xib in Resources */,

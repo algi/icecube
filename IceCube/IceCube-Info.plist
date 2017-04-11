@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleHelpBookFolder</key>
-	<string>IceCube Help</string>
+	<string>IceCube.help</string>
 	<key>CFBundleHelpBookName</key>
-	<string>IceCube Help</string>
+	<string>cz.boucekm.IceCube.help</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDocumentTypes</key>
