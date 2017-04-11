@@ -43,6 +43,12 @@
 - (void)windowDidLoad
 {
     self.parser = [[MBMavenOutputParser alloc] initWithDelegate:self];
+
+    self.connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.MavenService"];
+    self.connection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenService)];
+
+    self.connection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
+    self.connection.exportedObject = self;
 }
 
 -(BOOL)validateMenuItem:(NSMenuItem *)menuItem
@@ -126,10 +132,11 @@
     self.activity = [[NSProcessInfo processInfo] beginActivityWithOptions:NSActivityUserInitiated reason:@"Start of Maven task"];
 
     // launch task
-    [self launchMaven:mavenPath withArguments:args environment:environment atPath:path withReply:^(BOOL launchSuccessful, NSError *error) {
+    [self.connection resume];
+    [[self.connection remoteObjectProxy] launchMaven:mavenPath withArguments:args environment:environment atPath:path withReply:^(BOOL launchSuccessful, NSError *error) {
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self stopProgressBarWithStepForward:YES];
-            [self invalidateConnection];
+            [self.connection suspend];
 
             if (! launchSuccessful) {
                 [[NSAlert alertWithError:error] beginSheetModalForWindow:self.window completionHandler:nil];
@@ -141,7 +148,7 @@
 - (IBAction)stopTask:(id)sender
 {
     [[self.connection remoteObjectProxy] terminateTask];
-    [self invalidateConnection];
+    [self.connection suspend];
 
     [self stopProgressBarWithStepForward:NO];
 }
@@ -233,33 +240,6 @@
     self.taskRunning = NO;
 }
 
-#pragma mark - XPC connection -
-- (void)launchMaven:(NSString *)launchPath
-      withArguments:(NSString *)arguments
-        environment:(NSDictionary *)environment
-             atPath:(NSURL *)path
-          withReply:(void (^)(BOOL launchSuccessful, NSError *error))reply
-{
-    self.connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.MavenService"];
-    self.connection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenService)];
-    
-    self.connection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
-    self.connection.exportedObject = self;
-    
-    [self.connection resume];
-    [[self.connection remoteObjectProxy] launchMaven:launchPath
-                                       withArguments:arguments
-                                         environment:environment
-                                              atPath:path
-                                           withReply:reply];
-}
-
-- (void)invalidateConnection
-{
-    self.connection.exportedObject = nil;
-    [self.connection invalidate];
-}
-
 #pragma mark - Scripting support -
 - (NSUniqueIDSpecifier *)objectSpecifier
 {
@@ -300,8 +280,12 @@
     [self stopTask:command];
 }
 
+#pragma mark - Dealloc -
 - (void)dealloc
 {
+    [self.connection invalidate];
+    self.connection = nil;
+
     self.outputTextView = nil;
 }
 

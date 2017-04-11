@@ -26,8 +26,7 @@
              atPath:(NSURL *)path
           withReply:(void (^)(BOOL launchSuccessful, NSError *error))reply
 {
-    // in no case is allowed to launch task multiple times!
-    if (self.task != nil) {
+    if ([self.task isRunning]) {
         NSError *error = [NSError errorWithDomain:IceCubeDomain
                                              code:kIceCube_mavenTaskAlreadyRunningError
                                          userInfo:@{NSLocalizedDescriptionKey: @"Task is already running."}];
