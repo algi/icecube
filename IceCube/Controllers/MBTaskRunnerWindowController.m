@@ -152,13 +152,20 @@
 {
     dispatch_sync(dispatch_get_main_queue(), ^{
 
-        [self.progressIndicator setDoubleValue:[self.progressIndicator doubleValue] + 1];
-        [self.progressIndicator stopAnimation:nil];
-
         if (! launchSuccessful) {
             os_log_error(OS_LOG_DEFAULT, "Unable to launch Maven. Reason: %@", error.localizedFailureReason);
-            [[NSAlert alertWithError:error] beginSheetModalForWindow:self.window completionHandler:nil];
+
+            [[NSAlert alertWithError:error] beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode) {
+
+                // return code is positive number and all defined codes are negative...
+                if (-returnCode == NSModalResponseStop) {
+                    [[[MBPreferencesWindowController alloc] init].window makeKeyAndOrderFront:NSApp];
+                }
+            }];
         }
+
+        [self.progressIndicator setDoubleValue:[self.progressIndicator doubleValue] + 1];
+        [self.progressIndicator stopAnimation:nil];
 
         [self.connection suspend];
         self.taskRunning = NO;

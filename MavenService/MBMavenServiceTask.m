@@ -54,8 +54,9 @@
                                      code:kIceCube_unableToLaunchMavenError
                                  userInfo:@{
                                             NSLocalizedDescriptionKey: @"Unable to run Maven",
+                                            NSLocalizedFailureReasonErrorKey: exception.reason,
                                             NSLocalizedRecoverySuggestionErrorKey: @"Please set correct path to Maven in Preferences.",
-                                            NSLocalizedFailureReasonErrorKey: exception.reason
+                                            NSLocalizedRecoveryOptionsErrorKey: @[@"Open Preferences", @"Cancel"]
                                             }];
         [remoteObserver mavenTaskDidFinishSuccessfully:NO error:error];
         return;
