@@ -62,19 +62,12 @@
 
 + (void)registerUserDefaultsWithJavaHome:(NSString *)javaHome
 {
-    NSString *defaultMavenHome = @"/usr/share/maven/bin/mvn";
+    NSDictionary *defaults = @{kMavenHomeDefaultsKey: @"/usr/share/maven/bin/mvn",
+                               kJavaHomeDefaultsKey : javaHome ?: @"/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home",
+                               kUseDefaultJavaLocationKey: @(YES),
+                               kUseDefaultMavenLocationKey: @(YES)};
 
-    NSString *defaultJavaHome = javaHome;
-    if (!defaultJavaHome) {
-        defaultJavaHome = @"/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home";
-    }
-
-    NSDictionary *userDefaults = @{kMavenHomeDefaultsKey: defaultMavenHome,
-                                   kJavaHomeDefaultsKey : defaultJavaHome,
-                                   kUseDefaultJavaLocationKey: @(YES),
-                                   kUseDefaultMavenLocationKey: @(YES)};
-
-    [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaults];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
 }
 
 @end
