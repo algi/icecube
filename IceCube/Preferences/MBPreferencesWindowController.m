@@ -47,13 +47,15 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
 
     [self updateVersionInformation];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDefaultsDidChange:) name:NSUserDefaultsDidChangeNotification object:nil];
+    [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:kMavenHomeDefaultsKey options:0 context:nil];
+    [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:kJavaHomeDefaultsKey options:0 context:nil];
 }
 
-- (void)userDefaultsDidChange:(NSNotification *)notification
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
-    os_log_info(OS_LOG_DEFAULT, "userDefaultsDidChange: %@", notification);
-    [self updateVersionInformation];
+    if ([keyPath isEqualToString:kMavenHomeDefaultsKey] || [keyPath isEqualToString:kJavaHomeDefaultsKey]) {
+        [self updateVersionInformation];
+    }
 }
 
 #pragma mark - User actions -
@@ -149,7 +151,7 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
                 strongSelf.javaVersion.stringValue = @"";
                 strongSelf.mavenVersion.stringValue = @"";
 
-                os_log_error(OS_LOG_DEFAULT, "Unable to get version of Maven. Reason: %{public}@", error.localizedDescription);
+                os_log_error(OS_LOG_DEFAULT, "Unable to get version of Maven. Reason: %{public}@", error.localizedFailureReason);
             }
 
             [strongSelf.progressIndicator stopAnimation:strongSelf];
@@ -162,7 +164,8 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
 
 -(void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSUserDefaults standardUserDefaults] removeObserver:self forKeyPath:kMavenHomeDefaultsKey];
+    [[NSUserDefaults standardUserDefaults] removeObserver:self forKeyPath:kJavaHomeDefaultsKey];
 
     [self.xpcConnection invalidate];
     self.xpcConnection = nil;
