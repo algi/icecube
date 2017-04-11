@@ -10,4 +10,6 @@
 
 - (void)mavenTaskDidWriteLine:(NSString *)line;
 
+- (void)mavenTaskDidFinishSuccessfully:(BOOL)result error:(NSError *)error;
+
 @end

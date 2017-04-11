@@ -128,6 +128,23 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
     }
 }
 
+-(void)mavenTaskDidFinishSuccessfully:(BOOL)result error:(NSError *)error
+{
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        if (!result) {
+            self.javaVersion.stringValue = @"";
+            self.mavenVersion.stringValue = @"";
+
+            os_log_error(OS_LOG_DEFAULT, "Unable to get version of Maven. Reason: %{public}@", error.localizedFailureReason);
+        }
+
+        [self.progressIndicator stopAnimation:self];
+
+        [self.xpcConnection suspend];
+        self.taskRunning = NO;
+    });
+}
+
 #pragma mark - Version info -
 -(void)updateVersionInformation
 {
@@ -144,27 +161,8 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
     NSString *mavenPath = [prefs stringForKey:kMavenHomeDefaultsKey];
     NSDictionary *environment = @{@"JAVA_HOME": [prefs stringForKey:kJavaHomeDefaultsKey]};
 
-    __weak MBPreferencesWindowController *weakSelf = self;
-
     [self.xpcConnection resume];
-    [[self.xpcConnection remoteObjectProxy] launchMaven:mavenPath withArguments:@"--version" environment:environment atPath:path withReply:^(BOOL launchSuccessful, NSError *error) {
-
-        MBPreferencesWindowController *strongSelf = weakSelf;
-
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            if (!launchSuccessful) {
-                strongSelf.javaVersion.stringValue = @"";
-                strongSelf.mavenVersion.stringValue = @"";
-
-                os_log_error(OS_LOG_DEFAULT, "Unable to get version of Maven. Reason: %{public}@", error.localizedFailureReason);
-            }
-
-            [strongSelf.progressIndicator stopAnimation:strongSelf];
-
-            [self.xpcConnection suspend];
-            strongSelf.taskRunning = NO;
-        });
-    }];
+    [[self.xpcConnection remoteObjectProxy] launchMaven:mavenPath withArguments:@"--version" environment:environment atPath:path];
 }
 
 -(void)dealloc

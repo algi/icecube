@@ -128,21 +128,7 @@
 
     // launch task
     [self.connection resume];
-    [[self.connection remoteObjectProxy] launchMaven:mavenPath withArguments:args environment:environment atPath:path withReply:^(BOOL launchSuccessful, NSError *error) {
-        dispatch_sync(dispatch_get_main_queue(), ^{
-
-            [self.progressIndicator setDoubleValue:[self.progressIndicator doubleValue] + 1];
-            [self.progressIndicator stopAnimation:nil];
-
-            if (! launchSuccessful) {
-                os_log_error(OS_LOG_DEFAULT, "Unable to launch Maven. Reason: %@", error.localizedFailureReason);
-                [[NSAlert alertWithError:error] beginSheetModalForWindow:self.window completionHandler:nil];
-            }
-
-            [self.connection suspend];
-            self.taskRunning = NO;
-        });
-    }];
+    [[self.connection remoteObjectProxy] launchMaven:mavenPath withArguments:args environment:environment atPath:path];
 }
 
 - (IBAction)stopTask:(id)sender
@@ -160,6 +146,23 @@
 - (void)mavenTaskDidWriteLine:(NSString *)line
 {
     [self.parser parseLine:line];
+}
+
+-(void)mavenTaskDidFinishSuccessfully:(BOOL)launchSuccessful error:(NSError *)error
+{
+    dispatch_sync(dispatch_get_main_queue(), ^{
+
+        [self.progressIndicator setDoubleValue:[self.progressIndicator doubleValue] + 1];
+        [self.progressIndicator stopAnimation:nil];
+
+        if (! launchSuccessful) {
+            os_log_error(OS_LOG_DEFAULT, "Unable to launch Maven. Reason: %@", error.localizedFailureReason);
+            [[NSAlert alertWithError:error] beginSheetModalForWindow:self.window completionHandler:nil];
+        }
+
+        [self.connection suspend];
+        self.taskRunning = NO;
+    });
 }
 
 #pragma mark - MBMavenParserDelegate -
