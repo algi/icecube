@@ -114,18 +114,20 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
 #pragma mark - MBMavenServiceCallback -
 -(void)mavenTaskDidWriteLine:(NSString *)line
 {
-    if ([line hasPrefix:@"Apache Maven"]) {
-        // example: Apache Maven 3.3.3 (7994120775791599e205a5524ec3e0dfe41d4a06; 2015-04-22T12:57:37+01:00)
-        NSArray *components = [line componentsSeparatedByString:@" "];
-        NSString *mavenVersionString = components[2];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        if ([line hasPrefix:@"Apache Maven"]) {
+            // example: Apache Maven 3.3.3 (7994120775791599e205a5524ec3e0dfe41d4a06; 2015-04-22T12:57:37+01:00)
+            NSArray *components = [line componentsSeparatedByString:@" "];
+            NSString *mavenVersionString = components[2];
 
-        self.mavenVersion.stringValue = mavenVersionString;
-    }
+            self.mavenVersion.stringValue = mavenVersionString;
+        }
 
-    if ([line hasPrefix:@"Java version: "]) {
-        NSString *javaVersionString = [line stringByReplacingOccurrencesOfString:@"Java version: " withString:@""];
-        self.javaVersion.stringValue = javaVersionString;
-    }
+        if ([line hasPrefix:@"Java version: "]) {
+            NSString *javaVersionString = [line stringByReplacingOccurrencesOfString:@"Java version: " withString:@""];
+            self.javaVersion.stringValue = javaVersionString;
+        }
+    });
 }
 
 -(void)mavenTaskDidFinishSuccessfully:(BOOL)result error:(NSError *)error
