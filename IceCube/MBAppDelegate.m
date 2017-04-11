@@ -13,12 +13,6 @@
 
 #import <os/log.h>
 
-@interface MBAppDelegate ()
-
-@property MBPreferencesWindowController *preferencesController;
-
-@end
-
 @implementation MBAppDelegate
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification
