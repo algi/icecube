@@ -62,6 +62,7 @@
                                             NSLocalizedFailureReasonErrorKey: exception.reason
                                             }];
         [remoteObserver mavenTaskDidFinishSuccessfully:NO error:error];
+        return;
     }
 
     self.task.terminationHandler = ^(NSTask * _Nonnull terminatedTask) {
@@ -69,7 +70,7 @@
     };
 
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
-        [self readOutputFromPipe:pipe withObserver:remoteObserver];
+        readOutputFromPipeWithObserver(pipe, remoteObserver);
     });
 }
 
@@ -79,7 +80,7 @@
 }
 
 #pragma mark - Output handling -
--(void)readOutputFromPipe:(NSPipe *)pipe withObserver:(id)remoteObserver
+void readOutputFromPipeWithObserver(NSPipe *pipe, id remoteObserver)
 {
     NSData *inData = nil;
     NSString *partialLinesBuffer = nil;
