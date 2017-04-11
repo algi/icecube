@@ -115,13 +115,14 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
 -(void)mavenTaskDidWriteLine:(NSString *)line
 {
     if ([line hasPrefix:@"Apache Maven"]) {
+        // example: Apache Maven 3.3.3 (7994120775791599e205a5524ec3e0dfe41d4a06; 2015-04-22T12:57:37+01:00)
         NSArray *components = [line componentsSeparatedByString:@" "];
         NSString *mavenVersionString = components[2];
 
         self.mavenVersion.stringValue = mavenVersionString;
     }
 
-    if ([line hasPrefix:@"Java version"]) {
+    if ([line hasPrefix:@"Java version: "]) {
         NSString *javaVersionString = [line stringByReplacingOccurrencesOfString:@"Java version: " withString:@""];
         self.javaVersion.stringValue = javaVersionString;
     }
@@ -136,7 +137,6 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
     self.taskRunning = YES;
 
     [self.progressIndicator startAnimation:self];
-    [self.xpcConnection resume];
 
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 
@@ -146,6 +146,7 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
 
     __weak MBPreferencesWindowController *weakSelf = self;
 
+    [self.xpcConnection resume];
     [[self.xpcConnection remoteObjectProxy] launchMaven:mavenPath withArguments:@"--version" environment:environment atPath:path withReply:^(BOOL launchSuccessful, NSError *error) {
 
         MBPreferencesWindowController *strongSelf = weakSelf;
