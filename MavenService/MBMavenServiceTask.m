@@ -35,14 +35,10 @@
         return;
     }
 
-    NSMutableArray *arguments = [[NSMutableArray alloc] init];
-    [arguments addObject:[launchPath stringByExpandingTildeInPath]];
-    [arguments addObjectsFromArray:[argumentString componentsSeparatedByString:@" "]];
-
     self.task = [[NSTask alloc] init];
 
-    [self.task setLaunchPath:@"/bin/bash"];
-    [self.task setArguments:arguments];
+    [self.task setLaunchPath:[launchPath stringByExpandingTildeInPath]];
+    [self.task setArguments:[argumentString componentsSeparatedByString:@" "]];
     [self.task setEnvironment:environment];
     [self.task setCurrentDirectoryPath:[path path]];
 
