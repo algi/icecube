@@ -51,15 +51,6 @@
     }];
 }
 
-- (IBAction)showPreferences:(id)sender
-{
-    if (!self.preferencesController) {
-        self.preferencesController = [[MBPreferencesWindowController alloc] init];
-    }
-
-    [[self.preferencesController window] makeKeyAndOrderFront:sender];
-}
-
 + (void)registerUserDefaultsWithJavaHome:(NSString *)javaHome
 {
     NSDictionary *defaults = @{kMavenHomeDefaultsKey: @"/usr/share/maven/bin/mvn",

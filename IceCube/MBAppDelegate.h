@@ -8,6 +8,4 @@
 
 @interface MBAppDelegate : NSObject <NSApplicationDelegate>
 
-- (IBAction)showPreferences:(id)sender;
-
 @end
