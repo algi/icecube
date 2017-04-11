@@ -16,9 +16,13 @@ extern NSString * const kUseDefaultMavenLocationKey;
 
 @property (weak) IBOutlet NSButton *mavenDefaultLocation;
 @property (weak) IBOutlet NSTextField *mavenLocation;
+@property (weak) IBOutlet NSTextField *mavenVersion;
 
 @property (weak) IBOutlet NSButton *javaDefaultLocation;
 @property (weak) IBOutlet NSTextField *javaLocation;
+@property (weak) IBOutlet NSTextField *javaVersion;
+
+@property (weak) IBOutlet NSProgressIndicator *progressIndicator;
 
 - (IBAction)selectMavenLocationDidPress:(id)sender;
 - (IBAction)selectJavaLocationDidPress:(id)sender;
