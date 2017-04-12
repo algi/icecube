@@ -12,6 +12,7 @@
 		5619AEA31E9E26EC0003A224 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5619AEA51E9E26EC0003A224 /* Localizable.strings */; };
 		5619AEA91E9E27F00003A224 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5619AEAB1E9E27F00003A224 /* Localizable.strings */; };
 		5619AEAF1E9E285B0003A224 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5619AEB11E9E285B0003A224 /* Localizable.strings */; };
+		562738641E9E4A7700075A86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 562738661E9E4A7700075A86 /* InfoPlist.strings */; };
 		564E05A91E96CFF1008E4F1C /* IceCubeSpotlight.mdimporter in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56ADBB6F1E959967003471B4 /* IceCubeSpotlight.mdimporter */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		564E05AC1E96DADE008E4F1C /* MBSpotlightImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 564E05AB1E96DADE008E4F1C /* MBSpotlightImporter.m */; };
 		564FB49217F1C62F000380F3 /* build-failure-no-java_home.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48317F1C62F000380F3 /* build-failure-no-java_home.txt */; };
@@ -150,6 +151,7 @@
 		5619AEBA1E9E3B020003A224 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/MBTaskRunnerDocument.strings; sourceTree = "<group>"; };
 		5619AEBC1E9E3C0D0003A224 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		5619AEBD1E9E3CCF0003A224 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		562738671E9E4A7A00075A86 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		564E05AA1E96DADE008E4F1C /* MBSpotlightImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSpotlightImporter.h; sourceTree = "<group>"; };
 		564E05AB1E96DADE008E4F1C /* MBSpotlightImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSpotlightImporter.m; sourceTree = "<group>"; };
 		564FB48317F1C62F000380F3 /* build-failure-no-java_home.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-java_home.txt"; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 				566C78071E9D2B8A006DD355 /* IceCube.help */,
 				56EB935619D74AE500988FD9 /* IceCube.sdef */,
 				56FE8E8C167BA1A70001AAED /* IceCube-Info.plist */,
+				562738661E9E4A7700075A86 /* InfoPlist.strings */,
 				56FE8E90167BA1A70001AAED /* main.m */,
 				56FE8E92167BA1A70001AAED /* IceCube-Prefix.pch */,
 				56FE8E93167BA1A70001AAED /* Credits.rtf */,
@@ -768,6 +771,7 @@
 				56FE8E95167BA1A70001AAED /* Credits.rtf in Resources */,
 				56EB935819D74AE500988FD9 /* IceCube.sdef in Resources */,
 				56D21D3017BFC6520060A823 /* Images.xcassets in Resources */,
+				562738641E9E4A7700075A86 /* InfoPlist.strings in Resources */,
 				56FE8E9B167BA1A70001AAED /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -927,6 +931,14 @@
 				5619AEB21E9E285E0003A224 /* cs */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		562738661E9E4A7700075A86 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				562738671E9E4A7A00075A86 /* cs */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		568C673D17EB7D630095785D /* InfoPlist.strings */ = {
