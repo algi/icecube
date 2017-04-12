@@ -1,15 +1,15 @@
 
 /* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "5"; */
-"5.title" = "Přenést vše do popředí";
+"5.title" = "Bring All to Front";
 
 /* Class = "NSMenuItem"; title = "Window"; ObjectID = "19"; */
-"19.title" = "Okno";
+"19.title" = "Window";
 
 /* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "23"; */
-"23.title" = "Minimalizovat";
+"23.title" = "Minimize";
 
 /* Class = "NSMenu"; title = "Window"; ObjectID = "24"; */
-"24.title" = "Okno";
+"24.title" = "Window";
 
 /* Class = "NSMenu"; title = "AMainMenu"; ObjectID = "29"; */
 "29.title" = "AMainMenu";
@@ -24,130 +24,130 @@
 "58.title" = "O aplikaci IceCube";
 
 /* Class = "NSMenuItem"; title = "Open…"; ObjectID = "72"; */
-"72.title" = "Otevřít…";
+"72.title" = "Open…";
 
 /* Class = "NSMenuItem"; title = "Close"; ObjectID = "73"; */
-"73.title" = "Zavřít";
+"73.title" = "Close";
 
 /* Class = "NSMenuItem"; title = "Save…"; ObjectID = "75"; */
-"75.title" = "Uložit…";
+"75.title" = "Save…";
 
 /* Class = "NSMenuItem"; title = "Page Setup..."; ObjectID = "77"; */
-"77.title" = "Nastavení stránky...";
+"77.title" = "Page Setup...";
 
 /* Class = "NSMenuItem"; title = "Print…"; ObjectID = "78"; */
-"78.title" = "Tisk…";
+"78.title" = "Print…";
 
 /* Class = "NSMenu"; title = "File"; ObjectID = "81"; */
-"81.title" = "Soubor";
+"81.title" = "File";
 
 /* Class = "NSMenuItem"; title = "New"; ObjectID = "82"; */
-"82.title" = "Nový";
+"82.title" = "New";
 
 /* Class = "NSMenuItem"; title = "File"; ObjectID = "83"; */
-"83.title" = "Soubor";
+"83.title" = "File";
 
 /* Class = "NSMenuItem"; title = "Revert to Saved"; ObjectID = "112"; */
-"112.title" = "Vrátit do";
+"112.title" = "Revert to Saved";
 
 /* Class = "NSMenuItem"; title = "Open Recent"; ObjectID = "124"; */
-"124.title" = "Otevřít poslední položku";
+"124.title" = "Open Recent";
 
 /* Class = "NSMenu"; title = "Open Recent"; ObjectID = "125"; */
-"125.title" = "Otevřít poslední položku";
+"125.title" = "Open Recent";
 
 /* Class = "NSMenuItem"; title = "Clear Menu"; ObjectID = "126"; */
-"126.title" = "Vyprázdnit nabídku";
+"126.title" = "Clear Menu";
 
 /* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "129"; */
-"129.title" = "Předvolby…";
+"129.title" = "Preferences…";
 
 /* Class = "NSMenu"; title = "Services"; ObjectID = "130"; */
-"130.title" = "Služby";
+"130.title" = "Services";
 
 /* Class = "NSMenuItem"; title = "Services"; ObjectID = "131"; */
-"131.title" = "Služby";
+"131.title" = "Services";
 
 /* Class = "NSMenuItem"; title = "Hide IceCube"; ObjectID = "134"; */
-"134.title" = "Skrýt IceCube";
+"134.title" = "Hide IceCube";
 
 /* Class = "NSMenuItem"; title = "Quit IceCube"; ObjectID = "136"; */
-"136.title" = "Ukončit IceCube";
+"136.title" = "Quit IceCube";
 
 /* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "145"; */
-"145.title" = "Skrýt ostatní";
+"145.title" = "Hide Others";
 
 /* Class = "NSMenuItem"; title = "Show All"; ObjectID = "150"; */
-"150.title" = "Zobrazit vše";
+"150.title" = "Show All";
 
 /* Class = "NSMenuItem"; title = "Stop Speaking"; ObjectID = "195"; */
-"195.title" = "Zastavit předčítání";
+"195.title" = "Stop Speaking";
 
 /* Class = "NSMenuItem"; title = "Start Speaking"; ObjectID = "196"; */
-"196.title" = "Spustit předčítání";
+"196.title" = "Start Speaking";
 
 /* Class = "NSMenuItem"; title = "Copy"; ObjectID = "197"; */
-"197.title" = "Kopírovat";
+"197.title" = "Copy";
 
 /* Class = "NSMenuItem"; title = "Select All"; ObjectID = "198"; */
-"198.title" = "Vybrat vše";
+"198.title" = "Select All";
 
 /* Class = "NSMenuItem"; title = "Cut"; ObjectID = "199"; */
-"199.title" = "Vyjmout";
+"199.title" = "Cut";
 
 /* Class = "NSMenu"; title = "Spelling and Grammar"; ObjectID = "200"; */
-"200.title" = "Pravopis a gramatika";
+"200.title" = "Spelling and Grammar";
 
 /* Class = "NSMenuItem"; title = "Check Document Now"; ObjectID = "201"; */
-"201.title" = "Zkontrolovat dokument";
+"201.title" = "Check Document Now";
 
 /* Class = "NSMenuItem"; title = "Delete"; ObjectID = "202"; */
-"202.title" = "Smazat";
+"202.title" = "Delete";
 
 /* Class = "NSMenuItem"; title = "Paste"; ObjectID = "203"; */
-"203.title" = "Vložit";
+"203.title" = "Paste";
 
 /* Class = "NSMenuItem"; title = "Show Spelling and Grammar"; ObjectID = "204"; */
-"204.title" = "Zobrazit pravopis a gramatiku";
+"204.title" = "Show Spelling and Grammar";
 
 /* Class = "NSMenu"; title = "Edit"; ObjectID = "205"; */
-"205.title" = "Úpravy";
+"205.title" = "Edit";
 
 /* Class = "NSMenuItem"; title = "Undo"; ObjectID = "207"; */
-"207.title" = "Odvolat akci";
+"207.title" = "Undo";
 
 /* Class = "NSMenuItem"; title = "Find Next"; ObjectID = "208"; */
-"208.title" = "Hledat další";
+"208.title" = "Find Next";
 
 /* Class = "NSMenuItem"; title = "Find…"; ObjectID = "209"; */
-"209.title" = "Hledat…";
+"209.title" = "Find…";
 
 /* Class = "NSMenuItem"; title = "Jump to Selection"; ObjectID = "210"; */
 "210.title" = "Jump to Selection";
 
 /* Class = "NSMenuItem"; title = "Speech"; ObjectID = "211"; */
-"211.title" = "Řeč";
+"211.title" = "Speech";
 
 /* Class = "NSMenu"; title = "Speech"; ObjectID = "212"; */
-"212.title" = "Řeč";
+"212.title" = "Speech";
 
 /* Class = "NSMenuItem"; title = "Find Previous"; ObjectID = "213"; */
-"213.title" = "Hledat předchozí";
+"213.title" = "Find Previous";
 
 /* Class = "NSMenuItem"; title = "Redo"; ObjectID = "215"; */
-"215.title" = "Opakovat akci";
+"215.title" = "Redo";
 
 /* Class = "NSMenuItem"; title = "Spelling and Grammar"; ObjectID = "216"; */
 "216.title" = "Spelling and Grammar";
 
 /* Class = "NSMenuItem"; title = "Edit"; ObjectID = "217"; */
-"217.title" = "Úpravy";
+"217.title" = "Edit";
 
 /* Class = "NSMenuItem"; title = "Find"; ObjectID = "218"; */
-"218.title" = "Hledat";
+"218.title" = "Find";
 
 /* Class = "NSMenuItem"; title = "Check Spelling While Typing"; ObjectID = "219"; */
-"219.title" = "Kontrolovat pravopis při psaní";
+"219.title" = "Check Spelling While Typing";
 
 /* Class = "NSMenu"; title = "Find"; ObjectID = "220"; */
 "220.title" = "Find";
@@ -156,7 +156,7 @@
 "221.title" = "Use Selection for Find";
 
 /* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "239"; */
-"239.title" = "Přepnout velikost";
+"239.title" = "Zoom";
 
 /* Class = "NSMenuItem"; title = "View"; ObjectID = "295"; */
 "295.title" = "View";
@@ -234,28 +234,28 @@
 "1176.title" = "Enter Full Screen";
 
 /* Class = "NSMenu"; title = "Working directory"; ObjectID = "4zW-SQ-jbc"; */
-"4zW-SQ-jbc.title" = "Working directory";
+"4zW-SQ-jbc.title" = "Pracovní adresář";
 
 /* Class = "NSMenuItem"; title = "Stop"; ObjectID = "82T-IS-F2C"; */
-"82T-IS-F2C.title" = "Stop";
+"82T-IS-F2C.title" = "Zastavit";
 
 /* Class = "NSMenuItem"; title = "Project"; ObjectID = "CJH-R9-FJt"; */
-"CJH-R9-FJt.title" = "Project";
+"CJH-R9-FJt.title" = "Projekt";
 
 /* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "KqO-8A-4Wu"; */
-"KqO-8A-4Wu.title" = "Show in Finder";
+"KqO-8A-4Wu.title" = "Zobrazit ve Finderu";
 
 /* Class = "NSMenuItem"; title = "Select..."; ObjectID = "Qn7-OT-o5v"; */
-"Qn7-OT-o5v.title" = "Select...";
+"Qn7-OT-o5v.title" = "Vybrat…";
 
 /* Class = "NSMenuItem"; title = "Select Command"; ObjectID = "R1q-hp-O1b"; */
-"R1q-hp-O1b.title" = "Select Command";
+"R1q-hp-O1b.title" = "Vybrat příkaz";
 
 /* Class = "NSMenu"; title = "Project"; ObjectID = "aiu-Qj-eSI"; */
-"aiu-Qj-eSI.title" = "Project";
+"aiu-Qj-eSI.title" = "Projekt";
 
 /* Class = "NSMenuItem"; title = "Run"; ObjectID = "dD7-VM-1c5"; */
-"dD7-VM-1c5.title" = "Run";
+"dD7-VM-1c5.title" = "Spustit";
 
 /* Class = "NSMenuItem"; title = "Working directory"; ObjectID = "j6t-Fg-PUe"; */
-"j6t-Fg-PUe.title" = "Working directory";
+"j6t-Fg-PUe.title" = "Pracovní adresář";
