@@ -49,7 +49,6 @@
 		56F6300B17EF34AA004DC92E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56F6300917EF34AA004DC92E /* InfoPlist.strings */; };
 		56F6300E17EF34AA004DC92E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F6300D17EF34AA004DC92E /* main.m */; };
 		56FE8E85167BA1A70001AAED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8E84167BA1A70001AAED /* Cocoa.framework */; };
-		56FE8E8F167BA1A70001AAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56FE8E8D167BA1A70001AAED /* InfoPlist.strings */; };
 		56FE8E91167BA1A70001AAED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FE8E90167BA1A70001AAED /* main.m */; };
 		56FE8E95167BA1A70001AAED /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 56FE8E93167BA1A70001AAED /* Credits.rtf */; };
 		56FE8E98167BA1A70001AAED /* MBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FE8E97167BA1A70001AAED /* MBAppDelegate.m */; };
@@ -193,7 +192,6 @@
 		56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerDocument.m; sourceTree = "<group>"; };
 		56D4710019D36CB600B0798A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MBTaskRunnerDocument.xib; sourceTree = "<group>"; };
 		56D4710119D36CB600B0798A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MBPreferencesWindowController.xib; sourceTree = "<group>"; };
-		56D4710419D36CF400B0798A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56D4710519D36CF400B0798A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = cs; path = cs.lproj/Credits.rtf; sourceTree = "<group>"; };
 		56E16B241E92F64B00FEE789 /* IceCubeAction.action */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IceCubeAction.action; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E16B261E92F64B00FEE789 /* IceCubeAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IceCubeAction.h; sourceTree = "<group>"; };
@@ -220,7 +218,6 @@
 		56FE8E88167BA1A70001AAED /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		56FE8E89167BA1A70001AAED /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		56FE8E8C167BA1A70001AAED /* IceCube-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IceCube-Info.plist"; sourceTree = "<group>"; };
-		56FE8E8E167BA1A70001AAED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56FE8E90167BA1A70001AAED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		56FE8E92167BA1A70001AAED /* IceCube-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IceCube-Prefix.pch"; sourceTree = "<group>"; };
 		56FE8E94167BA1A70001AAED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
@@ -504,7 +501,6 @@
 				566C78071E9D2B8A006DD355 /* IceCube.help */,
 				56EB935619D74AE500988FD9 /* IceCube.sdef */,
 				56FE8E8C167BA1A70001AAED /* IceCube-Info.plist */,
-				56FE8E8D167BA1A70001AAED /* InfoPlist.strings */,
 				56FE8E90167BA1A70001AAED /* main.m */,
 				56FE8E92167BA1A70001AAED /* IceCube-Prefix.pch */,
 				56FE8E93167BA1A70001AAED /* Credits.rtf */,
@@ -766,7 +762,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				566C78081E9D2CD0006DD355 /* IceCube.help in Resources */,
-				56FE8E8F167BA1A70001AAED /* InfoPlist.strings in Resources */,
 				56D470FD19D36B5400B0798A /* MBPreferencesWindowController.xib in Resources */,
 				56D470FA19D36B4B00B0798A /* MBTaskRunnerDocument.xib in Resources */,
 				5619AEA31E9E26EC0003A224 /* Localizable.strings in Resources */,
@@ -981,15 +976,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				56F6300A17EF34AA004DC92E /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		56FE8E8D167BA1A70001AAED /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				56FE8E8E167BA1A70001AAED /* en */,
-				56D4710419D36CF400B0798A /* cs */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
