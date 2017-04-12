@@ -486,8 +486,8 @@
 			isa = PBXGroup;
 			children = (
 				56F1E1C61E9961A1009A9541 /* MBErrorDomain.h */,
-				56FE8E99167BA1A70001AAED /* MainMenu.xib */,
 				56D21D2F17BFC6520060A823 /* Images.xcassets */,
+				56FE8E99167BA1A70001AAED /* MainMenu.xib */,
 				56F1E1E71E9C0CE8009A9541 /* Application */,
 				56F578E11794A584007E85A8 /* Task runner */,
 				56F62FFA17EF2389004DC92E /* Preferences */,
