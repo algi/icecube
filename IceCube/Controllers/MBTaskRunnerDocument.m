@@ -63,14 +63,14 @@ static NSString * const kDirectoryProperty = @"directory";
     }
 
     if (![root isKindOfClass:[NSDictionary class]]) {
-        *outError = MBValidationErrorWithMessage(@"Document content is corrupted and cannot be read.", @"Unable to open user selected document.");
+        *outError = MBValidationError(NSLocalizedString(@"Document content is corrupted and cannot be read.", @"Unable to open user selected document."));
         return NO;
     }
     NSDictionary *dictionary = root;
 
     NSString *directory = dictionary[kDirectoryProperty];
     if (![directory isAbsolutePath]) {
-        *outError = MBValidationErrorWithMessage(@"Unable to read Maven working directory.", @"Unable to read content of selected file.");
+        *outError = MBValidationError(NSLocalizedString(@"Unable to read Maven working directory.", @"Unable to read content of selected file."));
         return NO;
     }
     _workingDirectory = [NSURL fileURLWithPath:directory isDirectory:YES];
@@ -101,11 +101,11 @@ static NSString * const kDirectoryProperty = @"directory";
 }
 
 #pragma mark - NSError helper -
-NSError* MBValidationErrorWithMessage(NSString *message, NSString *comment)
+NSError* MBValidationError(NSString *localizedMessage)
 {
     return [NSError errorWithDomain:IceCubeDomain
                                code:kIceCube_documentValidationError
-                           userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(message, comment)}];
+                           userInfo:@{NSLocalizedDescriptionKey:localizedMessage}];
 }
 
 @end

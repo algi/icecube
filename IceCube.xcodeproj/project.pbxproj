@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		560E703917EF35DA004BC832 /* cz.boucekm.JavaHomeService.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		560E703C17EF4010004BC832 /* MBJavaHomeServiceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 560E703B17EF4010004BC832 /* MBJavaHomeServiceTask.m */; };
+		5619AEA31E9E26EC0003A224 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5619AEA51E9E26EC0003A224 /* Localizable.strings */; };
+		5619AEA91E9E27F00003A224 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5619AEAB1E9E27F00003A224 /* Localizable.strings */; };
+		5619AEAF1E9E285B0003A224 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5619AEB11E9E285B0003A224 /* Localizable.strings */; };
 		564E05A91E96CFF1008E4F1C /* IceCubeSpotlight.mdimporter in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56ADBB6F1E959967003471B4 /* IceCubeSpotlight.mdimporter */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		564E05AC1E96DADE008E4F1C /* MBSpotlightImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 564E05AB1E96DADE008E4F1C /* MBSpotlightImporter.m */; };
 		564FB49217F1C62F000380F3 /* build-failure-no-java_home.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48317F1C62F000380F3 /* build-failure-no-java_home.txt */; };
@@ -138,6 +141,12 @@
 		560E703A17EF4010004BC832 /* MBJavaHomeServiceTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBJavaHomeServiceTask.h; sourceTree = "<group>"; };
 		560E703B17EF4010004BC832 /* MBJavaHomeServiceTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBJavaHomeServiceTask.m; sourceTree = "<group>"; };
 		560E703D17EF43FE004BC832 /* MBJavaHomeService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBJavaHomeService.h; sourceTree = "<group>"; };
+		5619AEA41E9E26EC0003A224 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5619AEA61E9E26F40003A224 /* cs */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5619AEAA1E9E27F00003A224 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5619AEAC1E9E27F30003A224 /* cs */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5619AEB01E9E285B0003A224 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5619AEB21E9E285E0003A224 /* cs */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		564E05AA1E96DADE008E4F1C /* MBSpotlightImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSpotlightImporter.h; sourceTree = "<group>"; };
 		564E05AB1E96DADE008E4F1C /* MBSpotlightImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSpotlightImporter.m; sourceTree = "<group>"; };
 		564FB48317F1C62F000380F3 /* build-failure-no-java_home.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-java_home.txt"; sourceTree = "<group>"; };
@@ -306,6 +315,7 @@
 		568C673B17EB7D630095785D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5619AEAB1E9E27F00003A224 /* Localizable.strings */,
 				568C673C17EB7D630095785D /* MavenService-Info.plist */,
 				568C673D17EB7D630095785D /* InfoPlist.strings */,
 				568C674017EB7D630095785D /* MavenService-Prefix.pch */,
@@ -412,6 +422,7 @@
 		56F6300717EF34AA004DC92E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5619AEB11E9E285B0003A224 /* Localizable.strings */,
 				56F6300817EF34AA004DC92E /* JavaHomeService-Info.plist */,
 				56F6300917EF34AA004DC92E /* InfoPlist.strings */,
 				56F6300C17EF34AA004DC92E /* JavaHomeService-Prefix.pch */,
@@ -488,6 +499,7 @@
 		56FE8E8B167BA1A70001AAED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5619AEA51E9E26EC0003A224 /* Localizable.strings */,
 				566C78071E9D2B8A006DD355 /* IceCube.help */,
 				56EB935619D74AE500988FD9 /* IceCube.sdef */,
 				56FE8E8C167BA1A70001AAED /* IceCube-Info.plist */,
@@ -719,6 +731,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				568C673F17EB7D630095785D /* InfoPlist.strings in Resources */,
+				5619AEA91E9E27F00003A224 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,6 +756,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56F6300B17EF34AA004DC92E /* InfoPlist.strings in Resources */,
+				5619AEAF1E9E285B0003A224 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,6 +768,7 @@
 				56FE8E8F167BA1A70001AAED /* InfoPlist.strings in Resources */,
 				56D470FD19D36B5400B0798A /* MBPreferencesWindowController.xib in Resources */,
 				56D470FA19D36B4B00B0798A /* MBTaskRunnerDocument.xib in Resources */,
+				5619AEA31E9E26EC0003A224 /* Localizable.strings in Resources */,
 				56FE8E95167BA1A70001AAED /* Credits.rtf in Resources */,
 				56EB935819D74AE500988FD9 /* IceCube.sdef in Resources */,
 				56D21D3017BFC6520060A823 /* Images.xcassets in Resources */,
@@ -891,6 +906,33 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5619AEA51E9E26EC0003A224 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5619AEA41E9E26EC0003A224 /* en */,
+				5619AEA61E9E26F40003A224 /* cs */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		5619AEAB1E9E27F00003A224 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5619AEAA1E9E27F00003A224 /* en */,
+				5619AEAC1E9E27F30003A224 /* cs */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		5619AEB11E9E285B0003A224 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5619AEB01E9E285B0003A224 /* en */,
+				5619AEB21E9E285E0003A224 /* cs */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		568C673D17EB7D630095785D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
