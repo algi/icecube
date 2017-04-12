@@ -106,7 +106,7 @@
     if ([args length] == 0) {
         NSAlert *alert = [[NSAlert alloc] init];
 
-        [alert setMessageText:NSLocalizedString(@"Unable to run empty command.", @"Alert message for Unable to run empty command.")];
+        [alert setMessageText:NSLocalizedString(@"Unable to build project with empty command.", @"User tries to build project with empty command.")];
         [alert beginSheetModalForWindow:[self window] completionHandler:nil];
 
         return;
@@ -123,8 +123,7 @@
     NSString *mavenPath = [prefs stringForKey:kMavenHomeDefaultsKey];
     NSDictionary *environment = @{@"JAVA_HOME": [prefs stringForKey:kJavaHomeDefaultsKey]};
 
-    NSString *executionHeader = [NSString stringWithFormat:@"$ %@ %@\n\n", mavenPath, args];
-    [self.outputTextView setString:executionHeader];
+    [self.outputTextView setString:[NSString stringWithFormat:@"$ %@ %@\n\n", mavenPath, args]];
 
     // launch task
     [self.connection resume];

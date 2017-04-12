@@ -30,7 +30,7 @@
     if ([self.task isRunning]) {
         NSError *error = [NSError errorWithDomain:IceCubeDomain
                                              code:kIceCube_mavenTaskAlreadyRunningError
-                                         userInfo:@{NSLocalizedDescriptionKey: @"Task is already running."}];
+                                         userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Task is already running.", @"Raised by task, when user tries to run same project multiple times.")}];
         [remoteObserver mavenTaskDidFinishSuccessfully:NO error:error];
         return;
     }
@@ -50,15 +50,17 @@
         [self.task launch];
     }
     @catch (NSException *exception) {
-        NSError *error = [NSError errorWithDomain:IceCubeDomain
+        id err = [NSError errorWithDomain:IceCubeDomain
                                      code:kIceCube_unableToLaunchMavenError
                                  userInfo:@{
-                                            NSLocalizedDescriptionKey: @"Unable to run Maven",
+                                            NSLocalizedDescriptionKey: NSLocalizedString(@"Unable to run Maven", @"Raised when system cannot launch Maven task. Main title for error dialog 'Unable to run Maven'."),
                                             NSLocalizedFailureReasonErrorKey: exception.reason,
-                                            NSLocalizedRecoverySuggestionErrorKey: @"Please set correct path to Maven in Preferences.",
-                                            NSLocalizedRecoveryOptionsErrorKey: @[@"Open Preferences", @"Cancel"]
+                                            NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString(@"Please set correct path to Maven in Preferences.", @"Recovery suggestion text for user, which points him to Preferences in application. It appears in 'Unable to run Maven' error dialog."),
+                                            NSLocalizedRecoveryOptionsErrorKey: @[
+                                                    NSLocalizedString(@"Open Preferences", @"Button in 'Unable to run Maven' error dialog."),
+                                                    NSLocalizedString(@"Cancel", @"Button in 'Unable to run Maven' error dialog.")]
                                             }];
-        [remoteObserver mavenTaskDidFinishSuccessfully:NO error:error];
+        [remoteObserver mavenTaskDidFinishSuccessfully:NO error:err];
         return;
     }
 

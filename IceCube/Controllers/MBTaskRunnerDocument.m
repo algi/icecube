@@ -11,6 +11,9 @@
 #import "MBTaskRunnerWindowController.h"
 #import "MBErrorDomain.h"
 
+static NSString * const kCommandProperty = @"command";
+static NSString * const kDirectoryProperty = @"directory";
+
 @implementation MBTaskRunnerDocument
 
 - (id)initWithType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
@@ -60,19 +63,19 @@
     }
 
     if (![root isKindOfClass:[NSDictionary class]]) {
-        *outError = MBValidationErrorWithMessage(@"Document content is corrupted and cannot be read.");
+        *outError = MBValidationErrorWithMessage(@"Document content is corrupted and cannot be read.", @"Unable to open user selected document.");
         return NO;
     }
     NSDictionary *dictionary = root;
 
-    NSString *directory = dictionary[@"directory"];
+    NSString *directory = dictionary[kDirectoryProperty];
     if (![directory isAbsolutePath]) {
-        *outError = MBValidationErrorWithMessage(@"Unable to read Maven working directory.");
+        *outError = MBValidationErrorWithMessage(@"Unable to read Maven working directory.", @"Unable to read content of selected file.");
         return NO;
     }
     _workingDirectory = [NSURL fileURLWithPath:directory isDirectory:YES];
 
-    NSString *command = dictionary[@"command"];
+    NSString *command = dictionary[kCommandProperty];
     if (!command) {
         command = @"";
     }
@@ -83,13 +86,10 @@
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
 {
-    NSString *path = [self.workingDirectory path];
-    NSString *command = self.command;
+    NSDictionary *plist = @{kDirectoryProperty: [self.workingDirectory path],
+                              kCommandProperty:  self.command};
 
-    NSDictionary *outputDictionary = @{@"directory": path,
-                                       @"command":   command};
-
-    return [NSPropertyListSerialization dataWithPropertyList:outputDictionary
+    return [NSPropertyListSerialization dataWithPropertyList:plist
                                                       format:NSPropertyListXMLFormat_v1_0
                                                      options:0
                                                        error:outError];
@@ -101,11 +101,11 @@
 }
 
 #pragma mark - NSError helper -
-NSError* MBValidationErrorWithMessage(NSString *message)
+NSError* MBValidationErrorWithMessage(NSString *message, NSString *comment)
 {
     return [NSError errorWithDomain:IceCubeDomain
                                code:kIceCube_documentValidationError
-                           userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(message, message)}];
+                           userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(message, comment)}];
 }
 
 @end
