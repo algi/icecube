@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  IceCube
+
+  Created by Marian Bouček on 12.04.17.
+  Copyright © 2017 Marian Bouček. All rights reserved.
+*/
+
+NSHumanReadableCopyright = "Copyright © 2012 Marian Bouček. All rights reserved.";

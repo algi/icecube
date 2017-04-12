@@ -7,3 +7,6 @@
 */
 
 NSHumanReadableCopyright = "Copyright © 2012 Marian Bouček. Všechna práva vyhrazena.";
+
+UTTypeDescription = "Projekt IceCube";
+CFBundleTypeName  = "Projekt IceCube";
