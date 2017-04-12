@@ -1,4 +1,4 @@
-on «event helphdhp» (completeParam)
+on «event helphdhp»
     tell application "IceCube"
         repeat with projectItem in every project
             run project projectItem
