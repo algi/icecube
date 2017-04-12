@@ -55,7 +55,6 @@
 		56FE8E98167BA1A70001AAED /* MBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FE8E97167BA1A70001AAED /* MBAppDelegate.m */; };
 		56FE8E9B167BA1A70001AAED /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FE8E99167BA1A70001AAED /* MainMenu.xib */; };
 		56FE8EA7167BA1A80001AAED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8E84167BA1A70001AAED /* Cocoa.framework */; };
-		56FE8EAF167BA1A80001AAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56FE8EAD167BA1A80001AAED /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -228,7 +227,6 @@
 		56FE8E97167BA1A70001AAED /* MBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBAppDelegate.m; sourceTree = "<group>"; };
 		56FE8EA4167BA1A80001AAED /* IceCubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IceCubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FE8EAC167BA1A80001AAED /* IceCubeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IceCubeTests-Info.plist"; sourceTree = "<group>"; };
-		56FE8EAE167BA1A80001AAED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -534,7 +532,6 @@
 				564FB48817F1C62F000380F3 /* build-success-one-module.txt */,
 				564FB48917F1C62F000380F3 /* build-success.txt */,
 				56FE8EAC167BA1A80001AAED /* IceCubeTests-Info.plist */,
-				56FE8EAD167BA1A80001AAED /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -785,7 +782,6 @@
 				564FB49417F1C62F000380F3 /* build-failure-no-project.txt in Resources */,
 				564FB49317F1C62F000380F3 /* build-failure-no-pom.txt in Resources */,
 				564FB49717F1C630000380F3 /* build-success-one-module.txt in Resources */,
-				56FE8EAF167BA1A80001AAED /* InfoPlist.strings in Resources */,
 				564FB49817F1C630000380F3 /* build-success.txt in Resources */,
 				564FB49517F1C62F000380F3 /* build-failure-non-parsable.txt in Resources */,
 				564FB49617F1C630000380F3 /* build-failure-unknown-phase.txt in Resources */,
@@ -1010,14 +1006,6 @@
 				5619AEBD1E9E3CCF0003A224 /* Base */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		56FE8EAD167BA1A80001AAED /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				56FE8EAE167BA1A80001AAED /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
