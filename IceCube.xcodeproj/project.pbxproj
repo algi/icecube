@@ -148,6 +148,7 @@
 		5619AEB01E9E285B0003A224 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5619AEB21E9E285E0003A224 /* cs */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5619AEB41E9E2B890003A224 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		5619AEB81E9E34F30003A224 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/MBPreferencesWindowController.strings; sourceTree = "<group>"; };
 		564E05AA1E96DADE008E4F1C /* MBSpotlightImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSpotlightImporter.h; sourceTree = "<group>"; };
 		564E05AB1E96DADE008E4F1C /* MBSpotlightImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSpotlightImporter.m; sourceTree = "<group>"; };
 		564FB48317F1C62F000380F3 /* build-failure-no-java_home.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-java_home.txt"; sourceTree = "<group>"; };
@@ -191,7 +192,6 @@
 		56D4710019D36CB600B0798A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MBTaskRunnerDocument.xib; sourceTree = "<group>"; };
 		56D4710119D36CB600B0798A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MBPreferencesWindowController.xib; sourceTree = "<group>"; };
 		56D4710219D36CF400B0798A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/MBTaskRunnerDocument.strings; sourceTree = "<group>"; };
-		56D4710319D36CF400B0798A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/MBPreferencesWindowController.strings; sourceTree = "<group>"; };
 		56D4710419D36CF400B0798A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56D4710519D36CF400B0798A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = cs; path = cs.lproj/Credits.rtf; sourceTree = "<group>"; };
 		56E16B241E92F64B00FEE789 /* IceCubeAction.action */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IceCubeAction.action; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -956,7 +956,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				56D4710119D36CB600B0798A /* Base */,
-				56D4710319D36CF400B0798A /* cs */,
+				5619AEB81E9E34F30003A224 /* cs */,
 			);
 			name = MBPreferencesWindowController.xib;
 			sourceTree = "<group>";

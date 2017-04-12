@@ -68,7 +68,7 @@
                     </button>
                     <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a13-zB-RlE">
                         <rect key="frame" x="72" y="93" width="361" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="R0r-GU-d67">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="R0r-GU-d67">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -136,15 +136,15 @@
                     </box>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzd-Sh-H7e">
                         <rect key="frame" x="70" y="37" width="99" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Maven version:" id="Bsl-7r-0Xu">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Maven version:" id="Bsl-7r-0Xu">
                             <font key="font" metaFont="systemSemibold" size="13"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xl-E1-o0H">
-                        <rect key="frame" x="70" y="12" width="87" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Java version:" id="onC-yE-gd7">
+                        <rect key="frame" x="70" y="12" width="99" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Java version:" id="onC-yE-gd7">
                             <font key="font" metaFont="systemSemibold" size="13"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -176,6 +176,7 @@
                     <constraint firstAttribute="trailing" secondItem="dNV-zW-Hhl" secondAttribute="trailing" constant="12" symbolic="YES" id="1my-yO-pqO"/>
                     <constraint firstItem="Paj-mC-Mr6" firstAttribute="leading" secondItem="rFI-Lo-kmG" secondAttribute="trailing" constant="8" symbolic="YES" id="2e2-MR-tmg"/>
                     <constraint firstItem="bnP-Xe-cxu" firstAttribute="leading" secondItem="qzd-Sh-H7e" secondAttribute="trailing" constant="8" symbolic="YES" id="32o-82-ibw"/>
+                    <constraint firstItem="7xl-E1-o0H" firstAttribute="trailing" secondItem="qzd-Sh-H7e" secondAttribute="trailing" id="3ZF-Mh-hwC"/>
                     <constraint firstItem="rFI-Lo-kmG" firstAttribute="leading" secondItem="a13-zB-RlE" secondAttribute="leading" id="4Ro-9R-HdT"/>
                     <constraint firstItem="a13-zB-RlE" firstAttribute="leading" secondItem="eWk-je-pdE" secondAttribute="leading" id="7IT-UV-qtz"/>
                     <constraint firstItem="dNV-zW-Hhl" firstAttribute="top" secondItem="eWk-je-pdE" secondAttribute="bottom" constant="8" id="97a-e0-cRg"/>

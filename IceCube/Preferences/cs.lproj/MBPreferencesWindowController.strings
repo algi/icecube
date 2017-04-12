@@ -1,33 +1,33 @@
 
-/* Class = "NSWindow"; title = "Předvolby"; ObjectID = "1"; */
-"1.title" = "Předvolby";
+/* Class = "NSWindow"; title = "Preferences"; ObjectID = "2r0-6b-xe8"; */
+"2r0-6b-xe8.title" = "Předvolby";
 
-/* Class = "NSTextFieldCell"; title = "Maven:"; ObjectID = "8My-OY-ane"; */
-"8My-OY-ane.title" = "Maven:";
+/* Class = "NSTextFieldCell"; title = "Java:"; ObjectID = "AJU-i7-wqe"; */
+"AJU-i7-wqe.title" = "Java:";
 
-/* Class = "NSTextFieldCell"; title = "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"; ObjectID = "Mr5-de-GLV"; */
-"Mr5-de-GLV.title" = "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home";
+/* Class = "NSTextFieldCell"; placeholderString = "Unable to read version"; ObjectID = "AMf-VC-QO2"; */
+"AMf-VC-QO2.placeholderString" = "Nepodařilo se zjistit verzi";
 
-/* Class = "NSTextFieldCell"; title = "/usr/share/maven/bin/mvn"; ObjectID = "OZZ-vd-Vzo"; */
-"OZZ-vd-Vzo.title" = "/usr/share/maven/bin/mvn";
+/* Class = "NSTextFieldCell"; title = "Maven version:"; ObjectID = "Bsl-7r-0Xu"; */
+"Bsl-7r-0Xu.title" = "Verze Maven:";
 
-/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "R6o-HI-prr"; */
-"R6o-HI-prr.title" = "OtherViews";
+/* Class = "NSTextFieldCell"; placeholderString = "Unable to read version"; ObjectID = "K7v-fl-kgR"; */
+"K7v-fl-kgR.placeholderString" = "Nepodařilo se zjistit verzi";
 
-/* Class = "NSMenuItem"; title = "Default"; ObjectID = "dis-iy-i9A"; */
-"dis-iy-i9A.title" = "Default";
+/* Class = "NSButtonCell"; title = "Use default location"; ObjectID = "R3N-ij-doB"; */
+"R3N-ij-doB.title" = "Použít výchozí umístění";
 
-/* Class = "NSTextFieldCell"; title = "Java:"; ObjectID = "j4f-lU-A62"; */
-"j4f-lU-A62.title" = "Java:";
+/* Class = "NSButtonCell"; title = "Use default location"; ObjectID = "ilF-LY-88g"; */
+"ilF-LY-88g.title" = "Použít výchozí umístění";
 
-/* Class = "NSMenuItem"; title = "Default"; ObjectID = "ncJ-BW-Urn"; */
-"ncJ-BW-Urn.title" = "Default";
+/* Class = "NSTextFieldCell"; title = "Java version:"; ObjectID = "onC-yE-gd7"; */
+"onC-yE-gd7.title" = "Verze Java:";
 
-/* Class = "NSMenuItem"; title = "Custom"; ObjectID = "okL-XL-cCR"; */
-"okL-XL-cCR.title" = "Custom";
+/* Class = "NSTextFieldCell"; title = "Maven:"; ObjectID = "tcB-vf-YKX"; */
+"tcB-vf-YKX.title" = "Maven:";
 
-/* Class = "NSMenuItem"; title = "Custom"; ObjectID = "t54-Qe-Fuk"; */
-"t54-Qe-Fuk.title" = "Custom";
+/* Class = "NSButtonCell"; title = "Select"; ObjectID = "wfK-qb-XVq"; */
+"wfK-qb-XVq.title" = "Vybrat";
 
-/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "vWI-4q-c5O"; */
-"vWI-4q-c5O.title" = "OtherViews";
+/* Class = "NSButtonCell"; title = "Select"; ObjectID = "xPZ-jz-icl"; */
+"xPZ-jz-icl.title" = "Vybrat";
