@@ -11,7 +11,6 @@
                 <outlet property="commandField" destination="6iw-Hy-3Tl" id="bQf-l3-eZY"/>
                 <outlet property="outputTextView" destination="YfR-bW-cHw" id="hfW-NK-gSo"/>
                 <outlet property="pathControl" destination="OMz-TM-wiL" id="u5W-zv-Asu"/>
-                <outlet property="progressIndicator" destination="Xhj-4G-Nch" id="hx3-cc-hgu"/>
                 <outlet property="window" destination="86L-hC-66c" id="9cm-d5-EpF"/>
             </connections>
         </customObject>
@@ -27,17 +26,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31r-Zy-hOe">
-                        <rect key="frame" x="94" y="46" width="717" height="337"/>
+                        <rect key="frame" x="94" y="20" width="717" height="363"/>
                         <clipView key="contentView" id="DnY-sN-MWG">
-                            <rect key="frame" x="1" y="1" width="715" height="335"/>
+                            <rect key="frame" x="1" y="1" width="715" height="361"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView editable="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" allowsNonContiguousLayout="YES" spellingCorrection="YES" smartInsertDelete="YES" id="YfR-bW-cHw">
-                                    <rect key="frame" x="0.0" y="0.0" width="715" height="335"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="715" height="361"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <size key="minSize" width="715" height="335"/>
+                                    <size key="minSize" width="715" height="361"/>
                                     <size key="maxSize" width="771" height="10000000"/>
                                     <attributedString key="textStorage">
                                         <fragment content="$">
@@ -58,7 +57,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="t8a-il-gco">
-                            <rect key="frame" x="700" y="1" width="16" height="335"/>
+                            <rect key="frame" x="700" y="1" width="16" height="361"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
@@ -93,17 +92,6 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <progressIndicator maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Xhj-4G-Nch">
-                        <rect key="frame" x="649" y="19" width="162" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="162" id="41i-d9-qqE"/>
-                        </constraints>
-                        <connections>
-                            <binding destination="-2" name="isIndeterminate" keyPath="self.progress.indeterminate" id="0aK-Xn-zsL"/>
-                            <binding destination="-2" name="maxValue" keyPath="self.progress.totalUnitCount" id="6dn-Dc-U1M"/>
-                            <binding destination="-2" name="value" keyPath="self.progress.completedUnitCount" previousBinding="6dn-Dc-U1M" id="oDb-hk-9WP"/>
-                        </connections>
-                    </progressIndicator>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csR-r7-0x9">
                         <rect key="frame" x="18" y="368" width="70" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Output:" id="dnB-Y9-ABC">
@@ -133,28 +121,35 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Kuj-g5-hFo">
+                        <rect key="frame" x="793" y="422" width="16" height="16"/>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="self.progress.completedUnitCount" previousBinding="ry8-CS-Ca8" id="Z1Z-0G-ZrG"/>
+                            <binding destination="-2" name="maxValue" keyPath="self.progress.totalUnitCount" id="ry8-CS-Ca8"/>
+                        </connections>
+                    </progressIndicator>
                 </subviews>
                 <constraints>
                     <constraint firstItem="VgK-5y-GOF" firstAttribute="top" secondItem="6iw-Hy-3Tl" secondAttribute="bottom" constant="8" symbolic="YES" id="0aF-VN-mXO"/>
                     <constraint firstItem="d7O-rU-iQq" firstAttribute="leading" secondItem="ffI-nQ-6He" secondAttribute="leading" constant="20" symbolic="YES" id="332-xn-cf7"/>
+                    <constraint firstItem="Kuj-g5-hFo" firstAttribute="top" secondItem="6iw-Hy-3Tl" secondAttribute="bottom" constant="-19" id="BaF-B7-RQh"/>
                     <constraint firstAttribute="trailing" secondItem="VgK-5y-GOF" secondAttribute="trailing" constant="20" symbolic="YES" id="DzP-It-aiT"/>
-                    <constraint firstAttribute="trailing" secondItem="6iw-Hy-3Tl" secondAttribute="trailing" constant="20" symbolic="YES" id="F7Y-Ab-pzg"/>
+                    <constraint firstAttribute="trailing" secondItem="6iw-Hy-3Tl" secondAttribute="trailing" constant="20" symbolic="YES" id="Jhv-EK-Oqm"/>
                     <constraint firstAttribute="trailing" secondItem="31r-Zy-hOe" secondAttribute="trailing" constant="20" symbolic="YES" id="Jtc-VV-fpU"/>
                     <constraint firstItem="31r-Zy-hOe" firstAttribute="top" secondItem="OMz-TM-wiL" secondAttribute="bottom" constant="8" symbolic="YES" id="KNv-Mg-iwZ"/>
                     <constraint firstItem="OMz-TM-wiL" firstAttribute="baseline" secondItem="d7O-rU-iQq" secondAttribute="baseline" constant="-1" id="LdY-bL-OQz"/>
+                    <constraint firstItem="Kuj-g5-hFo" firstAttribute="leading" secondItem="6iw-Hy-3Tl" secondAttribute="trailing" constant="-18" id="MzU-9I-qTh"/>
                     <constraint firstItem="OMz-TM-wiL" firstAttribute="top" secondItem="6iw-Hy-3Tl" secondAttribute="bottom" constant="8" symbolic="YES" id="PZ8-J1-AkM"/>
                     <constraint firstItem="j5D-Vi-Uq8" firstAttribute="baseline" secondItem="6iw-Hy-3Tl" secondAttribute="baseline" id="QRv-n5-CmD"/>
-                    <constraint firstItem="Xhj-4G-Nch" firstAttribute="top" secondItem="31r-Zy-hOe" secondAttribute="bottom" constant="8" symbolic="YES" id="Ty6-8p-U1Z"/>
                     <constraint firstItem="csR-r7-0x9" firstAttribute="top" secondItem="d7O-rU-iQq" secondAttribute="bottom" constant="8" symbolic="YES" id="cTW-wK-bKK"/>
                     <constraint firstItem="6iw-Hy-3Tl" firstAttribute="leading" secondItem="j5D-Vi-Uq8" secondAttribute="trailing" constant="8" symbolic="YES" id="d1D-Xv-sHL"/>
                     <constraint firstItem="csR-r7-0x9" firstAttribute="leading" secondItem="ffI-nQ-6He" secondAttribute="leading" constant="20" symbolic="YES" id="dvq-Ur-psc"/>
+                    <constraint firstAttribute="bottom" secondItem="31r-Zy-hOe" secondAttribute="bottom" constant="20" symbolic="YES" id="fZA-Dz-la5"/>
                     <constraint firstItem="31r-Zy-hOe" firstAttribute="leading" secondItem="csR-r7-0x9" secondAttribute="trailing" constant="8" symbolic="YES" id="hBP-oF-L6R"/>
                     <constraint firstItem="VgK-5y-GOF" firstAttribute="leading" secondItem="OMz-TM-wiL" secondAttribute="trailing" constant="8" symbolic="YES" id="lZf-Ef-wr1"/>
                     <constraint firstItem="31r-Zy-hOe" firstAttribute="leading" secondItem="OMz-TM-wiL" secondAttribute="leading" id="lyg-ju-4yk"/>
                     <constraint firstItem="6iw-Hy-3Tl" firstAttribute="top" secondItem="ffI-nQ-6He" secondAttribute="top" constant="20" symbolic="YES" id="mg2-yv-8pb"/>
-                    <constraint firstAttribute="trailing" secondItem="Xhj-4G-Nch" secondAttribute="trailing" constant="20" symbolic="YES" id="mhD-eB-U6q"/>
                     <constraint firstItem="OMz-TM-wiL" firstAttribute="leading" secondItem="6iw-Hy-3Tl" secondAttribute="leading" id="u1C-ny-pmw"/>
-                    <constraint firstAttribute="bottom" secondItem="Xhj-4G-Nch" secondAttribute="bottom" constant="20" symbolic="YES" id="vUs-aC-SQi"/>
                     <constraint firstItem="OMz-TM-wiL" firstAttribute="leading" secondItem="d7O-rU-iQq" secondAttribute="trailing" constant="8" symbolic="YES" id="yUg-l5-h85"/>
                     <constraint firstItem="j5D-Vi-Uq8" firstAttribute="leading" secondItem="ffI-nQ-6He" secondAttribute="leading" constant="20" symbolic="YES" id="zve-kF-oV1"/>
                 </constraints>
@@ -191,6 +186,7 @@
             </connections>
             <point key="canvasLocation" x="187.5" y="138.5"/>
         </window>
+        <userDefaultsController representsSharedInstance="YES" id="acp-Q7-2Ke"/>
     </objects>
     <resources>
         <image name="NSRevealFreestandingTemplate" width="14" height="14"/>
