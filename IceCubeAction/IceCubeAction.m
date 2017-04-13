@@ -8,6 +8,12 @@
 
 #import "IceCubeAction.h"
 
+// redefine our own version of localized string lookup
+// we need to look in our own bundle, not main application bundle
+#undef NSLocalizedString
+#define NSLocalizedString(key, comment) \
+    [[self bundle] localizedStringForKey:(key) value:@"" table:nil]
+
 @implementation IceCubeAction
 
 static NSString * const kDefaultMavenCommand = @"clean install";

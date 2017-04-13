@@ -35,19 +35,21 @@
 		<key>AMDAlert</key>
 		<string></string>
 		<key>AMDInput</key>
-		<string>Vstup je seznam souborů (pom.xml).</string>
+		<string>List of Maven project files (pom.xml).</string>
 		<key>AMDNote</key>
-		<string>Akce pro svůj vyžaduje nainstalovaný Maven.</string>
+		<string>Action requires pre-installed Maven.</string>
 		<key>AMDOptions</key>
-		<string>Cílový příkaz lze nastavit v poli Maven bez názvu programu (např. &quot;clean install&quot;).</string>
+		<string>Use field &quot;Maven&quot; for setting Maven command. Do not start with prefix &quot;mvn&quot;.
+Specify Maven installation path in &quot;Maven&quot; combo box.
+If you would like to see error output, choose path in &quot;Error output&quot; combo box.</string>
 		<key>AMDRelatedActions</key>
 		<string></string>
 		<key>AMDRequires</key>
 		<string></string>
 		<key>AMDResult</key>
-		<string>Výstupem akce je seznam POM souborů, které akce úspěšně provedla.</string>
+		<string>Result of action is list of successfully built POM files.</string>
 		<key>AMDSummary</key>
-		<string>Provede zadaný Maven příkaz pro zvolený soubor nebo soubory.</string>
+		<string>Perform Maven build for selected file(s).</string>
 		<key>AMDWebsite</key>
 		<string>https://medium.com/@mboucek/</string>
 	</dict>
@@ -74,8 +76,6 @@
 	<array/>
 	<key>AMWarning</key>
 	<dict>
-		<key>Action</key>
-		<string>(* Action name to be suggested to add prior to this action to make the task safer, e.g. com.apple.Automator.CopyFiles, goes here. *)</string>
 		<key>Level</key>
 		<integer>0</integer>
 	</dict>

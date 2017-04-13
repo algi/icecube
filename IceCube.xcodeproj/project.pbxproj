@@ -176,6 +176,8 @@
 		565332C61E9F82FF009206CC /* MBRecoveryAttempter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBRecoveryAttempter.m; sourceTree = "<group>"; };
 		565332CB1E9F978C009206CC /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		565332CD1E9F978E009206CC /* cs */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		565332CE1E9F9C5A009206CC /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		565332CF1E9FA050009206CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56630A1917ECC067005A2BEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		566C78071E9D2B8A006DD355 /* IceCube.help */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = IceCube.help; sourceTree = "<group>"; };
 		568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cz.boucekm.MavenService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,7 +208,6 @@
 		56E16B271E92F64B00FEE789 /* IceCubeAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IceCubeAction.m; sourceTree = "<group>"; };
 		56E16B2A1E92F64B00FEE789 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/main.xib; sourceTree = "<group>"; };
 		56E16B2C1E92F64B00FEE789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		56E16B2E1E92F64B00FEE789 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56EB935619D74AE500988FD9 /* IceCube.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IceCube.sdef; sourceTree = "<group>"; };
 		56EB935A19D74D3200988FD9 /* MBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBApplication.h; sourceTree = "<group>"; };
 		56EB935B19D74D3200988FD9 /* MBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBApplication.m; sourceTree = "<group>"; };
@@ -997,7 +998,8 @@
 		56E16B2D1E92F64B00FEE789 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				56E16B2E1E92F64B00FEE789 /* en */,
+				565332CE1E9F9C5A009206CC /* cs */,
+				565332CF1E9FA050009206CC /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

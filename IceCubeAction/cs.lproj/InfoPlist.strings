@@ -1,0 +1,12 @@
+
+AMName = "Spustit Maven";
+
+/* AMDescription localized strings */
+AMDInput = "Seznam souborů s Maven projekty (pom.xml).";
+AMDNote = "Akce pro svůj vyžaduje nainstalovaný Maven.";
+AMDOptions  = "Pro nastavení Maven příkazu použijte pole \"Maven\". Uvádějte příkaz bez úvodního \"mvn\" prefixu.\nCestu k instalaci Maven zvolíte kliknutím na rozbalovací menu u položky \"Maven\"\nChcete-li vidět chybový výstup, zvolte cestu k adresáři v položce \"Chybový výstup\".";
+AMDResult = "Výstupem akce je seznam POM souborů, které akce úspěšně provedla.";
+AMDSummary = "Provede zadaný Maven příkaz pro zvolený soubor nebo soubory.";
+AMDWebsite = "https://medium.com/@mboucek/";
+
+NSHumanReadableCopyright = "Copyright © 2017 Marian Bouček. Všechna práva vyhrazena.";
