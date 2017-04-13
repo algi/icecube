@@ -11,9 +11,6 @@
 #import "MBMavenService.h"
 #import "MBMavenServiceCallback.h"
 
-#import "MBMavenOutputParser.h"
-#import "MBMavenParserDelegate.h"
-
 #import "MBAppDelegate.h"
 #import "MBTaskRunnerDocument.h"
 #import "MBPreferencesWindowController.h"
@@ -22,14 +19,13 @@
 
 #import <os/log.h>
 
-@interface MBTaskRunnerWindowController () <MBMavenServiceCallback, MBMavenParserDelegate>
+@interface MBTaskRunnerWindowController () <MBMavenServiceCallback>
 
-@property (nonatomic) NSXPCConnection *connection;
-@property (nonatomic) MBMavenOutputParser *parser;
-@property BOOL taskRunning;
-
-@property NSProgress *progress;
 @property NSString *uniqueID;
+
+@property BOOL taskRunning;
+@property NSProgress *progress;
+@property (nonatomic) NSXPCConnection *connection;
 
 @end
 
@@ -47,6 +43,7 @@
 - (void)windowDidLoad
 {
     self.connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.MavenService"];
+
     self.connection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenService)];
     self.connection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
     self.connection.exportedObject = self;
@@ -121,24 +118,23 @@
     // prepare UI
     self.taskRunning = YES;
     self.progress = [NSProgress progressWithTotalUnitCount:-1];
-    self.parser = [[MBMavenOutputParser alloc] initWithDelegate:self];
 
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 
-    NSURL *path = [[self document] workingDirectory];
-    NSString *mavenPath = [prefs stringForKey:kMavenHomeDefaultsKey];
+    NSURL *workingDirectory = [[self document] workingDirectory];
+    NSString *launchPath = [prefs stringForKey:kMavenHomeDefaultsKey];
     NSDictionary *environment = @{@"JAVA_HOME": [prefs stringForKey:kJavaHomeDefaultsKey]};
 
-    [self.outputTextView setString:[NSString stringWithFormat:@"$ %@ %@\n\n", mavenPath, args]];
+    [self.outputTextView setString:[NSString stringWithFormat:@"$ %@ %@\n", launchPath, args]];
 
     // launch task
     [self.connection resume];
-    [[self.connection remoteObjectProxy] launchMaven:mavenPath withArguments:args environment:environment atPath:path];
+    [[self.connection remoteObjectProxy] buildProjectWithMaven:launchPath arguments:args environment:environment currentDirectory:workingDirectory];
 }
 
 - (IBAction)stopTask:(id)sender
 {
-    [[self.connection remoteObjectProxy] terminateTask];
+    [[self.connection remoteObjectProxy] terminateBuild];
 }
 
 - (IBAction)revealFolderInFinder:(id)sender
@@ -148,29 +144,7 @@
 }
 
 #pragma mark - MBMavenServiceCallback -
-- (void)mavenTaskDidWriteLine:(NSString *)line
-{
-    [self.parser parseLine:line];
-}
-
--(void)mavenTaskDidFinishSuccessfully:(BOOL)launchSuccessful error:(NSError *)error
-{
-    dispatch_sync(dispatch_get_main_queue(), ^{
-
-        if (! launchSuccessful) {
-            os_log_error(OS_LOG_DEFAULT, "Unable to launch Maven. Reason: %@", error.localizedFailureReason);
-            [NSApp presentError:error modalForWindow:self.window delegate:nil didPresentSelector:nil contextInfo:nil];
-        }
-
-        self.progress.completedUnitCount = self.progress.completedUnitCount + 1;
-
-        [self.connection suspend];
-        self.taskRunning = NO;
-    });
-}
-
-#pragma mark - MBMavenParserDelegate -
-- (void)buildDidStartWithTaskList:(NSArray *)taskList
+-(void)mavenTaskDidStartWithTaskList:(NSArray *)taskList
 {
     dispatch_sync(dispatch_get_main_queue(), ^{
         // always go for at least 2, so user can see the progress
@@ -184,35 +158,14 @@
     });
 }
 
-- (void)projectDidStartWithName:(NSString *)name
+-(void)mavenTaskDidStartProject:(NSString *)name
 {
     dispatch_sync(dispatch_get_main_queue(), ^{
         self.progress.completedUnitCount = self.progress.completedUnitCount + 1;
     });
 }
 
-- (void)buildDidEndSuccessfully:(BOOL)buildWasSuccessful
-{
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        self.progress.completedUnitCount = self.progress.completedUnitCount + 1;
-
-        NSUserNotification *notification = [[NSUserNotification alloc] init];
-        notification.soundName = NSUserNotificationDefaultSoundName;
-
-        if (buildWasSuccessful) {
-            notification.title = NSLocalizedString(@"Maven build did suceeded.", @"Notification title for successful build.");
-            notification.informativeText = NSLocalizedString(@"Maven build did end successfuly.", @"Notification informative text for successful build.");
-        }
-        else {
-            notification.title = NSLocalizedString(@"Maven build didn't succeed.", @"Notification title for unsuccessful build.");
-            notification.informativeText = NSLocalizedString(@"Maven build didn't end successfuly.", @"Notification informative text for unsuccessful build.");
-        }
-
-        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
-    });
-}
-
-- (void)newLineDidRecieve:(NSString *)line
+-(void)mavenTaskDidWriteLine:(NSString *)line
 {
     dispatch_sync(dispatch_get_main_queue(), ^{
         NSTextStorage *storage = [self.outputTextView textStorage];
@@ -225,6 +178,44 @@
 
         [self.outputTextView scrollRangeToVisible:NSMakeRange([[self.outputTextView string] length], 0)];
     });
+}
+
+-(void)mavenTaskDidFinishSuccessfullyWithResult:(BOOL)buildSuccessful
+{
+    __weak id weakSelf = self;
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        NSUserNotification *notification = [[NSUserNotification alloc] init];
+        notification.soundName = NSUserNotificationDefaultSoundName;
+
+        if (buildSuccessful) {
+            notification.title = NSLocalizedString(@"Maven build did suceeded.", @"Notification title for successful build.");
+            notification.informativeText = NSLocalizedString(@"Maven build did end successfuly.", @"Notification informative text for successful build.");
+        }
+        else {
+            notification.title = NSLocalizedString(@"Maven build didn't succeed.", @"Notification title for unsuccessful build.");
+            notification.informativeText = NSLocalizedString(@"Maven build didn't end successfuly.", @"Notification informative text for unsuccessful build.");
+        }
+
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+
+        [weakSelf taskDidTerminate];
+    });
+}
+
+-(void)mavenTaskDidFinishWithError:(NSError *)error
+{
+    os_log_error(OS_LOG_DEFAULT, "Unable to launch Maven. Reason: %@", error.localizedFailureReason);
+    [NSApp presentError:error modalForWindow:self.window delegate:nil didPresentSelector:nil contextInfo:nil];
+
+    [self taskDidTerminate];
+}
+
+-(void)taskDidTerminate
+{
+    self.progress.completedUnitCount = self.progress.completedUnitCount + 1;
+
+    [self.connection suspend];
+    self.taskRunning = NO;
 }
 
 #pragma mark - Scripting support -

@@ -17,6 +17,8 @@
 @interface MBMavenOutputParserTests : XCTestCase
 @end
 
+// TODO: bylo by lepší, kdyby parser byl v MavenService
+
 @implementation MBMavenOutputParserTests
 
 - (void)testBuildSuccess

@@ -25,7 +25,6 @@
 		564FB49917F1C630000380F3 /* DDFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB48B17F1C62F000380F3 /* DDFileReader.m */; };
 		564FB49A17F1C630000380F3 /* MBMavenOutputParserTestObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB48E17F1C62F000380F3 /* MBMavenOutputParserTestObserver.m */; };
 		564FB49B17F1C630000380F3 /* MBMavenOutputParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB48F17F1C62F000380F3 /* MBMavenOutputParserTests.m */; };
-		564FB4A217F1C72E000380F3 /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */; };
 		565332C71E9F82FF009206CC /* MBRecoveryAttempter.m in Sources */ = {isa = PBXBuildFile; fileRef = 565332C61E9F82FF009206CC /* MBRecoveryAttempter.m */; };
 		565332CA1E9F978C009206CC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 565332CC1E9F978C009206CC /* Localizable.strings */; };
 		566C78081E9D2CD0006DD355 /* IceCube.help in Resources */ = {isa = PBXBuildFile; fileRef = 566C78071E9D2B8A006DD355 /* IceCube.help */; };
@@ -34,6 +33,7 @@
 		568C674217EB7D630095785D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 568C674117EB7D630095785D /* main.m */; };
 		568C674717EB7E5B0095785D /* cz.boucekm.MavenService.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		568C675117EC688D0095785D /* MBMavenServiceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 568C675017EC688D0095785D /* MBMavenServiceTask.m */; };
+		56A422D61E9FD47500F29F11 /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */; };
 		56ADBB731E959967003471B4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 56ADBB721E959967003471B4 /* main.c */; };
 		56ADBB751E959967003471B4 /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 56ADBB741E959967003471B4 /* GetMetadataForFile.m */; };
 		56D21D3017BFC6520060A823 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D21D2F17BFC6520060A823 /* Images.xcassets */; };
@@ -171,7 +171,6 @@
 		564FB49117F1C62F000380F3 /* MBTestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTestAdditions.h; sourceTree = "<group>"; };
 		564FB4A017F1C72E000380F3 /* MBMavenOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParser.h; sourceTree = "<group>"; };
 		564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParser.m; sourceTree = "<group>"; };
-		564FB4A317F1C931000380F3 /* MBMavenParserDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBMavenParserDelegate.h; sourceTree = "<group>"; };
 		565332C51E9F82FF009206CC /* MBRecoveryAttempter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBRecoveryAttempter.h; sourceTree = "<group>"; };
 		565332C61E9F82FF009206CC /* MBRecoveryAttempter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBRecoveryAttempter.m; sourceTree = "<group>"; };
 		565332CB1E9F978C009206CC /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -301,21 +300,23 @@
 		564FB49F17F1C70E000380F3 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
-				564FB4A317F1C931000380F3 /* MBMavenParserDelegate.h */,
 				564FB4A017F1C72E000380F3 /* MBMavenOutputParser.h */,
 				564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */,
 			);
-			path = Parser;
+			name = Parser;
+			path = ../IceCube/Parser;
 			sourceTree = "<group>";
 		};
-		568C673A17EB7D630095785D /* MavenService */ = {
+		568C673A17EB7D630095785D /* MavenBuildService */ = {
 			isa = PBXGroup;
 			children = (
 				568C674117EB7D630095785D /* main.m */,
 				568C675217EC6AB60095785D /* Protocols */,
+				564FB49F17F1C70E000380F3 /* Parser */,
 				568C675317EC6AC90095785D /* Task implementation */,
 				568C673B17EB7D630095785D /* Supporting Files */,
 			);
+			name = MavenBuildService;
 			path = MavenService;
 			sourceTree = "<group>";
 		};
@@ -445,7 +446,7 @@
 			children = (
 				56FE8E8A167BA1A70001AAED /* IceCube */,
 				56FE8EAA167BA1A80001AAED /* IceCubeTests */,
-				568C673A17EB7D630095785D /* MavenService */,
+				568C673A17EB7D630095785D /* MavenBuildService */,
 				56F6300617EF34AA004DC92E /* JavaHomeService */,
 				56E16B251E92F64B00FEE789 /* IceCubeAction */,
 				56ADBB701E959967003471B4 /* IceCubeSpotlight */,
@@ -500,7 +501,6 @@
 				56F1E1E71E9C0CE8009A9541 /* Application */,
 				56F578E11794A584007E85A8 /* Task runner */,
 				56F62FFA17EF2389004DC92E /* Preferences */,
-				564FB49F17F1C70E000380F3 /* Parser */,
 				56FE8E8B167BA1A70001AAED /* Supporting Files */,
 			);
 			path = IceCube;
@@ -825,6 +825,7 @@
 			files = (
 				568C674217EB7D630095785D /* main.m in Sources */,
 				568C675117EC688D0095785D /* MBMavenServiceTask.m in Sources */,
+				56A422D61E9FD47500F29F11 /* MBMavenOutputParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -864,7 +865,6 @@
 				565332C71E9F82FF009206CC /* MBRecoveryAttempter.m in Sources */,
 				56FE8E98167BA1A70001AAED /* MBAppDelegate.m in Sources */,
 				56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */,
-				564FB4A217F1C72E000380F3 /* MBMavenOutputParser.m in Sources */,
 				56EB935C19D74D3200988FD9 /* MBApplication.m in Sources */,
 				56F62FFE17EF23F8004DC92E /* MBPreferencesWindowController.m in Sources */,
 			);

@@ -8,8 +8,12 @@
 
 @protocol MBMavenServiceCallback <NSObject>
 
+- (void)mavenTaskDidStartWithTaskList:(NSArray *)taskList;
+- (void)mavenTaskDidStartProject:(NSString *)name;
+
 - (void)mavenTaskDidWriteLine:(NSString *)line;
 
-- (void)mavenTaskDidFinishSuccessfully:(BOOL)result error:(NSError *)error;
+- (void)mavenTaskDidFinishSuccessfullyWithResult:(BOOL)result;
+- (void)mavenTaskDidFinishWithError:(NSError *)error;
 
 @end

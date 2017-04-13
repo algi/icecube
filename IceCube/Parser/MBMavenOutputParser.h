@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
-@protocol MBMavenParserDelegate;
+@protocol MBMavenServiceCallback;
 
 @interface MBMavenOutputParser : NSObject
 
-- (id)initWithDelegate:(id<MBMavenParserDelegate>)delegate;
+- (id)initWithDelegate:(__autoreleasing id<MBMavenServiceCallback>)delegate;
 
 - (void)parseLine:(NSString *)line;
 

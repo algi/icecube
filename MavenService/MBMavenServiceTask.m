@@ -10,41 +10,44 @@
 
 #import "MBMavenServiceCallback.h"
 #import "MBErrorDomain.h"
+#import "MBMavenOutputParser.h"
 
-@interface MBMavenServiceTask ()
+@interface MBMavenServiceTask () <MBMavenServiceCallback>
 
+@property BOOL result;
 @property NSTask *task;
 
 @end
 
 @implementation MBMavenServiceTask
 
-- (void)launchMaven:(NSString *)launchPath
-      withArguments:(NSString *)argumentString
-        environment:(NSDictionary *)environment
-             atPath:(NSURL *)path
+-(void)buildProjectWithMaven:(NSString *)launchPath
+                   arguments:(NSString *)arguments
+                 environment:(NSDictionary *)environment
+            currentDirectory:(NSURL *)currentDirectory
 {
-    NSXPCConnection *xpcConnection = self.xpcConnection;
-    id remoteObserver = [xpcConnection remoteObjectProxy];
+    self.result = NO;
+
+    id remoteObserver = [self.xpcConnection remoteObjectProxy];
 
     if ([self.task isRunning]) {
         NSError *error = [NSError errorWithDomain:IceCubeDomain
                                              code:kIceCube_mavenTaskAlreadyRunningError
                                          userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Task is already running.", @"Raised by task, when user tries to run same project multiple times.")}];
-        [remoteObserver mavenTaskDidFinishSuccessfully:NO error:error];
+        [remoteObserver mavenTaskDidFinishWithError:error];
         return;
     }
 
     self.task = [[NSTask alloc] init];
 
-    [self.task setLaunchPath:[launchPath stringByExpandingTildeInPath]];
-    [self.task setArguments:[argumentString componentsSeparatedByString:@" "]];
-    [self.task setEnvironment:environment];
-    [self.task setCurrentDirectoryPath:[path path]];
+    self.task.launchPath = [launchPath stringByExpandingTildeInPath];
+    self.task.arguments = [arguments componentsSeparatedByString:@" "];
+    self.task.environment = environment;
+    self.task.currentDirectoryPath = [currentDirectory path];
 
     id pipe = [NSPipe pipe];
-    [self.task setStandardOutput:pipe];
-    [self.task setStandardError:pipe];
+    self.task.standardOutput = pipe;
+    self.task.standardError = pipe;
 
     @try {
         [self.task launch];
@@ -60,27 +63,43 @@
                                                     NSLocalizedString(@"Open Preferences", @"Button in 'Unable to run Maven' error dialog."),
                                                     NSLocalizedString(@"Cancel", @"Button in 'Unable to run Maven' error dialog.")]
                                             }];
-        [remoteObserver mavenTaskDidFinishSuccessfully:NO error:err];
+        [remoteObserver mavenTaskDidFinishWithError:err];
         return;
     }
 
+    __weak id weakSelf = self;
     self.task.terminationHandler = ^(NSTask * _Nonnull terminatedTask) {
-        [remoteObserver mavenTaskDidFinishSuccessfully:YES error:nil];
+        MBMavenServiceTask *strongSelf = weakSelf;
+        [strongSelf.xpcConnection.remoteObjectProxy mavenTaskDidFinishSuccessfullyWithResult:strongSelf.result];
     };
 
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
-        readOutputFromPipeWithObserver(pipe, remoteObserver);
+        [weakSelf readOutputFromPipe:pipe];
     });
 }
 
-- (void)terminateTask
+- (void)terminateBuild
 {
     [self.task interrupt];
 }
 
-#pragma mark - Output handling -
-void readOutputFromPipeWithObserver(NSPipe *pipe, id remoteObserver)
+-(void)parseMavenOutput:(NSString *)mavenOutput
 {
+    id parser = [[MBMavenOutputParser alloc] initWithDelegate:self];
+
+    NSArray<NSString *> *lines = [mavenOutput componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    for (NSString *line in lines) {
+        [parser parseLine:line];
+    }
+
+    [self.xpcConnection.remoteObjectProxy mavenTaskDidFinishSuccessfullyWithResult:self.result];
+}
+
+#pragma mark - Output handling
+-(void)readOutputFromPipe:(NSPipe *)pipe
+{
+    MBMavenOutputParser *parser = [[MBMavenOutputParser alloc] initWithDelegate:self];
+
     NSData *inData = nil;
     NSString *partialLinesBuffer = nil;
     NSFileHandle *fileHandle = [pipe fileHandleForReading];
@@ -120,14 +139,40 @@ void readOutputFromPipeWithObserver(NSPipe *pipe, id remoteObserver)
                 continue;
             }
 
-            [remoteObserver mavenTaskDidWriteLine:line];
+            [parser parseLine:line];
         }
     }
 
     // consume rest of partial lines
     if (partialLinesBuffer) {
-        [remoteObserver mavenTaskDidWriteLine:partialLinesBuffer];
+        [parser parseLine:partialLinesBuffer];
     }
+}
+
+#pragma mark - MBMavenServiceCallback for parser
+-(void)mavenTaskDidStartWithTaskList:(NSArray *)taskList
+{
+    [self.xpcConnection.remoteObjectProxy mavenTaskDidStartWithTaskList:taskList];
+}
+
+-(void)mavenTaskDidStartProject:(NSString *)name
+{
+    [self.xpcConnection.remoteObjectProxy mavenTaskDidStartProject:name];
+}
+
+-(void)mavenTaskDidWriteLine:(NSString *)line
+{
+    [self.xpcConnection.remoteObjectProxy mavenTaskDidWriteLine:line];
+}
+
+-(void)mavenTaskDidFinishSuccessfullyWithResult:(BOOL)result
+{
+    self.result = result;
+}
+
+-(void)mavenTaskDidFinishWithError:(NSError *)error
+{
+    NSAssert(false, @"Unexpected call of method -mavenTaskDidFinishWithError: from parser with error: %@", error);
 }
 
 @end

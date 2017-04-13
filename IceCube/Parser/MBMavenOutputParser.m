@@ -8,7 +8,7 @@
 
 #import "MBMavenOutputParser.h"
 
-#import "MBMavenParserDelegate.h"
+#import "MBMavenServiceCallback.h"
 
 typedef NS_ENUM(NSInteger, MBParserState) {
     kStateStart,
@@ -40,26 +40,25 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
 
 @property (nonatomic) NSMutableArray *taskList;
 @property (assign, nonatomic) MBParserState state;
-@property (weak, nonatomic) id<MBMavenParserDelegate> delegate;
+@property (nonatomic) id<MBMavenServiceCallback> delegate;
 
 @end
 
 @implementation MBMavenOutputParser
 
-- (id)initWithDelegate:(id<MBMavenParserDelegate>)parserDelegate
+- (id)initWithDelegate:(__autoreleasing id<MBMavenServiceCallback>)delegate
 {
     self = [super init];
     if (self) {
-        _delegate = parserDelegate;
         _state = kStateStart;
+        self.delegate = delegate;
     }
     return self;
 }
 
 - (void)parseLine:(NSString *)line
 {
-    id<MBMavenParserDelegate> delegate = self.delegate;
-    [delegate newLineDidRecieve:line];
+    [self.delegate mavenTaskDidWriteLine:line];
 
     switch (self.state) {
         case kStateStart:
@@ -86,7 +85,7 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
                 [line isEqualToString:kErrorJavaHomeNotSetLine])
             {
                 // correct goal but incorrect -pl specifier OR there was problem in executing Maven
-                [delegate buildDidEndSuccessfully:NO];
+                [self.delegate mavenTaskDidFinishSuccessfullyWithResult:NO];
                 self.state = kStateScanIgnored;
                 return;
             }
@@ -133,7 +132,7 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
         {
             NSAssert([line hasPrefix:kStateSeparatorLinePrefix], @"State: 'kScanningEndState', unkown line: %@", line);
 
-            [delegate buildDidStartWithTaskList:[self.taskList copy]]; // tasklist can be proceeded async, so copy it
+            [self.delegate mavenTaskDidStartWithTaskList:[self.taskList copy]]; // tasklist can be proceeded async, so copy it
 
             self.taskList = nil;
             self.state = kStateProjectDeclarationStart;
@@ -161,7 +160,7 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
             NSRange range = [self makeRangeFromLine:line withPrefix:kBuildingPrefix];
             NSString *taskName = [line substringWithRange:range];
 
-            [delegate projectDidStartWithName:taskName];
+            [self.delegate mavenTaskDidStartProject:taskName];
 
             self.state = kStateProjectDeclarationEnd;
             break;
@@ -204,12 +203,11 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
 #pragma mark - Utilities -
 - (void)handleResultOfBuildFromLine:(NSString *)line
 {
-    id<MBMavenParserDelegate> delegate = self.delegate;
     if ([line isEqualToString:kBuildSuccessLine]) {
-        [delegate buildDidEndSuccessfully:YES];
+        [self.delegate mavenTaskDidFinishSuccessfullyWithResult:YES];
     }
     else if ([line isEqualToString:kBuildErrorLine]) {
-        [delegate buildDidEndSuccessfully:NO];
+        [self.delegate mavenTaskDidFinishSuccessfullyWithResult:NO];
     }
     else {
         NSAssert(NO, @"State 'kBuildDone', unknown line: %@", line);
