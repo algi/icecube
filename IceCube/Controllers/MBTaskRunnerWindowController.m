@@ -165,7 +165,7 @@
             [NSApp presentError:error modalForWindow:self.window delegate:nil didPresentSelector:nil contextInfo:nil];
         }
 
-        [self.progressIndicator setDoubleValue:[self.progressIndicator doubleValue] + 1];
+        [self.progressIndicator incrementBy:1];
         [self.progressIndicator stopAnimation:nil];
 
         [self.connection suspend];
@@ -188,15 +188,14 @@
 - (void)projectDidStartWithName:(NSString *)name
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        double doubleValue = [self.progressIndicator doubleValue] + 1;
-        [self.progressIndicator setDoubleValue:doubleValue];
+        [self.progressIndicator incrementBy:1];
     });
 }
 
 - (void)buildDidEndSuccessfully:(BOOL)buildWasSuccessful
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.progressIndicator setDoubleValue:[self.progressIndicator doubleValue] + 1];
+        [self.progressIndicator incrementBy:1];
 
         NSUserNotification *notification = [[NSUserNotification alloc] init];
         notification.soundName = NSUserNotificationDefaultSoundName;
