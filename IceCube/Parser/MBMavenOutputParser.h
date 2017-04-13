@@ -14,7 +14,4 @@
 
 - (void)parseLine:(NSString *)line;
 
-// this method is intended for reusing parser
-- (void)resetParser;
-
 @end

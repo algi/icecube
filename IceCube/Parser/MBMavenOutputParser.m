@@ -56,12 +56,6 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
     return self;
 }
 
-- (void)resetParser
-{
-    self.state = kStateStart;
-    self.taskList = nil;
-}
-
 - (void)parseLine:(NSString *)line
 {
     id<MBMavenParserDelegate> delegate = self.delegate;
