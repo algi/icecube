@@ -384,10 +384,10 @@
 		56F1E1E71E9C0CE8009A9541 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				56FE8E96167BA1A70001AAED /* MBAppDelegate.h */,
-				56FE8E97167BA1A70001AAED /* MBAppDelegate.m */,
 				56EB935A19D74D3200988FD9 /* MBApplication.h */,
 				56EB935B19D74D3200988FD9 /* MBApplication.m */,
+				56FE8E96167BA1A70001AAED /* MBAppDelegate.h */,
+				56FE8E97167BA1A70001AAED /* MBAppDelegate.m */,
 				565332C51E9F82FF009206CC /* MBRecoveryAttempter.h */,
 				565332C61E9F82FF009206CC /* MBRecoveryAttempter.m */,
 			);

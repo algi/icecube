@@ -18,6 +18,8 @@
 #import "MBTaskRunnerDocument.h"
 #import "MBPreferencesWindowController.h"
 
+#import "MBErrorDomain.h"
+
 #import <os/log.h>
 
 @interface MBTaskRunnerWindowController () <MBMavenServiceCallback, MBMavenParserDelegate>
@@ -104,11 +106,18 @@
     // create Maven execution environment
     NSString *args = [[self document] command];
     if ([args length] == 0) {
-        NSAlert *alert = [[NSAlert alloc] init];
+        NSString *title = NSLocalizedString(@"Maven error",
+                                            @"Maven execution error.");
 
-        [alert setMessageText:NSLocalizedString(@"Unable to build project with empty command.", @"User tries to build project with empty command.")];
-        [alert beginSheetModalForWindow:[self window] completionHandler:nil];
+        NSString *suggestion = NSLocalizedString(@"Unable to build project with empty command.",
+                                                 @"User tries to build project with empty command.");
 
+        NSError *error = [NSError errorWithDomain:IceCubeDomain
+                                             code:kIceCube_documentEmptyMavenCommandError
+                                         userInfo:@{NSLocalizedDescriptionKey: title,
+                                                    NSLocalizedRecoverySuggestionErrorKey:suggestion}];
+
+        [NSApp presentError:error modalForWindow:self.window delegate:nil didPresentSelector:nil contextInfo:nil];
         return;
     }
 

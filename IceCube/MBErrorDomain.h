@@ -15,5 +15,6 @@
 #define kIceCube_unableToLaunchMavenError       2
 #define kIceCube_documentValidationError        3
 #define kIceCube_mavenTaskAlreadyRunningError   4
+#define kIceCube_documentEmptyMavenCommandError 5
 
 #endif /* MBErrorDomain_h */
