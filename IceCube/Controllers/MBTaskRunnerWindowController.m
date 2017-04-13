@@ -8,14 +8,14 @@
 
 #import "MBTaskRunnerWindowController.h"
 
-#import "MBTaskRunnerDocument.h"
-
 #import "MBMavenService.h"
 #import "MBMavenServiceCallback.h"
 
 #import "MBMavenOutputParser.h"
 #import "MBMavenParserDelegate.h"
 
+#import "MBAppDelegate.h"
+#import "MBTaskRunnerDocument.h"
 #import "MBPreferencesWindowController.h"
 
 #import <os/log.h>
@@ -158,7 +158,11 @@
 
                 // return code is positive number and all defined codes are negative...
                 if (-returnCode == NSModalResponseStop) {
-                    [[[MBPreferencesWindowController alloc] init].window makeKeyAndOrderFront:NSApp];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wselector"
+                    // selector is implemented in MBAppDelegate, so this is wrong warning
+                    [[NSApplication sharedApplication] sendAction:@selector(showPreferencesWindow:) to:nil from:self];
+#pragma clang diagnostic pop
                 }
             }];
         }

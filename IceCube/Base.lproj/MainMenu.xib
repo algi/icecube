@@ -28,7 +28,7 @@
                             </menuItem>
                             <menuItem title="Preferences…" keyEquivalent="," id="129">
                                 <connections>
-                                    <action selector="showWindow:" target="Wci-Se-bgf" id="a9K-EO-FuC"/>
+                                    <action selector="showPreferencesWindow:" target="-1" id="acH-fJ-Pbw"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="143">
@@ -439,6 +439,5 @@
         <customObject id="494" customClass="MBAppDelegate"/>
         <customObject id="420" customClass="NSFontManager"/>
         <userDefaultsController representsSharedInstance="YES" id="1080"/>
-        <customObject id="Wci-Se-bgf" customClass="MBPreferencesWindowController"/>
     </objects>
 </document>

@@ -13,6 +13,12 @@
 
 #import <os/log.h>
 
+@interface MBAppDelegate ()
+
+@property MBPreferencesWindowController *preferencesWindowController;
+
+@end
+
 @implementation MBAppDelegate
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification
@@ -53,6 +59,15 @@
                                kUseDefaultMavenLocationKey: @(YES)};
 
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
+}
+
+-(IBAction)showPreferencesWindow:(id)sender
+{
+    if (self.preferencesWindowController == nil) {
+        self.preferencesWindowController = [[MBPreferencesWindowController alloc] init];
+    }
+
+    [self.preferencesWindowController.window makeKeyAndOrderFront:NSApp];
 }
 
 @end
