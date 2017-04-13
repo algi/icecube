@@ -46,8 +46,6 @@
 
 - (void)windowDidLoad
 {
-    self.parser = [[MBMavenOutputParser alloc] initWithDelegate:self];
-
     self.connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.MavenService"];
     self.connection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenService)];
     self.connection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
@@ -102,8 +100,6 @@
         return;
     }
 
-    [self.parser resetParser];
-
     // create Maven execution environment
     NSString *args = [[self document] command];
     if ([args length] == 0) {
@@ -125,6 +121,7 @@
     // prepare UI
     self.taskRunning = YES;
     self.progress = [NSProgress progressWithTotalUnitCount:-1];
+    self.parser = [[MBMavenOutputParser alloc] initWithDelegate:self];
 
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 
@@ -175,13 +172,13 @@
 #pragma mark - MBMavenParserDelegate -
 - (void)buildDidStartWithTaskList:(NSArray *)taskList
 {
-    // always go for at least 2, so user can see the progress
-    NSUInteger totalUnitCount = taskList.count;
-    if (totalUnitCount < 2) {
-        totalUnitCount = 2;
-    }
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        // always go for at least 2, so user can see the progress
+        NSUInteger totalUnitCount = taskList.count;
+        if (totalUnitCount < 2) {
+            totalUnitCount = 2;
+        }
 
-    dispatch_async(dispatch_get_main_queue(), ^{
         self.progress.completedUnitCount = 0;
         self.progress.totalUnitCount = totalUnitCount;
     });
@@ -189,14 +186,14 @@
 
 - (void)projectDidStartWithName:(NSString *)name
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_sync(dispatch_get_main_queue(), ^{
         self.progress.completedUnitCount = self.progress.completedUnitCount + 1;
     });
 }
 
 - (void)buildDidEndSuccessfully:(BOOL)buildWasSuccessful
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_sync(dispatch_get_main_queue(), ^{
         self.progress.completedUnitCount = self.progress.completedUnitCount + 1;
 
         NSUserNotification *notification = [[NSUserNotification alloc] init];
@@ -217,7 +214,7 @@
 
 - (void)newLineDidRecieve:(NSString *)line
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_sync(dispatch_get_main_queue(), ^{
         NSTextStorage *storage = [self.outputTextView textStorage];
         NSDictionary *attributes = [storage attributesAtIndex:0 effectiveRange:nil];
 
