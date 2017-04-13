@@ -19,18 +19,16 @@
             <rect key="frame" x="0.0" y="0.0" width="511" height="131"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0Q-I9-k7p">
-                    <rect key="frame" x="18" y="91" width="45" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Příkaz:" id="ctu-4G-JK3">
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0Q-I9-k7p">
+                    <rect key="frame" x="18" y="91" width="70" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Command:" id="ctu-4G-JK3">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyv-oA-X2k">
-                    <rect key="frame" x="69" y="89" width="422" height="22"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyv-oA-X2k">
+                    <rect key="frame" x="94" y="88" width="397" height="22"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="clean install" drawsBackground="YES" id="UaA-sZ-xhs">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -40,18 +38,19 @@
                         <binding destination="aFj-Nx-tzi" name="value" keyPath="selection.mavenCommand" id="o96-YE-eCQ"/>
                     </connections>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBx-tg-pvE">
-                    <rect key="frame" x="15" y="61" width="48" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBx-tg-pvE">
+                    <rect key="frame" x="18" y="61" width="70" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Maven:" id="LSB-sE-SB6">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <amPathPopUpButton verticalHuggingPriority="750" fixedFrame="YES" imageHugsTitle="YES" canChooseFiles="YES" canChooseExistingPaths="YES" displayPanelAsSheet="YES" showStandardPaths="YES" placeholder="No Selection" translatesAutoresizingMaskIntoConstraints="NO" id="wBB-8w-PVY">
-                    <rect key="frame" x="67" y="55" width="135" height="26"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <amPathPopUpButton verticalHuggingPriority="750" imageHugsTitle="YES" canChooseFiles="YES" canChooseExistingPaths="YES" displayPanelAsSheet="YES" showStandardPaths="YES" placeholder="No Selection" translatesAutoresizingMaskIntoConstraints="NO" id="wBB-8w-PVY">
+                    <rect key="frame" x="92" y="55" width="135" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="3Jf-FE-hgs"/>
+                    </constraints>
                     <amVariablePopUpButtonCell key="cell" type="push" title="Desktop" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1004" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="mmZ-VA-teX">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
@@ -61,9 +60,8 @@
                         <binding destination="aFj-Nx-tzi" name="path" keyPath="selection.mavenPath" id="Ddc-Lg-Mxh"/>
                     </connections>
                 </amPathPopUpButton>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qA-cr-AlV">
-                    <rect key="frame" x="213" y="60" width="280" height="17"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qA-cr-AlV">
+                    <rect key="frame" x="230" y="61" width="80" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="No selection" id="dvO-iT-R3l">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -73,31 +71,52 @@
                         <binding destination="aFj-Nx-tzi" name="value" keyPath="selection.mavenPath" id="JFh-7P-eOG"/>
                     </connections>
                 </textField>
-                <amPathPopUpButton verticalHuggingPriority="750" fixedFrame="YES" imageHugsTitle="YES" canChooseDirectories="YES" canChooseExistingPaths="YES" displayPanelAsSheet="YES" showStandardPaths="YES" placeholder="No Selection" translatesAutoresizingMaskIntoConstraints="NO" id="AHe-NG-nAL">
-                    <rect key="frame" x="314" y="13" width="180" height="26"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                <amPathPopUpButton verticalHuggingPriority="750" imageHugsTitle="YES" canChooseDirectories="YES" canChooseExistingPaths="YES" displayPanelAsSheet="YES" showStandardPaths="YES" placeholder="No Selection" translatesAutoresizingMaskIntoConstraints="NO" id="AHe-NG-nAL">
+                    <rect key="frame" x="340" y="13" width="154" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="149" id="p1F-ca-ne7"/>
+                    </constraints>
                     <amVariablePopUpButtonCell key="cell" type="push" title="Desktop" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1001" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="yty-iF-qE5">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="yDo-DE-CBD"/>
                     </amVariablePopUpButtonCell>
                     <connections>
                         <binding destination="aFj-Nx-tzi" name="path" keyPath="selection.errorLogPath" id="gT9-DW-ZWi"/>
                     </connections>
                 </amPathPopUpButton>
-                <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="jI4-Vq-6Ic">
+                <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="jI4-Vq-6Ic">
                     <rect key="frame" x="12" y="43" width="479" height="5"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </box>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9rr-7X-Cf3">
-                    <rect key="frame" x="191" y="18" width="119" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Chybový výstup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="eX9-Zz-Fif">
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="9rr-7X-Cf3">
+                    <rect key="frame" x="240" y="18" width="96" height="18"/>
+                    <buttonCell key="cell" type="check" title="Error output" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="eX9-Zz-Fif">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
             </subviews>
+            <constraints>
+                <constraint firstItem="Yyv-oA-X2k" firstAttribute="baseline" secondItem="W0Q-I9-k7p" secondAttribute="baseline" id="2cC-k0-E7S"/>
+                <constraint firstItem="jI4-Vq-6Ic" firstAttribute="leading" secondItem="47Y-Ci-255" secondAttribute="leading" constant="12" id="BWf-0T-u0l"/>
+                <constraint firstItem="W0Q-I9-k7p" firstAttribute="leading" secondItem="47Y-Ci-255" secondAttribute="leading" constant="20" id="F9E-cQ-nOu"/>
+                <constraint firstItem="AHe-NG-nAL" firstAttribute="top" secondItem="jI4-Vq-6Ic" secondAttribute="bottom" constant="8" id="IAM-BC-RjJ"/>
+                <constraint firstItem="jI4-Vq-6Ic" firstAttribute="top" secondItem="wBB-8w-PVY" secondAttribute="bottom" constant="12" id="Iug-gl-NE9"/>
+                <constraint firstItem="nBx-tg-pvE" firstAttribute="baseline" secondItem="wBB-8w-PVY" secondAttribute="baseline" id="KHd-tt-ZWR"/>
+                <constraint firstAttribute="trailing" secondItem="jI4-Vq-6Ic" secondAttribute="trailing" constant="20" id="OYl-1N-Hwg"/>
+                <constraint firstItem="W0Q-I9-k7p" firstAttribute="top" secondItem="47Y-Ci-255" secondAttribute="top" constant="23" id="QOe-lJ-Vzf"/>
+                <constraint firstItem="wBB-8w-PVY" firstAttribute="leading" secondItem="Yyv-oA-X2k" secondAttribute="leading" id="RdJ-Ig-sCz"/>
+                <constraint firstAttribute="trailing" secondItem="AHe-NG-nAL" secondAttribute="trailing" constant="20" id="VHi-ET-OmY"/>
+                <constraint firstItem="7qA-cr-AlV" firstAttribute="baseline" secondItem="wBB-8w-PVY" secondAttribute="baseline" id="Xas-JJ-mCk"/>
+                <constraint firstAttribute="trailing" secondItem="Yyv-oA-X2k" secondAttribute="trailing" constant="20" id="YeJ-H2-SRT"/>
+                <constraint firstItem="wBB-8w-PVY" firstAttribute="top" secondItem="Yyv-oA-X2k" secondAttribute="bottom" constant="9" id="ck2-Uf-MK7"/>
+                <constraint firstItem="wBB-8w-PVY" firstAttribute="leading" secondItem="nBx-tg-pvE" secondAttribute="trailing" constant="8" id="coJ-bx-cjR"/>
+                <constraint firstItem="nBx-tg-pvE" firstAttribute="leading" secondItem="W0Q-I9-k7p" secondAttribute="leading" id="exw-bT-ALR"/>
+                <constraint firstItem="7qA-cr-AlV" firstAttribute="leading" secondItem="wBB-8w-PVY" secondAttribute="trailing" constant="8" id="ipO-7z-6IA"/>
+                <constraint firstItem="9rr-7X-Cf3" firstAttribute="baseline" secondItem="AHe-NG-nAL" secondAttribute="baseline" id="sBi-P9-9nP"/>
+                <constraint firstItem="AHe-NG-nAL" firstAttribute="leading" secondItem="9rr-7X-Cf3" secondAttribute="trailing" constant="8" id="uyh-Nb-HgJ"/>
+                <constraint firstItem="Yyv-oA-X2k" firstAttribute="leading" secondItem="W0Q-I9-k7p" secondAttribute="trailing" constant="8" id="vgD-9m-mk4"/>
+            </constraints>
             <point key="canvasLocation" x="17.5" y="97.5"/>
         </customView>
         <objectController id="aFj-Nx-tzi" userLabel="Parameters">

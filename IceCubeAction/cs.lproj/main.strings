@@ -1,0 +1,27 @@
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "0F7-GQ-qUv"; */
+"0F7-GQ-qUv.title" = "OtherViews";
+
+/* Class = "AMPathPopUpButton"; placeholder = "No Selection"; ObjectID = "AHe-NG-nAL"; */
+"AHe-NG-nAL.placeholder" = "Žádný výběr";
+
+/* Class = "NSTextFieldCell"; title = "Maven:"; ObjectID = "LSB-sE-SB6"; */
+"LSB-sE-SB6.title" = "Maven:";
+
+/* Class = "NSTextFieldCell"; placeholderString = "clean install"; ObjectID = "UaA-sZ-xhs"; */
+"UaA-sZ-xhs.placeholderString" = "clean install";
+
+/* Class = "NSTextFieldCell"; title = "Command:"; ObjectID = "ctu-4G-JK3"; */
+"ctu-4G-JK3.title" = "Příkaz:";
+
+/* Class = "NSTextFieldCell"; title = "No selection"; ObjectID = "dvO-iT-R3l"; */
+"dvO-iT-R3l.title" = "Žádný výběr";
+
+/* Class = "NSButtonCell"; title = "Error output"; ObjectID = "eX9-Zz-Fif"; */
+"eX9-Zz-Fif.title" = "Chybový výstup";
+
+/* Class = "AMPathPopUpButton"; placeholder = "No Selection"; ObjectID = "wBB-8w-PVY"; */
+"wBB-8w-PVY.placeholder" = "Žádný výběr";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "yDo-DE-CBD"; */
+"yDo-DE-CBD.title" = "OtherViews";
