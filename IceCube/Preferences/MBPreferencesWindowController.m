@@ -36,8 +36,8 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
 -(void)windowDidLoad
 {
     self.xpcConnection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.MavenVersionService"];
-    self.xpcConnection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenVersionService)];
 
+    self.xpcConnection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenVersionService)];
     self.xpcConnection.exportedObject = self;
 
     self.taskRunning = NO;

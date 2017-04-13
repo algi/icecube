@@ -129,7 +129,10 @@
 
     // launch task
     [self.connection resume];
-    [[self.connection remoteObjectProxy] buildProjectWithMaven:launchPath arguments:args environment:environment currentDirectory:workingDirectory];
+    [[self.connection remoteObjectProxy] buildProjectWithMaven:launchPath
+                                                     arguments:args
+                                                   environment:environment
+                                              currentDirectory:workingDirectory];
 }
 
 - (IBAction)stopTask:(id)sender
@@ -147,21 +150,16 @@
 -(void)mavenTaskDidStartWithTaskList:(NSArray *)taskList
 {
     dispatch_sync(dispatch_get_main_queue(), ^{
-        // always go for at least 2, so user can see the progress
-        NSUInteger totalUnitCount = taskList.count;
-        if (totalUnitCount < 2) {
-            totalUnitCount = 2;
-        }
-
+        // always go for at least 2 units, so the progress is visible
+        self.progress.totalUnitCount = taskList.count + 2;
         self.progress.completedUnitCount = 0;
-        self.progress.totalUnitCount = totalUnitCount;
     });
 }
 
 -(void)mavenTaskDidStartProject:(NSString *)name
 {
     dispatch_sync(dispatch_get_main_queue(), ^{
-        self.progress.completedUnitCount = self.progress.completedUnitCount + 1;
+        self.progress.completedUnitCount++;
     });
 }
 
@@ -212,7 +210,7 @@
 
 -(void)taskDidTerminate
 {
-    self.progress.completedUnitCount = self.progress.completedUnitCount + 1;
+    self.progress.completedUnitCount++;
 
     [self.connection suspend];
     self.taskRunning = NO;
