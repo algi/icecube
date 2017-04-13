@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
+@import Foundation;
+
 @protocol MBMavenServiceCallback;
 
 @interface MBMavenOutputParser : NSObject

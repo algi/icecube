@@ -42,7 +42,7 @@
 
 - (void)windowDidLoad
 {
-    self.connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.MavenService"];
+    self.connection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.MavenBuildService"];
 
     self.connection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenService)];
     self.connection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];

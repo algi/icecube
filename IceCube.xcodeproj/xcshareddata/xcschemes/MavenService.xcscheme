@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "568C673617EB7D630095785D"
-               BuildableName = "cz.boucekm.MavenService.xpc"
-               BlueprintName = "MavenService"
+               BuildableName = "cz.boucekm.MavenBuildService.xpc"
+               BlueprintName = "MavenBuildService"
                ReferencedContainer = "container:IceCube.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "568C673617EB7D630095785D"
-            BuildableName = "cz.boucekm.MavenService.xpc"
-            BlueprintName = "MavenService"
+            BuildableName = "cz.boucekm.MavenBuildService.xpc"
+            BlueprintName = "MavenBuildService"
             ReferencedContainer = "container:IceCube.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

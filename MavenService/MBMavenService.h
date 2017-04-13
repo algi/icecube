@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Marian Bouček. All rights reserved.
 //
 
+@import Foundation;
+
 @protocol MBMavenService <NSObject>
 
 #pragma mark - Maven build
