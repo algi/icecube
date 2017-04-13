@@ -34,6 +34,7 @@
 		568C674717EB7E5B0095785D /* cz.boucekm.MavenService.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		568C675117EC688D0095785D /* MBMavenServiceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 568C675017EC688D0095785D /* MBMavenServiceTask.m */; };
 		56A422D61E9FD47500F29F11 /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */; };
+		56A422D71EA003C800F29F11 /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */; };
 		56ADBB731E959967003471B4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 56ADBB721E959967003471B4 /* main.c */; };
 		56ADBB751E959967003471B4 /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 56ADBB741E959967003471B4 /* GetMetadataForFile.m */; };
 		56D21D3017BFC6520060A823 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D21D2F17BFC6520060A823 /* Images.xcassets */; };
@@ -874,6 +875,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56A422D71EA003C800F29F11 /* MBMavenOutputParser.m in Sources */,
 				564FB49A17F1C630000380F3 /* MBMavenOutputParserTestObserver.m in Sources */,
 				564FB49B17F1C630000380F3 /* MBMavenOutputParserTests.m in Sources */,
 				564FB49917F1C630000380F3 /* DDFileReader.m in Sources */,

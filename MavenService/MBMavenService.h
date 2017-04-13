@@ -16,16 +16,4 @@
 
 - (void)terminateBuild;
 
-// TODO: move to a separate service
-// this method doesn't use MBMavenServiceCallback, please provide callback as parameter
-// NSTask invocation won't react to -terminateBuildTask (because it's blocking execution with callback)
-/*
-- (void)readVersionInformationWithMaven:(NSString *)launchPath
-                            environment:(NSDictionary *)environment
-                               callback:(void(^)(NSString *, NSString *))callback; // Maven version, Java version
-*/
-
-#pragma mark - Unit testing
-- (void)parseMavenOutput:(NSString *)mavenOutput;
-
 @end

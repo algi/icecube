@@ -25,7 +25,7 @@
     return self;
 }
 
-- (void)buildDidStartWithTaskList:(NSArray *)taskList
+-(void)mavenTaskDidStartWithTaskList:(NSArray *)taskList
 {
     _buildDidStartCount++;
 
@@ -33,21 +33,26 @@
     [self.taskList addObjectsFromArray:taskList];
 }
 
-- (void)buildDidEndSuccessfully:(BOOL) result
-{
-    _buildDidEndCount++;
-    _result = result;
-}
-
-- (void)projectDidStartWithName:(NSString *)taskName
+-(void)mavenTaskDidStartProject:(NSString *)taskName
 {
     _projectDidStartCount++;
     [self.doneTasks addObject:taskName];
 }
 
-- (void)newLineDidRecieve:(NSString *)line
+-(void)mavenTaskDidWriteLine:(NSString *)line
 {
     _lineCount++;
+}
+
+-(void)mavenTaskDidFinishSuccessfullyWithResult:(BOOL)result
+{
+    _buildDidEndCount++;
+    _result = result;
+}
+
+-(void)mavenTaskDidFinishWithError:(NSError *)error
+{
+    NSAssert(false, @"Unexpected call of method -mavenTaskDidFinishWithError: with error: %@", error);
 }
 
 @end

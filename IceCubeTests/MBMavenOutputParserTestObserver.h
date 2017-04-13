@@ -8,9 +8,9 @@
 
 @import Foundation;
 
-#import "MBMavenParserDelegate.h"
+#import "MBMavenServiceCallback.h"
 
-@interface MBMavenOutputParserTestObserver : NSObject<MBMavenParserDelegate>
+@interface MBMavenOutputParserTestObserver : NSObject<MBMavenServiceCallback>
 
 @property(readonly) NSUInteger result;
 @property(readonly) NSUInteger lineCount;

@@ -83,18 +83,6 @@
     [self.task interrupt];
 }
 
--(void)parseMavenOutput:(NSString *)mavenOutput
-{
-    id parser = [[MBMavenOutputParser alloc] initWithDelegate:self];
-
-    NSArray<NSString *> *lines = [mavenOutput componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-    for (NSString *line in lines) {
-        [parser parseLine:line];
-    }
-
-    [self.xpcConnection.remoteObjectProxy mavenTaskDidFinishSuccessfullyWithResult:self.result];
-}
-
 #pragma mark - Output handling
 -(void)readOutputFromPipe:(NSPipe *)pipe
 {
