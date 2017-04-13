@@ -13,8 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)readVersionInformationWithMaven:(NSString *)launchPath
                             environment:(NSDictionary *)environment
-                       currentDirectory:(NSURL *)currentDirectory
                                callback:(void(^)(NSString *, NSString *))callback; // Maven version, Java version
-    
+
 @end
 NS_ASSUME_NONNULL_END

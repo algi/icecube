@@ -12,14 +12,12 @@
 
 -(void)readVersionInformationWithMaven:(NSString *)launchPath
                            environment:(NSDictionary *)environment
-                      currentDirectory:(NSURL *)currentDirectory
                               callback:(void (^)(NSString * _Nonnull, NSString * _Nonnull))callback
 {
     NSTask *task = [[NSTask alloc] init];
 
     task.launchPath = [launchPath stringByExpandingTildeInPath];
     task.environment = environment;
-    task.currentDirectoryPath = [currentDirectory path];
     task.arguments = @[ @"--version" ];
 
     NSPipe *pipe = [NSPipe pipe];

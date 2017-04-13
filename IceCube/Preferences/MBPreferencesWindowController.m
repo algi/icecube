@@ -114,22 +114,19 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
     if (self.taskRunning) {
         return;
     }
-    self.taskRunning = YES;
 
+    self.taskRunning = YES;
     [self.progressIndicator startAnimation:self];
 
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    NSString *launchPath = [userDefaults stringForKey:kMavenHomeDefaultsKey];
-    NSURL *currentDirectory = [[NSFileManager defaultManager] homeDirectoryForCurrentUser];
-    NSDictionary *environment = @{@"JAVA_HOME": [userDefaults stringForKey:kJavaHomeDefaultsKey]};
+    NSString *launchPath = [defaults stringForKey:kMavenHomeDefaultsKey];
+    NSDictionary *environment = @{@"JAVA_HOME": [defaults stringForKey:kJavaHomeDefaultsKey]};
 
     [self.xpcConnection resume];
     [[self.xpcConnection remoteObjectProxy] readVersionInformationWithMaven:launchPath
                                                                 environment:environment
-                                                           currentDirectory:currentDirectory
-                                                                   callback:
-     ^(NSString *mavenVersion, NSString *javaVersion) {
+                                                                   callback:^(NSString *mavenVersion, NSString *javaVersion) {
         dispatch_sync(dispatch_get_main_queue(), ^{
             self.mavenVersion.stringValue = mavenVersion;
             self.javaVersion.stringValue = javaVersion;
