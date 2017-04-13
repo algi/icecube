@@ -20,17 +20,11 @@ static NSString * const kJavaHomeLaunchPath = @"/usr/libexec/java_home";
     // prepare task
     NSTask *task = [[NSTask alloc] init];
 
-    [task setLaunchPath:kJavaHomeLaunchPath];
-    [task setArguments:@[@"--task", @"CommandLine"]];
+    task.launchPath = kJavaHomeLaunchPath;
+    task.arguments = @[@"--task", @"CommandLine"];
 
-    NSPipe *standardOutputPipe = [NSPipe pipe];
-    [task setStandardOutput:standardOutputPipe];
-
-    NSPipe *errorOutputPipe = [NSPipe pipe];
-    [task setStandardError:errorOutputPipe];
-
-    NSFileHandle *standardOutputHandle = [standardOutputPipe fileHandleForReading];
-    NSFileHandle *errorOutputHandle = [errorOutputPipe fileHandleForReading];
+    NSPipe *pipe = [NSPipe pipe];
+    task.standardOutput = pipe;
 
     // launch task
     @try {
@@ -45,52 +39,17 @@ static NSString * const kJavaHomeLaunchPath = @"/usr/libexec/java_home";
     }
 
     // process output
-    __autoreleasing NSString *output = nil;
+    NSData *outputData = [pipe.fileHandleForReading readDataToEndOfFile];
+    NSString *outputString = [[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding];
+    NSString *javaPath = [outputString stringByTrimmingCharactersInSet:NSCharacterSet.newlineCharacterSet];
 
-    if ([self readOutputFromHandle:errorOutputHandle toString:&output]) {
-        os_log_error(OS_LOG_DEFAULT, "Unable to find default Java location. Reason: %{public}@", output);
-
-        reply(nil, [self unableToFindJavaLocationError:output]);
-        return;
+    if (outputString) {
+        reply(javaPath, nil);
     }
-
-    if ([self readOutputFromHandle:standardOutputHandle toString:&output]) {
-        reply(output, nil);
-        return;
+    else {
+        NSString *failureReason = [NSString stringWithFormat:@"Unable to read output from '%@'.", kJavaHomeLaunchPath];
+        reply(nil, [self unableToFindJavaLocationError:failureReason]);
     }
-
-    // there was no output from the tool
-    os_log_fault(OS_LOG_DEFAULT, "Unable to read standard and error output.");
-    reply(nil, [self unableToFindJavaLocationError:@"Unable to read neither standard nor error output."]);
-}
-
-- (BOOL)readOutputFromHandle:(NSFileHandle *)outputHandle toString:(NSString * __autoreleasing *)outputString
-{
-    NSData *inData = nil;
-    NSMutableString *lineBuffer = [[NSMutableString alloc] init];
-
-    while ((inData = [outputHandle availableData]) && [inData length]) {
-
-        NSString *rawLine = [[NSString alloc] initWithData:inData encoding:[NSString defaultCStringEncoding]];
-        NSString *outputLine = [rawLine stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-
-        if ([outputLine isEqualToString:@""]) {
-            continue;
-        }
-
-        [lineBuffer appendString:outputLine];
-        [lineBuffer appendString:@"\n"];
-    }
-
-    // remove trailing newline character
-    if ([lineBuffer hasSuffix:@"\n"]) {
-        NSRange range = NSMakeRange([lineBuffer length] - 1, 1);
-        [lineBuffer replaceCharactersInRange:range withString:@""];
-    }
-
-    *outputString = lineBuffer;
-
-    return [lineBuffer length] > 0;
 }
 
 - (NSError *)unableToFindJavaLocationError:(NSString *)failureReason
