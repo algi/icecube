@@ -20,8 +20,9 @@ static NSString * const kDefaultMavenPath = @"/usr/share/maven/bin/mvn";
     if (mavenCommand == nil) {
         mavenCommand = kDefaultMavenCommand;
 
-        [self logMessageWithLevel:AMLogLevelInfo
-                           format:@"Nebyl zadán příkaz pro Maven, bude použit výchozí příkaz: %@", kDefaultMavenCommand];
+        NSString *message = NSLocalizedString(@"No Maven command specified, will use default: %@",
+                                              @"Default {Maven command} will be used instead of empty command.");
+        [self logMessageWithLevel:AMLogLevelInfo format:message, kDefaultMavenCommand];
     }
 
     // Maven path
@@ -29,8 +30,9 @@ static NSString * const kDefaultMavenPath = @"/usr/share/maven/bin/mvn";
     if (mavenPath == nil) {
         mavenPath = kDefaultMavenPath;
 
-        [self logMessageWithLevel:AMLogLevelInfo
-                           format:@"Nebyla zadána cesta pro Maven, bude použita výchozí hodnota: %@", kDefaultMavenPath];
+        NSString *message = NSLocalizedString(@"No Maven installation directory specified, will use default: %@",
+                                              @"Default {Maven installation directory} will be used instead of empty path.");
+        [self logMessageWithLevel:AMLogLevelInfo format:message, kDefaultMavenPath];
     }
 
     // Error log path
@@ -60,7 +62,10 @@ static NSString * const kDefaultMavenPath = @"/usr/share/maven/bin/mvn";
         }
         else {
             [self writeOutputFromTask:task toTargetFolder:errorLogPath];
-            [self logMessageWithLevel:AMLogLevelWarn format:@"Neúspěšný build projektu: %@", pomFilePath];
+
+            NSString *message = NSLocalizedString(@"Build failure for project: %@",
+                                                  @"Unable to build Maven project for {path}.");
+            [self logMessageWithLevel:AMLogLevelWarn format:message, pomFilePath];
         }
     }
 
@@ -85,7 +90,9 @@ static NSString * const kDefaultMavenPath = @"/usr/share/maven/bin/mvn";
         return task;
     }
     @catch (NSException *exception) {
-        [self logMessageWithLevel:AMLogLevelError format:@"Nepodařilo se spustit Maven. Důvod: %@", exception.reason];
+        NSString *message = NSLocalizedString(@"Unable to launch Maven. Reason: %@",
+                                              @"Unable to launch Maven due to {error}.");
+        [self logMessageWithLevel:AMLogLevelError format:message, exception.reason];
         return nil;
     }
 }
@@ -106,10 +113,14 @@ static NSString * const kDefaultMavenPath = @"/usr/share/maven/bin/mvn";
     NSError *error = nil;
     BOOL fileCreated = [outputData writeToFile:errorLogPath atomically:YES encoding:NSUTF8StringEncoding error:&error];
     if (fileCreated) {
-        [self logMessageWithLevel:AMLogLevelInfo format:@"Vytvořen chybový soubor: %@", errorLogPath];
+        NSString *message = NSLocalizedString(@"Error file created at path: %@",
+                                              @"Error file was created at {path}.");
+        [self logMessageWithLevel:AMLogLevelInfo format:message, errorLogPath];
     }
     else {
-        [self logMessageWithLevel:AMLogLevelWarn format:@"Nepodařilo se vytvořit chybový soubor: %@, důvod: %@", errorLogPath, [error description]];
+        NSString *message = NSLocalizedString(@"Unable to create error log at path: %@, reason: %@",
+                                              @"Unable to create error log at {path} for {reason}.");
+        [self logMessageWithLevel:AMLogLevelWarn format:message, errorLogPath, [error description]];
     }
 }
 
