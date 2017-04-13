@@ -35,6 +35,9 @@
 		568C675117EC688D0095785D /* MBMavenServiceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 568C675017EC688D0095785D /* MBMavenServiceTask.m */; };
 		56A422D61E9FD47500F29F11 /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */; };
 		56A422D71EA003C800F29F11 /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */; };
+		56A422E11EA004DF00F29F11 /* MBMavenVersionServiceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A422E01EA004DF00F29F11 /* MBMavenVersionServiceTask.m */; };
+		56A422E31EA004DF00F29F11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A422E21EA004DF00F29F11 /* main.m */; };
+		56A422E71EA004DF00F29F11 /* MavenVersionService.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56A422DC1EA004DF00F29F11 /* MavenVersionService.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		56ADBB731E959967003471B4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 56ADBB721E959967003471B4 /* main.c */; };
 		56ADBB751E959967003471B4 /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 56ADBB741E959967003471B4 /* GetMetadataForFile.m */; };
 		56D21D3017BFC6520060A823 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D21D2F17BFC6520060A823 /* Images.xcassets */; };
@@ -82,6 +85,13 @@
 			remoteGlobalIDString = 568C673617EB7D630095785D;
 			remoteInfo = MavenService;
 		};
+		56A422E51EA004DF00F29F11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56FE8E77167BA1A70001AAED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56A422DB1EA004DF00F29F11;
+			remoteInfo = MavenVersionService;
+		};
 		56ADBB7B1E959968003471B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56FE8E77167BA1A70001AAED /* Project object */;
@@ -122,6 +132,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
 			dstSubfolderSpec = 16;
 			files = (
+				56A422E71EA004DF00F29F11 /* MavenVersionService.xpc in CopyFiles */,
 				560E703917EF35DA004BC832 /* cz.boucekm.JavaHomeService.xpc in CopyFiles */,
 				568C674717EB7E5B0095785D /* cz.boucekm.MavenService.xpc in CopyFiles */,
 			);
@@ -192,6 +203,12 @@
 		568C674F17EC688D0095785D /* MBMavenServiceTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenServiceTask.h; sourceTree = "<group>"; };
 		568C675017EC688D0095785D /* MBMavenServiceTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenServiceTask.m; sourceTree = "<group>"; };
 		569E8930179DE20A006C5326 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		56A422DC1EA004DF00F29F11 /* MavenVersionService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = MavenVersionService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		56A422DE1EA004DF00F29F11 /* MBMavenVersionService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBMavenVersionService.h; sourceTree = "<group>"; };
+		56A422DF1EA004DF00F29F11 /* MBMavenVersionServiceTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBMavenVersionServiceTask.h; sourceTree = "<group>"; };
+		56A422E01EA004DF00F29F11 /* MBMavenVersionServiceTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBMavenVersionServiceTask.m; sourceTree = "<group>"; };
+		56A422E21EA004DF00F29F11 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		56A422E41EA004DF00F29F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56AB1B8716E3BFB000831747 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		56AB1B8916E48B3300831747 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		56ADBB6F1E959967003471B4 /* IceCubeSpotlight.mdimporter */ = {isa = PBXFileReference; explicitFileType = "wrapper.spotlight-importer"; includeInIndex = 0; path = IceCubeSpotlight.mdimporter; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -243,6 +260,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				568C673917EB7D630095785D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56A422D91EA004DF00F29F11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +374,18 @@
 			name = "Task implementation";
 			sourceTree = "<group>";
 		};
+		56A422DD1EA004DF00F29F11 /* MavenVersionService */ = {
+			isa = PBXGroup;
+			children = (
+				56A422DE1EA004DF00F29F11 /* MBMavenVersionService.h */,
+				56A422DF1EA004DF00F29F11 /* MBMavenVersionServiceTask.h */,
+				56A422E01EA004DF00F29F11 /* MBMavenVersionServiceTask.m */,
+				56A422E21EA004DF00F29F11 /* main.m */,
+				56A422E41EA004DF00F29F11 /* Info.plist */,
+			);
+			path = MavenVersionService;
+			sourceTree = "<group>";
+		};
 		56ADBB701E959967003471B4 /* IceCubeSpotlight */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,6 +484,7 @@
 				56FE8E8A167BA1A70001AAED /* IceCube */,
 				56FE8EAA167BA1A80001AAED /* IceCubeTests */,
 				568C673A17EB7D630095785D /* MavenBuildService */,
+				56A422DD1EA004DF00F29F11 /* MavenVersionService */,
 				56F6300617EF34AA004DC92E /* JavaHomeService */,
 				56E16B251E92F64B00FEE789 /* IceCubeAction */,
 				56ADBB701E959967003471B4 /* IceCubeSpotlight */,
@@ -467,6 +504,7 @@
 				56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */,
 				56E16B241E92F64B00FEE789 /* IceCubeAction.action */,
 				56ADBB6F1E959967003471B4 /* IceCubeSpotlight.mdimporter */,
+				56A422DC1EA004DF00F29F11 /* MavenVersionService.xpc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -568,6 +606,23 @@
 			productReference = 568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */;
 			productType = "com.apple.product-type.bundle";
 		};
+		56A422DB1EA004DF00F29F11 /* MavenVersionService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56A422E81EA004DF00F29F11 /* Build configuration list for PBXNativeTarget "MavenVersionService" */;
+			buildPhases = (
+				56A422D81EA004DF00F29F11 /* Sources */,
+				56A422D91EA004DF00F29F11 /* Frameworks */,
+				56A422DA1EA004DF00F29F11 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MavenVersionService;
+			productName = MavenVersionService;
+			productReference = 56A422DC1EA004DF00F29F11 /* MavenVersionService.xpc */;
+			productType = "com.apple.product-type.xpc-service";
+		};
 		56ADBB6E1E959967003471B4 /* IceCubeSpotlight */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56ADBB801E959968003471B4 /* Build configuration list for PBXNativeTarget "IceCubeSpotlight" */;
@@ -638,6 +693,7 @@
 				560E703817EF35AE004BC832 /* PBXTargetDependency */,
 				568C674917EB7E750095785D /* PBXTargetDependency */,
 				56ADBB7C1E959968003471B4 /* PBXTargetDependency */,
+				56A422E61EA004DF00F29F11 /* PBXTargetDependency */,
 			);
 			name = IceCube;
 			productName = IceCube;
@@ -681,6 +737,11 @@
 								enabled = 0;
 							};
 						};
+					};
+					56A422DB1EA004DF00F29F11 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = 72CQ273HEW;
+						ProvisioningStyle = Automatic;
 					};
 					56ADBB6E1E959967003471B4 = {
 						CreatedOnToolsVersion = 8.3;
@@ -731,6 +792,7 @@
 				56F6300317EF34AA004DC92E /* JavaHomeService */,
 				56E16B231E92F64B00FEE789 /* IceCubeAction */,
 				56ADBB6E1E959967003471B4 /* IceCubeSpotlight */,
+				56A422DB1EA004DF00F29F11 /* MavenVersionService */,
 			);
 		};
 /* End PBXProject section */
@@ -742,6 +804,13 @@
 			files = (
 				568C673F17EB7D630095785D /* InfoPlist.strings in Resources */,
 				5619AEA91E9E27F00003A224 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56A422DA1EA004DF00F29F11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,6 +899,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		56A422D81EA004DF00F29F11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56A422E31EA004DF00F29F11 /* main.m in Sources */,
+				56A422E11EA004DF00F29F11 /* MBMavenVersionServiceTask.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56ADBB6B1E959967003471B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -899,6 +977,11 @@
 			isa = PBXTargetDependency;
 			target = 568C673617EB7D630095785D /* MavenService */;
 			targetProxy = 568C674817EB7E750095785D /* PBXContainerItemProxy */;
+		};
+		56A422E61EA004DF00F29F11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56A422DB1EA004DF00F29F11 /* MavenVersionService */;
+			targetProxy = 56A422E51EA004DF00F29F11 /* PBXContainerItemProxy */;
 		};
 		56ADBB7C1E959968003471B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1094,6 +1177,57 @@
 				PRODUCT_NAME = "cz.boucekm.$(TARGET_NAME:rfc1034identifier)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = xpc;
+			};
+			name = Release;
+		};
+		56A422E91EA004DF00F29F11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 72CQ273HEW;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = MavenVersionService/Info.plist;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.MavenVersionService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		56A422EA1EA004DF00F29F11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 72CQ273HEW;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = MavenVersionService/Info.plist;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.MavenVersionService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -1453,6 +1587,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		56A422E81EA004DF00F29F11 /* Build configuration list for PBXNativeTarget "MavenVersionService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56A422E91EA004DF00F29F11 /* Debug */,
+				56A422EA1EA004DF00F29F11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		56ADBB801E959968003471B4 /* Build configuration list for PBXNativeTarget "IceCubeSpotlight" */ = {
 			isa = XCConfigurationList;

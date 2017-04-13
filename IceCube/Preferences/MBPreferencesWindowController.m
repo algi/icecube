@@ -8,8 +8,7 @@
 
 #import "MBPreferencesWindowController.h"
 
-#import "MBMavenServiceCallback.h"
-#import "MBMavenService.h"
+#import "MBMavenVersionService.h"
 
 #import <os/log.h>
 
@@ -20,7 +19,7 @@ NSString * const kMavenHomeDefaultsKey = @"MavenLocation";
 NSString * const kUseDefaultJavaLocationKey = @"UseDefaultJavaLocation";
 NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
 
-@interface MBPreferencesWindowController () <MBMavenServiceCallback>
+@interface MBPreferencesWindowController ()
 
 @property NSXPCConnection *xpcConnection;
 @property BOOL taskRunning;
@@ -36,10 +35,9 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
 
 -(void)windowDidLoad
 {
-    self.xpcConnection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.MavenService"];
-    self.xpcConnection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenService)];
+    self.xpcConnection = [[NSXPCConnection alloc] initWithServiceName:@"cz.boucekm.MavenVersionService"];
+    self.xpcConnection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenVersionService)];
 
-    self.xpcConnection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
     self.xpcConnection.exportedObject = self;
 
     self.taskRunning = NO;
@@ -110,42 +108,6 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kJavaHomeDefaultsKey];
 }
 
-#pragma mark - MBMavenServiceCallback -
--(void)mavenTaskDidWriteLine:(NSString *)line
-{
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        if ([line hasPrefix:@"Apache Maven"]) {
-            // example: Apache Maven 3.3.3 (7994120775791599e205a5524ec3e0dfe41d4a06; 2015-04-22T12:57:37+01:00)
-            NSArray *components = [line componentsSeparatedByString:@" "];
-            NSString *mavenVersionString = components[2];
-
-            self.mavenVersion.stringValue = mavenVersionString;
-        }
-
-        if ([line hasPrefix:@"Java version: "]) {
-            NSString *javaVersionString = [line stringByReplacingOccurrencesOfString:@"Java version: " withString:@""];
-            self.javaVersion.stringValue = javaVersionString;
-        }
-    });
-}
-
--(void)mavenTaskDidFinishSuccessfully:(BOOL)result error:(NSError *)error
-{
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        if (!result) {
-            self.javaVersion.stringValue = @"";
-            self.mavenVersion.stringValue = @"";
-
-            os_log_error(OS_LOG_DEFAULT, "Unable to get version of Maven. Reason: %{public}@", error.localizedFailureReason);
-        }
-
-        [self.progressIndicator stopAnimation:self];
-
-        [self.xpcConnection suspend];
-        self.taskRunning = NO;
-    });
-}
-
 #pragma mark - Version info -
 -(void)updateVersionInformation
 {
@@ -156,14 +118,27 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
 
     [self.progressIndicator startAnimation:self];
 
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 
-    NSURL *path = [[NSFileManager defaultManager] homeDirectoryForCurrentUser];
-    NSString *mavenPath = [prefs stringForKey:kMavenHomeDefaultsKey];
-    NSDictionary *environment = @{@"JAVA_HOME": [prefs stringForKey:kJavaHomeDefaultsKey]};
+    NSString *launchPath = [userDefaults stringForKey:kMavenHomeDefaultsKey];
+    NSURL *currentDirectory = [[NSFileManager defaultManager] homeDirectoryForCurrentUser];
+    NSDictionary *environment = @{@"JAVA_HOME": [userDefaults stringForKey:kJavaHomeDefaultsKey]};
 
     [self.xpcConnection resume];
-    [[self.xpcConnection remoteObjectProxy] launchMaven:mavenPath withArguments:@"--version" environment:environment atPath:path];
+    [[self.xpcConnection remoteObjectProxy] readVersionInformationWithMaven:launchPath
+                                                                environment:environment
+                                                           currentDirectory:currentDirectory
+                                                                   callback:
+     ^(NSString *mavenVersion, NSString *javaVersion) {
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            self.mavenVersion.stringValue = mavenVersion;
+            self.javaVersion.stringValue = javaVersion;
+
+            [self.progressIndicator stopAnimation:self];
+            [self.xpcConnection suspend];
+            self.taskRunning = NO;
+        });
+    }];
 }
 
 -(void)dealloc
