@@ -91,6 +91,8 @@ All user-facing messages has been localized in the code using macro NSLocalizedS
 
 You can also generate these `strings` files using command-line utility called `genstrings`. Instead of passing list of files, you can always do something like `genstrings *.m` and then move the output to appropriate folder (or use some switch for that).
 
+For more information about localization and formating, see excelent article from [NSHipster][4].
+
 ## Error handling
 Error handling in Cocoa is very robust and nicely implemented. If you would like to see how to create nice error sheet for user, head to `MBMavenServiceTask` clas, where you can see how to create proper `NSError` object, which you can pass to the application. It’s unfortunatelly not possible to pass custom recovery attempter object from XPC, so it needs to be injected manually in the application code.
 
@@ -116,3 +118,4 @@ MIT - see LICENCE file
 [1]: https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html
 [2]: https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html#//apple_ref/doc/uid/TP40016462-CH5-SW1
 [3]: https://developer.apple.com/reference/os/logging?language=objc
+[4]: http://nshipster.com/nslocalizedstring/
