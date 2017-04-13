@@ -8,7 +8,7 @@
 
 #import "MBTaskRunnerDocument.h"
 
-@interface MBTaskRunnerWindowController : NSWindowController <NSWindowDelegate>
+@interface MBTaskRunnerWindowController : NSWindowController <NSWindowDelegate, NSProgressReporting>
 
 @property(weak) IBOutlet NSTextField *commandField;
 @property(assign) IBOutlet NSTextView *outputTextView;
@@ -22,6 +22,7 @@
 - (IBAction)selectWorkingDirectory:(id)sender;
 - (IBAction)selectCommand:(id)sender;
 
+@property(readonly) NSProgress *progress;
 @property(readonly) BOOL taskRunning;
 
 @end

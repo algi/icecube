@@ -98,6 +98,11 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="162" id="41i-d9-qqE"/>
                         </constraints>
+                        <connections>
+                            <binding destination="-2" name="isIndeterminate" keyPath="self.progress.indeterminate" id="0aK-Xn-zsL"/>
+                            <binding destination="-2" name="maxValue" keyPath="self.progress.totalUnitCount" id="6dn-Dc-U1M"/>
+                            <binding destination="-2" name="value" keyPath="self.progress.completedUnitCount" previousBinding="6dn-Dc-U1M" id="oDb-hk-9WP"/>
+                        </connections>
                     </progressIndicator>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csR-r7-0x9">
                         <rect key="frame" x="18" y="368" width="70" height="17"/>

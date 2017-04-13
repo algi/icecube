@@ -28,6 +28,7 @@
 @property (nonatomic) MBMavenOutputParser *parser;
 @property BOOL taskRunning;
 
+@property NSProgress *progress;
 @property NSString *uniqueID;
 
 @end
@@ -123,8 +124,7 @@
 
     // prepare UI
     self.taskRunning = YES;
-    [self.progressIndicator setIndeterminate:YES];
-    [self.progressIndicator startAnimation:self];
+    self.progress = [NSProgress progressWithTotalUnitCount:-1];
 
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 
@@ -165,8 +165,7 @@
             [NSApp presentError:error modalForWindow:self.window delegate:nil didPresentSelector:nil contextInfo:nil];
         }
 
-        [self.progressIndicator incrementBy:1];
-        [self.progressIndicator stopAnimation:nil];
+        self.progress.completedUnitCount = self.progress.completedUnitCount + 1;
 
         [self.connection suspend];
         self.taskRunning = NO;
@@ -176,26 +175,29 @@
 #pragma mark - MBMavenParserDelegate -
 - (void)buildDidStartWithTaskList:(NSArray *)taskList
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.progressIndicator setMinValue:0];
-        [self.progressIndicator setMaxValue:[taskList count] + 1];
-        [self.progressIndicator setDoubleValue:0];
+    // always go for at least 2, so user can see the progress
+    NSUInteger totalUnitCount = taskList.count;
+    if (totalUnitCount < 2) {
+        totalUnitCount = 2;
+    }
 
-        [self.progressIndicator setIndeterminate:NO];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.progress.completedUnitCount = 0;
+        self.progress.totalUnitCount = totalUnitCount;
     });
 }
 
 - (void)projectDidStartWithName:(NSString *)name
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.progressIndicator incrementBy:1];
+        self.progress.completedUnitCount = self.progress.completedUnitCount + 1;
     });
 }
 
 - (void)buildDidEndSuccessfully:(BOOL)buildWasSuccessful
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.progressIndicator incrementBy:1];
+        self.progress.completedUnitCount = self.progress.completedUnitCount + 1;
 
         NSUserNotification *notification = [[NSUserNotification alloc] init];
         notification.soundName = NSUserNotificationDefaultSoundName;
