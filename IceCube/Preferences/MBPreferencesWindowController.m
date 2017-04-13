@@ -9,7 +9,6 @@
 #import "MBPreferencesWindowController.h"
 
 #import "MBMavenServiceCallback.h"
-#import "MBJavaHomeService.h"
 #import "MBMavenService.h"
 
 #import <os/log.h>

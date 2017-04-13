@@ -40,7 +40,7 @@ static NSString * const kJavaHomeLaunchPath = @"/usr/libexec/java_home";
     @catch (NSException *exception) {
         os_log_error(OS_LOG_DEFAULT, "Unable to launch task %@. Reason: %{public}@", kJavaHomeLaunchPath, [exception reason]);
 
-        reply(nil, [self unableToFindJavaLocationError]);
+        reply(nil, [self unableToFindJavaLocationError:exception.reason]);
         return;
     }
 
@@ -50,7 +50,7 @@ static NSString * const kJavaHomeLaunchPath = @"/usr/libexec/java_home";
     if ([self readOutputFromHandle:errorOutputHandle toString:&output]) {
         os_log_error(OS_LOG_DEFAULT, "Unable to find default Java location. Reason: %{public}@", output);
 
-        reply(nil, [self unableToFindJavaLocationError]);
+        reply(nil, [self unableToFindJavaLocationError:output]);
         return;
     }
 
@@ -61,7 +61,7 @@ static NSString * const kJavaHomeLaunchPath = @"/usr/libexec/java_home";
 
     // there was no output from the tool
     os_log_fault(OS_LOG_DEFAULT, "Unable to read standard and error output.");
-    reply(nil, [self unableToFindJavaLocationError]);
+    reply(nil, [self unableToFindJavaLocationError:@"Unable to read neither standard nor error output."]);
 }
 
 - (BOOL)readOutputFromHandle:(NSFileHandle *)outputHandle toString:(NSString * __autoreleasing *)outputString
@@ -93,7 +93,7 @@ static NSString * const kJavaHomeLaunchPath = @"/usr/libexec/java_home";
     return [lineBuffer length] > 0;
 }
 
-- (NSError *)unableToFindJavaLocationError
+- (NSError *)unableToFindJavaLocationError:(NSString *)failureReason
 {
     NSString *description = NSLocalizedString(@"Unable to find default Java location",
                                               @"Title for 'Unable to find Java' error dialog.");
@@ -101,10 +101,16 @@ static NSString * const kJavaHomeLaunchPath = @"/usr/libexec/java_home";
     NSString *recovery = NSLocalizedString(@"You need to setup Java home manually in application's Preferences.",
                                            @"Recovery suggestion for error dialog 'Unable to find Java'.");
 
+    NSString *openPreferences = NSLocalizedString(@"Open Preferences", @"Open Preferences button for 'Unable to find Java' error dialog.");
+    NSString *cancel = NSLocalizedString(@"Cancel", @"Cancel button for 'Unable to find Java' error dialog.");
+
     return [NSError errorWithDomain:IceCubeDomain
                                code:kIceCube_unableToFindJavaHomeError
                            userInfo:@{NSLocalizedDescriptionKey: description,
-                                      NSLocalizedRecoverySuggestionErrorKey: recovery}];
+                                      NSLocalizedFailureReasonErrorKey: failureReason,
+                                      NSLocalizedRecoverySuggestionErrorKey: recovery,
+                                      NSLocalizedRecoveryOptionsErrorKey: @[openPreferences, cancel]
+                                      }];
 }
 
 @end

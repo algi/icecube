@@ -8,6 +8,7 @@
 
 @interface MBAppDelegate : NSObject <NSApplicationDelegate>
 
+// used by MainMenu.xib
 -(IBAction)showPreferencesWindow:(id)sender;
 
 @end

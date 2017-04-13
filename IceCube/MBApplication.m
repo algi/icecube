@@ -11,9 +11,16 @@
 #import "MBTaskRunnerDocument.h"
 #import "MBTaskRunnerWindowController.h"
 #import "MBPreferencesWindowController.h"
+#import "MBRecoveryAttempter.h"
 
 @implementation MBApplication
 
+-(NSError *)willPresentError:(NSError *)error
+{
+    return [MBRecoveryAttempter installRecoveryAttempterToErrorIfSupported:error];
+}
+
+#pragma mark - Scripting support -
 - (NSArray<NSWindowController *> *)projects
 {
     NSMutableArray<NSWindowController *> *result = [[NSMutableArray alloc] init];

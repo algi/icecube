@@ -153,18 +153,7 @@
 
         if (! launchSuccessful) {
             os_log_error(OS_LOG_DEFAULT, "Unable to launch Maven. Reason: %@", error.localizedFailureReason);
-
-            [[NSAlert alertWithError:error] beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode) {
-
-                // return code is positive number and all defined codes are negative...
-                if (-returnCode == NSModalResponseStop) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wselector"
-                    // selector is implemented in MBAppDelegate, so this is wrong warning
-                    [[NSApplication sharedApplication] sendAction:@selector(showPreferencesWindow:) to:nil from:self];
-#pragma clang diagnostic pop
-                }
-            }];
+            [NSApp presentError:error modalForWindow:self.window delegate:nil didPresentSelector:nil contextInfo:nil];
         }
 
         [self.progressIndicator setDoubleValue:[self.progressIndicator doubleValue] + 1];

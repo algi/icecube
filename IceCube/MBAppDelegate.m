@@ -40,14 +40,16 @@
     id<MBJavaHomeService> remoteProxy = [connection remoteObjectProxy];
     [remoteProxy findDefaultJavaHome:^(NSString *defaultJavaHome, NSError *error) {
 
+        [MBAppDelegate registerUserDefaultsWithJavaHome:defaultJavaHome];
+        [connection invalidate];
+
         if (!defaultJavaHome) {
+            os_log_error(OS_LOG_DEFAULT, "Unable to find Java home. Reason: %{public}@", error.localizedFailureReason);
+
             dispatch_sync(dispatch_get_main_queue(), ^{
                 [NSApp presentError:error];
             });
         }
-
-        [MBAppDelegate registerUserDefaultsWithJavaHome:defaultJavaHome];
-        [connection invalidate];
     }];
 }
 
@@ -67,7 +69,7 @@
         self.preferencesWindowController = [[MBPreferencesWindowController alloc] init];
     }
 
-    [self.preferencesWindowController.window makeKeyAndOrderFront:NSApp];
+    [self.preferencesWindowController.window makeKeyAndOrderFront:sender];
 }
 
 @end

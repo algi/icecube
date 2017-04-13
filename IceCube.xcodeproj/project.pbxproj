@@ -26,6 +26,7 @@
 		564FB49A17F1C630000380F3 /* MBMavenOutputParserTestObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB48E17F1C62F000380F3 /* MBMavenOutputParserTestObserver.m */; };
 		564FB49B17F1C630000380F3 /* MBMavenOutputParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB48F17F1C62F000380F3 /* MBMavenOutputParserTests.m */; };
 		564FB4A217F1C72E000380F3 /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */; };
+		565332C71E9F82FF009206CC /* MBRecoveryAttempter.m in Sources */ = {isa = PBXBuildFile; fileRef = 565332C61E9F82FF009206CC /* MBRecoveryAttempter.m */; };
 		566C78081E9D2CD0006DD355 /* IceCube.help in Resources */ = {isa = PBXBuildFile; fileRef = 566C78071E9D2B8A006DD355 /* IceCube.help */; };
 		568C673917EB7D630095785D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568C673817EB7D630095785D /* Foundation.framework */; };
 		568C673F17EB7D630095785D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 568C673D17EB7D630095785D /* InfoPlist.strings */; };
@@ -170,6 +171,8 @@
 		564FB4A017F1C72E000380F3 /* MBMavenOutputParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenOutputParser.h; sourceTree = "<group>"; };
 		564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParser.m; sourceTree = "<group>"; };
 		564FB4A317F1C931000380F3 /* MBMavenParserDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBMavenParserDelegate.h; sourceTree = "<group>"; };
+		565332C51E9F82FF009206CC /* MBRecoveryAttempter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBRecoveryAttempter.h; sourceTree = "<group>"; };
+		565332C61E9F82FF009206CC /* MBRecoveryAttempter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBRecoveryAttempter.m; sourceTree = "<group>"; };
 		56630A1917ECC067005A2BEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		566C78071E9D2B8A006DD355 /* IceCube.help */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = IceCube.help; sourceTree = "<group>"; };
 		568C673717EB7D630095785D /* cz.boucekm.MavenService.xpc */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cz.boucekm.MavenService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -379,6 +382,8 @@
 				56FE8E97167BA1A70001AAED /* MBAppDelegate.m */,
 				56EB935A19D74D3200988FD9 /* MBApplication.h */,
 				56EB935B19D74D3200988FD9 /* MBApplication.m */,
+				565332C51E9F82FF009206CC /* MBRecoveryAttempter.h */,
+				565332C61E9F82FF009206CC /* MBRecoveryAttempter.m */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -849,6 +854,7 @@
 			files = (
 				56D21D9F17C0D5880060A823 /* MBTaskRunnerDocument.m in Sources */,
 				56FE8E91167BA1A70001AAED /* main.m in Sources */,
+				565332C71E9F82FF009206CC /* MBRecoveryAttempter.m in Sources */,
 				56FE8E98167BA1A70001AAED /* MBAppDelegate.m in Sources */,
 				56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */,
 				564FB4A217F1C72E000380F3 /* MBMavenOutputParser.m in Sources */,
