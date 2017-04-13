@@ -95,12 +95,16 @@ static NSString * const kJavaHomeLaunchPath = @"/usr/libexec/java_home";
 
 - (NSError *)unableToFindJavaLocationError
 {
-    id userInfo = @{NSLocalizedDescriptionKey: NSLocalizedString(@"Unable to find default Java location", @"Title for 'Unable to find Java' error dialog."),
-                    NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString(@"You need to setup Java home manually in application's Preferences.", @"Recovery suggestion for error dialog 'Unable to find Java'.")};
-    
+    NSString *description = NSLocalizedString(@"Unable to find default Java location",
+                                              @"Title for 'Unable to find Java' error dialog.");
+
+    NSString *recovery = NSLocalizedString(@"You need to setup Java home manually in application's Preferences.",
+                                           @"Recovery suggestion for error dialog 'Unable to find Java'.");
+
     return [NSError errorWithDomain:IceCubeDomain
                                code:kIceCube_unableToFindJavaHomeError
-                           userInfo:userInfo];
+                           userInfo:@{NSLocalizedDescriptionKey: description,
+                                      NSLocalizedRecoverySuggestionErrorKey: recovery}];
 }
 
 @end
