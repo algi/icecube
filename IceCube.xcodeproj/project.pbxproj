@@ -35,7 +35,7 @@
 		56A422D71EA003C800F29F11 /* MBMavenOutputParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */; };
 		56A422E11EA004DF00F29F11 /* MBMavenVersionServiceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A422E01EA004DF00F29F11 /* MBMavenVersionServiceTask.m */; };
 		56A422E31EA004DF00F29F11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A422E21EA004DF00F29F11 /* main.m */; };
-		56A422E71EA004DF00F29F11 /* MavenVersionService.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56A422DC1EA004DF00F29F11 /* MavenVersionService.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		56A422E71EA004DF00F29F11 /* cz.boucekm.MavenVersionService.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56A422DC1EA004DF00F29F11 /* cz.boucekm.MavenVersionService.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		56ADBB731E959967003471B4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 56ADBB721E959967003471B4 /* main.c */; };
 		56ADBB751E959967003471B4 /* GetMetadataForFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 56ADBB741E959967003471B4 /* GetMetadataForFile.m */; };
 		56D21D3017BFC6520060A823 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D21D2F17BFC6520060A823 /* Images.xcassets */; };
@@ -130,7 +130,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
 			dstSubfolderSpec = 16;
 			files = (
-				56A422E71EA004DF00F29F11 /* MavenVersionService.xpc in CopyFiles */,
+				56A422E71EA004DF00F29F11 /* cz.boucekm.MavenVersionService.xpc in CopyFiles */,
 				560E703917EF35DA004BC832 /* cz.boucekm.JavaHomeService.xpc in CopyFiles */,
 				568C674717EB7E5B0095785D /* cz.boucekm.MavenBuildService.xpc in CopyFiles */,
 			);
@@ -190,7 +190,7 @@
 		565332D31E9FA2B6009206CC /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/main.strings; sourceTree = "<group>"; };
 		56630A1917ECC067005A2BEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		566C78071E9D2B8A006DD355 /* IceCube.help */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = IceCube.help; sourceTree = "<group>"; };
-		568C673717EB7D630095785D /* cz.boucekm.MavenBuildService.xpc */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cz.boucekm.MavenBuildService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		568C673717EB7D630095785D /* cz.boucekm.MavenBuildService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = cz.boucekm.MavenBuildService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		568C673817EB7D630095785D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		568C673C17EB7D630095785D /* MavenService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MavenService-Info.plist"; sourceTree = "<group>"; };
 		568C674117EB7D630095785D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 		568C674F17EC688D0095785D /* MBMavenServiceTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMavenServiceTask.h; sourceTree = "<group>"; };
 		568C675017EC688D0095785D /* MBMavenServiceTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenServiceTask.m; sourceTree = "<group>"; };
 		569E8930179DE20A006C5326 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		56A422DC1EA004DF00F29F11 /* MavenVersionService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = MavenVersionService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		56A422DC1EA004DF00F29F11 /* cz.boucekm.MavenVersionService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = cz.boucekm.MavenVersionService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A422DE1EA004DF00F29F11 /* MBMavenVersionService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBMavenVersionService.h; sourceTree = "<group>"; };
 		56A422DF1EA004DF00F29F11 /* MBMavenVersionServiceTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBMavenVersionServiceTask.h; sourceTree = "<group>"; };
 		56A422E01EA004DF00F29F11 /* MBMavenVersionServiceTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBMavenVersionServiceTask.m; sourceTree = "<group>"; };
@@ -230,7 +230,7 @@
 		56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerWindowController.m; sourceTree = "<group>"; };
 		56F62FFB17EF23F8004DC92E /* MBPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPreferencesWindowController.h; sourceTree = "<group>"; };
 		56F62FFC17EF23F8004DC92E /* MBPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBPreferencesWindowController.m; sourceTree = "<group>"; };
-		56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cz.boucekm.JavaHomeService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = cz.boucekm.JavaHomeService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F6300817EF34AA004DC92E /* JavaHomeService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JavaHomeService-Info.plist"; sourceTree = "<group>"; };
 		56F6300A17EF34AA004DC92E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56F6300C17EF34AA004DC92E /* JavaHomeService-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JavaHomeService-Prefix.pch"; sourceTree = "<group>"; };
@@ -497,7 +497,7 @@
 				56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */,
 				56E16B241E92F64B00FEE789 /* IceCubeAction.action */,
 				56ADBB6F1E959967003471B4 /* IceCubeSpotlight.mdimporter */,
-				56A422DC1EA004DF00F29F11 /* MavenVersionService.xpc */,
+				56A422DC1EA004DF00F29F11 /* cz.boucekm.MavenVersionService.xpc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -597,7 +597,7 @@
 			name = MavenBuildService;
 			productName = MavenService;
 			productReference = 568C673717EB7D630095785D /* cz.boucekm.MavenBuildService.xpc */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.xpc-service";
 		};
 		56A422DB1EA004DF00F29F11 /* MavenVersionService */ = {
 			isa = PBXNativeTarget;
@@ -613,7 +613,7 @@
 			);
 			name = MavenVersionService;
 			productName = MavenVersionService;
-			productReference = 56A422DC1EA004DF00F29F11 /* MavenVersionService.xpc */;
+			productReference = 56A422DC1EA004DF00F29F11 /* cz.boucekm.MavenVersionService.xpc */;
 			productType = "com.apple.product-type.xpc-service";
 		};
 		56ADBB6E1E959967003471B4 /* IceCubeSpotlight */ = {
@@ -666,7 +666,7 @@
 			name = JavaHomeService;
 			productName = JavaHomeService;
 			productReference = 56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.xpc-service";
 		};
 		56FE8E7F167BA1A70001AAED /* IceCube */ = {
 			isa = PBXNativeTarget;
@@ -1184,7 +1184,7 @@
 				INFOPLIST_FILE = MavenVersionService/Info.plist;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.MavenVersionService;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "cz.boucekm.$(TARGET_NAME:rfc1034identifier)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1210,7 +1210,7 @@
 				INFOPLIST_FILE = MavenVersionService/Info.plist;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.MavenVersionService;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "cz.boucekm.$(TARGET_NAME:rfc1034identifier)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
