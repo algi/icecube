@@ -47,6 +47,9 @@
     self.connection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenService)];
     self.connection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
     self.connection.exportedObject = self;
+    [self.connection resume];
+
+    self.window.titlebarAppearsTransparent = YES;
 }
 
 -(BOOL)validateMenuItem:(NSMenuItem *)menuItem
@@ -76,8 +79,6 @@
     [super restoreStateWithCoder:coder];
 
     NSAttributedString *text = [coder decodeObjectForKey:@"mb_outputTextView"];
-    NSLog(@"Text: %@", text);
-
     if (text) {
         [self.outputTextView.textStorage setAttributedString:text];
     }
@@ -138,7 +139,7 @@
 
     // prepare UI
     self.taskRunning = YES;
-    self.progress = [NSProgress progressWithTotalUnitCount:-1];
+    self.progress = [NSProgress progressWithTotalUnitCount:1];
 
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 
@@ -149,7 +150,6 @@
     [self.outputTextView setString:[NSString stringWithFormat:@"$ %@ %@\n", launchPath, args]];
 
     // launch task
-    [self.connection resume];
     [[self.connection remoteObjectProxy] buildProjectWithMaven:launchPath
                                                      arguments:args
                                                    environment:environment
@@ -223,17 +223,17 @@
 
 -(void)mavenTaskDidFinishWithError:(NSError *)error
 {
-    os_log_error(OS_LOG_DEFAULT, "Unable to launch Maven. Reason: %@", error.localizedFailureReason);
-    [NSApp presentError:error modalForWindow:self.window delegate:nil didPresentSelector:nil contextInfo:nil];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        os_log_error(OS_LOG_DEFAULT, "Unable to launch Maven. Reason: %@", error.localizedFailureReason);
+        [NSApp presentError:error modalForWindow:self.window delegate:nil didPresentSelector:nil contextInfo:nil];
 
-    [self taskDidTerminate];
+        [self taskDidTerminate];
+    });
 }
 
 -(void)taskDidTerminate
 {
     self.progress.completedUnitCount++;
-
-    [self.connection suspend];
     self.taskRunning = NO;
 }
 
