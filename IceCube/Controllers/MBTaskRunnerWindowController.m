@@ -62,6 +62,27 @@
     return YES;
 }
 
+#pragma mark - NSRestorableState -
+-(void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [super encodeRestorableStateWithCoder:coder];
+
+    NSAttributedString *text = self.outputTextView.textStorage;
+    [coder encodeObject:text forKey:@"mb_outputTextView"];
+}
+
+-(void)restoreStateWithCoder:(NSCoder *)coder
+{
+    [super restoreStateWithCoder:coder];
+
+    NSAttributedString *text = [coder decodeObjectForKey:@"mb_outputTextView"];
+    NSLog(@"Text: %@", text);
+
+    if (text) {
+        [self.outputTextView.textStorage setAttributedString:text];
+    }
+}
+
 #pragma mark - NSWindowDelegate -
 -(NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window
 {
