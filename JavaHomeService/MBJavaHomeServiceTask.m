@@ -20,6 +20,7 @@ static NSString * const kJavaHomeLaunchPath = @"/usr/libexec/java_home";
     // prepare task
     NSTask *task = [[NSTask alloc] init];
 
+    task.qualityOfService = NSQualityOfServiceUserInitiated;
     task.launchPath = kJavaHomeLaunchPath;
     task.arguments = @[@"--task", @"CommandLine"];
 

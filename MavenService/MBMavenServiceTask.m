@@ -40,6 +40,7 @@
 
     self.task = [[NSTask alloc] init];
 
+    self.task.qualityOfService = NSQualityOfServiceUserInitiated;
     self.task.launchPath = [launchPath stringByExpandingTildeInPath];
     self.task.arguments = [arguments componentsSeparatedByString:@" "];
     self.task.environment = environment;

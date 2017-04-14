@@ -16,6 +16,7 @@
 {
     NSTask *task = [[NSTask alloc] init];
 
+    task.qualityOfService = NSQualityOfServiceUserInitiated;
     task.launchPath = [launchPath stringByExpandingTildeInPath];
     task.environment = environment;
     task.arguments = @[ @"--version" ];
