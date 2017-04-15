@@ -32,6 +32,8 @@ The application also supports state restoration, so it also preserves last outpu
 
 You can also see that the application doesn't use standard toolbar anymore. It used to be good idea in old Mac OS X, but since Apple changed it's own design language, this look became obsolete. Because the app doesn't use toolbar anymore, it's necessary to correct position of modal sheet dialogs, otherwise they would appear at the top of the window, which makes very poor user experience. For implementation see `-window:willPositionSheet:usingRect`, very powerful method.
 
+TouchBar is also supported, altough support for Interface Builder is currently (Xcode 8.3.1) poor. You can create buttons in IB and assign target actions to them, but you cannot set image from recommended default templates to them. Also you have to manually declare array of visible buttons for child responders, otherwise they'll dissapear, when user selects for example Command field. It seems like authors of this code prefers manual UI creation in code, instead of Interface Builder... It's handy to have preview for Touch Bar in Xcode (Window -> Show Touch Bar Shift-Cmd-5), so you don't have to buy Mac with Touch Bar support.
+
 Another interesting and very powerful thing is Cocoa Bindings. It’s being used quite extensively in document window for data binding, but also for validation. For example Run button is enabled only when the build doesn’t run. You can also see some nice bindings in Preferences window, where the fields reacts to it’s own checkboxes. As a part of Cocoa bindings, I would like to also mention usage of KVO (Key-value observation), which is especially useful for watching changes in `NSUserDefaults` for validating Maven and Java home directories.
 
 ## Custom document class
