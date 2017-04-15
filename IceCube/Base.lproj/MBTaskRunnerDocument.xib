@@ -26,7 +26,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iw-Hy-3Tl">
-                        <rect key="frame" x="94" y="402" width="454" height="22"/>
+                        <rect key="frame" x="94" y="402" width="464" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" placeholderString="clean install" drawsBackground="YES" id="Rpe-Rc-BpU">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -112,7 +112,7 @@
                         </constraints>
                     </visualEffectView>
                     <button horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="87a-F7-dil">
-                        <rect key="frame" x="550" y="396" width="45" height="32"/>
+                        <rect key="frame" x="560" y="396" width="45" height="32"/>
                         <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSGoRightTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Y4q-ui-3sJ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -127,7 +127,7 @@
                         </connections>
                     </button>
                     <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Kuj-g5-hFo">
-                        <rect key="frame" x="524" y="405" width="16" height="16"/>
+                        <rect key="frame" x="534" y="405" width="16" height="16"/>
                         <connections>
                             <binding destination="-2" name="value" keyPath="self.progress.completedUnitCount" previousBinding="ry8-CS-Ca8" id="ras-gD-I4B"/>
                             <binding destination="-2" name="maxValue" keyPath="self.progress.totalUnitCount" id="ry8-CS-Ca8"/>
@@ -135,7 +135,7 @@
                         </connections>
                     </progressIndicator>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Prl-VR-fyr">
-                        <rect key="frame" x="593" y="396" width="47" height="32"/>
+                        <rect key="frame" x="598" y="396" width="47" height="32"/>
                         <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSStopProgressTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0e0-kl-cUo">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -156,12 +156,12 @@
                     <constraint firstItem="amj-4M-AZS" firstAttribute="top" secondItem="OMz-TM-wiL" secondAttribute="bottom" constant="8" id="CH9-cc-TzO"/>
                     <constraint firstItem="87a-F7-dil" firstAttribute="centerY" secondItem="Prl-VR-fyr" secondAttribute="centerY" id="MIc-yK-Q67"/>
                     <constraint firstItem="OMz-TM-wiL" firstAttribute="leading" secondItem="d7O-rU-iQq" secondAttribute="trailing" constant="8" id="R9M-s6-6Iv"/>
-                    <constraint firstAttribute="trailing" secondItem="Prl-VR-fyr" secondAttribute="trailing" constant="20" id="aeA-CO-yH4"/>
+                    <constraint firstAttribute="trailing" secondItem="Prl-VR-fyr" secondAttribute="trailing" constant="15" id="aeA-CO-yH4"/>
                     <constraint firstItem="OMz-TM-wiL" firstAttribute="baseline" secondItem="d7O-rU-iQq" secondAttribute="baseline" id="c0h-1T-pL0"/>
                     <constraint firstItem="amj-4M-AZS" firstAttribute="leading" secondItem="ffI-nQ-6He" secondAttribute="leading" id="dgs-1Y-CFc"/>
                     <constraint firstItem="6iw-Hy-3Tl" firstAttribute="top" secondItem="ffI-nQ-6He" secondAttribute="top" constant="31" id="fnh-w7-Dyp"/>
                     <constraint firstItem="87a-F7-dil" firstAttribute="centerY" secondItem="6iw-Hy-3Tl" secondAttribute="centerY" id="i9e-ww-wlF"/>
-                    <constraint firstItem="Prl-VR-fyr" firstAttribute="leading" secondItem="87a-F7-dil" secondAttribute="trailing" constant="10" id="jH1-Bb-JNH"/>
+                    <constraint firstItem="Prl-VR-fyr" firstAttribute="leading" secondItem="87a-F7-dil" secondAttribute="trailing" constant="5" id="jH1-Bb-JNH"/>
                     <constraint firstItem="6iw-Hy-3Tl" firstAttribute="baseline" secondItem="j5D-Vi-Uq8" secondAttribute="baseline" id="m34-AG-4Zi"/>
                     <constraint firstItem="OMz-TM-wiL" firstAttribute="top" secondItem="6iw-Hy-3Tl" secondAttribute="bottom" constant="8" id="pHk-Cp-njt"/>
                     <constraint firstAttribute="trailing" secondItem="amj-4M-AZS" secondAttribute="trailing" id="uH9-EK-HG3"/>
