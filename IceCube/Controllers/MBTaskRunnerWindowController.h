@@ -22,5 +22,6 @@
 
 @property(readonly) NSProgress *progress;
 @property(readonly) BOOL taskRunning;
+@property(readonly) NSString *runButtonTitle;
 
 @end
