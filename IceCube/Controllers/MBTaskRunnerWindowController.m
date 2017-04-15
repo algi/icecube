@@ -50,6 +50,7 @@
     [self.connection resume];
 
     self.window.titlebarAppearsTransparent = YES;
+    self.window.movableByWindowBackground = YES;
 
     // it's currently not possible to use build-in image from Interface Builder
     self.touchRunProject.image = [NSImage imageNamed:NSImageNameTouchBarPlayTemplate];
