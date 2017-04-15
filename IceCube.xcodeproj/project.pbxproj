@@ -211,6 +211,7 @@
 		56ADBB721E959967003471B4 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		56ADBB741E959967003471B4 /* GetMetadataForFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetMetadataForFile.m; sourceTree = "<group>"; };
 		56ADBB7A1E959968003471B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56CAA22E1EA24C9000AFF6D7 /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
 		56D21D2F17BFC6520060A823 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		56D21D9C17C0D5880060A823 /* MBTaskRunnerDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskRunnerDocument.h; sourceTree = "<group>"; };
 		56D21D9D17C0D5880060A823 /* MBTaskRunnerDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerDocument.m; sourceTree = "<group>"; };
@@ -485,6 +486,7 @@
 				56FE8E81167BA1A70001AAED /* Products */,
 				569E8930179DE20A006C5326 /* LICENSE */,
 				56AB1B8916E48B3300831747 /* README.md */,
+				56CAA22E1EA24C9000AFF6D7 /* screenshot.png */,
 			);
 			sourceTree = "<group>";
 		};

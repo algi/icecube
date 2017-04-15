@@ -3,7 +3,9 @@
 IceCube is application for launching saved configurations of Maven tasks. It allows you to save particular task
 configurations for whole project such as running embedded Jetty, deploying on remote Tomcat, etc.
 
-However, the aim of the project lies not the functionality itself, but in being a research project for as many Mac OS X technologies as possible. This Readme file captures what I learned on this project so far. I hope it will help you with some obscure, less known technologies. Please feel free to use any part of the application in your code. I’m not quite sure if this project will ever be useful as a real world application itself, since the concept of the application is basically useless…
+However, the aim of the project lies not the functionality itself, but in being a research project for as many Mac OS X technologies as possible. This Readme file captures what I learned on this project so far. I hope it will help you with some obscure, less known technologies. Please feel free to use any part of the application in your code.
+
+![IceCube screenshot](/screenshot.png)
 
 ## About application
 IceCube is document-based application. Every document represents one Maven command set. It contains Maven command itself and working directory. The application parses Maven output, so it can give feedback to user about how many phases are done and how many still needs to be done.
