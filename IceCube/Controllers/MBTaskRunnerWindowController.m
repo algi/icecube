@@ -57,6 +57,11 @@
 
     self.touchStopProject.image = [NSImage imageNamed:NSImageNameTouchBarRecordStopTemplate];
     self.touchStopProject.title = @"";
+
+    // add our button identifiers to default collection, so they will be visible when user focuses Command field
+    // it's also necessary to add "otherItemsProxy", otherwise it won't work
+    // identifiers are declared in XIB, but this property cannot be declared there
+    self.touchBar.defaultItemIdentifiers = @[@"RunProject", @"StopProject", NSTouchBarItemIdentifierOtherItemsProxy];
 }
 
 -(BOOL)validateMenuItem:(NSMenuItem *)menuItem
