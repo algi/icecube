@@ -8,7 +8,7 @@
 
 #import "MBTaskRunnerDocument.h"
 
-@interface MBTaskRunnerWindowController : NSWindowController <NSWindowDelegate, NSProgressReporting>
+@interface MBTaskRunnerWindowController : NSWindowController <NSWindowDelegate, NSProgressReporting, NSTouchBarProvider>
 
 @property(assign) IBOutlet NSTextView *outputTextView;
 @property(weak) IBOutlet NSPathControl *pathControl;
@@ -23,5 +23,9 @@
 
 @property(readonly) NSProgress *progress;
 @property(readonly) BOOL taskRunning;
+
+@property IBOutlet NSTouchBar *touchBar;
+@property IBOutlet NSButton *touchRunProject;
+@property IBOutlet NSButton *touchStopProject;
 
 @end

@@ -2,8 +2,10 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="12062"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="the Touch Bar" message="Use a version of macOS with Touch Bar support." minToolsVersion="8.1" minSystemVersion="10.12.1" requiredIntegratedClassName="NSTouchBar"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MBTaskRunnerWindowController">
@@ -11,6 +13,9 @@
                 <outlet property="commandField" destination="6iw-Hy-3Tl" id="bQf-l3-eZY"/>
                 <outlet property="outputTextView" destination="YfR-bW-cHw" id="hfW-NK-gSo"/>
                 <outlet property="pathControl" destination="OMz-TM-wiL" id="u5W-zv-Asu"/>
+                <outlet property="touchBar" destination="mmf-k1-6BZ" id="znv-PR-WtE"/>
+                <outlet property="touchRunProject" destination="SKW-e2-GNo" id="IOI-bm-Mhs"/>
+                <outlet property="touchStopProject" destination="HFD-ik-teU" id="Svw-Hh-7kA"/>
                 <outlet property="visualEffectView" destination="amj-4M-AZS" id="xRQ-j5-jNF"/>
                 <outlet property="window" destination="86L-hC-66c" id="9cm-d5-EpF"/>
             </connections>
@@ -20,14 +25,14 @@
         <window title="Document 1" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" showsToolbarButton="NO" animationBehavior="default" id="86L-hC-66c">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
-            <rect key="contentRect" x="190" y="284" width="654" height="455"/>
+            <rect key="contentRect" x="190" y="284" width="604" height="429"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="ffI-nQ-6He">
-                <rect key="frame" x="0.0" y="0.0" width="654" height="455"/>
+                <rect key="frame" x="0.0" y="0.0" width="604" height="429"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iw-Hy-3Tl">
-                        <rect key="frame" x="94" y="402" width="475" height="22"/>
+                        <rect key="frame" x="94" y="376" width="425" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" placeholderString="clean install" drawsBackground="YES" id="Rpe-Rc-BpU">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -38,7 +43,7 @@
                         </connections>
                     </textField>
                     <pathControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OMz-TM-wiL">
-                        <rect key="frame" x="94" y="374" width="204" height="20"/>
+                        <rect key="frame" x="94" y="348" width="204" height="20"/>
                         <pathCell key="cell" controlSize="small" selectable="YES" editable="YES" alignment="left" id="rfR-Fy-Zyo">
                             <font key="font" metaFont="smallSystem"/>
                             <url key="url" string="file://localhost/Applications/"/>
@@ -50,7 +55,7 @@
                         </connections>
                     </pathControl>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7O-rU-iQq">
-                        <rect key="frame" x="24" y="377" width="64" height="17"/>
+                        <rect key="frame" x="24" y="351" width="64" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Directory:" id="wy8-GT-FAz">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -58,7 +63,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5D-Vi-Uq8">
-                        <rect key="frame" x="18" y="405" width="70" height="17"/>
+                        <rect key="frame" x="18" y="379" width="70" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Command:" id="u4b-4G-AFn">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -66,20 +71,20 @@
                         </textFieldCell>
                     </textField>
                     <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="ultraDark" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="amj-4M-AZS">
-                        <rect key="frame" x="0.0" y="0.0" width="654" height="366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="604" height="340"/>
                         <subviews>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31r-Zy-hOe">
-                                <rect key="frame" x="10" y="10" width="634" height="346"/>
+                                <rect key="frame" x="10" y="10" width="584" height="320"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="DnY-sN-MWG">
-                                    <rect key="frame" x="0.0" y="0.0" width="634" height="346"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="584" height="320"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" drawsBackground="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" allowsNonContiguousLayout="YES" spellingCorrection="YES" smartInsertDelete="YES" id="YfR-bW-cHw">
-                                            <rect key="frame" x="0.0" y="0.0" width="634" height="346"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="584" height="320"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.0026485669982914016" green="0.9327650557314684" blue="0.0041094928510256677" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <size key="minSize" width="634" height="346"/>
+                                            <size key="minSize" width="584" height="320"/>
                                             <size key="maxSize" width="771" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content="$">
@@ -100,7 +105,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="t8a-il-gco">
-                                    <rect key="frame" x="618" y="0.0" width="16" height="346"/>
+                                    <rect key="frame" x="568" y="0.0" width="16" height="320"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -113,7 +118,7 @@
                         </constraints>
                     </visualEffectView>
                     <button horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="87a-F7-dil">
-                        <rect key="frame" x="568" y="396" width="42" height="32"/>
+                        <rect key="frame" x="518" y="370" width="42" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="lIZ-sB-iLx"/>
                         </constraints>
@@ -131,7 +136,7 @@
                         </connections>
                     </button>
                     <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Kuj-g5-hFo">
-                        <rect key="frame" x="545" y="405" width="16" height="16"/>
+                        <rect key="frame" x="495" y="379" width="16" height="16"/>
                         <connections>
                             <binding destination="-2" name="value" keyPath="self.progress.completedUnitCount" previousBinding="ry8-CS-Ca8" id="ras-gD-I4B"/>
                             <binding destination="-2" name="maxValue" keyPath="self.progress.totalUnitCount" id="ry8-CS-Ca8"/>
@@ -139,7 +144,7 @@
                         </connections>
                     </progressIndicator>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Prl-VR-fyr">
-                        <rect key="frame" x="603" y="396" width="42" height="32"/>
+                        <rect key="frame" x="553" y="370" width="42" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="iv0-QD-u3G"/>
                         </constraints>
@@ -178,9 +183,50 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="lBG-VQ-LpR"/>
             </connections>
-            <point key="canvasLocation" x="106" y="115.5"/>
+            <point key="canvasLocation" x="81" y="102.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="acp-Q7-2Ke"/>
+        <touchBar id="mmf-k1-6BZ">
+            <touchBarItems>
+                <touchBarItem identifier="RunProject" id="Qhq-ak-9X9">
+                    <viewController key="viewController" id="lAj-5q-ltF">
+                        <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SKW-e2-GNo">
+                            <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                            <buttonCell key="cell" type="push" title="Run" bezelStyle="rounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0OM-Zm-sf7">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" usesAppearanceFont="YES"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="startTask:" target="-2" id="CIU-xQ-nPj"/>
+                                <binding destination="-2" name="enabled" keyPath="self.taskRunning" id="RoQ-3S-jYJ">
+                                    <dictionary key="options">
+                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                    </dictionary>
+                                </binding>
+                            </connections>
+                        </button>
+                    </viewController>
+                    <size key="designTimeSize" width="72" height="30"/>
+                </touchBarItem>
+                <touchBarItem id="Atx-Aw-U15">
+                    <viewController key="viewController" id="FBR-iK-dIh">
+                        <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HFD-ik-teU">
+                            <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                            <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xeI-pC-Rxq">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" usesAppearanceFont="YES"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="stopTask:" target="-2" id="G6U-r7-t67"/>
+                                <binding destination="-2" name="enabled" keyPath="self.taskRunning" id="PES-OB-cSP"/>
+                            </connections>
+                        </button>
+                    </viewController>
+                    <size key="designTimeSize" width="72" height="30"/>
+                </touchBarItem>
+            </touchBarItems>
+            <point key="canvasLocation" x="126" y="395"/>
+        </touchBar>
     </objects>
     <resources>
         <image name="RunProject" width="50" height="50"/>

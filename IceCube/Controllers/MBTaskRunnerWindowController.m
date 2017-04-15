@@ -50,6 +50,13 @@
     [self.connection resume];
 
     self.window.titlebarAppearsTransparent = YES;
+
+    // it's currently not possible to use build-in image from Interface Builder
+    self.touchRunProject.image = [NSImage imageNamed:NSImageNameTouchBarPlayTemplate];
+    self.touchRunProject.title = @"";
+
+    self.touchStopProject.image = [NSImage imageNamed:NSImageNameTouchBarRecordStopTemplate];
+    self.touchStopProject.title = @"";
 }
 
 -(BOOL)validateMenuItem:(NSMenuItem *)menuItem
