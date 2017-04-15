@@ -108,10 +108,10 @@
 {
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
 
-    [openPanel setCanChooseFiles:NO];
-    [openPanel setCanChooseDirectories:YES];
-    [openPanel setAllowsMultipleSelection:NO];
-    [openPanel setDirectoryURL:[self.document workingDirectory]];
+    openPanel.canChooseFiles = NO;
+    openPanel.canChooseDirectories = YES;
+    openPanel.allowsMultipleSelection = NO;
+    openPanel.directoryURL = [self.document workingDirectory];
 
     [openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
         if (result == NSFileHandlingPanelOKButton) {
@@ -156,7 +156,7 @@
     NSString *launchPath = [prefs stringForKey:kMavenHomeDefaultsKey];
     NSDictionary *environment = @{@"JAVA_HOME": [prefs stringForKey:kJavaHomeDefaultsKey]};
 
-    [self.outputTextView setString:[NSString stringWithFormat:@"$ %@ %@\n", launchPath, args]];
+    self.outputTextView.string = [NSString stringWithFormat:@"$ %@ %@\n", launchPath, args];
 
     // launch task
     [[self.connection remoteObjectProxy] buildProjectWithMaven:launchPath
@@ -196,7 +196,7 @@
 -(void)mavenTaskDidWriteLine:(NSString *)line
 {
     dispatch_sync(dispatch_get_main_queue(), ^{
-        NSTextStorage *storage = [self.outputTextView textStorage];
+        NSTextStorage *storage = self.outputTextView.textStorage;
         NSDictionary *attributes = [storage attributesAtIndex:0 effectiveRange:nil];
 
         [storage beginEditing];
@@ -204,7 +204,7 @@
                                                                         attributes:attributes]];
         [storage endEditing];
 
-        [self.outputTextView scrollRangeToVisible:NSMakeRange([[self.outputTextView string] length], 0)];
+        [self.outputTextView scrollRangeToVisible:NSMakeRange(self.outputTextView.string.length, 0)];
     });
 }
 
