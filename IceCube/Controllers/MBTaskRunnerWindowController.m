@@ -26,7 +26,6 @@
 @property BOOL taskRunning;
 @property NSProgress *progress;
 @property (nonatomic) NSXPCConnection *connection;
-@property NSString *runButtonTitle;
 
 @end
 
@@ -51,7 +50,6 @@
     [self.connection resume];
 
     self.window.titlebarAppearsTransparent = YES;
-    self.runButtonTitle = NSLocalizedString(@"Run", @"Run button title.");
 }
 
 -(BOOL)validateMenuItem:(NSMenuItem *)menuItem
@@ -143,7 +141,6 @@
     // prepare UI
     self.taskRunning = YES;
     self.progress = [NSProgress progressWithTotalUnitCount:1];
-    self.runButtonTitle = NSLocalizedString(@"Stop", @"Stop button title.");
 
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 
@@ -238,7 +235,6 @@
 -(void)taskDidTerminate
 {
     self.progress.completedUnitCount++;
-    self.runButtonTitle = NSLocalizedString(@"Run", @"Run button title.");
     self.taskRunning = NO;
 }
 
