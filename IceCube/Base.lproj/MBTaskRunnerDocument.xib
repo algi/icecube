@@ -11,6 +11,7 @@
                 <outlet property="commandField" destination="6iw-Hy-3Tl" id="bQf-l3-eZY"/>
                 <outlet property="outputTextView" destination="YfR-bW-cHw" id="hfW-NK-gSo"/>
                 <outlet property="pathControl" destination="OMz-TM-wiL" id="u5W-zv-Asu"/>
+                <outlet property="visualEffectView" destination="amj-4M-AZS" id="xRQ-j5-jNF"/>
                 <outlet property="window" destination="86L-hC-66c" id="9cm-d5-EpF"/>
             </connections>
         </customObject>

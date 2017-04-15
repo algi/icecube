@@ -10,9 +10,10 @@
 
 @interface MBTaskRunnerWindowController : NSWindowController <NSWindowDelegate, NSProgressReporting>
 
-@property(weak) IBOutlet NSTextField *commandField;
 @property(assign) IBOutlet NSTextView *outputTextView;
 @property(weak) IBOutlet NSPathControl *pathControl;
+@property(weak) IBOutlet NSTextField *commandField;
+@property(weak) IBOutlet NSVisualEffectView *visualEffectView;
 
 - (IBAction)startTask:(id)sender;
 - (IBAction)stopTask:(id)sender;

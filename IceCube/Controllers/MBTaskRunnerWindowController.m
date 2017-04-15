@@ -90,6 +90,14 @@
     return [[self document] undoManager];
 }
 
+- (NSRect)window:(NSWindow *)window willPositionSheet:(NSWindow *)sheet usingRect:(NSRect)rect;
+{
+    return NSMakeRect(rect.origin.x,
+                      self.visualEffectView.visibleRect.size.height,
+                      rect.size.width,
+                      rect.size.height);
+}
+
 #pragma mark - IB actions -
 - (IBAction)selectCommand:(id)sender
 {
