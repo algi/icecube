@@ -56,6 +56,7 @@
     // it's also necessary to add "otherItemsProxy", otherwise it won't work
     // identifiers are declared in XIB, but this property cannot be declared there
     self.touchBar.defaultItemIdentifiers = @[@"RunProject", @"StopProject", NSTouchBarItemIdentifierOtherItemsProxy];
+    self.touchBar.customizationAllowedItemIdentifiers = @[@"RunProject", @"StopProject"];
 }
 
 -(BOOL)validateMenuItem:(NSMenuItem *)menuItem

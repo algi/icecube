@@ -15,6 +15,11 @@
 
 @implementation MBApplication
 
+-(BOOL)isAutomaticCustomizeTouchBarMenuItemEnabled
+{
+    return YES;
+}
+
 -(NSError *)willPresentError:(NSError *)error
 {
     return [MBRecoveryAttempter installRecoveryAttempterToErrorIfSupported:error];

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="13506"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -187,9 +186,9 @@
             <point key="canvasLocation" x="59.5" y="72"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="acp-Q7-2Ke"/>
-        <touchBar id="mmf-k1-6BZ">
+        <touchBar customizationIdentifier="Project Touch Bar" id="mmf-k1-6BZ">
             <touchBarItems>
-                <touchBarItem identifier="RunProject" id="Qhq-ak-9X9">
+                <touchBarItem identifier="RunProject" customizationLabel="Run Project" id="Qhq-ak-9X9">
                     <viewController key="viewController" id="lAj-5q-ltF">
                         <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SKW-e2-GNo">
                             <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
@@ -210,7 +209,7 @@
                     </viewController>
                     <size key="designTimeSize" width="72" height="30"/>
                 </touchBarItem>
-                <touchBarItem identifier="StopProject" id="Atx-Aw-U15">
+                <touchBarItem identifier="StopProject" customizationLabel="Stop Project" id="Atx-Aw-U15">
                     <viewController key="viewController" id="FBR-iK-dIh">
                         <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HFD-ik-teU">
                             <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
