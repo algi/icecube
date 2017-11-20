@@ -1251,7 +1251,7 @@
 				INFOPLIST_FILE = IceCubeSpotlight/Info.plist;
 				INSTALL_PATH = "@executable_path/../Contents/Library/Spotlight";
 				LIBRARY_STYLE = BUNDLE;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.IceCubeSpotlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1282,7 +1282,7 @@
 				INFOPLIST_FILE = IceCubeSpotlight/Info.plist;
 				INSTALL_PATH = "@executable_path/../Contents/Library/Spotlight";
 				LIBRARY_STYLE = BUNDLE;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.IceCubeSpotlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1310,7 +1310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = IceCubeAction/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Automator";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_OSAFLAGS = "-x -t 0 -c 0";
 				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.IceCubeAction;
@@ -1340,7 +1340,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = IceCubeAction/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Automator";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_OSAFLAGS = "-x -t 0 -c 0";
 				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.IceCubeAction;
@@ -1523,7 +1523,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IceCube/IceCube-Prefix.pch";
 				INFOPLIST_FILE = "IceCube/IceCube-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "cz.boucekm.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1544,7 +1544,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IceCube/IceCube-Prefix.pch";
 				INFOPLIST_FILE = "IceCube/IceCube-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "cz.boucekm.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

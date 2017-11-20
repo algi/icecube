@@ -68,7 +68,7 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
 
     __weak MBPreferencesWindowController *weakSelf = self;
     [openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
-        if (result == NSFileHandlingPanelOKButton) {
+        if (result == NSModalResponseOK) {
             NSArray *selectedURLs = [openPanel URLs];
             [[NSUserDefaults standardUserDefaults] setURL:[selectedURLs firstObject] forKey:kMavenHomeDefaultsKey];
 
@@ -89,7 +89,7 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
 
     __weak MBPreferencesWindowController *weakSelf = self;
     [openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
-        if (result == NSFileHandlingPanelOKButton) {
+        if (result == NSModalResponseOK) {
             NSArray *selectedURLs = [openPanel URLs];
             [[NSUserDefaults standardUserDefaults] setURL:[selectedURLs firstObject] forKey:kJavaHomeDefaultsKey];
 
