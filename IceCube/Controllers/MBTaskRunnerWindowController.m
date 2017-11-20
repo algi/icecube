@@ -52,14 +52,7 @@
     self.window.titlebarAppearsTransparent = YES;
     self.window.movableByWindowBackground = YES;
 
-    // it's currently not possible to use build-in image from Interface Builder
-    self.touchRunProject.image = [NSImage imageNamed:NSImageNameTouchBarPlayTemplate];
-    self.touchRunProject.title = @"";
-
-    self.touchStopProject.image = [NSImage imageNamed:NSImageNameTouchBarRecordStopTemplate];
-    self.touchStopProject.title = @"";
-
-    // add our button identifiers to default collection, so they will be visible when user focuses Command field
+    // add our button identifiers to default collection, so they will be always visible
     // it's also necessary to add "otherItemsProxy", otherwise it won't work
     // identifiers are declared in XIB, but this property cannot be declared there
     self.touchBar.defaultItemIdentifiers = @[@"RunProject", @"StopProject", NSTouchBarItemIdentifierOtherItemsProxy];
@@ -127,7 +120,7 @@
     openPanel.directoryURL = [self.document workingDirectory];
 
     [openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
-        if (result == NSFileHandlingPanelOKButton) {
+        if (result == NSModalResponseOK) {
             NSURL *url = [[openPanel URLs] firstObject];
             [[self document] setWorkingDirectory:url];
         }

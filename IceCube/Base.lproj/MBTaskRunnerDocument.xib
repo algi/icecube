@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="12062"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="13506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="the Touch Bar" message="Use a version of macOS with Touch Bar support." minToolsVersion="8.1" minSystemVersion="10.12.1" requiredIntegratedClassName="NSTouchBar"/>
+        <capability name="the Touch Bar" message="Use a version of macOS with Touch Bar support." minToolsVersion="8.1" minSystemVersion="10.12.2" requiredIntegratedClassName="NSTouchBar"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MBTaskRunnerWindowController">
@@ -31,7 +31,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="561" height="368"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iw-Hy-3Tl">
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6iw-Hy-3Tl">
                         <rect key="frame" x="94" y="315" width="382" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" placeholderString="clean install" drawsBackground="YES" id="Rpe-Rc-BpU">
                             <font key="font" metaFont="system"/>
@@ -54,7 +54,7 @@
                             <binding destination="-2" name="value" keyPath="self.document.workingDirectory" id="J6w-KV-bk4"/>
                         </connections>
                     </pathControl>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7O-rU-iQq">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="d7O-rU-iQq">
                         <rect key="frame" x="24" y="290" width="64" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Directory:" id="wy8-GT-FAz">
                             <font key="font" metaFont="system"/>
@@ -62,7 +62,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5D-Vi-Uq8">
+                    <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="j5D-Vi-Uq8">
                         <rect key="frame" x="18" y="318" width="70" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Command:" id="u4b-4G-AFn">
                             <font key="font" metaFont="system"/>
@@ -79,7 +79,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="541" height="259"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView editable="NO" drawsBackground="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" allowsNonContiguousLayout="YES" spellingCorrection="YES" smartInsertDelete="YES" id="YfR-bW-cHw">
+                                        <textView editable="NO" drawsBackground="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" allowsNonContiguousLayout="YES" spellingCorrection="YES" smartInsertDelete="YES" id="YfR-bW-cHw">
                                             <rect key="frame" x="0.0" y="0.0" width="541" height="259"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.0026485669982914016" green="0.9327650557314684" blue="0.0041094928510256677" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -167,7 +167,8 @@
                     <constraint firstItem="Prl-VR-fyr" firstAttribute="leading" secondItem="87a-F7-dil" secondAttribute="trailing" constant="5" id="9HY-ie-Fw7"/>
                     <constraint firstItem="amj-4M-AZS" firstAttribute="top" secondItem="OMz-TM-wiL" secondAttribute="bottom" constant="8" id="CH9-cc-TzO"/>
                     <constraint firstItem="87a-F7-dil" firstAttribute="leading" secondItem="6iw-Hy-3Tl" secondAttribute="trailing" constant="5" id="JyJ-OK-ZZf"/>
-                    <constraint firstItem="OMz-TM-wiL" firstAttribute="leading" secondItem="d7O-rU-iQq" secondAttribute="trailing" constant="8" id="R9M-s6-6Iv"/>
+                    <constraint firstItem="OMz-TM-wiL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d7O-rU-iQq" secondAttribute="trailing" constant="8" symbolic="YES" id="R9M-s6-6Iv"/>
+                    <constraint firstItem="d7O-rU-iQq" firstAttribute="leading" secondItem="ffI-nQ-6He" secondAttribute="leading" constant="26" id="Vqu-wh-Scz"/>
                     <constraint firstItem="87a-F7-dil" firstAttribute="top" secondItem="6iw-Hy-3Tl" secondAttribute="top" id="XCC-58-cMa"/>
                     <constraint firstAttribute="trailing" secondItem="Prl-VR-fyr" secondAttribute="trailing" constant="15" id="aeA-CO-yH4"/>
                     <constraint firstItem="OMz-TM-wiL" firstAttribute="baseline" secondItem="d7O-rU-iQq" secondAttribute="baseline" id="c0h-1T-pL0"/>
@@ -192,7 +193,8 @@
                     <viewController key="viewController" id="lAj-5q-ltF">
                         <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SKW-e2-GNo">
                             <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                            <buttonCell key="cell" type="push" title="Run" bezelStyle="rounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0OM-Zm-sf7">
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSTouchBarPlayTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0OM-Zm-sf7">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" usesAppearanceFont="YES"/>
                             </buttonCell>
@@ -212,7 +214,8 @@
                     <viewController key="viewController" id="FBR-iK-dIh">
                         <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HFD-ik-teU">
                             <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                            <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xeI-pC-Rxq">
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSTouchBarRecordStopTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xeI-pC-Rxq">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" usesAppearanceFont="YES"/>
                             </buttonCell>
@@ -229,6 +232,8 @@
         </touchBar>
     </objects>
     <resources>
+        <image name="NSTouchBarPlayTemplate" width="14" height="30"/>
+        <image name="NSTouchBarRecordStopTemplate" width="12" height="30"/>
         <image name="RunProject" width="50" height="50"/>
         <image name="StopProject" width="50" height="50"/>
     </resources>
