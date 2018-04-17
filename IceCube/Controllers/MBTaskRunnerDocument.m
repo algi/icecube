@@ -63,14 +63,18 @@ static NSString * const kDirectoryProperty = @"directory";
     }
 
     if (![root isKindOfClass:[NSDictionary class]]) {
-        *outError = MBValidationError(NSLocalizedString(@"Document content is corrupted and cannot be read.", @"Unable to open user selected document."));
+        if (outError != NULL) {
+            *outError = MBValidationError(NSLocalizedString(@"Document content is corrupted and cannot be read.", @"Unable to open user selected document."));
+        }
         return NO;
     }
     NSDictionary *dictionary = root;
 
     NSString *directory = dictionary[kDirectoryProperty];
     if (![directory isAbsolutePath]) {
-        *outError = MBValidationError(NSLocalizedString(@"Unable to read Maven working directory.", @"Unable to read content of selected file."));
+        if (outError != NULL) {
+            *outError = MBValidationError(NSLocalizedString(@"Unable to read Maven working directory.", @"Unable to read content of selected file."));
+        }
         return NO;
     }
     _workingDirectory = [NSURL fileURLWithPath:directory isDirectory:YES];
