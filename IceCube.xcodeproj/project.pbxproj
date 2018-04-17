@@ -136,16 +136,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5692BC211F3A63A600806FD0 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		56E16B351E92F78800FEE789 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -692,7 +682,6 @@
 				568C674617EB7E2A0095785D /* CopyFiles */,
 				56E16B351E92F78800FEE789 /* CopyFiles */,
 				564E05A81E96CFDD008E4F1C /* CopyFiles */,
-				5692BC211F3A63A600806FD0 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
