@@ -52,10 +52,7 @@
     self.window.titlebarAppearsTransparent = YES;
     self.window.movableByWindowBackground = YES;
 
-    // add our button identifiers to default collection, so they will be always visible
-    // it's also necessary to add "otherItemsProxy", otherwise it won't work
-    // identifiers are declared in XIB, but this property cannot be declared there
-    self.touchBar.defaultItemIdentifiers = @[@"RunProject", @"StopProject", NSTouchBarItemIdentifierOtherItemsProxy];
+    // define customizable buttons (not possible in IB)
     self.touchBar.customizationAllowedItemIdentifiers = @[@"RunProject", @"StopProject"];
 }
 
