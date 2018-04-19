@@ -48,6 +48,7 @@
 		56E16B361E92F7A700FEE789 /* IceCubeAction.action in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56E16B241E92F64B00FEE789 /* IceCubeAction.action */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		56EB935819D74AE500988FD9 /* IceCube.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 56EB935619D74AE500988FD9 /* IceCube.sdef */; };
 		56EB935C19D74D3200988FD9 /* MBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EB935B19D74D3200988FD9 /* MBApplication.m */; };
+		56F4A568208694D00071A3E9 /* MBServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F4A567208694D00071A3E9 /* MBServiceProvider.m */; };
 		56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */; };
 		56F62FFE17EF23F8004DC92E /* MBPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F62FFC17EF23F8004DC92E /* MBPreferencesWindowController.m */; };
 		56F6300517EF34AA004DC92E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568C673817EB7D630095785D /* Foundation.framework */; };
@@ -228,6 +229,8 @@
 		56EB935A19D74D3200988FD9 /* MBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBApplication.h; sourceTree = "<group>"; };
 		56EB935B19D74D3200988FD9 /* MBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBApplication.m; sourceTree = "<group>"; };
 		56F1E1C61E9961A1009A9541 /* MBErrorDomain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBErrorDomain.h; sourceTree = "<group>"; };
+		56F4A566208694D00071A3E9 /* MBServiceProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBServiceProvider.h; sourceTree = "<group>"; };
+		56F4A567208694D00071A3E9 /* MBServiceProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBServiceProvider.m; sourceTree = "<group>"; };
 		56F578E21794A5B1007E85A8 /* MBTaskRunnerWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTaskRunnerWindowController.h; sourceTree = "<group>"; };
 		56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTaskRunnerWindowController.m; sourceTree = "<group>"; };
 		56F62FFB17EF23F8004DC92E /* MBPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPreferencesWindowController.h; sourceTree = "<group>"; };
@@ -423,6 +426,8 @@
 				56FE8E97167BA1A70001AAED /* MBAppDelegate.m */,
 				565332C51E9F82FF009206CC /* MBRecoveryAttempter.h */,
 				565332C61E9F82FF009206CC /* MBRecoveryAttempter.m */,
+				56F4A566208694D00071A3E9 /* MBServiceProvider.h */,
+				56F4A567208694D00071A3E9 /* MBServiceProvider.m */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -937,6 +942,7 @@
 			files = (
 				56D21D9F17C0D5880060A823 /* MBTaskRunnerDocument.m in Sources */,
 				56FE8E91167BA1A70001AAED /* main.m in Sources */,
+				56F4A568208694D00071A3E9 /* MBServiceProvider.m in Sources */,
 				565332C71E9F82FF009206CC /* MBRecoveryAttempter.m in Sources */,
 				56FE8E98167BA1A70001AAED /* MBAppDelegate.m in Sources */,
 				56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */,
