@@ -8,6 +8,8 @@
 
 #import "MBServiceProvider.h"
 
+#import "MBTaskRunnerDocument.h"
+
 #import <os/log.h>
 
 @implementation MBServiceProvider
@@ -16,10 +18,20 @@
                   userData:(NSString *)userData
                      error:(NSString * __autoreleasing *)error
 {
-    NSString *selectedFileName = [[pasteboard propertyListForType:NSFilenamesPboardType] firstObject];
-    os_log_info(OS_LOG_DEFAULT, "Invoke runAsMavenCommand with URL: %@", selectedFileName);
+    NSDocumentController *documentController = [NSDocumentController sharedDocumentController];
 
-    // TODO: create new document with path
+    NSError *documentError;
+    MBTaskRunnerDocument *document = [documentController openUntitledDocumentAndDisplay:YES error:&documentError];
+    if (!document) {
+        os_log_error(OS_LOG_DEFAULT, "Unable to create new document from path. Reason: %@", documentError);
+        return;
+    }
+
+    NSString *selectedFileName = [[pasteboard propertyListForType:NSFilenamesPboardType] firstObject];
+    NSString *directoryPath = [selectedFileName stringByDeletingLastPathComponent];
+    NSURL *url = [NSURL fileURLWithPath:directoryPath isDirectory:YES];
+
+    document.workingDirectory = url;
 }
 
 @end
