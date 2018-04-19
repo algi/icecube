@@ -1,0 +1,9 @@
+/* 
+  ServicesMenu.strings
+  IceCube
+
+  Created by Marian Bouček on 19.04.18.
+  Copyright © 2018 Marian Bouček. All rights reserved.
+*/
+
+"RunMavenHere" = "Run Maven command";

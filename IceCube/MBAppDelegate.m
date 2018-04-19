@@ -8,6 +8,7 @@
 
 #import "MBAppDelegate.h"
 
+#import "MBServiceProvider.h"
 #import "MBJavaHomeService.h"
 #import "MBPreferencesWindowController.h"
 
@@ -51,6 +52,12 @@
             });
         }
     }];
+}
+
+- (void)applicationDidFinishLaunching:(NSNotification *)notification
+{
+    // service provider must be registered only after application is fully initialized
+    [NSApp setServicesProvider:[[MBServiceProvider alloc] init]];
 }
 
 + (void)registerUserDefaultsWithJavaHome:(NSString *)javaHome
