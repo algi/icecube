@@ -69,7 +69,7 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>Run Maven here</string>
+				<string>RunMavenHere</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>runMavenWithFile</string>
