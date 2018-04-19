@@ -283,12 +283,12 @@
     [[self document] setWorkingDirectory:workingDirectory];
 }
 
-- (void)handleRunProject:(NSScriptCommand *)command
+- (void)handleRunProjectCommand:(NSScriptCommand *)command
 {
     [self startTask:command];
 }
 
-- (void)handleStopProject:(NSScriptCommand *)command
+- (void)handleStopProjectCommand:(NSScriptCommand *)command
 {
     [self stopTask:command];
 }

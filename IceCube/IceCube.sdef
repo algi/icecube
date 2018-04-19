@@ -50,11 +50,11 @@
             </property>
 
             <responds-to command="run project">
-                <cocoa method="handleRunProject:"/>
+                <cocoa method="handleRunProjectCommand:"/>
             </responds-to>
 
             <responds-to command="stop project">
-                <cocoa method="handleStopProject:"/>
+                <cocoa method="handleStopProjectCommand:"/>
             </responds-to>
         </class>
     </suite>
