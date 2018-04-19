@@ -41,6 +41,9 @@ Since IceCube is document-based application, it has it’s own `NSDocument` impl
 
 The good thing about being good citizen is, that you automatically get support for Time Machine, revisions, automatic save, etc. The only thing, which needs to be provided by you is `NSUndoManager` instance, which you can again take from `NSDocument`.
 
+## iCloud support
+Thanks to iCloud Drive, there's no need for me (as a developer) to be paid member of Apple Developer Program member. Even without paid membership, IceCube can still offer it's own directory in iCloud, thanks to `NSUbiquitousContainers` definition in `IceCube-Info.plist`. These entries has been added manually by simply editing the file in Xcode.
+
 ## XPC, NSTask
 The idea behind XPC is to offload potentionally insecure and fragile logic into separate process, which is being managed by the system itself. You can schedule your XPC processes and the system will run them with appropriate priority at appropriate time, considering system load, battery level, etc.
 
