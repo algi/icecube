@@ -89,10 +89,6 @@
 			<array>
 				<string>public.xml</string>
 			</array>
-			<key>NSSendTypes</key>
-			<array>
-				<string>NSStringPboardType</string>
-			</array>
 		</dict>
 	</array>
 	<key>OSAScriptingDefinition</key>
