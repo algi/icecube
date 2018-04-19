@@ -69,10 +69,10 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>Run as Maven command</string>
+				<string>Run Maven here</string>
 			</dict>
 			<key>NSMessage</key>
-			<string>runAsMavenCommand</string>
+			<string>runMavenWithFile</string>
 			<key>NSPortName</key>
 			<string>IceCube</string>
 			<key>NSRequiredContext</key>

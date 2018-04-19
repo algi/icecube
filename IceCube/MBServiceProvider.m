@@ -14,9 +14,9 @@
 
 @implementation MBServiceProvider
 
-- (void) runAsMavenCommand:(NSPasteboard *)pasteboard
-                  userData:(NSString *)userData
-                     error:(NSString * __autoreleasing *)error
+- (void) runMavenWithFile:(NSPasteboard *)pasteboard
+                 userData:(NSString *)userData
+                    error:(NSString * __autoreleasing *)error
 {
     NSDocumentController *documentController = [NSDocumentController sharedDocumentController];
 
@@ -24,14 +24,14 @@
     MBTaskRunnerDocument *document = [documentController openUntitledDocumentAndDisplay:YES error:&documentError];
     if (!document) {
         os_log_error(OS_LOG_DEFAULT, "Unable to create new document from path. Reason: %@", documentError);
+        *error = [documentError localizedDescription];
         return;
     }
 
     NSString *selectedFileName = [[pasteboard propertyListForType:NSFilenamesPboardType] firstObject];
     NSString *directoryPath = [selectedFileName stringByDeletingLastPathComponent];
-    NSURL *url = [NSURL fileURLWithPath:directoryPath isDirectory:YES];
 
-    document.workingDirectory = url;
+    document.workingDirectory = [NSURL fileURLWithPath:directoryPath isDirectory:YES];
 }
 
 @end
