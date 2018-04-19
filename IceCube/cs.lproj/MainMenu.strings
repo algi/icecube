@@ -259,3 +259,12 @@
 
 /* Class = "NSMenuItem"; title = "Working directory"; ObjectID = "j6t-Fg-PUe"; */
 "j6t-Fg-PUe.title" = "Pracovní adresář";
+
+/* Class = "NSMenuItem"; title = "New document"; ObjectID = "KfA-iP-ocl"; */
+"KfA-iP-ocl.title" = "Nový dokument";
+
+/* Class = "NSMenuItem"; title = "Run project"; ObjectID = "iGC-ie-rOj"; */
+"iGC-ie-rOj.title" = "Spustit projekt";
+
+/* Class = "NSMenuItem"; title = "Stop project"; ObjectID = "zec-8A-LLs"; */
+"zec-8A-LLs.title" = "Zastavit projekt";
