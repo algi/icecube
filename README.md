@@ -36,6 +36,8 @@ TouchBar is also supported, altough support for Interface Builder is currently (
 
 Another interesting and very powerful thing is Cocoa Bindings. It’s being used quite extensively in document window for data binding, but also for validation. For example Run button is enabled only when the build doesn’t run. You can also see some nice bindings in Preferences window, where the fields reacts to it’s own checkboxes. As a part of Cocoa bindings, I would like to also mention usage of KVO (Key-value observation), which is especially useful for watching changes in `NSUserDefaults` for validating Maven and Java home directories.
 
+IceCube supports custom items in Dock. Implementation is done in `MainMenu.xib`, where custom menu with items is bound to File's owner. Item actions are bound to First Responder, so they not only inherit already existing functionality, but also validation.
+
 ## Custom document class
 Since IceCube is document-based application, it has it’s own `NSDocument` implementation. The format of the document is primitive - it’s just an XML PLIST, so no fancy serialization/deserialization there. Yet it nicely illustrates how to work with reading/writing methods of `NSDocument` and how it’s intergrated with window controller.
 

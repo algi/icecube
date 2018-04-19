@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
             <connections>
                 <outlet property="delegate" destination="494" id="495"/>
+                <outlet property="dockMenu" destination="syH-m0-orp" id="YnR-x1-xxa"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -439,5 +439,29 @@
         <customObject id="494" customClass="MBAppDelegate"/>
         <customObject id="420" customClass="NSFontManager"/>
         <userDefaultsController representsSharedInstance="YES" id="1080"/>
+        <menu id="syH-m0-orp">
+            <items>
+                <menuItem title="New document" id="KfA-iP-ocl">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="newDocument:" target="-1" id="Ke1-C7-41K"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="UOV-Qu-At4"/>
+                <menuItem title="Run project" id="iGC-ie-rOj">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="startTask:" target="-1" id="yAj-Jy-b2r"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Stop project" id="zec-8A-LLs">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="stopTask:" target="-1" id="CAv-ed-oi2"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="1" y="316"/>
+        </menu>
     </objects>
 </document>
