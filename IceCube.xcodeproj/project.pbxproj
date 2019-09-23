@@ -796,7 +796,7 @@
 			};
 			buildConfigurationList = 56FE8E7A167BA1A70001AAED /* Build configuration list for PBXProject "IceCube" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
