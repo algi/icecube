@@ -19,7 +19,7 @@
 - (BOOL)listener:(NSXPCListener *)listener shouldAcceptNewConnection:(NSXPCConnection *)newConnection {
     newConnection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenVersionService)];
 
-    MBMavenVersionServiceTask *exportedObject = [MBMavenVersionServiceTask new];
+    MBMavenVersionServiceTask *exportedObject = [[MBMavenVersionServiceTask alloc] init];
     newConnection.exportedObject = exportedObject;
 
     [newConnection resume];
