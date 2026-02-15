@@ -22,7 +22,6 @@ static NSString * const kJavaHomeLaunchPath = @"/usr/libexec/java_home";
 
     task.qualityOfService = NSQualityOfServiceUserInitiated;
     task.launchPath = kJavaHomeLaunchPath;
-    task.arguments = @[@"--task", @"CommandLine"];
 
     NSPipe *pipe = [NSPipe pipe];
     task.standardOutput = pipe;
@@ -44,7 +43,7 @@ static NSString * const kJavaHomeLaunchPath = @"/usr/libexec/java_home";
     NSString *outputString = [[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding];
     NSString *javaPath = [outputString stringByTrimmingCharactersInSet:NSCharacterSet.newlineCharacterSet];
 
-    if (outputString) {
+    if (javaPath) {
         reply(javaPath, nil);
     }
     else {
