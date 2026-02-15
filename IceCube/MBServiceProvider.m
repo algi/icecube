@@ -28,7 +28,7 @@
         return;
     }
 
-    NSString *selectedFileName = [[pasteboard propertyListForType:NSFilenamesPboardType] firstObject];
+    NSString *selectedFileName = [[pasteboard propertyListForType:NSPasteboardTypeFileURL] firstObject];
     NSString *directoryPath = [selectedFileName stringByDeletingLastPathComponent];
 
     document.workingDirectory = [NSURL fileURLWithPath:directoryPath isDirectory:YES];
