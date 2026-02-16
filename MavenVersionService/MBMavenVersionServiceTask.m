@@ -43,13 +43,19 @@
     for (NSString *line in lines) {
 
         // Apache Maven 3.3.3 (7994120775791599e205a5524ec3e0dfe41d4a06; 2015-04-22T12:57:37+01:00)
-        if ([line hasPrefix:@"Apache Maven"]) {
-            NSArray *components = [line componentsSeparatedByCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
-            mavenVersion = components[2];
+        if ([line hasPrefix:@"Apache Maven "]) {
+            NSString *trimmedLine = [line stringByReplacingOccurrencesOfString:@"Apache Maven " withString:@""];
+            NSArray *components = [trimmedLine componentsSeparatedByCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
+
+            mavenVersion = [components firstObject];
         }
 
+        // Java version: 25.0.2, vendor: Homebrew, runtime: /opt/homebrew/Cellar/openjdk/25.0.2/libexec/openjdk.jdk/Contents/Home
         if ([line hasPrefix:@"Java version: "]) {
-            javaVersion = [line stringByReplacingOccurrencesOfString:@"Java version: " withString:@""];
+            NSString *trimmedLine = [line stringByReplacingOccurrencesOfString:@"Java version: " withString:@""];
+            NSArray *components = [trimmedLine componentsSeparatedByString:@","];
+
+            javaVersion = [components firstObject];
         }
     }
 
