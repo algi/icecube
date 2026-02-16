@@ -8,7 +8,7 @@
 
 #import "MBTaskRunnerDocument.h"
 
-@interface MBTaskRunnerWindowController : NSWindowController <NSWindowDelegate, NSProgressReporting, NSTouchBarProvider>
+@interface MBTaskRunnerWindowController : NSWindowController <NSWindowDelegate, NSProgressReporting, NSTouchBarProvider, NSMenuItemValidation>
 
 @property(assign) IBOutlet NSTextView *outputTextView;
 @property(weak) IBOutlet NSPathControl *pathControl;
