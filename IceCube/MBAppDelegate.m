@@ -14,6 +14,8 @@
 
 #import <os/log.h>
 
+@import UserNotifications;
+
 @interface MBAppDelegate ()
 
 @property MBPreferencesWindowController *preferencesWindowController;
@@ -56,6 +58,17 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
+    // ask user for notification permission
+    UNAuthorizationOptions options = UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionProvisional;
+    [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:options completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (granted) {
+            os_log_info(OS_LOG_DEFAULT, "Authorization for notifications granted.");
+        }
+        else {
+            os_log_info(OS_LOG_DEFAULT, "Authorization for notifications denied.");
+        }
+    }];
+
     // service provider must be registered only after application is fully initialized
     [NSApp setServicesProvider:[[MBServiceProvider alloc] init]];
 }

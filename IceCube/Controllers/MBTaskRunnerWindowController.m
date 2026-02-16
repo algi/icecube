@@ -19,6 +19,8 @@
 
 #import <os/log.h>
 
+@import UserNotifications;
+
 @interface MBTaskRunnerWindowController () <MBMavenServiceCallback>
 
 @property NSString *uniqueID;
@@ -216,19 +218,9 @@
 {
     __weak id weakSelf = self;
     dispatch_sync(dispatch_get_main_queue(), ^{
-        NSUserNotification *notification = [[NSUserNotification alloc] init];
-        notification.soundName = NSUserNotificationDefaultSoundName;
-
-        if (buildSuccessful) {
-            notification.title = NSLocalizedString(@"Maven build did suceeded.", @"Notification title for successful build.");
-            notification.informativeText = NSLocalizedString(@"Maven build did end successfuly.", @"Notification informative text for successful build.");
-        }
-        else {
-            notification.title = NSLocalizedString(@"Maven build didn't succeed.", @"Notification title for unsuccessful build.");
-            notification.informativeText = NSLocalizedString(@"Maven build didn't end successfuly.", @"Notification informative text for unsuccessful build.");
-        }
-
-        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+        [[UNUserNotificationCenter currentNotificationCenter] getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+            [self postNotificationForResult:buildSuccessful withNotificationSettings:settings];
+        }];
 
         [weakSelf taskDidTerminate];
     });
@@ -248,6 +240,41 @@
 {
     self.progress.completedUnitCount++;
     self.taskRunning = NO;
+}
+
+#pragma mark - Notifications -
+- (void)postNotificationForResult:(BOOL)buildResult withNotificationSettings:(UNNotificationSettings *)settings
+{
+    UNAuthorizationStatus status = [settings authorizationStatus];
+    if (status == UNAuthorizationStatusAuthorized || status == UNAuthorizationStatusProvisional) {
+        [self dispatchUserNotificationForResult:buildResult];
+    }
+}
+
+-(void)dispatchUserNotificationForResult:(BOOL)buildResult
+{
+    UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+    content.sound = [UNNotificationSound defaultSound];
+
+    if (buildResult) {
+        content.title = NSLocalizedString(@"Maven build did suceeded.", @"Notification title for successful build.");
+        content.body = NSLocalizedString(@"Maven build did end successfuly.", @"Notification informative text for successful build.");
+    }
+    else {
+        content.title = NSLocalizedString(@"Maven build didn't succeed.", @"Notification title for unsuccessful build.");
+        content.body = NSLocalizedString(@"Maven build didn't end successfuly.", @"Notification informative text for unsuccessful build.");
+    }
+
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"cz.boucekm.IceCube.mavenTaskDidFinish" content:content trigger:nil];
+
+    [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+        if (error) {
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                os_log_error(OS_LOG_DEFAULT, "Unable to add notification request for finished Maven task. Reason: %@", error.localizedFailureReason);
+                [NSApp presentError:error modalForWindow:self.window delegate:nil didPresentSelector:nil contextInfo:nil];
+            });
+        }
+    }];
 }
 
 #pragma mark - Scripting support -
