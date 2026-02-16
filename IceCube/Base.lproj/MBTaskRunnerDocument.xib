@@ -30,7 +30,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="561" height="368"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6iw-Hy-3Tl">
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6iw-Hy-3Tl">
                         <rect key="frame" x="94" y="313" width="382" height="24"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" placeholderString="clean install" drawsBackground="YES" id="Rpe-Rc-BpU">
                             <font key="font" metaFont="system"/>
@@ -46,14 +46,13 @@
                         <pathCell key="cell" controlSize="small" selectable="YES" editable="YES" alignment="left" id="rfR-Fy-Zyo">
                             <font key="font" metaFont="smallSystem"/>
                             <url key="url" string="file://localhost/Applications/"/>
-                            <color key="backgroundColor" red="0.86323420930000005" green="0.87178108259999998" blue="0.87178108259999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </pathCell>
                         <connections>
                             <action trigger="doubleAction" selector="selectWorkingDirectory:" target="-1" id="Ppf-ru-VwK"/>
                             <binding destination="-2" name="value" keyPath="self.document.workingDirectory" id="J6w-KV-bk4"/>
                         </connections>
                     </pathControl>
-                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="d7O-rU-iQq">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="d7O-rU-iQq">
                         <rect key="frame" x="24" y="288" width="64" height="16"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Directory:" id="wy8-GT-FAz">
                             <font key="font" metaFont="system"/>
@@ -61,7 +60,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField focusRingType="none" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="j5D-Vi-Uq8">
+                    <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="j5D-Vi-Uq8">
                         <rect key="frame" x="18" y="317" width="70" height="16"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Command:" id="u4b-4G-AFn">
                             <font key="font" metaFont="system"/>
