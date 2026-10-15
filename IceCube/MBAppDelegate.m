@@ -27,7 +27,7 @@
 - (void)applicationWillFinishLaunching:(NSNotification *)notification
 {
     // check for test suite flag first
-    NSInteger doNotScanForJava = [[NSUserDefaults standardUserDefaults] integerForKey:@"MBDoNotScanForJava"];
+    BOOL doNotScanForJava = [[NSUserDefaults standardUserDefaults] boolForKey:@"MBDoNotScanForJava"];
     if (doNotScanForJava) {
         os_log_info(OS_LOG_DEFAULT, "Skipping Java home scan (requested by user via defaults).");
 
