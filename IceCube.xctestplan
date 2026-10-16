@@ -1,0 +1,35 @@
+{
+  "configurations" : [
+    {
+      "id" : "E67E6482-9B8B-4311-9AAD-6C2C5DB2ECE0",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "-MBDoNotScanForJava 1"
+      }
+    ],
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:IceCube.xcodeproj",
+      "identifier" : "56FE8E7F167BA1A70001AAED",
+      "name" : "IceCube"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:IceCube.xcodeproj",
+        "identifier" : "56FE8EA3167BA1A80001AAED",
+        "name" : "IceCubeTests"
+      }
+    }
+  ],
+  "version" : 1
+}

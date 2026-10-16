@@ -195,6 +195,7 @@
 		565CFD3A2F41F538001690E8 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		56630A1917ECC067005A2BEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		566C78071E9D2B8A006DD355 /* IceCube.help */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = IceCube.help; sourceTree = "<group>"; };
+		568A8BD6308291A8005DC125 /* IceCube.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = IceCube.xctestplan; sourceTree = SOURCE_ROOT; };
 		568C673717EB7D630095785D /* cz.boucekm.MavenBuildService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = cz.boucekm.MavenBuildService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		568C673817EB7D630095785D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		568C673C17EB7D630095785D /* MavenService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MavenService-Info.plist"; sourceTree = "<group>"; };
@@ -497,6 +498,7 @@
 				569E8930179DE20A006C5326 /* LICENSE */,
 				56AB1B8916E48B3300831747 /* README.md */,
 				56CAA22E1EA24C9000AFF6D7 /* screenshot.png */,
+				568A8BD6308291A8005DC125 /* IceCube.xctestplan */,
 			);
 			sourceTree = "<group>";
 		};
