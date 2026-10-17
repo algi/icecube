@@ -9,7 +9,9 @@
 #import "MBRecoveryAttempter.h"
 
 #import "MBErrorDomain.h"
+
 #import <os/log.h>
+#import <objc/message.h>
 
 @implementation MBRecoveryAttempter
 
@@ -37,14 +39,11 @@
 
 - (void)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex delegate:(nullable id)delegate didRecoverSelector:(nullable SEL)didRecoverSelector contextInfo:(nullable void *)contextInfo
 {
-    BOOL result = [self attemptRecoveryFromError:error optionIndex:recoveryOptionIndex];
+    BOOL didRecover = [self attemptRecoveryFromError:error optionIndex:recoveryOptionIndex];
 
-    // didRecoverSelector should be: - (void)didPresentErrorWithRecovery:(BOOL)didRecover contextInfo:(void *)contextInfo;
     if (delegate && didRecoverSelector) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [delegate performSelector:didRecoverSelector withObject:@(result) withObject:(__bridge id)(contextInfo)];
-#pragma clang diagnostic pop
+        // didRecoverSelector signature should be: -(void)didPresentErrorWithRecovery:(BOOL)didRecover contextInfo:(void *)contextInfo;
+        ((void (*)(id, SEL, BOOL, void*))objc_msgSend)(delegate, didRecoverSelector, didRecover, contextInfo);
     }
 }
 
