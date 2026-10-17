@@ -1,0 +1,24 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "RunMavenHere" : {
+      "comment" : "ServicesMenu.strings\n  IceCube\n\n  Created by Marian Bouček on 19.04.18.\n  Copyright © 2018 Marian Bouček. All rights reserved.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spustit příkaz Maven"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Run Maven command"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}

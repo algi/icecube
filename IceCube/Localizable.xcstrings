@@ -1,0 +1,122 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Document content is corrupted and cannot be read." : {
+      "comment" : "Unable to open user selected document.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokument je poškozený a nemůže být načten."
+          }
+        }
+      }
+    },
+    "Maven build did end successfuly." : {
+      "comment" : "Notification informative text for successful build.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setavení proběhlo bez chyb."
+          }
+        }
+      }
+    },
+    "Maven build did suceeded." : {
+      "comment" : "Notification title for successful build.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Úspěšné sestavení"
+          }
+        }
+      }
+    },
+    "Maven build didn't end successfuly." : {
+      "comment" : "Notification informative text for unsuccessful build.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nepodařilo se úspěšně sestavit projekt."
+          }
+        }
+      }
+    },
+    "Maven build didn't succeed." : {
+      "comment" : "Notification title for unsuccessful build.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neúspěšné sestavení"
+          }
+        }
+      }
+    },
+    "Maven error" : {
+      "comment" : "Maven execution error.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chyba při spuštění Mavenu"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to run Maven"
+          }
+        }
+      }
+    },
+    "Set Working Directory" : {
+      "comment" : "Undo action for setting new working directory.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nastavit pracovní adresář"
+          }
+        }
+      }
+    },
+    "Typing" : {
+      "comment" : "Undo action for setting new value for command.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Psaní"
+          }
+        }
+      }
+    },
+    "Unable to build project with empty command." : {
+      "comment" : "User tries to build project with empty command.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nelze sestavit projekt s prázným příkazem."
+          }
+        }
+      }
+    },
+    "Unable to read Maven working directory." : {
+      "comment" : "Unable to read content of selected file.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nelze získat přístup k pracovnímu adresáři."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}

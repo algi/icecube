@@ -1,0 +1,50 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Cancel" : {
+      "comment" : "Cancel button for 'Unable to find Java' error dialog.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zrušit"
+          }
+        }
+      }
+    },
+    "Open Preferences" : {
+      "comment" : "Open Preferences button for 'Unable to find Java' error dialog.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřít Předvolby"
+          }
+        }
+      }
+    },
+    "Unable to find default Java location" : {
+      "comment" : "Title for 'Unable to find Java' error dialog.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nepodařilo se najít instalaci Javy"
+          }
+        }
+      }
+    },
+    "You need to setup Java home manually in application's Preferences." : {
+      "comment" : "Recovery suggestion for error dialog 'Unable to find Java'.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je třeba nastavit ručně cestu k instalaci Java v Předvolbách aplikace."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}

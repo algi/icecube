@@ -1,0 +1,67 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "CFBundleName" : {
+      "comment" : "Bundle name",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "IceCube"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "IceCube"
+          }
+        }
+      }
+    },
+    "CFBundleTypeName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Projekt IceCube"
+          }
+        }
+      }
+    },
+    "IceCube project" : {
+      "shouldTranslate" : false
+    },
+    "NSHumanReadableCopyright" : {
+      "comment" : "InfoPlist.strings\n  IceCube\n\n  Created by Marian Bouček on 12.04.17.\n  Copyright © 2017 Marian Bouček. All rights reserved.",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copyright © 2012 Marian Bouček. Všechna práva vyhrazena."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Copyright © 2012 Marian Bouček. All rights reserved."
+          }
+        }
+      }
+    },
+    "UTTypeDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Projekt IceCube"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}

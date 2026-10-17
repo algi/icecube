@@ -1,0 +1,132 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "86L-hC-66c.title" : {
+      "comment" : "Class = \"NSWindow\"; title = \"Document 1\"; ObjectID = \"86L-hC-66c\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokument 1"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Document 1"
+          }
+        }
+      }
+    },
+    "bKc-8v-5Tc.label" : {
+      "comment" : "Class = \"NSToolbarItem\"; label = \"Run\"; ObjectID = \"bKc-8v-5Tc\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spustit"
+          }
+        }
+      }
+    },
+    "bKc-8v-5Tc.paletteLabel" : {
+      "comment" : "Class = \"NSToolbarItem\"; paletteLabel = \"Run\"; ObjectID = \"bKc-8v-5Tc\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spustit"
+          }
+        }
+      }
+    },
+    "dnB-Y9-ABC.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Output:\"; ObjectID = \"dnB-Y9-ABC\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Výstup:"
+          }
+        }
+      }
+    },
+    "jQt-Ll-4o4.label" : {
+      "comment" : "Class = \"NSToolbarItem\"; label = \"Stop\"; ObjectID = \"jQt-Ll-4o4\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zastavit"
+          }
+        }
+      }
+    },
+    "jQt-Ll-4o4.paletteLabel" : {
+      "comment" : "Class = \"NSToolbarItem\"; paletteLabel = \"Stop\"; ObjectID = \"jQt-Ll-4o4\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zastavit"
+          }
+        }
+      }
+    },
+    "Rpe-Rc-BpU.placeholderString" : {
+      "comment" : "Class = \"NSTextFieldCell\"; placeholderString = \"clean install\"; ObjectID = \"Rpe-Rc-BpU\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "clean install"
+          }
+        }
+      }
+    },
+    "u4b-4G-AFn.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Command:\"; ObjectID = \"u4b-4G-AFn\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Příkaz:"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Command:"
+          }
+        }
+      }
+    },
+    "wy8-GT-FAz.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Directory:\"; ObjectID = \"wy8-GT-FAz\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adresář:"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Directory:"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}

@@ -1,0 +1,204 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "2r0-6b-xe8.title" : {
+      "comment" : "Class = \"NSWindow\"; title = \"Preferences\"; ObjectID = \"2r0-6b-xe8\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Předvolby"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Preferences"
+          }
+        }
+      }
+    },
+    "AJU-i7-wqe.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Java:\"; ObjectID = \"AJU-i7-wqe\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Java:"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Java:"
+          }
+        }
+      }
+    },
+    "AMf-VC-QO2.placeholderString" : {
+      "comment" : "Class = \"NSTextFieldCell\"; placeholderString = \"Unable to read version\"; ObjectID = \"AMf-VC-QO2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nepodařilo se zjistit verzi"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Unable to read version"
+          }
+        }
+      }
+    },
+    "Bsl-7r-0Xu.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Maven version:\"; ObjectID = \"Bsl-7r-0Xu\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verze Maven:"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Maven version:"
+          }
+        }
+      }
+    },
+    "ilF-LY-88g.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Use default location\"; ObjectID = \"ilF-LY-88g\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Použít výchozí umístění"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Use default location"
+          }
+        }
+      }
+    },
+    "K7v-fl-kgR.placeholderString" : {
+      "comment" : "Class = \"NSTextFieldCell\"; placeholderString = \"Unable to read version\"; ObjectID = \"K7v-fl-kgR\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nepodařilo se zjistit verzi"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Unable to read version"
+          }
+        }
+      }
+    },
+    "onC-yE-gd7.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Java version:\"; ObjectID = \"onC-yE-gd7\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verze Java:"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Java version:"
+          }
+        }
+      }
+    },
+    "R3N-ij-doB.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Use default location\"; ObjectID = \"R3N-ij-doB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Použít výchozí umístění"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Use default location"
+          }
+        }
+      }
+    },
+    "tcB-vf-YKX.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Maven:\"; ObjectID = \"tcB-vf-YKX\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maven:"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Maven:"
+          }
+        }
+      }
+    },
+    "wfK-qb-XVq.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Select\"; ObjectID = \"wfK-qb-XVq\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vybrat"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Select"
+          }
+        }
+      }
+    },
+    "xPZ-jz-icl.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Select\"; ObjectID = \"xPZ-jz-icl\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vybrat"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Select"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}

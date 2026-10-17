@@ -1,0 +1,121 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "AMDInput" : {
+      "comment" : "AMDescription localized strings",
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seznam souborů s Maven projekty (pom.xml)."
+          }
+        }
+      }
+    },
+    "AMDNote" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akce pro svůj vyžaduje nainstalovaný Maven."
+          }
+        }
+      }
+    },
+    "AMDOptions" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro nastavení Maven příkazu použijte pole \"Maven\". Uvádějte příkaz bez úvodního \"mvn\" prefixu.\nCestu k instalaci Maven zvolíte kliknutím na rozbalovací menu u položky \"Maven\"\nChcete-li vidět chybový výstup, zvolte cestu k adresáři v položce \"Chybový výstup\"."
+          }
+        }
+      }
+    },
+    "AMDResult" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Výstupem akce je seznam POM souborů, které akce úspěšně provedla."
+          }
+        }
+      }
+    },
+    "AMDSummary" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Provede zadaný Maven příkaz pro zvolený soubor nebo soubory."
+          }
+        }
+      }
+    },
+    "AMDWebsite" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://medium.com/@mboucek/"
+          }
+        }
+      }
+    },
+    "AMName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spustit Maven"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Run Maven"
+          }
+        }
+      }
+    },
+    "CFBundleName" : {
+      "comment" : "Bundle name",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "IceCubeAction"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "NSHumanReadableCopyright" : {
+      "comment" : "Copyright (human-readable)",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copyright © 2017 Marian Bouček. Všechna práva vyhrazena."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Copyright © 2017 Marian Bouček. All rights reserved."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}

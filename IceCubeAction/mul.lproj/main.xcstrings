@@ -1,0 +1,156 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "0F7-GQ-qUv.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"OtherViews\"; ObjectID = \"0F7-GQ-qUv\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        }
+      }
+    },
+    "AHe-NG-nAL.placeholder" : {
+      "comment" : "Class = \"AMPathPopUpButton\"; placeholder = \"No Selection\"; ObjectID = \"AHe-NG-nAL\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Žádný výběr"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No Selection"
+          }
+        }
+      }
+    },
+    "ctu-4G-JK3.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Command:\"; ObjectID = \"ctu-4G-JK3\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Příkaz:"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Command:"
+          }
+        }
+      }
+    },
+    "dvO-iT-R3l.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"No selection\"; ObjectID = \"dvO-iT-R3l\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Žádný výběr"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No selection"
+          }
+        }
+      }
+    },
+    "eX9-Zz-Fif.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Error output\"; ObjectID = \"eX9-Zz-Fif\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chybový výstup"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Error output"
+          }
+        }
+      }
+    },
+    "LSB-sE-SB6.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Maven:\"; ObjectID = \"LSB-sE-SB6\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maven:"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Maven:"
+          }
+        }
+      }
+    },
+    "UaA-sZ-xhs.placeholderString" : {
+      "comment" : "Class = \"NSTextFieldCell\"; placeholderString = \"clean install\"; ObjectID = \"UaA-sZ-xhs\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "clean install"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "clean install"
+          }
+        }
+      }
+    },
+    "wBB-8w-PVY.placeholder" : {
+      "comment" : "Class = \"AMPathPopUpButton\"; placeholder = \"No Selection\"; ObjectID = \"wBB-8w-PVY\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Žádný výběr"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No Selection"
+          }
+        }
+      }
+    },
+    "yDo-DE-CBD.title" : {
+      "comment" : "Class = \"NSMenu\"; title = \"OtherViews\"; ObjectID = \"yDo-DE-CBD\";",
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OtherViews"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}

@@ -1,0 +1,61 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Cancel" : {
+      "comment" : "Button in 'Unable to run Maven' error dialog.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zrušit"
+          }
+        }
+      }
+    },
+    "Open Preferences" : {
+      "comment" : "Button in 'Unable to run Maven' error dialog.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřít Předvolby"
+          }
+        }
+      }
+    },
+    "Please set correct path to Maven in Preferences." : {
+      "comment" : "Recovery suggestion text for user, which points him to Preferences in application. It appears in 'Unable to run Maven' error dialog.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prosím nastavte správnou cestu k Mavenu v Předvolby aplikace."
+          }
+        }
+      }
+    },
+    "Task is already running." : {
+      "comment" : "Raised by task, when user tries to run same project multiple times.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nelze spustit nové sestavení, protože již běží."
+          }
+        }
+      }
+    },
+    "Unable to run Maven" : {
+      "comment" : "Raised when system cannot launch Maven task. Main title for error dialog 'Unable to run Maven'.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nepodařilo se spustit Maven"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}

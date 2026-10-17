@@ -1,0 +1,114 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Build failure for project: %@" : {
+      "comment" : "Unable to build Maven project for {path}.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neúspěšný build projektu: %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Build failure for project: %@"
+          }
+        }
+      }
+    },
+    "Error file created at path: %@" : {
+      "comment" : "Error file was created at {path}.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vytvořen chybový soubor: %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error file created at path: %@"
+          }
+        }
+      }
+    },
+    "No Maven command specified, will use default: %@" : {
+      "comment" : "Default {Maven command} will be used instead of empty command.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nebyl zadán příkaz pro Maven, bude použit výchozí příkaz: %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Maven command specified, will use default: %@"
+          }
+        }
+      }
+    },
+    "No Maven installation directory specified, will use default: %@" : {
+      "comment" : "Default {Maven installation directory} will be used instead of empty path.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nebyla zadána cesta pro Maven, bude použita výchozí hodnota: %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Maven installation directory specified, will use default: %@"
+          }
+        }
+      }
+    },
+    "Unable to create error log at path: %@, reason: %@" : {
+      "comment" : "Unable to create error log at {path} for {reason}.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nepodařilo se vytvořit chybový soubor: %1$@, důvod: %2$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to create error log at path: %1$@, reason: %2$@"
+          }
+        }
+      }
+    },
+    "Unable to launch Maven. Reason: %@" : {
+      "comment" : "Unable to launch Maven due to {error}.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nepodařilo se spustit Maven. Důvod: %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to launch Maven. Reason: %@"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}

@@ -3,17 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		560E703917EF35DA004BC832 /* cz.boucekm.JavaHomeService.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		560E703C17EF4010004BC832 /* MBJavaHomeServiceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 560E703B17EF4010004BC832 /* MBJavaHomeServiceTask.m */; };
-		5619AEA31E9E26EC0003A224 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5619AEA51E9E26EC0003A224 /* Localizable.strings */; };
-		5619AEA91E9E27F00003A224 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5619AEAB1E9E27F00003A224 /* Localizable.strings */; };
-		5619AEAF1E9E285B0003A224 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5619AEB11E9E285B0003A224 /* Localizable.strings */; };
-		562738641E9E4A7700075A86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 562738661E9E4A7700075A86 /* InfoPlist.strings */; };
-		564CDBD82088A20000B7E209 /* ServicesMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = 564CDBDA2088A20000B7E209 /* ServicesMenu.strings */; };
 		564E05A91E96CFF1008E4F1C /* IceCubeSpotlight.mdimporter in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56ADBB6F1E959967003471B4 /* IceCubeSpotlight.mdimporter */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		564E05AC1E96DADE008E4F1C /* MBSpotlightImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 564E05AB1E96DADE008E4F1C /* MBSpotlightImporter.m */; };
 		564FB49217F1C62F000380F3 /* build-failure-no-java_home.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48317F1C62F000380F3 /* build-failure-no-java_home.txt */; };
@@ -27,8 +22,15 @@
 		564FB49A17F1C630000380F3 /* MBMavenOutputParserTestObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB48E17F1C62F000380F3 /* MBMavenOutputParserTestObserver.m */; };
 		564FB49B17F1C630000380F3 /* MBMavenOutputParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 564FB48F17F1C62F000380F3 /* MBMavenOutputParserTests.m */; };
 		565332C71E9F82FF009206CC /* MBRecoveryAttempter.m in Sources */ = {isa = PBXBuildFile; fileRef = 565332C61E9F82FF009206CC /* MBRecoveryAttempter.m */; };
-		565332CA1E9F978C009206CC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 565332CC1E9F978C009206CC /* Localizable.strings */; };
 		566C78081E9D2CD0006DD355 /* IceCube.help in Resources */ = {isa = PBXBuildFile; fileRef = 566C78071E9D2B8A006DD355 /* IceCube.help */; };
+		568A8BD830829581005DC125 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 568A8BD730829580005DC125 /* Localizable.xcstrings */; };
+		568A8BDA30829581005DC125 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 568A8BD930829581005DC125 /* InfoPlist.xcstrings */; };
+		568A8BDD30829581005DC125 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 568A8BDC30829581005DC125 /* InfoPlist.xcstrings */; };
+		568A8BE130829581005DC125 /* ServicesMenu.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 568A8BE030829581005DC125 /* ServicesMenu.xcstrings */; };
+		568A8BE330829581005DC125 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 568A8BE230829581005DC125 /* InfoPlist.xcstrings */; };
+		568A8BE530829581005DC125 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 568A8BE430829581005DC125 /* Localizable.xcstrings */; };
+		568A8BE730829581005DC125 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 568A8BE630829581005DC125 /* Localizable.xcstrings */; };
+		568A8BE930829581005DC125 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 568A8BE830829581005DC125 /* Localizable.xcstrings */; };
 		568C674217EB7D630095785D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 568C674117EB7D630095785D /* main.m */; };
 		568C674717EB7E5B0095785D /* cz.boucekm.MavenBuildService.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 568C673717EB7D630095785D /* cz.boucekm.MavenBuildService.xpc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		568C675117EC688D0095785D /* MBMavenServiceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 568C675017EC688D0095785D /* MBMavenServiceTask.m */; };
@@ -45,7 +47,6 @@
 		56D470FD19D36B5400B0798A /* MBPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D470FF19D36B5400B0798A /* MBPreferencesWindowController.xib */; };
 		56E16B281E92F64B00FEE789 /* IceCubeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E16B271E92F64B00FEE789 /* IceCubeAction.m */; };
 		56E16B2B1E92F64B00FEE789 /* main.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E16B291E92F64B00FEE789 /* main.xib */; };
-		56E16B2F1E92F64B00FEE789 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56E16B2D1E92F64B00FEE789 /* InfoPlist.strings */; };
 		56E16B361E92F7A700FEE789 /* IceCubeAction.action in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56E16B241E92F64B00FEE789 /* IceCubeAction.action */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		56EB935819D74AE500988FD9 /* IceCube.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 56EB935619D74AE500988FD9 /* IceCube.sdef */; };
 		56EB935C19D74D3200988FD9 /* MBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EB935B19D74D3200988FD9 /* MBApplication.m */; };
@@ -53,7 +54,6 @@
 		56F578E41794A5B1007E85A8 /* MBTaskRunnerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F578E31794A5B1007E85A8 /* MBTaskRunnerWindowController.m */; };
 		56F62FFE17EF23F8004DC92E /* MBPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F62FFC17EF23F8004DC92E /* MBPreferencesWindowController.m */; };
 		56F6300517EF34AA004DC92E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568C673817EB7D630095785D /* Foundation.framework */; };
-		56F6300B17EF34AA004DC92E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56F6300917EF34AA004DC92E /* InfoPlist.strings */; };
 		56F6300E17EF34AA004DC92E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F6300D17EF34AA004DC92E /* main.m */; };
 		56FE8E85167BA1A70001AAED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FE8E84167BA1A70001AAED /* Cocoa.framework */; };
 		56FE8E91167BA1A70001AAED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FE8E90167BA1A70001AAED /* main.m */; };
@@ -154,20 +154,7 @@
 		560E703A17EF4010004BC832 /* MBJavaHomeServiceTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBJavaHomeServiceTask.h; sourceTree = "<group>"; };
 		560E703B17EF4010004BC832 /* MBJavaHomeServiceTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBJavaHomeServiceTask.m; sourceTree = "<group>"; };
 		560E703D17EF43FE004BC832 /* MBJavaHomeService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBJavaHomeService.h; sourceTree = "<group>"; };
-		5619AEA41E9E26EC0003A224 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5619AEA61E9E26F40003A224 /* cs */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5619AEAA1E9E27F00003A224 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5619AEAC1E9E27F30003A224 /* cs */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5619AEB01E9E285B0003A224 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5619AEB21E9E285E0003A224 /* cs */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5619AEB81E9E34F30003A224 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/MBPreferencesWindowController.strings; sourceTree = "<group>"; };
-		5619AEBA1E9E3B020003A224 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/MBTaskRunnerDocument.strings; sourceTree = "<group>"; };
-		5619AEBC1E9E3C0D0003A224 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		5619AEBD1E9E3CCF0003A224 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		562738671E9E4A7A00075A86 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		562738681E9E4B3D00075A86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		564CDBD92088A20000B7E209 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
-		564CDBDB2088A20400B7E209 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
 		564E05AA1E96DADE008E4F1C /* MBSpotlightImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSpotlightImporter.h; sourceTree = "<group>"; };
 		564E05AB1E96DADE008E4F1C /* MBSpotlightImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSpotlightImporter.m; sourceTree = "<group>"; };
 		564FB48317F1C62F000380F3 /* build-failure-no-java_home.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-failure-no-java_home.txt"; sourceTree = "<group>"; };
@@ -187,15 +174,22 @@
 		564FB4A117F1C72E000380F3 /* MBMavenOutputParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMavenOutputParser.m; sourceTree = "<group>"; };
 		565332C51E9F82FF009206CC /* MBRecoveryAttempter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBRecoveryAttempter.h; sourceTree = "<group>"; };
 		565332C61E9F82FF009206CC /* MBRecoveryAttempter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBRecoveryAttempter.m; sourceTree = "<group>"; };
-		565332CB1E9F978C009206CC /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		565332CD1E9F978E009206CC /* cs */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
-		565332CE1E9F9C5A009206CC /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		565332CF1E9FA050009206CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		565332D31E9FA2B6009206CC /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/main.strings; sourceTree = "<group>"; };
 		565CFD3A2F41F538001690E8 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		56630A1917ECC067005A2BEC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		566C78071E9D2B8A006DD355 /* IceCube.help */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = IceCube.help; sourceTree = "<group>"; };
 		568A8BD6308291A8005DC125 /* IceCube.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = IceCube.xctestplan; sourceTree = SOURCE_ROOT; };
+		568A8BD730829580005DC125 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		568A8BD930829581005DC125 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		568A8BDB30829581005DC125 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/MainMenu.xcstrings; sourceTree = "<group>"; };
+		568A8BDC30829581005DC125 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		568A8BDE30829581005DC125 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/MBPreferencesWindowController.xcstrings; sourceTree = "<group>"; };
+		568A8BDF30829581005DC125 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/main.xcstrings; sourceTree = "<group>"; };
+		568A8BE030829581005DC125 /* ServicesMenu.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = ServicesMenu.xcstrings; sourceTree = "<group>"; };
+		568A8BE230829581005DC125 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		568A8BE430829581005DC125 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		568A8BE630829581005DC125 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		568A8BE830829581005DC125 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		568A8BEA30829581005DC125 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/MBTaskRunnerDocument.xcstrings; sourceTree = "<group>"; };
 		568C673717EB7D630095785D /* cz.boucekm.MavenBuildService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = cz.boucekm.MavenBuildService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		568C673817EB7D630095785D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		568C673C17EB7D630095785D /* MavenService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MavenService-Info.plist"; sourceTree = "<group>"; };
@@ -242,7 +236,6 @@
 		56F62FFC17EF23F8004DC92E /* MBPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBPreferencesWindowController.m; sourceTree = "<group>"; };
 		56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = cz.boucekm.JavaHomeService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F6300817EF34AA004DC92E /* JavaHomeService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JavaHomeService-Info.plist"; sourceTree = "<group>"; };
-		56F6300A17EF34AA004DC92E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56F6300C17EF34AA004DC92E /* JavaHomeService-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JavaHomeService-Prefix.pch"; sourceTree = "<group>"; };
 		56F6300D17EF34AA004DC92E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		56FE8E80167BA1A70001AAED /* IceCube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IceCube.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -353,7 +346,7 @@
 		568C673B17EB7D630095785D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5619AEAB1E9E27F00003A224 /* Localizable.strings */,
+				568A8BD730829580005DC125 /* Localizable.xcstrings */,
 				568C673C17EB7D630095785D /* MavenService-Info.plist */,
 			);
 			name = "Supporting Files";
@@ -414,10 +407,10 @@
 			children = (
 				56E16B261E92F64B00FEE789 /* IceCubeAction.h */,
 				56E16B271E92F64B00FEE789 /* IceCubeAction.m */,
-				565332CC1E9F978C009206CC /* Localizable.strings */,
+				568A8BE830829581005DC125 /* Localizable.xcstrings */,
 				56E16B291E92F64B00FEE789 /* main.xib */,
 				56E16B2C1E92F64B00FEE789 /* Info.plist */,
-				56E16B2D1E92F64B00FEE789 /* InfoPlist.strings */,
+				568A8BDC30829581005DC125 /* InfoPlist.xcstrings */,
 			);
 			path = IceCubeAction;
 			sourceTree = "<group>";
@@ -475,9 +468,9 @@
 		56F6300717EF34AA004DC92E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5619AEB11E9E285B0003A224 /* Localizable.strings */,
+				568A8BE630829581005DC125 /* Localizable.xcstrings */,
 				56F6300817EF34AA004DC92E /* JavaHomeService-Info.plist */,
-				56F6300917EF34AA004DC92E /* InfoPlist.strings */,
+				568A8BD930829581005DC125 /* InfoPlist.xcstrings */,
 				56F6300C17EF34AA004DC92E /* JavaHomeService-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -560,9 +553,9 @@
 				566C78071E9D2B8A006DD355 /* IceCube.help */,
 				56EB935619D74AE500988FD9 /* IceCube.sdef */,
 				56FE8E8C167BA1A70001AAED /* IceCube-Info.plist */,
-				562738661E9E4A7700075A86 /* InfoPlist.strings */,
-				5619AEA51E9E26EC0003A224 /* Localizable.strings */,
-				564CDBDA2088A20000B7E209 /* ServicesMenu.strings */,
+				568A8BE230829581005DC125 /* InfoPlist.xcstrings */,
+				568A8BE430829581005DC125 /* Localizable.xcstrings */,
+				568A8BE030829581005DC125 /* ServicesMenu.xcstrings */,
 				56FE8E90167BA1A70001AAED /* main.m */,
 				56FE8E92167BA1A70001AAED /* IceCube-Prefix.pch */,
 				56FE8E93167BA1A70001AAED /* Credits.rtf */,
@@ -828,7 +821,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5619AEA91E9E27F00003A224 /* Localizable.strings in Resources */,
+				568A8BD830829581005DC125 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,8 +844,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				56E16B2B1E92F64B00FEE789 /* main.xib in Resources */,
-				565332CA1E9F978C009206CC /* Localizable.strings in Resources */,
-				56E16B2F1E92F64B00FEE789 /* InfoPlist.strings in Resources */,
+				568A8BE930829581005DC125 /* Localizable.xcstrings in Resources */,
+				568A8BDD30829581005DC125 /* InfoPlist.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,8 +853,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56F6300B17EF34AA004DC92E /* InfoPlist.strings in Resources */,
-				5619AEAF1E9E285B0003A224 /* Localizable.strings in Resources */,
+				568A8BDA30829581005DC125 /* InfoPlist.xcstrings in Resources */,
+				568A8BE730829581005DC125 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -871,13 +864,13 @@
 			files = (
 				566C78081E9D2CD0006DD355 /* IceCube.help in Resources */,
 				56D470FD19D36B5400B0798A /* MBPreferencesWindowController.xib in Resources */,
+				568A8BE130829581005DC125 /* ServicesMenu.xcstrings in Resources */,
 				56D470FA19D36B4B00B0798A /* MBTaskRunnerDocument.xib in Resources */,
-				5619AEA31E9E26EC0003A224 /* Localizable.strings in Resources */,
 				56FE8E95167BA1A70001AAED /* Credits.rtf in Resources */,
-				564CDBD82088A20000B7E209 /* ServicesMenu.strings in Resources */,
+				568A8BE530829581005DC125 /* Localizable.xcstrings in Resources */,
+				568A8BE330829581005DC125 /* InfoPlist.xcstrings in Resources */,
 				56EB935819D74AE500988FD9 /* IceCube.sdef in Resources */,
 				56D21D3017BFC6520060A823 /* Images.xcassets in Resources */,
-				562738641E9E4A7700075A86 /* InfoPlist.strings in Resources */,
 				56FE8E9B167BA1A70001AAED /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1012,65 +1005,11 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5619AEA51E9E26EC0003A224 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5619AEA41E9E26EC0003A224 /* en */,
-				5619AEA61E9E26F40003A224 /* cs */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		5619AEAB1E9E27F00003A224 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5619AEAA1E9E27F00003A224 /* en */,
-				5619AEAC1E9E27F30003A224 /* cs */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		5619AEB11E9E285B0003A224 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5619AEB01E9E285B0003A224 /* en */,
-				5619AEB21E9E285E0003A224 /* cs */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		562738661E9E4A7700075A86 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				562738671E9E4A7A00075A86 /* cs */,
-				562738681E9E4B3D00075A86 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		564CDBDA2088A20000B7E209 /* ServicesMenu.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				564CDBD92088A20000B7E209 /* en */,
-				564CDBDB2088A20400B7E209 /* cs */,
-			);
-			name = ServicesMenu.strings;
-			sourceTree = "<group>";
-		};
-		565332CC1E9F978C009206CC /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				565332CB1E9F978C009206CC /* en */,
-				565332CD1E9F978E009206CC /* cs */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		56D470FC19D36B4B00B0798A /* MBTaskRunnerDocument.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				56D4710019D36CB600B0798A /* Base */,
-				5619AEBA1E9E3B020003A224 /* cs */,
+				568A8BEA30829581005DC125 /* mul */,
 			);
 			name = MBTaskRunnerDocument.xib;
 			path = ..;
@@ -1080,7 +1019,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				56D4710119D36CB600B0798A /* Base */,
-				5619AEB81E9E34F30003A224 /* cs */,
+				568A8BDE30829581005DC125 /* mul */,
 			);
 			name = MBPreferencesWindowController.xib;
 			sourceTree = "<group>";
@@ -1089,26 +1028,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				56E16B2A1E92F64B00FEE789 /* Base */,
-				565332D31E9FA2B6009206CC /* cs */,
+				568A8BDF30829581005DC125 /* mul */,
 			);
 			name = main.xib;
-			sourceTree = "<group>";
-		};
-		56E16B2D1E92F64B00FEE789 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				565332CE1E9F9C5A009206CC /* cs */,
-				565332CF1E9FA050009206CC /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		56F6300917EF34AA004DC92E /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				56F6300A17EF34AA004DC92E /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		56FE8E93167BA1A70001AAED /* Credits.rtf */ = {
@@ -1123,8 +1045,8 @@
 		56FE8E99167BA1A70001AAED /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5619AEBC1E9E3C0D0003A224 /* cs */,
 				5619AEBD1E9E3CCF0003A224 /* Base */,
+				568A8BDB30829581005DC125 /* mul */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1482,10 +1404,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Debug;
 		};
@@ -1537,9 +1461,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				SDKROOT = macosx;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};
