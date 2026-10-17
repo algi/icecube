@@ -49,6 +49,10 @@
     self.connection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenService)];
     self.connection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
     self.connection.exportedObject = self;
+
+    [self.connection setCodeSigningRequirement:@"anchor apple generic "
+                                               @"and identifier cz.boucekm.MavenBuildService "
+                                               @"and certificate leaf[subject.OU] = \"72CQ273HEW\""];
     [self.connection resume];
 
     self.window.titlebarAppearsTransparent = YES;

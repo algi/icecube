@@ -26,6 +26,10 @@
 
     newConnection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
 
+    [newConnection setCodeSigningRequirement:@"anchor apple generic "
+                                             @"and identifier cz.boucekm.IceCube "
+                                             @"and certificate leaf[subject.OU] = \"72CQ273HEW\""];
+
     [newConnection resume];
     return YES;
 }

@@ -18,9 +18,11 @@
 
 - (BOOL)listener:(NSXPCListener *)listener shouldAcceptNewConnection:(NSXPCConnection *)newConnection {
     newConnection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenVersionService)];
+    newConnection.exportedObject = [[MBMavenVersionServiceTask alloc] init];
 
-    MBMavenVersionServiceTask *exportedObject = [[MBMavenVersionServiceTask alloc] init];
-    newConnection.exportedObject = exportedObject;
+    [newConnection setCodeSigningRequirement:@"anchor apple generic "
+                                             @"and identifier cz.boucekm.IceCube "
+                                             @"and certificate leaf[subject.OU] = \"72CQ273HEW\""];
 
     [newConnection resume];
     return YES;
