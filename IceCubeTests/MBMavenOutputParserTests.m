@@ -110,9 +110,9 @@
 
     XCTAssertEqual(observer.result, 0ul, @"Build must be failure.");
     XCTAssertEqual([observer.taskList count], 0ul, @"Task list must be empty.");
-    MBAssertEqualArrays(observer.doneTasks, @[@"Common 1.0-SNAPSHOT"], @"Done tasks must have only one item: 'Common 1.0-SNAPSHOT'");
+    MBAssertEqualArrays(observer.doneTasks, @[@"demo 0.0.1-SNAPSHOT"], @"Done tasks must have only one item: 'demo 0.0.1-SNAPSHOT'");
 
-    XCTAssertEqual(observer.lineCount, 19ul, @"Sample has 20 lines (last one is empty so must be omited).");
+    XCTAssertEqual(observer.lineCount, 20ul, @"Sample has 20 lines (last one is empty so must be omited).");
     XCTAssertEqual(observer.buildDidEndCount, 1ul, @"Build must be ended only once.");
     XCTAssertEqual(observer.buildDidStartCount, 1ul, @"Build started one task.");
     XCTAssertEqual(observer.projectDidStartCount, 1ul, @"Build has one project.");

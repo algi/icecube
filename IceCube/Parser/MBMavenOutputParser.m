@@ -25,14 +25,16 @@ typedef NS_ENUM(NSInteger, MBParserState) {
 static NSString * const kInfoLinePrefix           = @"[INFO] ";
 static NSString * const kStateSeparatorLinePrefix = @"[INFO] ----";
 static NSString * const kBuildingPrefix           = @"[INFO] Building ";
+static NSString * const kFromPomPrefix            = @"[INFO]   from ";
 static NSString * const kReactorSummaryLinePrefix = @"[INFO] Reactor Summary:";
 static NSString * const kErrorInScanPrefix        = @"[ERROR] Could not find the selected project in the reactor:";
 
 static NSString * const kEmptyLine               = @"[INFO]";
 static NSString * const kBuildSuccessLine        = @"[INFO] BUILD SUCCESS";
-static NSString * const kBuildErrorLine          = @"[INFO] BUILD FAILURE";
+static NSString * const kBuildErrorLine          = @"[ERROR] BUILD FAILURE";
 static NSString * const kReactorBuildOrderLine   = @"[INFO] Reactor Build Order:";
 static NSString * const kScanningStartedLine     = @"[INFO] Scanning for projects...";
+static NSString * const kScanningLoadedPrefixes  = @"[INFO] Loaded ";
 static NSString * const kErrorExecutingLine      = @"[ERROR] Error executing Maven.";
 static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not defined correctly.";
 
@@ -63,7 +65,7 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
     switch (self.state) {
         case kStateStart:
         {
-            if ([line isEqualToString:kScanningStartedLine]) {
+            if ([line isEqualToString:kScanningStartedLine] || [line hasPrefix:kScanningLoadedPrefixes]) {
                 // first line
                 return;
             }
@@ -167,6 +169,11 @@ static NSString * const kErrorJavaHomeNotSetLine = @"Error: JAVA_HOME is not def
         }
         case kStateProjectDeclarationEnd:
         {
+            if ([line hasPrefix:kFromPomPrefix]) {
+                // ignore "from pom.xml" prefix
+                return;
+            }
+
             NSAssert([line hasPrefix:kStateSeparatorLinePrefix], @"State 'kProjectDeclarationEndState', unknown line: %@", line);
 
             self.state = kStateProjectRunning;
