@@ -1315,7 +1315,7 @@
 				INFOPLIST_FILE = "JavaHomeService/JavaHomeService-Info.plist";
 				MACH_O_TYPE = mh_execute;
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				PRODUCT_BUNDLE_IDENTIFIER = "${PRODUCT_NAME}";
+				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.JavaHomeService;
 				PRODUCT_NAME = "cz.boucekm.$(TARGET_NAME:rfc1034identifier)";
 				WRAPPER_EXTENSION = xpc;
 			};
@@ -1343,7 +1343,7 @@
 				INFOPLIST_FILE = "JavaHomeService/JavaHomeService-Info.plist";
 				MACH_O_TYPE = mh_execute;
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				PRODUCT_BUNDLE_IDENTIFIER = "${PRODUCT_NAME}";
+				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.JavaHomeService;
 				PRODUCT_NAME = "cz.boucekm.$(TARGET_NAME:rfc1034identifier)";
 				WRAPPER_EXTENSION = xpc;
 			};
@@ -1496,7 +1496,7 @@
 				INFOPLIST_FILE = "IceCube/IceCube-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				PRODUCT_BUNDLE_IDENTIFIER = "cz.boucekm.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.IceCube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1530,7 +1530,7 @@
 				INFOPLIST_FILE = "IceCube/IceCube-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				PRODUCT_BUNDLE_IDENTIFIER = "cz.boucekm.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.IceCube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1547,7 +1547,7 @@
 				GCC_PREFIX_HEADER = "IceCube/IceCube-Prefix.pch";
 				INFOPLIST_FILE = "IceCubeTests/IceCubeTests-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				PRODUCT_BUNDLE_IDENTIFIER = "cz.boucekm.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.IceCubeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -1564,7 +1564,7 @@
 				GCC_PREFIX_HEADER = "IceCube/IceCube-Prefix.pch";
 				INFOPLIST_FILE = "IceCubeTests/IceCubeTests-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				PRODUCT_BUNDLE_IDENTIFIER = "cz.boucekm.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = cz.boucekm.IceCubeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
