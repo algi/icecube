@@ -8,12 +8,14 @@
 
 @import Foundation;
 
+#import "MBMavenVersionInfo.h"
+
 NS_ASSUME_NONNULL_BEGIN
 @protocol MBMavenVersionService
 
 - (void)readVersionInformationWithMaven:(NSString *)launchPath
                             environment:(NSDictionary *)environment
-                               callback:(void(^)(NSString *, NSString *))callback; // Maven version, Java version
+                               callback:(void(^)(MBMavenVersionInfo *))callback;
 
 @end
 NS_ASSUME_NONNULL_END

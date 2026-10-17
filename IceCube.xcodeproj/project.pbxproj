@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		560E703917EF35DA004BC832 /* cz.boucekm.JavaHomeService.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56F6300417EF34AA004DC92E /* cz.boucekm.JavaHomeService.xpc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		560E703C17EF4010004BC832 /* MBJavaHomeServiceTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 560E703B17EF4010004BC832 /* MBJavaHomeServiceTask.m */; };
+		560F34863083ECC300DBEBE4 /* MBMavenVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 560F34853083ECC300DBEBE4 /* MBMavenVersionInfo.m */; };
+		560F34873083F45300DBEBE4 /* MBMavenVersionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 560F34853083ECC300DBEBE4 /* MBMavenVersionInfo.m */; };
 		564E05A91E96CFF1008E4F1C /* IceCubeSpotlight.mdimporter in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56ADBB6F1E959967003471B4 /* IceCubeSpotlight.mdimporter */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		564E05AC1E96DADE008E4F1C /* MBSpotlightImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 564E05AB1E96DADE008E4F1C /* MBSpotlightImporter.m */; };
 		564FB49217F1C62F000380F3 /* build-failure-no-java_home.txt in Resources */ = {isa = PBXBuildFile; fileRef = 564FB48317F1C62F000380F3 /* build-failure-no-java_home.txt */; };
@@ -154,6 +156,8 @@
 		560E703A17EF4010004BC832 /* MBJavaHomeServiceTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBJavaHomeServiceTask.h; sourceTree = "<group>"; };
 		560E703B17EF4010004BC832 /* MBJavaHomeServiceTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBJavaHomeServiceTask.m; sourceTree = "<group>"; };
 		560E703D17EF43FE004BC832 /* MBJavaHomeService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBJavaHomeService.h; sourceTree = "<group>"; };
+		560F34843083ECC300DBEBE4 /* MBMavenVersionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBMavenVersionInfo.h; sourceTree = "<group>"; };
+		560F34853083ECC300DBEBE4 /* MBMavenVersionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBMavenVersionInfo.m; sourceTree = "<group>"; };
 		5619AEBD1E9E3CCF0003A224 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		564E05AA1E96DADE008E4F1C /* MBSpotlightImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSpotlightImporter.h; sourceTree = "<group>"; };
 		564E05AB1E96DADE008E4F1C /* MBSpotlightImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSpotlightImporter.m; sourceTree = "<group>"; };
@@ -374,6 +378,8 @@
 			isa = PBXGroup;
 			children = (
 				56A422DE1EA004DF00F29F11 /* MBMavenVersionService.h */,
+				560F34843083ECC300DBEBE4 /* MBMavenVersionInfo.h */,
+				560F34853083ECC300DBEBE4 /* MBMavenVersionInfo.m */,
 				56A422DF1EA004DF00F29F11 /* MBMavenVersionServiceTask.h */,
 				56A422E01EA004DF00F29F11 /* MBMavenVersionServiceTask.m */,
 				56A422E21EA004DF00F29F11 /* main.m */,
@@ -908,6 +914,7 @@
 			files = (
 				56A422E31EA004DF00F29F11 /* main.m in Sources */,
 				56A422E11EA004DF00F29F11 /* MBMavenVersionServiceTask.m in Sources */,
+				560F34863083ECC300DBEBE4 /* MBMavenVersionInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -944,6 +951,7 @@
 			files = (
 				56D21D9F17C0D5880060A823 /* MBTaskRunnerDocument.m in Sources */,
 				56FE8E91167BA1A70001AAED /* main.m in Sources */,
+				560F34873083F45300DBEBE4 /* MBMavenVersionInfo.m in Sources */,
 				56F4A568208694D00071A3E9 /* MBServiceProvider.m in Sources */,
 				565332C71E9F82FF009206CC /* MBRecoveryAttempter.m in Sources */,
 				56FE8E98167BA1A70001AAED /* MBAppDelegate.m in Sources */,

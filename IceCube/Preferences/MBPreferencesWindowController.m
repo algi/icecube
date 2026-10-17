@@ -126,10 +126,10 @@ NSString * const kUseDefaultMavenLocationKey = @"UseDefaultMavenLocation";
     [self.xpcConnection resume];
     [[self.xpcConnection remoteObjectProxy] readVersionInformationWithMaven:launchPath
                                                                 environment:environment
-                                                                   callback:^(NSString *mavenVersion, NSString *javaVersion) {
+                                                                   callback:^(MBMavenVersionInfo *versionInfo) {
         dispatch_sync(dispatch_get_main_queue(), ^{
-            self.mavenVersion.stringValue = mavenVersion;
-            self.javaVersion.stringValue = javaVersion;
+            self.mavenVersion.stringValue = versionInfo.mavenVersion;
+            self.javaVersion.stringValue = versionInfo.javaVersion;
 
             [self.progressIndicator stopAnimation:self];
             [self.xpcConnection suspend];

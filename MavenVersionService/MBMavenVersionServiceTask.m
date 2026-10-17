@@ -12,7 +12,7 @@
 
 -(void)readVersionInformationWithMaven:(NSString *)launchPath
                            environment:(NSDictionary *)environment
-                              callback:(void (^)(NSString * _Nonnull, NSString * _Nonnull))callback
+                              callback:(void (^)(MBMavenVersionInfo *))callback
 {
     NSTask *task = [[NSTask alloc] init];
 
@@ -29,7 +29,7 @@
         [task waitUntilExit];
     }
     @catch (NSException *exception) {
-        callback(@"", @"");
+        callback([[MBMavenVersionInfo alloc] init]);
         return;
     }
 
@@ -59,7 +59,7 @@
         }
     }
 
-    callback(mavenVersion, javaVersion);
+    callback([[MBMavenVersionInfo alloc] initWithJavaVersion:javaVersion mavenVersion:mavenVersion]);
 }
 
 @end
