@@ -50,6 +50,12 @@
     self.connection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(MBMavenServiceCallback)];
     self.connection.exportedObject = self;
 
+    __weak id weakSelf = self;
+    self.connection.interruptionHandler = ^{
+        os_log_error(OS_LOG_DEFAULT, "XPC connection for Maven build has been interrupted.");
+        [weakSelf taskDidTerminate];
+    };
+
     [self.connection setCodeSigningRequirement:@"anchor apple generic "
                                                @"and identifier cz.boucekm.MavenBuildService "
                                                @"and certificate leaf[subject.OU] = \"72CQ273HEW\""];
